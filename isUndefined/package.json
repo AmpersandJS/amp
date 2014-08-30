@@ -1,0 +1,8 @@
+{
+  "name": "_isUndefined",
+  "version": "1.0.0",
+  "description": "Standalone version of isUndefined util function (sans `chain()` support).",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "main": "_isUndefined.js"
+}

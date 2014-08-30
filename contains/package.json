@@ -1,0 +1,8 @@
+{
+  "name": "_contains",
+  "version": "1.0.0",
+  "description": "Standalone version of contains util function (sans `chain()` support).",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "main": "_contains.js"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "_extend",
+  "version": "1.0.0",
+  "description": "Standalone version of extend util function (sans `chain()` support).",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "main": "_extend.js"
+}

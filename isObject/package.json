@@ -1,0 +1,8 @@
+{
+  "name": "_isObject",
+  "version": "1.0.0",
+  "description": "Standalone version of isObject util function (sans `chain()` support).",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "main": "_isObject.js"
+}
