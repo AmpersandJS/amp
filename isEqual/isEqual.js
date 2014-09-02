@@ -1,3 +1,6 @@
+var has = require('has');
+
+
 // Internal recursive comparison function for `isEqual`.
 var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
@@ -80,7 +83,7 @@ var eq = function(a, b, aStack, bStack) {
             while (size--) {
                 // Deep compare each member
                 key = keys[size];
-                if (!(result = _.has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+                if (!(result = has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
             }
         }
     }

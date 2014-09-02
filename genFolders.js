@@ -7,6 +7,7 @@ var methods = [
     'extend',
     'escape',
     'each',
+    'indexOf',
     'isObject',
     'isUndefined',
     'isNull',
@@ -24,8 +25,7 @@ var methods = [
     'clone',
     'has',
     'result',
-    'keys',
-    'bind',
+    'values',
     'defaults'
 ];
 
