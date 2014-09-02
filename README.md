@@ -19,6 +19,8 @@ Crazy? Maybe. **I'm not yet saying this is a good idea**. I just think it *might
 
 [What say ye](https://github.com/HenrikJoreteg/amp/issues)?
 
+Let me be perfectly clear, this feels like a duplication of ideas and I question whether this is the right path. I'm perfectly happy being wrong here. 
+
 
 ## What would need to happen?
 
