@@ -1,7 +1,7 @@
 {
   "name": "amp-is-function",
   "version": "1.0.0",
-  "description": "Standalone version of isFunction util function (sans `chain()` support).",
+  "description": "Standalone version of is-function util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

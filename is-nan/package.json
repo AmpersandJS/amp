@@ -1,7 +1,7 @@
 {
-  "name": "amp-isEqual",
+  "name": "amp-is-nan",
   "version": "1.0.0",
-  "description": "Standalone version of isEqual util function (sans `chain()` support).",
+  "description": "Standalone version of is-nan util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {
@@ -10,5 +10,5 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "isEqual.js"
+  "main": "is-nan.js"
 }

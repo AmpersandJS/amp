@@ -1,7 +1,7 @@
 {
-  "name": "amp-is-number",
+  "name": "amp-is-undefined",
   "version": "1.0.0",
-  "description": "Standalone version of is-number util function (sans `chain()` support).",
+  "description": "Standalone version of is-undefined util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {
@@ -10,5 +10,5 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-number.js"
+  "main": "is-undefined.js"
 }
