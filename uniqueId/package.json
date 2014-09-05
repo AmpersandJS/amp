@@ -1,8 +1,14 @@
 {
-  "name": "_uniqueId",
+  "name": "amp-uniqueId",
   "version": "1.0.0",
   "description": "Standalone version of uniqueId util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_uniqueId.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "uniqueId.js"
 }

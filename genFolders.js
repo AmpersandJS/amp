@@ -8,19 +8,19 @@ var methods = [
     'escape',
     'each',
     'indexOf',
-    'isObject',
-    'isUndefined',
-    'isNull',
-    'isEqual',
-    'isArguments',
-    'isEmpty',
-    'isString',
-    'isArray',
-    'isFunction',
-    'isDate',
-    'isNaN',
-    'isNumber',
-    'isRegExp',
+    'is-object',
+    'is-undefined',
+    'is-null',
+    'is-equal',
+    'is-arguments',
+    'is-empty',
+    'is-string',
+    'is-array',
+    'is-function',
+    'is-date',
+    'is-nan',
+    'is-number',
+    'is-regexp',
     'contains',
     'clone',
     'has',
@@ -40,8 +40,12 @@ methods.forEach(function (method) {
         fs.writeFileSync(dir + '/' + method + '.js', 'module.exports = function ' +  method +'() {}');
     }
 
-    pack.name = '_' + method;
-    pack.main = pack.name + '.js';
+    if (!fs.existsSync(dir + '/test.js')) {
+        fs.writeFileSync(dir + '/test.js', 'var test = require(\'tape\');\nvar pack = require(\'./package.json\');\nvar ' + method + ' = require(\'./\' + pack.main);\n\n\n');
+    }
+
+    pack.name = 'amp-' + method;
+    pack.main = method + '.js';
     pack.description = 'Standalone version of ' + method + ' util function (sans `chain()` support).';
 
 

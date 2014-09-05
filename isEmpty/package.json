@@ -1,8 +1,14 @@
 {
-  "name": "_isEmpty",
+  "name": "amp-isEmpty",
   "version": "1.0.0",
   "description": "Standalone version of isEmpty util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_isEmpty.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "isEmpty.js"
 }

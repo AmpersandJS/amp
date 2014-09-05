@@ -1,8 +1,14 @@
 {
-  "name": "_isObject",
+  "name": "amp-is-object",
   "version": "1.0.0",
   "description": "Standalone version of isObject util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_isObject.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "is-object.js"
 }

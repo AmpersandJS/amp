@@ -1,8 +1,14 @@
 {
-  "name": "_result",
+  "name": "amp-result",
   "version": "1.0.0",
   "description": "Standalone version of result util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_result.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "result.js"
 }

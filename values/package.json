@@ -1,8 +1,14 @@
 {
-  "name": "_values",
+  "name": "amp-values",
   "version": "1.0.0",
   "description": "Standalone version of values util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_values.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "values.js"
 }

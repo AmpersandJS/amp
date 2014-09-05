@@ -1,15 +1,11 @@
-var arr = [];
-var each = arr.forEach;
-var slice = arr.slice;
-
-
 module.exports = function(obj) {
-    each.call(slice.call(arguments, 1), function(source) {
-        if (source) {
-            for (var prop in source) {
-                obj[prop] = source[prop];
-            }
+    if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) return obj;
+    var source, prop;
+    for (var i = 1, length = arguments.length; i < length; i++) {
+        source = arguments[i];
+        for (prop in source) {
+            obj[prop] = source[prop];
         }
-    });
+    }
     return obj;
 };

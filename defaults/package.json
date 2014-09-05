@@ -1,8 +1,14 @@
 {
-  "name": "_defaults",
+  "name": "amp-defaults",
   "version": "1.0.0",
   "description": "Standalone version of defaults util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_defaults.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "defaults.js"
 }

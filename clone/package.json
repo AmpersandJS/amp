@@ -1,8 +1,14 @@
 {
-  "name": "_clone",
+  "name": "amp-clone",
   "version": "1.0.0",
   "description": "Standalone version of clone util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_clone.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "clone.js"
 }

@@ -1,8 +1,14 @@
 {
-  "name": "_isArray",
+  "name": "amp-is-array",
   "version": "1.0.0",
   "description": "Standalone version of isArray util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_isArray.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "is-array.js"
 }

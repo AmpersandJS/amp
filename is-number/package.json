@@ -1,8 +1,14 @@
 {
-  "name": "_isNumber",
+  "name": "amp-is-number",
   "version": "1.0.0",
   "description": "Standalone version of isNumber util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_isNumber.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "is-number.js"
 }

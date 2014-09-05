@@ -1,8 +1,14 @@
 {
-  "name": "_isString",
+  "name": "amp-isString",
   "version": "1.0.0",
   "description": "Standalone version of isString util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_isString.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "isString.js"
 }

@@ -1,8 +1,14 @@
 {
-  "name": "_extend",
+  "name": "amp-extend",
   "version": "1.0.0",
   "description": "Standalone version of extend util function (sans `chain()` support).",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
-  "main": "_extend.js"
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "extend.js"
 }
