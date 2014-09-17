@@ -1,10 +1,9 @@
 var fs = require('fs');
-var path = require('path');
 var getPackages = require('../lib/get-packages');
 
 
 getPackages().forEach(function (pack) {
-    var target = path.resolve(pack.folder + '/README.md');
+    var target = pack.folder + '/README.md';
     var buffer = [];
 
     buffer.push('## ' + pack.name)

@@ -5,7 +5,7 @@ var which = process.argv.slice(2)[0];
 
 var map = {
     remoteRegEx: /require\(\'amp-/g,
-    localRegEx: /require\(\'..\//g,
+    localRegEx: /require\(\'\.\.\//g,
     remoteString: 'require(\'amp-',
     localString: 'require(\'../'
 };
@@ -15,7 +15,12 @@ getPackages().forEach(function (pack) {
     if (which === 'remote') {
         pack.code = pack.code.replace(map.localRegEx, map.remoteString);
     } else if (which === 'local') {
-        pack.code = pack.code.replace(map.removeRegEx, map.localString);
+        pack.code = pack.code.replace(map.remoteRegEx, map.localString);
     }
+    var path = pack.folder + '/' + pack.fileName;
+    console.log('writing: ' + path);
+
     console.log(pack.code);
+
+    fs.writeFileSync(path, pack.code);
 });
