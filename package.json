@@ -5,7 +5,10 @@
   "main": "genFolders.js",
   "scripts": {
     "test": "node bin/test-all.js",
-    "readmes": "node bin/build-readmes"
+    "readmes": "node bin/build-readmes",
+    "folders": "node bin/gen-folders",
+    "make-local": "node bin/convert-requires local",
+    "make-remote": "node bin/convert-requires remote"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
@@ -32,6 +35,7 @@
     "is-nan",
     "is-number",
     "is-regexp",
+    "last",
     "contains",
     "clone",
     "has",

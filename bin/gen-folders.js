@@ -1,12 +1,12 @@
 var fs = require('fs');
 var rimraf = require('rimraf');
-var toCamelCase = require('./to-camel-case');
-var packages = require('./package.json').packages;
+var toCamelCase = require('../to-camel-case');
+var packages = require('../package.json').packages;
 
 
 packages.forEach(function (method) {
-    var dir = __dirname + '/' + method;
-    var pack = require('./pack_template.json');
+    var dir = __dirname + '/../' + method;
+    var pack = require('../pack_template.json');
     var ampName = 'amp-' + method;
     var camelCased = toCamelCase(method);
     var docFile = dir + '/doc.md';
@@ -40,8 +40,6 @@ packages.forEach(function (method) {
     pack.main = method + '.js';
     pack.description = 'Standalone module implementing the ' + method + ' util function.';
 
-
     fs.writeFileSync(dir + '/package.json', JSON.stringify(pack, null, 2));
-
 });
 

@@ -29,4 +29,32 @@ Let me be perfectly clear, this feels like a duplication of ideas and I question
 - Port the relevant underscore tests, run them with testling to make sure it all works.
 - Publish 1.0.0 of each of them and adhere to strict [semver](http://semver.org/) versioning. Ideally never pushing breaking changes at all (which seems unlikely anyway given the very limited scope).
 
+
+## Building, etc
+
+This stuff is crazy tedious so as much of it is scripted as possible. 
+
+It all starts with the `packages` array in `package.json`. It contains a list.
+
+### Running all the tests:
+
+- run `npm test`
+
+### Adding a new package:
+
+- add its name to the `packages` array in `package.json`
+- run `npm run folders`
+- a new folder will be generated with all the basics, as a starting point
+
+### Building readmes:
+
+- Make sure the folder has `doc.md` file
+- run `npm run readmes`
+
+### Convert everything to relative requires and back
+
+- `npm run make-local`
+
+
+
 ## Let's discuss stuff in [issues](https://github.com/HenrikJoreteg/amp/issues)
