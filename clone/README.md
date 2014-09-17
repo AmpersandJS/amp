@@ -4,9 +4,9 @@
 ### the code
 
 ```javascript
-var isObject = require('something');
-var isArray = require('somethine else');
-var extend = require('extend');
+var isObject = require('../is-object');
+var isArray = require('../is-array');
+var extend = require('../extend');
 
 
 module.exports = function clone(obj) {
