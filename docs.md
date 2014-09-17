@@ -58,7 +58,20 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-module.exports = function defaults() {}```
+var isObject = require('../is-object');
+
+
+module.exports = function defaults(obj) {
+    if (!isObject(obj)) return obj;
+    for (var i = 1, length = arguments.length; i < length; i++) {
+        var source = arguments[i];
+        for (var prop in source) {
+            if (obj[prop] === void 0) obj[prop] = source[prop];
+        }
+    }
+    return obj;
+};
+```
 
 ### Browser support
 
@@ -73,6 +86,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
+var objKeys = require('../keys');
+
+
 // Internal function that returns an efficient (for current engines) version
 // of the passed-in callback, to be repeatedly applied in other Underscore
 // functions.
@@ -108,7 +124,7 @@ module.exports = function each(obj, iteratee, context) {
             iteratee(obj[i], i, obj);
         }
     } else {
-        var keys = Object.keys(obj);
+        var keys = objKeys(obj);
         for (i = 0, length = keys.length; i < length; i++) {
             iteratee(obj[keys[i]], keys[i], obj);
         }
@@ -130,6 +146,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
+var unescapeMap = {};
 var escapeMap = {
     '&': '&amp;',
     '<': '&lt;',
@@ -138,6 +155,9 @@ var escapeMap = {
     "'": '&#x27;',
     '`': '&#x60;'
 };
+for (var key in escapeMap) {
+    unescapeMap[escapeMap[key]] = key;
+}
 
  // Functions for escaping and unescaping strings to/from HTML interpolation.
 var createEscaper = function(map) {
@@ -155,6 +175,7 @@ var createEscaper = function(map) {
 };
 
 module.exports = createEscaper(escapeMap);
+module.exports.unescape = createEscaper(unescapeMap);
 ```
 
 ### Browser support
@@ -230,6 +251,32 @@ module.exports = function indexOf(obj, val) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-index-of.png)](https://ci.testling.com/ampersandjs/amp-index-of)
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+## amp-invert
+
+
+### the code
+
+```javascript
+var objKeys = require('../keys');
+
+
+module.exports = function invert(obj) {
+    var result = {};
+    var keys = objKeys(obj);
+    for (var i = 0, length = keys.length; i < length; i++) {
+        result[obj[keys[i]]] = keys[i];
+    }
+    return result;
+};
+```
+
+### Browser support
+
+[![browser support](https://ci.testling.com/henrikjoreteg/amp-invert.png)](https://ci.testling.com/ampersandjs/amp-invert)
 
 ### Credits
 
@@ -455,6 +502,11 @@ module.exports = func;
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
 ## amp-is-nan
 
+Tests whether object passed in is a `NaN`. Native implementations of `isNaN` return `true` when passed `undefined`. So if you want to test whether `NaN` is exactly `NaN` this does that. 
+
+### `isNaN(obj)`
+
+* obj {anything} Object to test
 
 ### the code
 
@@ -462,7 +514,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 var isNumber = require('../is-number');
 
 
-module.exports = function isNaN() {
+module.exports = function isNaN(obj) {
     return isNumber(obj) && obj !== +obj;
 };
 ```
@@ -587,6 +639,56 @@ module.exports = function isUndefined(obj) {
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+## amp-keys
+
+
+### the code
+
+```javascript
+var has = require('../has');
+var isObject = require('../is-object');
+var contains = require('../contains');
+var nativeKeys = Object.prototype.keys;
+
+
+// Keys in IE that won't be iterated by `for key in ...` and thus missed.
+var hasEnumBug = !({toString: null}).propertyIsEnumerable('toString');
+var nonEnumerableProps = [
+    'constructor',
+    'valueOf',
+    'isPrototypeOf',
+    'toString',
+    'propertyIsEnumerable',
+    'hasOwnProperty',
+    'toLocaleString'
+];
+
+
+module.exports = function keys(obj) {
+    if (!isObject(obj)) return [];
+    if (nativeKeys) return nativeKeys(obj);
+    var keys = [];
+    for (var key in obj) if (has(obj, key)) keys.push(key);
+
+    // fallback for IE
+    if (hasEnumBug) {
+        var nonEnumIdx = nonEnumerableProps.length;
+        while (nonEnumIdx--) {
+            var prop = nonEnumerableProps[nonEnumIdx];
+            if (has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+        }
+    }
+    return keys;
+};
+```
+
+### Browser support
+
+[![browser support](https://ci.testling.com/henrikjoreteg/amp-keys.png)](https://ci.testling.com/ampersandjs/amp-keys)
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
 ## amp-last
 
 
@@ -684,11 +786,8 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var objKeys = Object.prototype.keys;
-
-
 module.exports = function values(obj) {
-    var keys = objKeys(obj);
+    var keys = Object.keys(obj);
     var length = keys.length;
     var values = Array(length);
     for (var i = 0; i < length; i++) {
