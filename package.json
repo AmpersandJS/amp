@@ -36,6 +36,7 @@
     "is-nan",
     "is-number",
     "is-regexp",
+    "invert",
     "last",
     "contains",
     "clone",
@@ -43,6 +44,7 @@
     "result",
     "values",
     "defaults",
+    "keys",
     "to-camel-case"
   ]
 }

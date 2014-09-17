@@ -1,3 +1,4 @@
+var unescapeMap = {};
 var escapeMap = {
     '&': '&amp;',
     '<': '&lt;',
@@ -6,6 +7,9 @@ var escapeMap = {
     "'": '&#x27;',
     '`': '&#x60;'
 };
+for (var key in escapeMap) {
+    unescapeMap[escapeMap[key]] = key;
+}
 
  // Functions for escaping and unescaping strings to/from HTML interpolation.
 var createEscaper = function(map) {
@@ -23,3 +27,4 @@ var createEscaper = function(map) {
 };
 
 module.exports = createEscaper(escapeMap);
+module.exports.unescape = createEscaper(unescapeMap);

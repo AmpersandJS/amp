@@ -1,3 +1,6 @@
+var objKeys = require('../keys');
+
+
 // Internal function that returns an efficient (for current engines) version
 // of the passed-in callback, to be repeatedly applied in other Underscore
 // functions.
@@ -33,7 +36,7 @@ module.exports = function each(obj, iteratee, context) {
             iteratee(obj[i], i, obj);
         }
     } else {
-        var keys = Object.keys(obj);
+        var keys = objKeys(obj);
         for (i = 0, length = keys.length; i < length; i++) {
             iteratee(obj[keys[i]], keys[i], obj);
         }
