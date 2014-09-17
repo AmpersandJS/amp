@@ -1,7 +1,7 @@
 {
   "name": "amp-is-null",
   "version": "1.0.0",
-  "description": "Standalone version of is-null util function (sans `chain()` support).",
+  "description": "Standalone module implementing the is-null util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

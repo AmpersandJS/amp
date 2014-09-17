@@ -1,0 +1,14 @@
+{
+  "name": "amp-to-camel-case",
+  "version": "1.0.0",
+  "description": "Standalone module implementing the to-camel-case util function.",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "to-camel-case.js"
+}

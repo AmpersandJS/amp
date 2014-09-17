@@ -1,7 +1,7 @@
 {
   "name": "amp-defaults",
   "version": "1.0.0",
-  "description": "Standalone version of defaults util function (sans `chain()` support).",
+  "description": "Standalone module implementing the defaults util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

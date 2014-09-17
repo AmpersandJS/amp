@@ -3,7 +3,7 @@ var pack = require('./package.json');
 var isNumber = require('./' + pack.main);
 
 
-test('isNumber', function (t) {
+test('amp-is-number', function (t) {
     t.ok(!isNumber('string'), 'a string is not a number');
     t.ok(!isNumber(arguments), 'the arguments object is not a number');
     t.ok(!isNumber(undefined), 'undefined is not a number');

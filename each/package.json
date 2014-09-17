@@ -1,7 +1,7 @@
 {
   "name": "amp-each",
   "version": "1.0.0",
-  "description": "Standalone version of each util function (sans `chain()` support).",
+  "description": "Standalone module implementing the each util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

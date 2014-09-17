@@ -1,1 +1,1 @@
-module.exports = function is-empty() {}
+module.exports = function isEmpty() {}

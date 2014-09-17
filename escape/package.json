@@ -1,7 +1,7 @@
 {
   "name": "amp-escape",
   "version": "1.0.0",
-  "description": "Standalone version of escape util function (sans `chain()` support).",
+  "description": "Standalone module implementing the escape util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

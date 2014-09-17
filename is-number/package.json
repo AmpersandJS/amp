@@ -1,7 +1,7 @@
 {
   "name": "amp-is-number",
   "version": "1.0.0",
-  "description": "Standalone version of is-number util function (sans `chain()` support).",
+  "description": "Standalone module implementing the is-number util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -3,7 +3,7 @@ var pack = require('./package.json');
 var isUndefined = require('./' + pack.main);
 
 
-test('isUndefined', function (t) {
+test('amp-is-undefined', function (t) {
     t.ok(!isUndefined(1), 'numbers are defined');
     t.ok(!isUndefined(null), 'null is defined');
     t.ok(!isUndefined(false), 'false is defined');

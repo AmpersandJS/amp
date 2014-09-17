@@ -3,7 +3,7 @@ var pack = require('./package.json');
 var isObject = require('./' + pack.main);
 
 
-test('isObject', function(t) {
+test('amp-is-object', function(t) {
     t.ok(isObject(arguments), 'the arguments object is object');
     t.ok(isObject([1, 2, 3]), 'and arrays');
     if (typeof document !== 'undefined') {

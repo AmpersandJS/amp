@@ -1,8 +1,10 @@
-var isFunction = require('isfunction')
+var isFunction = require('../is-function');
 
 
-module.exports = function result(object, property) {
-    if (object == null) return;
-    var value = object[property];
-    return isFunction(value) ? value.call(object) : value;
+module.exports = function result(object, property, defaultValue) {
+    var value = object == null ? void 0 : object[property];
+    if (value === void 0) {
+        return defaultValue;
+    }
+    return isFunction(value) ? object[property]() : value;
 };

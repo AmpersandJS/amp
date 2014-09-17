@@ -4,11 +4,40 @@
   "description": "",
   "main": "genFolders.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/test-all.js",
+    "readmes": "node bin/build-readmes"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "dependencies": {
-    "rimraf": "^2.2.8"
-  }
+    "rimraf": "^2.2.8",
+    "marked": "0.3.2"
+  },
+  "packages": [
+    "unique-id",
+    "extend",
+    "escape",
+    "each",
+    "index-of",
+    "is-object",
+    "is-undefined",
+    "is-null",
+    "is-equal",
+    "is-arguments",
+    "is-empty",
+    "is-string",
+    "is-array",
+    "is-function",
+    "is-date",
+    "is-nan",
+    "is-number",
+    "is-regexp",
+    "contains",
+    "clone",
+    "has",
+    "result",
+    "values",
+    "defaults",
+    "to-camel-case"
+  ]
 }

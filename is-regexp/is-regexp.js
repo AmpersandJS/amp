@@ -1,1 +1,1 @@
-module.exports = function is-regexp() {}
+module.exports = function isRegexp() {}

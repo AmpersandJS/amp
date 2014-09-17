@@ -1,0 +1,74 @@
+{
+  "name": "tap-parser",
+  "version": "0.7.0",
+  "description": "parse the test anything protocol",
+  "main": "index.js",
+  "bin": {
+    "tap-parser": "bin/cmd.js"
+  },
+  "dependencies": {
+    "inherits": "~2.0.1",
+    "minimist": "^0.2.0",
+    "readable-stream": "~1.1.11"
+  },
+  "devDependencies": {
+    "tape": "~2.3.2",
+    "tap": "~0.4.6"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/10",
+      "chrome/latest",
+      "firefox/3.5",
+      "firefox/latest",
+      "opera/latest",
+      "safari/latest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/tap-parser.git"
+  },
+  "homepage": "https://github.com/substack/tap-parser",
+  "keywords": [
+    "tap",
+    "test",
+    "parser"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT",
+  "gitHead": "b80725adc41e9ce88a3a90fac5bc4e714fa8be9f",
+  "bugs": {
+    "url": "https://github.com/substack/tap-parser/issues"
+  },
+  "_id": "tap-parser@0.7.0",
+  "_shasum": "728a61d64680a5b48d5dbd9dbd0a4d48f5c35bcb",
+  "_from": "tap-parser@~0.7.0",
+  "_npmVersion": "1.4.15",
+  "_npmUser": {
+    "name": "substack",
+    "email": "mail@substack.net"
+  },
+  "maintainers": [
+    {
+      "name": "substack",
+      "email": "mail@substack.net"
+    }
+  ],
+  "dist": {
+    "shasum": "728a61d64680a5b48d5dbd9dbd0a4d48f5c35bcb",
+    "tarball": "http://registry.npmjs.org/tap-parser/-/tap-parser-0.7.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/tap-parser/-/tap-parser-0.7.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

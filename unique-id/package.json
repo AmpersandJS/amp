@@ -1,0 +1,14 @@
+{
+  "name": "amp-unique-id",
+  "version": "1.0.0",
+  "description": "Standalone module implementing the unique-id util function.",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "unique-id.js"
+}

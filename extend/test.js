@@ -2,7 +2,7 @@ var test = require('tape');
 var extend = require('./extend');
 
 
-test('extend', function(t) {
+test('amp-extend', function(t) {
     var result;
     t.equal(extend({}, {a: 'b'}).a, 'b', 'can extend an object with the attributes of another');
     t.equal(extend({a: 'x'}, {a: 'b'}).a, 'b', 'properties in source override destination');
