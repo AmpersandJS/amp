@@ -50,6 +50,7 @@
     "last",
     "once",
     "result",
+    "size",
     "to-camel-case",
     "unique-id",
     "values"
