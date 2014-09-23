@@ -1,30 +1,5 @@
-## amp-is-arguments
+# amp-is-arguments
 
+See [the documentation](http://amp-project.com#amp-is-arguments) for more info.
 
-### the code
-
-```javascript
-var toString = Object.prototype.toString;
-
-
-module.exports = function (obj) {
-    return toString.call(obj) === '[object Arguments]';
-};
-```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-arguments.png)](https://ci.testling.com/ampersandjs/amp-is-arguments)
-
-### Dependency tree
-
-```json
-{
-    "name": "is-arguments",
-    "deps": []
-}
-```
-
-### Credits
-
-The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+Part of the [amp project](http://amp-project.com#amp-is-arguments), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).

@@ -1,27 +1,5 @@
-## amp-is-boolean
+# amp-is-boolean
 
+See [the documentation](http://amp-project.com#amp-is-boolean) for more info.
 
-### the code
-
-```javascript
-module.exports = function isBoolean(obj) {
-    return obj === true || obj === false;
-};
-```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-boolean.png)](https://ci.testling.com/ampersandjs/amp-is-boolean)
-
-### Dependency tree
-
-```json
-{
-    "name": "is-boolean",
-    "deps": []
-}
-```
-
-### Credits
-
-The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+Part of the [amp project](http://amp-project.com#amp-is-boolean), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).

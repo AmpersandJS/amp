@@ -1,3 +1,7 @@
+# amp
+
+[![browser support](https://ci.testling.com/henrikjoreteg/amp.png)](https://ci.testling.com/henrikjoreteg/amp)
+
 ## amp-bind
 
 ```
@@ -36,10 +40,6 @@ module.exports = function bind(func, context) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-bind.png)](https://ci.testling.com/ampersandjs/amp-bind)
-
 ### Dependency tree
 
 ```json
@@ -77,10 +77,6 @@ module.exports = function clone(obj) {
     return isArray(obj) ? obj.slice() : extend({}, obj);
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-clone.png)](https://ci.testling.com/ampersandjs/amp-clone)
 
 ### Dependency tree
 
@@ -135,10 +131,6 @@ module.exports = function contains(obj, target) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-contains.png)](https://ci.testling.com/ampersandjs/amp-contains)
-
 ### Dependency tree
 
 ```json
@@ -185,10 +177,6 @@ module.exports = function defaults(obj) {
     return obj;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-defaults.png)](https://ci.testling.com/ampersandjs/amp-defaults)
 
 ### Dependency tree
 
@@ -258,10 +246,6 @@ module.exports = function each(obj, iteratee, context) {
     return obj;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-each.png)](https://ci.testling.com/ampersandjs/amp-each)
 
 ### Dependency tree
 
@@ -345,10 +329,6 @@ module.exports = createEscaper(escapeMap);
 module.exports.unescape = createEscaper(unescapeMap);
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-escape.png)](https://ci.testling.com/ampersandjs/amp-escape)
-
 ### Dependency tree
 
 ```json
@@ -383,10 +363,6 @@ module.exports = function(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-extend.png)](https://ci.testling.com/ampersandjs/amp-extend)
-
 ### Dependency tree
 
 ```json
@@ -418,10 +394,6 @@ module.exports = function has(obj, key) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-has.png)](https://ci.testling.com/ampersandjs/amp-has)
-
 ### Dependency tree
 
 ```json
@@ -449,10 +421,6 @@ module.exports = function indexOf(obj, val) {
     return arrayInd.call(obj, val);
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-index-of.png)](https://ci.testling.com/ampersandjs/amp-index-of)
 
 ### Dependency tree
 
@@ -489,10 +457,6 @@ module.exports = function invert(obj) {
     return result;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-invert.png)](https://ci.testling.com/ampersandjs/amp-invert)
 
 ### Dependency tree
 
@@ -552,10 +516,6 @@ module.exports = function (obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-arguments.png)](https://ci.testling.com/ampersandjs/amp-is-arguments)
-
 ### Dependency tree
 
 ```json
@@ -583,10 +543,6 @@ module.exports = isArray || function isArray(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-array.png)](https://ci.testling.com/ampersandjs/amp-is-array)
-
 ### Dependency tree
 
 ```json
@@ -609,10 +565,6 @@ module.exports = function isBoolean(obj) {
     return obj === true || obj === false;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-boolean.png)](https://ci.testling.com/ampersandjs/amp-is-boolean)
 
 ### Dependency tree
 
@@ -639,10 +591,6 @@ module.exports = function isFunction(obj) {
     return toString.call(obj) === '[object Date]';
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-date.png)](https://ci.testling.com/ampersandjs/amp-is-date)
 
 ### Dependency tree
 
@@ -677,10 +625,6 @@ module.exports = function isEmpty(obj) {
     return true;
 }
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-empty.png)](https://ci.testling.com/ampersandjs/amp-is-empty)
 
 ### Dependency tree
 
@@ -813,10 +757,6 @@ module.exports = function isEqual(a, b) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-equal.png)](https://ci.testling.com/ampersandjs/amp-is-equal)
-
 ### Dependency tree
 
 ```json
@@ -886,10 +826,6 @@ if (typeof /./ !== 'function') {
 module.exports = func;
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-function.png)](https://ci.testling.com/ampersandjs/amp-is-function)
-
 ### Dependency tree
 
 ```json
@@ -921,10 +857,6 @@ module.exports = function isNaN(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-nan.png)](https://ci.testling.com/ampersandjs/amp-is-nan)
-
 ### Dependency tree
 
 ```json
@@ -953,10 +885,6 @@ module.exports = function isNull(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-null.png)](https://ci.testling.com/ampersandjs/amp-is-null)
-
 ### Dependency tree
 
 ```json
@@ -983,10 +911,6 @@ module.exports = function isNumber(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-number.png)](https://ci.testling.com/ampersandjs/amp-is-number)
-
 ### Dependency tree
 
 ```json
@@ -1010,10 +934,6 @@ module.exports = function isObject(obj) {
     return !!obj && (type === 'function' || type === 'object');
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-object.png)](https://ci.testling.com/ampersandjs/amp-is-object)
 
 ### Dependency tree
 
@@ -1041,10 +961,6 @@ module.exports = function isRegExp(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-regexp.png)](https://ci.testling.com/ampersandjs/amp-is-regexp)
-
 ### Dependency tree
 
 ```json
@@ -1071,10 +987,6 @@ module.exports = function isString(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-string.png)](https://ci.testling.com/ampersandjs/amp-is-string)
-
 ### Dependency tree
 
 ```json
@@ -1097,10 +1009,6 @@ module.exports = function isUndefined(obj) {
     return obj === void 0;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-undefined.png)](https://ci.testling.com/ampersandjs/amp-is-undefined)
 
 ### Dependency tree
 
@@ -1157,10 +1065,6 @@ module.exports = function keys(obj) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-keys.png)](https://ci.testling.com/ampersandjs/amp-keys)
-
 ### Dependency tree
 
 ```json
@@ -1216,10 +1120,6 @@ module.exports = function last(arr, n, guard) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-last.png)](https://ci.testling.com/ampersandjs/amp-last)
-
 ### Dependency tree
 
 ```json
@@ -1249,10 +1149,6 @@ module.exports = function result(object, property, defaultValue) {
     return isFunction(value) ? object[property]() : value;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-result.png)](https://ci.testling.com/ampersandjs/amp-result)
 
 ### Dependency tree
 
@@ -1291,10 +1187,6 @@ module.exports = function toCamelCase(string) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-to-camel-case.png)](https://ci.testling.com/ampersandjs/amp-to-camel-case)
-
 ### Dependency tree
 
 ```json
@@ -1330,10 +1222,6 @@ module.exports = function uniqueId(prefix) {
 };
 ```
 
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-unique-id.png)](https://ci.testling.com/ampersandjs/amp-unique-id)
-
 ### Dependency tree
 
 ```json
@@ -1362,10 +1250,6 @@ module.exports = function values(obj) {
     return values;
 };
 ```
-
-### Browser support
-
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-values.png)](https://ci.testling.com/ampersandjs/amp-values)
 
 ### Dependency tree
 
