@@ -1,0 +1,14 @@
+{
+  "name": "amp-once",
+  "version": "1.0.0",
+  "description": "Standalone module implementing the once util function.",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "once.js"
+}
