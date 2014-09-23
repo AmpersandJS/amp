@@ -9,7 +9,7 @@ Tests whether object passed in is a `NaN`. Native implementations of `isNaN` ret
 ### the code
 
 ```javascript
-var isNumber = require('amp-is-number');
+var isNumber = require('../is-number');
 
 
 module.exports = function isNaN(obj) {
@@ -20,6 +20,20 @@ module.exports = function isNaN(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-nan.png)](https://ci.testling.com/ampersandjs/amp-is-nan)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-nan",
+    "deps": [
+        {
+            "name": "is-number",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

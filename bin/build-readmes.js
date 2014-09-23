@@ -17,6 +17,12 @@ getPackages().forEach(function (pack) {
     buffer.push('');
     buffer.push('[![browser support](https://ci.testling.com/henrikjoreteg/' + pack.name + '.png)](https://ci.testling.com/ampersandjs/' + pack.name + ')');
     buffer.push('');
+    buffer.push('### Dependency tree');
+    buffer.push('');
+    buffer.push('```json');
+    buffer.push(JSON.stringify(pack.dependencyTree, null, 4));
+    buffer.push('```');
+    buffer.push('');
     buffer.push('### Credits');
     buffer.push('');
     buffer.push('The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.');

@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isFunction = require('amp-is-function');
+var isFunction = require('../is-function');
 
 
 module.exports = function result(object, property, defaultValue) {
@@ -19,6 +19,20 @@ module.exports = function result(object, property, defaultValue) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-result.png)](https://ci.testling.com/ampersandjs/amp-result)
+
+### Dependency tree
+
+```json
+{
+    "name": "result",
+    "deps": [
+        {
+            "name": "is-function",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

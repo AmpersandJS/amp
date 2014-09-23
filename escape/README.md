@@ -40,6 +40,15 @@ module.exports.unescape = createEscaper(unescapeMap);
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-escape.png)](https://ci.testling.com/ampersandjs/amp-escape)
 
+### Dependency tree
+
+```json
+{
+    "name": "escape",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.

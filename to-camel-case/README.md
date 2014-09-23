@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isString = require('amp-is-string');
+var isString = require('../is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
@@ -21,6 +21,20 @@ module.exports = function toCamelCase(string) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-to-camel-case.png)](https://ci.testling.com/ampersandjs/amp-to-camel-case)
+
+### Dependency tree
+
+```json
+{
+    "name": "to-camel-case",
+    "deps": [
+        {
+            "name": "is-string",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

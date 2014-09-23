@@ -10,8 +10,8 @@ Determines whether an array contains an item.
 ### the code
 
 ```javascript
-var values = require('amp-values');
-var indexOf = require('amp-index-of');
+var values = require('../values');
+var indexOf = require('../index-of');
 
 
 module.exports = function contains(obj, target) {
@@ -24,6 +24,29 @@ module.exports = function contains(obj, target) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-contains.png)](https://ci.testling.com/ampersandjs/amp-contains)
+
+### Dependency tree
+
+```json
+{
+    "name": "contains",
+    "deps": [
+        {
+            "name": "values",
+            "deps": []
+        },
+        {
+            "name": "index-of",
+            "deps": [
+                {
+                    "name": "is-object",
+                    "deps": []
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 

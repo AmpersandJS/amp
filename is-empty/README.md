@@ -4,9 +4,9 @@
 ### the code
 
 ```javascript
-var isArray = require('amp-is-array');
-var isString = require('amp-is-string');
-var isArguments = require('amp-is-arguments');
+var isArray = require('../is-array');
+var isString = require('../is-string');
+var isArguments = require('../is-arguments');
 var hasOwn = Object.prototype.hasOwnProperty;
 
 
@@ -23,6 +23,28 @@ module.exports = function isEmpty(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-empty.png)](https://ci.testling.com/ampersandjs/amp-is-empty)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-empty",
+    "deps": [
+        {
+            "name": "is-array",
+            "deps": []
+        },
+        {
+            "name": "is-string",
+            "deps": []
+        },
+        {
+            "name": "is-arguments",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

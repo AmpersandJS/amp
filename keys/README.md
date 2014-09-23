@@ -4,9 +4,9 @@
 ### the code
 
 ```javascript
-var has = require('amp-has');
-var isObject = require('amp-is-object');
-var contains = require('amp-contains');
+var has = require('../has');
+var isObject = require('../is-object');
+var contains = require('../contains');
 var nativeKeys = Object.prototype.keys;
 
 
@@ -44,6 +44,42 @@ module.exports = function keys(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-keys.png)](https://ci.testling.com/ampersandjs/amp-keys)
+
+### Dependency tree
+
+```json
+{
+    "name": "keys",
+    "deps": [
+        {
+            "name": "has",
+            "deps": []
+        },
+        {
+            "name": "is-object",
+            "deps": []
+        },
+        {
+            "name": "contains",
+            "deps": [
+                {
+                    "name": "values",
+                    "deps": []
+                },
+                {
+                    "name": "index-of",
+                    "deps": [
+                        {
+                            "name": "is-object",
+                            "deps": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 

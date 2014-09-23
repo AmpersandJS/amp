@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isObj = require('amp-is-object');
+var isObj = require('../is-object');
 var arrayInd = Array.prototype.indexOf;
 
 
@@ -17,6 +17,20 @@ module.exports = function indexOf(obj, val) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-index-of.png)](https://ci.testling.com/ampersandjs/amp-index-of)
+
+### Dependency tree
+
+```json
+{
+    "name": "index-of",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

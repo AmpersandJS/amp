@@ -11,8 +11,8 @@ Bind a function to an object, meaning that whenever the function is called, the 
 ### the code
 
 ```javascript
-var isFunction = require('amp-is-function');
-var isObject = require('amp-is-object');
+var isFunction = require('../is-function');
+var isObject = require('../is-object');
 var nativeBind = Function.prototype.bind;
 var slice = Array.prototype.slice;
 var Ctor = function () {};
@@ -39,6 +39,24 @@ module.exports = function bind(func, context) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-bind.png)](https://ci.testling.com/ampersandjs/amp-bind)
+
+### Dependency tree
+
+```json
+{
+    "name": "bind",
+    "deps": [
+        {
+            "name": "is-function",
+            "deps": []
+        },
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

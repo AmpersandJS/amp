@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
+var isObject = require('../is-object');
 
 
 module.exports = function(obj) {
@@ -23,6 +23,20 @@ module.exports = function(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-extend.png)](https://ci.testling.com/ampersandjs/amp-extend)
+
+### Dependency tree
+
+```json
+{
+    "name": "extend",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

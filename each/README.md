@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var objKeys = require('amp-keys');
+var objKeys = require('../keys');
 
 
 // Internal function that returns an efficient (for current engines) version
@@ -53,6 +53,47 @@ module.exports = function each(obj, iteratee, context) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-each.png)](https://ci.testling.com/ampersandjs/amp-each)
+
+### Dependency tree
+
+```json
+{
+    "name": "each",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 

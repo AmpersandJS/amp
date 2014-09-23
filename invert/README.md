@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var objKeys = require('amp-keys');
+var objKeys = require('../keys');
 
 
 module.exports = function invert(obj) {
@@ -20,6 +20,47 @@ module.exports = function invert(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-invert.png)](https://ci.testling.com/ampersandjs/amp-invert)
+
+### Dependency tree
+
+```json
+{
+    "name": "invert",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 

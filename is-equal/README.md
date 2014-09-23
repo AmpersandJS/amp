@@ -5,8 +5,8 @@
 
 ```javascript
 var hasOwn = Object.prototype.hasOwnProperty;
-var objKeys = require('amp-keys');
-var isFunction = require('amp-is-function');
+var objKeys = require('../keys');
+var isFunction = require('../is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -14,7 +14,7 @@ var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == require('amp-`.
+    // A strict comparison is necessary because `null == require('../`.
     if (a == null || b == null) return a === b;
     // Compare `[[Class]]` names.
     var className = toString.call(a);
@@ -107,6 +107,51 @@ module.exports = function isEqual(a, b) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-equal.png)](https://ci.testling.com/ampersandjs/amp-is-equal)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-equal",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "is-function",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

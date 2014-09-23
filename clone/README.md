@@ -4,9 +4,9 @@
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
-var isArray = require('amp-is-array');
-var extend = require('amp-extend');
+var isObject = require('../is-object');
+var isArray = require('../is-array');
+var extend = require('../extend');
 
 
 module.exports = function clone(obj) {
@@ -18,6 +18,33 @@ module.exports = function clone(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-clone.png)](https://ci.testling.com/ampersandjs/amp-clone)
+
+### Dependency tree
+
+```json
+{
+    "name": "clone",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        },
+        {
+            "name": "is-array",
+            "deps": []
+        },
+        {
+            "name": "extend",
+            "deps": [
+                {
+                    "name": "is-object",
+                    "deps": []
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 

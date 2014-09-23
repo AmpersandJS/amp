@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
+var isObject = require('../is-object');
 
 
 module.exports = function defaults(obj) {
@@ -22,6 +22,20 @@ module.exports = function defaults(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-defaults.png)](https://ci.testling.com/ampersandjs/amp-defaults)
+
+### Dependency tree
+
+```json
+{
+    "name": "defaults",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 

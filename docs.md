@@ -11,8 +11,8 @@ Bind a function to an object, meaning that whenever the function is called, the 
 ### the code
 
 ```javascript
-var isFunction = require('amp-is-function');
-var isObject = require('amp-is-object');
+var isFunction = require('../is-function');
+var isObject = require('../is-object');
 var nativeBind = Function.prototype.bind;
 var slice = Array.prototype.slice;
 var Ctor = function () {};
@@ -40,6 +40,24 @@ module.exports = function bind(func, context) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-bind.png)](https://ci.testling.com/ampersandjs/amp-bind)
 
+### Dependency tree
+
+```json
+{
+    "name": "bind",
+    "deps": [
+        {
+            "name": "is-function",
+            "deps": []
+        },
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -49,9 +67,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
-var isArray = require('amp-is-array');
-var extend = require('amp-extend');
+var isObject = require('../is-object');
+var isArray = require('../is-array');
+var extend = require('../extend');
 
 
 module.exports = function clone(obj) {
@@ -63,6 +81,33 @@ module.exports = function clone(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-clone.png)](https://ci.testling.com/ampersandjs/amp-clone)
+
+### Dependency tree
+
+```json
+{
+    "name": "clone",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        },
+        {
+            "name": "is-array",
+            "deps": []
+        },
+        {
+            "name": "extend",
+            "deps": [
+                {
+                    "name": "is-object",
+                    "deps": []
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 
@@ -79,8 +124,8 @@ Determines whether an array contains an item.
 ### the code
 
 ```javascript
-var values = require('amp-values');
-var indexOf = require('amp-index-of');
+var values = require('../values');
+var indexOf = require('../index-of');
 
 
 module.exports = function contains(obj, target) {
@@ -94,6 +139,29 @@ module.exports = function contains(obj, target) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-contains.png)](https://ci.testling.com/ampersandjs/amp-contains)
 
+### Dependency tree
+
+```json
+{
+    "name": "contains",
+    "deps": [
+        {
+            "name": "values",
+            "deps": []
+        },
+        {
+            "name": "index-of",
+            "deps": [
+                {
+                    "name": "is-object",
+                    "deps": []
+                }
+            ]
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -103,7 +171,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
+var isObject = require('../is-object');
 
 
 module.exports = function defaults(obj) {
@@ -122,6 +190,20 @@ module.exports = function defaults(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-defaults.png)](https://ci.testling.com/ampersandjs/amp-defaults)
 
+### Dependency tree
+
+```json
+{
+    "name": "defaults",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -131,7 +213,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var objKeys = require('amp-keys');
+var objKeys = require('../keys');
 
 
 // Internal function that returns an efficient (for current engines) version
@@ -181,6 +263,47 @@ module.exports = function each(obj, iteratee, context) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-each.png)](https://ci.testling.com/ampersandjs/amp-each)
 
+### Dependency tree
+
+```json
+{
+    "name": "each",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -226,6 +349,15 @@ module.exports.unescape = createEscaper(unescapeMap);
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-escape.png)](https://ci.testling.com/ampersandjs/amp-escape)
 
+### Dependency tree
+
+```json
+{
+    "name": "escape",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -235,7 +367,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObject = require('amp-is-object');
+var isObject = require('../is-object');
 
 
 module.exports = function(obj) {
@@ -254,6 +386,20 @@ module.exports = function(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-extend.png)](https://ci.testling.com/ampersandjs/amp-extend)
+
+### Dependency tree
+
+```json
+{
+    "name": "extend",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 
@@ -276,6 +422,15 @@ module.exports = function has(obj, key) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-has.png)](https://ci.testling.com/ampersandjs/amp-has)
 
+### Dependency tree
+
+```json
+{
+    "name": "has",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -285,7 +440,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObj = require('amp-is-object');
+var isObj = require('../is-object');
 var arrayInd = Array.prototype.indexOf;
 
 
@@ -299,6 +454,20 @@ module.exports = function indexOf(obj, val) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-index-of.png)](https://ci.testling.com/ampersandjs/amp-index-of)
 
+### Dependency tree
+
+```json
+{
+    "name": "index-of",
+    "deps": [
+        {
+            "name": "is-object",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -308,7 +477,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var objKeys = require('amp-keys');
+var objKeys = require('../keys');
 
 
 module.exports = function invert(obj) {
@@ -324,6 +493,47 @@ module.exports = function invert(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-invert.png)](https://ci.testling.com/ampersandjs/amp-invert)
+
+### Dependency tree
+
+```json
+{
+    "name": "invert",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Credits
 
@@ -345,6 +555,15 @@ module.exports = function (obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-arguments.png)](https://ci.testling.com/ampersandjs/amp-is-arguments)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-arguments",
+    "deps": []
+}
+```
 
 ### Credits
 
@@ -368,6 +587,15 @@ module.exports = isArray || function isArray(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-array.png)](https://ci.testling.com/ampersandjs/amp-is-array)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-array",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -385,6 +613,15 @@ module.exports = function isBoolean(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-boolean.png)](https://ci.testling.com/ampersandjs/amp-is-boolean)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-boolean",
+    "deps": []
+}
+```
 
 ### Credits
 
@@ -407,6 +644,15 @@ module.exports = function isFunction(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-date.png)](https://ci.testling.com/ampersandjs/amp-is-date)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-date",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -416,9 +662,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isArray = require('amp-is-array');
-var isString = require('amp-is-string');
-var isArguments = require('amp-is-arguments');
+var isArray = require('../is-array');
+var isString = require('../is-string');
+var isArguments = require('../is-arguments');
 var hasOwn = Object.prototype.hasOwnProperty;
 
 
@@ -436,6 +682,28 @@ module.exports = function isEmpty(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-empty.png)](https://ci.testling.com/ampersandjs/amp-is-empty)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-empty",
+    "deps": [
+        {
+            "name": "is-array",
+            "deps": []
+        },
+        {
+            "name": "is-string",
+            "deps": []
+        },
+        {
+            "name": "is-arguments",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -446,8 +714,8 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 
 ```javascript
 var hasOwn = Object.prototype.hasOwnProperty;
-var objKeys = require('amp-keys');
-var isFunction = require('amp-is-function');
+var objKeys = require('../keys');
+var isFunction = require('../is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -455,7 +723,7 @@ var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == require('amp-`.
+    // A strict comparison is necessary because `null == require('../`.
     if (a == null || b == null) return a === b;
     // Compare `[[Class]]` names.
     var className = toString.call(a);
@@ -549,6 +817,51 @@ module.exports = function isEqual(a, b) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-equal.png)](https://ci.testling.com/ampersandjs/amp-is-equal)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-equal",
+    "deps": [
+        {
+            "name": "keys",
+            "deps": [
+                {
+                    "name": "has",
+                    "deps": []
+                },
+                {
+                    "name": "is-object",
+                    "deps": []
+                },
+                {
+                    "name": "contains",
+                    "deps": [
+                        {
+                            "name": "values",
+                            "deps": []
+                        },
+                        {
+                            "name": "index-of",
+                            "deps": [
+                                {
+                                    "name": "is-object",
+                                    "deps": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "is-function",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -577,6 +890,15 @@ module.exports = func;
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-function.png)](https://ci.testling.com/ampersandjs/amp-is-function)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-function",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -591,7 +913,7 @@ Tests whether object passed in is a `NaN`. Native implementations of `isNaN` ret
 ### the code
 
 ```javascript
-var isNumber = require('amp-is-number');
+var isNumber = require('../is-number');
 
 
 module.exports = function isNaN(obj) {
@@ -602,6 +924,20 @@ module.exports = function isNaN(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-nan.png)](https://ci.testling.com/ampersandjs/amp-is-nan)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-nan",
+    "deps": [
+        {
+            "name": "is-number",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 
@@ -620,6 +956,15 @@ module.exports = function isNull(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-null.png)](https://ci.testling.com/ampersandjs/amp-is-null)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-null",
+    "deps": []
+}
+```
 
 ### Credits
 
@@ -642,6 +987,15 @@ module.exports = function isNumber(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-number.png)](https://ci.testling.com/ampersandjs/amp-is-number)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-number",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -660,6 +1014,15 @@ module.exports = function isObject(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-object.png)](https://ci.testling.com/ampersandjs/amp-is-object)
+
+### Dependency tree
+
+```json
+{
+    "name": "is-object",
+    "deps": []
+}
+```
 
 ### Credits
 
@@ -682,6 +1045,15 @@ module.exports = function isRegExp(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-regexp.png)](https://ci.testling.com/ampersandjs/amp-is-regexp)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-regexp",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -703,6 +1075,15 @@ module.exports = function isString(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-string.png)](https://ci.testling.com/ampersandjs/amp-is-string)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-string",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -721,6 +1102,15 @@ module.exports = function isUndefined(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-is-undefined.png)](https://ci.testling.com/ampersandjs/amp-is-undefined)
 
+### Dependency tree
+
+```json
+{
+    "name": "is-undefined",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -730,9 +1120,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var has = require('amp-has');
-var isObject = require('amp-is-object');
-var contains = require('amp-contains');
+var has = require('../has');
+var isObject = require('../is-object');
+var contains = require('../contains');
 var nativeKeys = Object.prototype.keys;
 
 
@@ -771,6 +1161,42 @@ module.exports = function keys(obj) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-keys.png)](https://ci.testling.com/ampersandjs/amp-keys)
 
+### Dependency tree
+
+```json
+{
+    "name": "keys",
+    "deps": [
+        {
+            "name": "has",
+            "deps": []
+        },
+        {
+            "name": "is-object",
+            "deps": []
+        },
+        {
+            "name": "contains",
+            "deps": [
+                {
+                    "name": "values",
+                    "deps": []
+                },
+                {
+                    "name": "index-of",
+                    "deps": [
+                        {
+                            "name": "is-object",
+                            "deps": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -794,6 +1220,15 @@ module.exports = function last(arr, n, guard) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-last.png)](https://ci.testling.com/ampersandjs/amp-last)
 
+### Dependency tree
+
+```json
+{
+    "name": "last",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -803,7 +1238,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isFunction = require('amp-is-function');
+var isFunction = require('../is-function');
 
 
 module.exports = function result(object, property, defaultValue) {
@@ -819,6 +1254,20 @@ module.exports = function result(object, property, defaultValue) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-result.png)](https://ci.testling.com/ampersandjs/amp-result)
 
+### Dependency tree
+
+```json
+{
+    "name": "result",
+    "deps": [
+        {
+            "name": "is-function",
+            "deps": []
+        }
+    ]
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -828,7 +1277,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isString = require('amp-is-string');
+var isString = require('../is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
@@ -845,6 +1294,20 @@ module.exports = function toCamelCase(string) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-to-camel-case.png)](https://ci.testling.com/ampersandjs/amp-to-camel-case)
+
+### Dependency tree
+
+```json
+{
+    "name": "to-camel-case",
+    "deps": [
+        {
+            "name": "is-string",
+            "deps": []
+        }
+    ]
+}
+```
 
 ### Credits
 
@@ -871,6 +1334,15 @@ module.exports = function uniqueId(prefix) {
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-unique-id.png)](https://ci.testling.com/ampersandjs/amp-unique-id)
 
+### Dependency tree
+
+```json
+{
+    "name": "unique-id",
+    "deps": []
+}
+```
+
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
@@ -894,6 +1366,15 @@ module.exports = function values(obj) {
 ### Browser support
 
 [![browser support](https://ci.testling.com/henrikjoreteg/amp-values.png)](https://ci.testling.com/ampersandjs/amp-values)
+
+### Dependency tree
+
+```json
+{
+    "name": "values",
+    "deps": []
+}
+```
 
 ### Credits
 
