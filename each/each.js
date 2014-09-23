@@ -26,7 +26,6 @@ var createCallback = function(func, context, argCount) {
 };
 
 
-// _.keys was replaced with native Object.keys()
 module.exports = function each(obj, iteratee, context) {
     if (obj == null) return obj;
     iteratee = createCallback(iteratee, context);
