@@ -14,13 +14,13 @@ getPackages().forEach(function (pack) {
     var toRemote = which === 'remote';
     if (which === 'remote') {
         pack.code = pack.code.replace(map.localRegEx, map.remoteString);
+        pack.test = pack.test.replace(map.localRegEx, map.remoteString);
     } else if (which === 'local') {
         pack.code = pack.code.replace(map.remoteRegEx, map.localString);
+        pack.test = pack.test.replace(map.remoteRegEx, map.localString);
     }
     var path = pack.folder + '/' + pack.fileName;
-    console.log('writing: ' + path);
-
-    console.log(pack.code);
 
     fs.writeFileSync(path, pack.code);
+    fs.writeFileSync(pack.folder + '/test.js', pack.test);
 });

@@ -9,7 +9,7 @@ Tests whether object passed in is a `NaN`. Native implementations of `isNaN` ret
 ### the code
 
 ```javascript
-var isNumber = require('../is-number');
+var isNumber = require('amp-is-number');
 
 
 module.exports = function isNaN(obj) {

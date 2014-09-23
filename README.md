@@ -66,6 +66,10 @@ It all starts with the `packages` array in `package.json`. It contains a list.
 
 - `npm run make-local`
 
+### Make sure everything is clean and follows conventions
+
+- `npm run validate`
+
 
 
 ## Let's discuss stuff in [issues](https://github.com/HenrikJoreteg/amp/issues)

@@ -21,7 +21,8 @@ getPackages().forEach(function (pack) {
     buffer.push('');
     buffer.push('The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.');
 
-    console.log('writing: ' + target);
+    console.log('building readme for ' + target);
+
     fs.writeFileSync(target, buffer.join('\n'));
 });
 

@@ -5,7 +5,9 @@ var bind = require('./' + pack.main);
 
 test('amp-bind', function (t) {
     var context = {name : 'moe'};
-    var func = function(arg) { return 'name: ' + (this.name || arg); };
+    var func = function(arg) {
+        return 'name: ' + (this.name || arg);
+    };
     var bound = bind(func, context);
     t.equal(bound(), 'name: moe', 'can bind a function to a context');
 
@@ -15,14 +17,18 @@ test('amp-bind', function (t) {
     bound = bind(func, null, 'curly');
     t.equal(bound(), 'name: curly', 'can bind without specifying a context');
 
-    func = function(salutation, name) { return salutation + ': ' + name; };
+    func = function(salutation, name) {
+        return salutation + ': ' + name;
+    };
     func = bind(func, this, 'hello');
     t.equal(func('moe'), 'hello: moe', 'the function was partially applied in advance');
 
     func = bind(func, this, 'curly');
     t.equal(func(), 'hello: curly', 'the function was completely applied in advance');
 
-    func = function(salutation, firstname, lastname) { return salutation + ': ' + firstname + ' ' + lastname; };
+    func = function(salutation, firstname, lastname) {
+        return salutation + ': ' + firstname + ' ' + lastname;
+    };
     func = bind(func, this, 'hello', 'moe', 'curly');
     t.equal(func(), 'hello: moe curly', 'the function was partially applied in advance and can accept multiple arguments');
 
@@ -43,6 +49,8 @@ test('amp-bind', function (t) {
     t.equal(boundf().hello, 'moe curly', "When called without the new operator, it's OK to be bound to the context");
     t.ok(newBoundf instanceof F, 'a bound instance is an instance of the original function');
 
-    t.throws(function() { bind('notafunction'); }, TypeError, 'throws an error when binding to a non-function');
+    t.throws(function() {
+        bind('notafunction');
+    }, TypeError, 'throws an error when binding to a non-function');
     t.end();
 });

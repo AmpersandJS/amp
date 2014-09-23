@@ -1,12 +1,57 @@
+## amp-bind
+
+```
+bind(function, object, *arguments);
+```
+
+Bind a function to an object, meaning that whenever the function is called, the value of `this` will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.
+
+**note:** If you *know* you're in an environment where you have native `Function.prototype.bind` there's really no reason not to just use that. It even does the partial application as described above. Most JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.
+
+### the code
+
+```javascript
+var isFunction = require('amp-is-function');
+var isObject = require('amp-is-object');
+var nativeBind = Function.prototype.bind;
+var slice = Array.prototype.slice;
+var Ctor = function () {};
+
+
+module.exports = function bind(func, context) {
+    var args, bound;
+    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+    if (!isFunction(func)) throw new TypeError('Bind must be called on a function');
+    args = slice.call(arguments, 2);
+    bound = function() {
+        if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
+        Ctor.prototype = func.prototype;
+        var self = new Ctor;
+        Ctor.prototype = null;
+        var result = func.apply(self, args.concat(slice.call(arguments)));
+        if (isObject(result)) return result;
+        return self;
+    };
+    return bound;
+};
+```
+
+### Browser support
+
+[![browser support](https://ci.testling.com/henrikjoreteg/amp-bind.png)](https://ci.testling.com/ampersandjs/amp-bind)
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
 ## amp-clone
 
 
 ### the code
 
 ```javascript
-var isObject = require('../is-object');
-var isArray = require('../is-array');
-var extend = require('../extend');
+var isObject = require('amp-is-object');
+var isArray = require('amp-is-array');
+var extend = require('amp-extend');
 
 
 module.exports = function clone(obj) {
@@ -34,8 +79,8 @@ Determines whether an array contains an item.
 ### the code
 
 ```javascript
-var values = require('../values');
-var indexOf = require('../index-of');
+var values = require('amp-values');
+var indexOf = require('amp-index-of');
 
 
 module.exports = function contains(obj, target) {
@@ -58,7 +103,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObject = require('../is-object');
+var isObject = require('amp-is-object');
 
 
 module.exports = function defaults(obj) {
@@ -86,7 +131,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var objKeys = require('../keys');
+var objKeys = require('amp-keys');
 
 
 // Internal function that returns an efficient (for current engines) version
@@ -114,7 +159,6 @@ var createCallback = function(func, context, argCount) {
 };
 
 
-// _.keys was replaced with native Object.keys()
 module.exports = function each(obj, iteratee, context) {
     if (obj == null) return obj;
     iteratee = createCallback(iteratee, context);
@@ -191,7 +235,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObject = require('../is-object');
+var isObject = require('amp-is-object');
 
 
 module.exports = function(obj) {
@@ -220,6 +264,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+
 module.exports = function has(obj, key) {
     return obj != null && hasOwnProperty.call(obj, key);
 };
@@ -238,7 +285,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isObj = require('../is-object');
+var isObj = require('amp-is-object');
 var arrayInd = Array.prototype.indexOf;
 
 
@@ -261,7 +308,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var objKeys = require('../keys');
+var objKeys = require('amp-keys');
 
 
 module.exports = function invert(obj) {
@@ -324,6 +371,24 @@ module.exports = isArray || function isArray(obj) {
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+## amp-is-boolean
+
+
+### the code
+
+```javascript
+module.exports = function isBoolean(obj) {
+    return obj === true || obj === false;
+};
+```
+
+### Browser support
+
+[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-boolean.png)](https://ci.testling.com/ampersandjs/amp-is-boolean)
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
 ## amp-is-date
 
 
@@ -351,7 +416,20 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-module.exports = function isEmpty() {}
+var isArray = require('amp-is-array');
+var isString = require('amp-is-string');
+var isArguments = require('amp-is-arguments');
+var hasOwn = Object.prototype.hasOwnProperty;
+
+
+module.exports = function isEmpty(obj) {
+    if (obj == null) return true;
+    if (isArray(obj) || isString(obj) || isArguments(obj)) return obj.length === 0;
+    for (var key in obj) {
+        if (hasOwn.call(obj, key)) return false;
+    }
+    return true;
+}
 ```
 
 ### Browser support
@@ -367,7 +445,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var has = require('../has');
+var hasOwn = Object.prototype.hasOwnProperty;
+var objKeys = require('amp-keys');
+var isFunction = require('amp-is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -375,7 +455,7 @@ var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == require('../`.
+    // A strict comparison is necessary because `null == require('amp-`.
     if (a == null || b == null) return a === b;
     // Compare `[[Class]]` names.
     var className = toString.call(a);
@@ -409,8 +489,8 @@ var eq = function(a, b, aStack, bStack) {
         // Objects with different constructors are not equivalent, but `Object`s or `Array`s
         // from different frames are.
         var aCtor = a.constructor, bCtor = b.constructor;
-        if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-                                                         _.isFunction(bCtor) && bCtor instanceof bCtor)
+        if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor &&
+                                                         isFunction(bCtor) && bCtor instanceof bCtor)
                                                 && ('constructor' in a && 'constructor' in b)) {
             return false;
         }
@@ -441,15 +521,15 @@ var eq = function(a, b, aStack, bStack) {
         }
     } else {
         // Deep compare objects.
-        var keys = _.keys(a), key;
+        var keys = objKeys(a), key;
         size = keys.length;
         // Ensure that both objects contain the same number of properties before comparing deep equality.
-        result = _.keys(b).length === size;
+        result = objKeys(b).length === size;
         if (result) {
             while (size--) {
                 // Deep compare each member
                 key = keys[size];
-                if (!(result = has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+                if (!(result = hasOwn.call(b, key) && eq(a[key], b[key], aStack, bStack))) break;
             }
         }
     }
@@ -511,7 +591,7 @@ Tests whether object passed in is a `NaN`. Native implementations of `isNaN` ret
 ### the code
 
 ```javascript
-var isNumber = require('../is-number');
+var isNumber = require('amp-is-number');
 
 
 module.exports = function isNaN(obj) {
@@ -590,7 +670,12 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-module.exports = function isRegexp() {}
+var toString = Object.prototype.toString;
+
+
+module.exports = function isRegExp(obj) {
+    return toString.call(obj) === '[object RegExp]';
+};
 ```
 
 ### Browser support
@@ -645,9 +730,9 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var has = require('../has');
-var isObject = require('../is-object');
-var contains = require('../contains');
+var has = require('amp-has');
+var isObject = require('amp-is-object');
+var contains = require('amp-contains');
 var nativeKeys = Object.prototype.keys;
 
 
@@ -695,7 +780,15 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-module.exports = function last() {}```
+var slice = Array.prototype.slice;
+
+
+module.exports = function last(arr, n, guard) {
+    if (arr == null) return void 0;
+    if (n == null || guard) return arr[arr.length - 1];
+    return slice.call(arr, Math.max(0, arr.length - n));
+};
+```
 
 ### Browser support
 
@@ -710,7 +803,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isFunction = require('../is-function');
+var isFunction = require('amp-is-function');
 
 
 module.exports = function result(object, property, defaultValue) {
@@ -735,7 +828,7 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ### the code
 
 ```javascript
-var isString = require('../is-string');
+var isString = require('amp-is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
@@ -764,11 +857,12 @@ The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg
 ```javascript
 // Generate a unique integer id (unique within the entire client session).
 // Useful for temporary DOM ids.
-var idCounter = 0;
+var theGlobal = (typeof window !== 'undefined') ? window : global;
+theGlobal.__ampIdCounter = 0;
 
 
 module.exports = function uniqueId(prefix) {
-    var id = ++idCounter + '';
+    var id = ++theGlobal.__ampIdCounter + '';
     return prefix ? prefix + id : id;
 };
 ```

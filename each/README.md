@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var objKeys = require('../keys');
+var objKeys = require('amp-keys');
 
 
 // Internal function that returns an efficient (for current engines) version
@@ -32,7 +32,6 @@ var createCallback = function(func, context, argCount) {
 };
 
 
-// _.keys was replaced with native Object.keys()
 module.exports = function each(obj, iteratee, context) {
     if (obj == null) return obj;
     iteratee = createCallback(iteratee, context);

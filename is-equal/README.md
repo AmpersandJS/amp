@@ -4,7 +4,9 @@
 ### the code
 
 ```javascript
-var has = require('../has');
+var hasOwn = Object.prototype.hasOwnProperty;
+var objKeys = require('amp-keys');
+var isFunction = require('amp-is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -12,7 +14,7 @@ var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == require('../`.
+    // A strict comparison is necessary because `null == require('amp-`.
     if (a == null || b == null) return a === b;
     // Compare `[[Class]]` names.
     var className = toString.call(a);
@@ -46,8 +48,8 @@ var eq = function(a, b, aStack, bStack) {
         // Objects with different constructors are not equivalent, but `Object`s or `Array`s
         // from different frames are.
         var aCtor = a.constructor, bCtor = b.constructor;
-        if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-                                                         _.isFunction(bCtor) && bCtor instanceof bCtor)
+        if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor &&
+                                                         isFunction(bCtor) && bCtor instanceof bCtor)
                                                 && ('constructor' in a && 'constructor' in b)) {
             return false;
         }
@@ -78,15 +80,15 @@ var eq = function(a, b, aStack, bStack) {
         }
     } else {
         // Deep compare objects.
-        var keys = _.keys(a), key;
+        var keys = objKeys(a), key;
         size = keys.length;
         // Ensure that both objects contain the same number of properties before comparing deep equality.
-        result = _.keys(b).length === size;
+        result = objKeys(b).length === size;
         if (result) {
             while (size--) {
                 // Deep compare each member
                 key = keys[size];
-                if (!(result = has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+                if (!(result = hasOwn.call(b, key) && eq(a[key], b[key], aStack, bStack))) break;
             }
         }
     }

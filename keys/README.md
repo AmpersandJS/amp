@@ -4,9 +4,9 @@
 ### the code
 
 ```javascript
-var has = require('../has');
-var isObject = require('../is-object');
-var contains = require('../contains');
+var has = require('amp-has');
+var isObject = require('amp-is-object');
+var contains = require('amp-contains');
 var nativeKeys = Object.prototype.keys;
 
 

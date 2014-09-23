@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var objKeys = require('../keys');
+var objKeys = require('amp-keys');
 
 
 module.exports = function invert(obj) {

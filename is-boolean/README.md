@@ -1,20 +1,17 @@
-## amp-has
+## amp-is-boolean
 
 
 ### the code
 
 ```javascript
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-
-module.exports = function has(obj, key) {
-    return obj != null && hasOwnProperty.call(obj, key);
+module.exports = function isBoolean(obj) {
+    return obj === true || obj === false;
 };
 ```
 
 ### Browser support
 
-[![browser support](https://ci.testling.com/henrikjoreteg/amp-has.png)](https://ci.testling.com/ampersandjs/amp-has)
+[![browser support](https://ci.testling.com/henrikjoreteg/amp-is-boolean.png)](https://ci.testling.com/ampersandjs/amp-is-boolean)
 
 ### Credits
 

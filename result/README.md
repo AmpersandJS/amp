@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isFunction = require('../is-function');
+var isFunction = require('amp-is-function');
 
 
 module.exports = function result(object, property, defaultValue) {

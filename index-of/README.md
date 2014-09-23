@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isObj = require('../is-object');
+var isObj = require('amp-is-object');
 var arrayInd = Array.prototype.indexOf;
 
 

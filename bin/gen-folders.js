@@ -1,8 +1,8 @@
 var fs = require('fs');
 var rimraf = require('rimraf');
-var toCamelCase = require('../to-camel-case');
 var packages = require('../package.json').packages;
 var getTestString = require('../lib/get-test');
+var toCamelCase = require('../lib/to-camel-case');
 
 
 packages.forEach(function (method) {

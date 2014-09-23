@@ -4,7 +4,7 @@
 ### the code
 
 ```javascript
-var isString = require('../is-string');
+var isString = require('amp-is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
