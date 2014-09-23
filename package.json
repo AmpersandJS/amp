@@ -10,7 +10,8 @@
     "make-local": "node bin/convert-requires local",
     "make-remote": "node bin/convert-requires remote",
     "build-site": "node bin/build-site",
-    "build": "npm run make-remote && npm run folders && npm run build-site"
+    "build": "npm run make-remote && npm run folders && npm run build-site",
+    "show-tree": "node bin/show-tree"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
