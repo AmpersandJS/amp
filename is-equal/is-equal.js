@@ -1,4 +1,6 @@
-var has = require('../has');
+var hasOwn = Object.prototype.hasOwnProperty;
+var objKeys = require('../keys');
+var isFunction = require('../is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -40,8 +42,8 @@ var eq = function(a, b, aStack, bStack) {
         // Objects with different constructors are not equivalent, but `Object`s or `Array`s
         // from different frames are.
         var aCtor = a.constructor, bCtor = b.constructor;
-        if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-                                                         _.isFunction(bCtor) && bCtor instanceof bCtor)
+        if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor &&
+                                                         isFunction(bCtor) && bCtor instanceof bCtor)
                                                 && ('constructor' in a && 'constructor' in b)) {
             return false;
         }
@@ -72,15 +74,15 @@ var eq = function(a, b, aStack, bStack) {
         }
     } else {
         // Deep compare objects.
-        var keys = _.keys(a), key;
+        var keys = objKeys(a), key;
         size = keys.length;
         // Ensure that both objects contain the same number of properties before comparing deep equality.
-        result = _.keys(b).length === size;
+        result = objKeys(b).length === size;
         if (result) {
             while (size--) {
                 // Deep compare each member
                 key = keys[size];
-                if (!(result = has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+                if (!(result = hasOwn.call(b, key) && eq(a[key], b[key], aStack, bStack))) break;
             }
         }
     }

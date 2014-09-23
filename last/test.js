@@ -3,7 +3,7 @@ var pack = require('./package.json');
 var last = require('./' + pack.main);
 
 
-test('asd', function (t) {
+test('amp-last', function (t) {
     t.equal(last([1, 2, 3]), 3, 'can pull out the last element of an array');
     t.deepEqual(last([1, 2, 3], 0), [], 'can pass an index to last');
     t.deepEqual(last([1, 2, 3], 2), [2, 3], 'can pass an index to last');

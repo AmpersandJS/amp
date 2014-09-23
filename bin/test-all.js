@@ -5,7 +5,7 @@ var getPackages = require('../lib/get-packages');
 
 
 getPackages().forEach(function (pack) {
-    if (pack.test.split('\n').length < 9) {
+    if (pack.test.split('\n').length < 10) {
         test(pack.name, function (t) {
             t.fail('there are no tests for ' + pack.name);
             t.end();
