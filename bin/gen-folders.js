@@ -2,6 +2,7 @@ var fs = require('fs');
 var rimraf = require('rimraf');
 var toCamelCase = require('../to-camel-case');
 var packages = require('../package.json').packages;
+var getTestString = require('../lib/get-test');
 
 
 packages.forEach(function (method) {
@@ -19,7 +20,7 @@ packages.forEach(function (method) {
     }
 
     if (!fs.existsSync(testFile)) {
-        fs.writeFileSync(testFile, 'var test = require(\'tape\');\nvar pack = require(\'./package.json\');\nvar ' + camelCased + ' = require(\'./\' + pack.main);\n\n\n');
+        fs.writeFileSync(testFile, getTestString(camelCased, ampName));
     } else {
         // re-write with correct test name
         var file = fs.readFileSync(testFile, 'utf8');

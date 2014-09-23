@@ -36,6 +36,7 @@
     "is-nan",
     "is-number",
     "is-regexp",
+    "is-boolean",
     "invert",
     "last",
     "contains",
