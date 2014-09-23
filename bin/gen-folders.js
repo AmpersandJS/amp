@@ -34,7 +34,7 @@ packages.forEach(function (method) {
 
     // create empty doc.md if it doesn't exist
     if (!fs.existsSync(docFile)) {
-        fs.writeFileSync(docFile, '');
+        fs.writeFileSync(docFile, '```js\n' + camelCased + '()\n```');
     }
 
     pack.name = 'amp-' + method;

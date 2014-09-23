@@ -193,6 +193,60 @@ module.exports = function contains(obj, target) {
 ### Credits
 
 The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+## amp-debounce
+
+
+### the code
+
+```javascript
+var now = Date.now;
+
+
+module.exports = function debounce(func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
+
+    var later = function () {
+        var last = now() - timestamp;
+
+        if (last < wait && last >= 0) {
+            timeout = setTimeout(later, wait - last);
+        } else {
+            timeout = null;
+            if (!immediate) {
+                result = func.apply(context, args);
+                if (!timeout) context = args = null;
+            }
+        }
+    };
+
+    return function () {
+        context = this;
+        args = arguments;
+        timestamp = now();
+        var callNow = immediate && !timeout;
+        if (!timeout) timeout = setTimeout(later, wait);
+        if (callNow) {
+            result = func.apply(context, args);
+            context = args = null;
+        }
+
+        return result;
+    };
+};
+```
+
+### Dependency tree
+
+```json
+{
+    "name": "debounce",
+    "deps": []
+}
+```
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
 ## amp-defaults
 
 
@@ -225,6 +279,40 @@ module.exports = function defaults(obj) {
             "deps": []
         }
     ]
+}
+```
+
+### Credits
+
+The amp project was created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg). Much of the code for individual functions come from underscore.js, but it is not intended to be a pure port of underscore to individual modules.
+## amp-delay
+
+```js
+delay(function, wait, *arguments)
+```
+
+Slightly cleaner setTimeout, it invokes function after wait milliseconds. But also, if you pass the optional arguments, they will be forwarded on to the function when it is invoked.
+
+### the code
+
+```javascript
+var slice = Array.prototype.slice;
+
+
+module.exports = function delay(func, wait) {
+    var args = slice.call(arguments, 2);
+    return setTimeout(function(){
+        return func.apply(null, args);
+    }, wait);
+};
+```
+
+### Dependency tree
+
+```json
+{
+    "name": "delay",
+    "deps": []
 }
 ```
 
