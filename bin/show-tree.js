@@ -1,12 +1,16 @@
 var util = require('util');
 var packs = require('../lib/get-packages')();
 var tree = require('../lib/get-dependency-tree')(packs);
-
+var Columnizer = require('columnizer');
+var table = new Columnizer();
 
 console.log(util.inspect(tree, {colors: true, depth: null}));
 
+table.row("Name", "Depth");
+
+var results = [];
+
 function getDepth(item) {
-    var results = [];
     var maxDepth = 0;
     var depth = 0;
 
@@ -23,7 +27,9 @@ function getDepth(item) {
 
     checkDepth(item, depth)
 
-    console.log(item.name + ' depth: ' + maxDepth);
+    table.row(item.name, maxDepth);
 }
 
 tree.forEach(getDepth);
+
+table.print(5);
