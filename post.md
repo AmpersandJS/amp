@@ -33,6 +33,7 @@ It works great for one or two, but it masks another problem: Turns out it's kind
 Truth is: *the vast majority of the underscore methods are all generally related*. They solve a certain class of problem. They're essentially the "low-level" problems you often need, but don't want ot re-invent, but still don't want to be forced to use as an all-or-nothing.
 
 The idea:
+
 1. A utility module collection in a [single Github repo]
 2. All the modules share the same structure:
     1. the implementation
