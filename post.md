@@ -1,4 +1,4 @@
-# Modularizing underscore.js
+# Modularizing underscore.js [DRAFT]
 
 Underscore.js is *the* most heavily depended on module on npm. 
 
@@ -18,15 +18,58 @@ If you've got 3 different versions of underscore installed in an app that's just
 
 But, on the clientside, it's a bit different. We've been happily using node and npm to manage code for all our clientside code at &yet for several years now. But of course for front-end code we have to send all the code we want to use to the browser. In this case, sending two or 3 different versions of underscore plus lo-dash might not be what you want. 
 
-In the same way that I don't want to force you to use a certain template language or view layer in ampersand I don't want to pick your utility library either! But unless I want to re-implement stuff in underscore piece by piece I have to hardcode ampersand-model to use a specific version number, 1.6.0 for example. Because I can't trust that underscore won't introduce backwards incompatible changes in 1.6.1. What choice do we have?
+In the same way that I don't want to force you to use a certain template language or view layer in ampersand I don't want to pick your utility library either! But unless I want to re-implement stuff in underscore piece by piece I have to hardcode ampersand-model to use a specific version number, 1.6.0 for example. Because I can't trust that underscore won't introduce backwards incompatible changes in 1.6.1. What choice do we have?
 
 Huge deal? Probably not. Annoying? definitely. 
 
-To be clear, I didn't want to tackle this problem, I want it to go away. I'm not the only one, my buddy [Feross]() apparently reached the same conclusion:
+What about lodash? Well, so conceptually it's not too far. There's a cli tool that will generate each of them as individual modules and all of those have been published to npm individually.
+
+But... here's the thing. Below is the dependency tree for [lodash.bind](https://www.npmjs.org/package/lodash.bind):
+
+```
+.
+└── node_modules
+    ├── lodash._createwrapper
+    │   └── node_modules
+    │       ├── lodash._basebind
+    │       │   └── node_modules
+    │       │       ├── lodash._basecreate
+    │       │       │   └── node_modules
+    │       │       │       ├── lodash._isnative
+    │       │       │       └── lodash.noop
+    │       │       ├── lodash._setbinddata
+    │       │       │   └── node_modules
+    │       │       │       ├── lodash._isnative
+    │       │       │       └── lodash.noop
+    │       │       └── lodash.isobject
+    │       │           └── node_modules
+    │       │               └── lodash._objecttypes
+    │       ├── lodash._basecreatewrapper
+    │       │   └── node_modules
+    │       │       ├── lodash._basecreate
+    │       │       │   └── node_modules
+    │       │       │       ├── lodash._isnative
+    │       │       │       └── lodash.noop
+    │       │       ├── lodash._setbinddata
+    │       │       │   └── node_modules
+    │       │       │       ├── lodash._isnative
+    │       │       │       └── lodash.noop
+    │       │       └── lodash.isobject
+    │       │           └── node_modules
+    │       │               └── lodash._objecttypes
+    │       └── lodash.isfunction
+    └── lodash._slice
+```
+
+It just seems a bit excessive for something simple. There's also lodash-node, which you then would require something in a nested path like: require('lodash/underscore/bind'). Which is pretty darn close. 
+
+But there's still some sublety there that's a bit annoying. Which is, that the lodash codebase will march on. Which means we might be at `2.4.1` right now, for example. Which means I have to pick a version range to march along with. But when 3.x.x comes out, we'll have to update dependencies in order to get proper de-duping. I don't want to track lodash either, if all I want is a utility method, in most cases it seems like it should never be outdated.
+
+To be clear, I didn't want to tackle this problem, *I want it to go away*. I'm not the only one, it seems. My buddy [Feross](http://twitter.com/feross) apparently reached the same conclusion and split out [the](https://www.npmjs.org/package/run-auto) [most](https://www.npmjs.org/package/run-parallel) [useful](https://www.npmjs.org/package/run-waterfall) [methods](https://www.npmjs.org/package/run-series) from async.
 
 Tiny module all the things! Independent modules, FTW! Right?!
 
-Sort of... yes. Feross and I independently started pulling out functions from `async`, `underscore` and others that we wanted as independent modules, and essentially just repackaging them and publishing them on npm. 
+Sort of... yes. Feross and I independently started pulling out functions popular modules `async`, `underscore` and others that we wanted as independent modules, and essentially just repackaging them and publishing them on npm. 
 
 It works great for one or two, but it masks another problem: Turns out it's kind of a pain. Having a seperate github repo, an npm package and a bunch of independently managed tests is one thing, but then also, what about names? You have to remember that you created a module called `extend-object` or was it `object-extend` and of course you have to remember it exists to begin with, go find it, then remember how to use it. Less-than-ideal. When I used to do a bunch of jQuery it was pretty simple, go to jQuery.com and look up what the  `closest()` method does. All in one, nice, cohesive site of releated stuff. 
 
