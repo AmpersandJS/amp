@@ -39,7 +39,7 @@ packages.forEach(function (method) {
 
     pack.name = 'amp-' + method;
     pack.main = method + '.js';
-    pack.description = 'Standalone module implementing the ' + method + ' util function.';
+    pack.description = method + ' util function.';
 
     fs.writeFileSync(dir + '/package.json', JSON.stringify(pack, null, 2));
 });

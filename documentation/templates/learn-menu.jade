@@ -1,0 +1,7 @@
+nav.nav-docs
+  a.logo.logo-ampersand(href="/")
+  a.section-top(href= '/learn/', class= indexActive ? 'active' : '') Guides
+
+  for page in globals.pages
+    a.section-sub(href= '/learn/' + page.url, class=(page.url === globals.currentPageUrl ? 'active' : ''))
+      = page.meta.pagetitle

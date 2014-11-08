@@ -1,0 +1,26 @@
+block vars
+  - var pageTitle = "Learn"
+  - var description = "Get started with Ampersand.js"
+  - var bodyClass = "learn-index"
+  - var indexActive = true
+  - var pageState = "learn"
+
+extends /templates/layout
+
+block content
+
+  .docs.cf
+    include /templates/learn-menu
+
+    .docs-content
+      section
+        h1 Guides and tutorials
+
+        p While the docs are meant for reference, these guides provide a bit more context about conventions, best practices, and how things work together. 
+
+        p If you have suggestions for other guides you'd like to see. Let us know by <a href="https://github.com/AmpersandJS/ampersandjs.com/issues/new">filing an issue</a>.
+
+        p Want to talk about Ampersand? Join us in IRC at #&yet on freenode.
+
+        .illustration.guide
+          img(src="/public/images/ampersand-trail-guide.svg")

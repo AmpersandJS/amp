@@ -1,0 +1,163 @@
+/*--------------------------------------------------------------------
+*
+* NAVIGATION
+*
+--------------------------------------------------------------------*/
+
+//- Main top navigation
+
+nav.nav-main
+  padding: 40px 60px 50px
+  font-family: $font-family-gotham-round
+  background: white
+  position: relative
+  z-index: 5
+
+  .logo-ampersand
+    min-height: 34px
+    margin-right: 20px
+    padding: 2px 0 2px 40px
+    display: inline-block
+    position: relative
+    background: none
+    font-weight: $font-weight-semibold
+    font-size: $font-size-large
+    color: $gray-darker
+    &:before
+      width: 35px
+      height: 35px
+      content: ''
+      display: block
+      left: 0
+      top: 0
+      position: absolute
+      background: no-repeat 0 0
+      background-image: url(../images/logo-ampersand.png)
+      background-image: $logo-ampersand, none
+      background-size: auto 34px
+
+  .nav-item
+    margin-right: 20px
+    display: inline-block
+    font-weight: $font-weight-normal
+    font-size: $font-size-small
+
+    &.active
+      color: $pink
+
+    &.external
+      position: relative
+      padding-right: 12px
+      &:after
+        width: 8px
+        height: 8px
+        margin-bottom: -(@height/2)
+        content: ''
+        display: block
+        position: absolute
+        right: 0
+        bottom: 50%
+        background-image: url(../images/icon-arrow.png)
+        background-image: url(../images/icon-arrow.svg), none
+        background-size: auto 8px
+
+  .button
+    margin-top: 0
+    float: right
+
+//- Docs left-hand navigation
+
+.nav-docs
+  padding-top: 50px
+  padding-bottom: 50px
+  position: fixed
+  top: 20px
+  bottom: 20px
+  z-index: 1
+  overflow-y: auto
+  font-family: $font-family-gotham-round
+  font-size: $font-size-small
+
+  .logo-ampersand
+    width: 50px
+    height: 60px
+    margin-bottom: 30px
+    margin-left: 20px
+
+  a
+    margin-bottom: 5px
+    display: block
+    line-height: 1.3em
+
+  .section-top
+    color: $gray-darker
+    margin-top: 10px
+
+  .section-sub
+    color: $gray
+    margin-left: 10px
+
+  .active
+    color: $pink
+
+  .section-sub-sub
+    color: $gray
+    margin-left: 10px
+    font-size: 90%
+
+    code
+      display: none
+
+    &:before
+      content: '- '
+
+  .section-sub, .section-sub-sub
+    &.active
+      color: $pink
+
+
+@media (max-width: 860px)
+
+  nav.nav-main
+    padding: 20px 20px 50px
+
+  .nav-docs
+    top: 10px
+
+    .logo-ampersand
+      width: 40px
+      height: 50px
+      margin-bottom: 20px
+
+@media (max-width: 768px)
+
+  nav.nav-main
+    text-align: center
+
+    .button
+      display: none
+
+  .learn-index
+    .nav-docs
+      padding-top: 0
+      text-align: center
+
+      .logo-ampersand
+        width: 40px
+        height: 50px
+        margin: 0 auto 20px
+
+@media (max-width: 600px)
+
+  nav.nav-main
+    padding: 20px 10px 40px
+
+    .logo-ampersand
+      width: 170px
+      margin: 0 auto 10px
+      display: block
+      text-align: left
+
+    .nav-item
+      margin-left: 10px
+      margin-right: 10px

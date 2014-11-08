@@ -11,7 +11,8 @@
     "make-remote": "node bin/convert-requires remote",
     "build-site": "node bin/build-site",
     "build": "npm run folders && npm run build-site",
-    "show-tree": "node bin/show-tree"
+    "show-tree": "node bin/show-tree",
+    "publish": "node bin/publish-all"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
@@ -56,5 +57,11 @@
     "to-camel-case",
     "unique-id",
     "values"
-  ]
+  ],
+  "devDependencies": {
+    "fs-extra": "^0.12.0",
+    "jade": "^1.7.0",
+    "marked": "^0.3.2"
+  },
+  "private": true
 }

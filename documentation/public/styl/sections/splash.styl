@@ -1,0 +1,145 @@
+/*--------------------------------------------------------------------
+*
+* SPLASH PAGE
+*
+--------------------------------------------------------------------*/
+
+.splash
+
+  .container, .callout
+    max-width: 820px
+    margin: 0 auto 70px
+    padding: 0 20px
+
+  //- Introduction section
+
+  .splash-intro
+    width: 70%
+    padding-right: 130px
+    float: left
+    text-align: left
+
+  .releases-list
+    width: 30%
+    float: left
+
+  //- Callout sections
+
+  .callout
+    text-align: center
+
+    h2, p
+      max-width: 450px
+      margin-left: auto
+      margin-right: auto
+
+    h2
+      margin-bottom: 35px
+      span
+        font-weight: $font-weight-normal
+        display: block
+
+  //- JS for Teams section
+
+  .logo-jsforteams
+    width: 110px
+    height: 100px
+    margin: 30px auto 30px
+    text-indent: -9999em
+    background-size: 110px 100px
+
+  .humanjs-monster
+    max-width: 200px
+    margin: 0 auto
+
+  //- Human JavaScript section
+
+  .humanjs-ipad
+    max-width: 150px
+
+  .logo-humanjs
+    width: 350px
+    height: 65px
+    margin: 30px auto 0
+    text-indent: -9999em;
+    background-size: 350px 65px
+    background-position: 0 0
+
+  //- List of featured modules
+
+  .modules-list
+    .module-card
+      float: left
+      min-height: 230px
+      width: 32%
+      &:not(:last-child)
+        margin-right: 2%
+      p
+        max-width: 100%
+        margin-left: 0
+        margin-right: 0
+
+  //- List of users & companies using Ampersand.js
+
+  .users-list
+    padding-bottom: 20px
+
+    .logo
+      height: 40px
+      margin: 30px 40px 0
+      display: inline-block
+      text-indent: -9999em
+      background-size: auto 40px
+      &.logo-talky
+        width: 65px
+      &.logo-andbang
+        width: 45px
+      &.logo-otalk
+        width: 100px
+      &.logo-yahoo
+        width: 165px
+      //- Adjusting margin between logos
+      @media (max-width: 768px)
+        margin-left: 20px
+        margin-right: 20px
+
+@media (max-width: 700px)
+
+  .splash
+
+    .splash-intro
+      width: 100%
+      padding-right: 0
+
+      .button
+        max-width: 250px
+        margin: 30px auto 20px
+        display: block
+
+    .releases-list
+      width: 100%
+      margin-top: 40px
+      padding-top: 20px
+      border-top: 1px solid $border-color
+      text-align: center
+
+    .logo-humanjs
+      width: 280px
+      height: 52px
+      background-size: 280px auto
+
+    .modules-list
+      .module-card
+        float: none
+        width: 100%
+        min-height: 0
+        &:not(:last-child)
+          margin-right: 0
+
+    .projects-list
+
+      .project
+        width: 100%
+        margin-bottom: 30px
+        padding: 0 10px
+        float: none

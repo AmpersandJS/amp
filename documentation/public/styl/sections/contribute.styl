@@ -1,0 +1,72 @@
+/*--------------------------------------------------------------------
+*
+* CONTRIBUTE PAGE
+*
+--------------------------------------------------------------------*/
+
+.contribute
+
+  .container
+    max-width: 790px
+    margin: 0 auto 70px
+    text-align: center
+
+  h2, p, ol, ul, dl, blockquote
+    max-width: 500px
+    margin-left: auto
+    margin-right: auto
+    padding: 0 20px
+
+  .member
+    margin-bottom: 30px
+    padding: 0 10px
+    float: left
+
+    img
+      width: 100%
+      margin: 0 auto 10px
+      display: block
+      border-radius: 4px
+
+  .core-team
+    margin: 40px auto
+    max-width: 600px
+
+    .member
+      width: 33.33%
+      &:nth-child(3n+1)
+        clear: left
+
+      img
+        max-width: 150px
+
+  .contributors-list
+    margin: 40px auto
+    padding: 0 10px
+
+    .member
+      width: 14.28%
+      display: block
+
+@media (max-width: 700px)
+  .contribute
+
+    .contributors-list
+      .member
+        width: 20%
+
+@media (max-width: 500px)
+  .contribute
+
+    .core-team
+      .member
+        width: 50%
+        &:nth-child(2n+1)
+          clear: left
+        &:nth-child(3n+1)
+          clear: none
+
+    .contributors-list
+      .member
+        width: 25%
+        margin-bottom: 15px

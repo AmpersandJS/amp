@@ -1,0 +1,67 @@
+mixin renderDep(obj, first)
+  if (first && !obj.deps.length)
+    p (none)
+  else 
+    ul
+      each dep in obj.deps
+        li
+          a(href='#' + dep.data.name)= dep.data.name
+        +renderDep(dep)
+        
+
+
+extends templates/layout
+
+block content
+
+  .docs.cf
+    nav.nav-docs
+      a.logo.logo-ampersand(href="/")
+      a.section-top(href= '#intro') Introduction
+      a.section-top(href= '#') Modules
+      for module, key in globals[0].packages
+        a.section-sub(href= '#' + module.name)!= module.name
+
+    .docs-content
+      section
+        a.anchor(name= "intro", href= '#intro')
+          h1
+            span.header-link
+            | Amp &mdash; utility functions as individual npm modules
+        
+        p This page has consolidated API reference documentation for the core modules in a single page for the sake of being 'cmd+f' friendly.
+
+        p Let's stop including underscore in other modules for a single method.
+
+      for module, key in globals[0].packages
+        section.module
+          a.anchor(name= module.name, href= '#' + module.name)
+            h1
+              span.header-link
+              | #{module.name}
+          .module-card
+            p.module-version= 'v' + module.pack.version
+            p.module-description= module.pack.description
+            p.module-links
+              a(href='https://www.npmjs.org/package/#{module.name}') npm
+
+          div
+            h3 Usage
+
+            pre
+              code npm install --save #{module.name}
+
+            div!= module.docHtml
+            
+            h3 The code
+            pre
+              code.lang-javascript.hljs= module.code 
+            
+            h3 Dependency tree
+
+            +renderDep(module.dependencyTree, true)
+
+
+          div!= module.html
+
+  script(src="/documentation/public/js/setup.js")

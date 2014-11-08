@@ -65,6 +65,8 @@ It just seems a bit excessive for something simple. There's also lodash-node, wh
 
 But there's still some sublety there that's a bit annoying. Which is, that the lodash codebase will march on. Which means we might be at `2.4.1` right now, for example. Which means I have to pick a version range to march along with. But when 3.x.x comes out, we'll have to update dependencies in order to get proper de-duping. I don't want to track lodash either, if all I want is a utility method, in most cases it seems like it should never be outdated.
 
+Take for example this: https://www.npmjs.org/package/lodash.noop, first of all... why?!? Second of all, why is it at 2.4.1? 
+
 To be clear, I didn't want to tackle this problem, *I want it to go away*. I'm not the only one, it seems. My buddy [Feross](http://twitter.com/feross) apparently reached the same conclusion and split out [the](https://www.npmjs.org/package/run-auto) [most](https://www.npmjs.org/package/run-parallel) [useful](https://www.npmjs.org/package/run-waterfall) [methods](https://www.npmjs.org/package/run-series) from async.
 
 Tiny module all the things! Independent modules, FTW! Right?!

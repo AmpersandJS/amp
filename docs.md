@@ -29,10 +29,6 @@ module.exports = function before(times, fn) {
 ### Dependency tree
 
 ```json
-{
-    "name": "before",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -79,19 +75,6 @@ module.exports = function bind(func, context) {
 ### Dependency tree
 
 ```json
-{
-    "name": "bind",
-    "deps": [
-        {
-            "name": "is-function",
-            "deps": []
-        },
-        {
-            "name": "is-object",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -117,28 +100,6 @@ module.exports = function clone(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "clone",
-    "deps": [
-        {
-            "name": "is-object",
-            "deps": []
-        },
-        {
-            "name": "is-array",
-            "deps": []
-        },
-        {
-            "name": "extend",
-            "deps": [
-                {
-                    "name": "is-object",
-                    "deps": []
-                }
-            ]
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -170,24 +131,6 @@ module.exports = function contains(obj, target) {
 ### Dependency tree
 
 ```json
-{
-    "name": "contains",
-    "deps": [
-        {
-            "name": "values",
-            "deps": []
-        },
-        {
-            "name": "index-of",
-            "deps": [
-                {
-                    "name": "is-object",
-                    "deps": []
-                }
-            ]
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -238,10 +181,6 @@ module.exports = function debounce(func, wait, immediate) {
 ### Dependency tree
 
 ```json
-{
-    "name": "debounce",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -271,15 +210,6 @@ module.exports = function defaults(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "defaults",
-    "deps": [
-        {
-            "name": "is-object",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -310,10 +240,6 @@ module.exports = function delay(func, wait) {
 ### Dependency tree
 
 ```json
-{
-    "name": "delay",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -374,24 +300,6 @@ module.exports = function each(obj, iteratee, context) {
 ### Dependency tree
 
 ```json
-{
-    "name": "each",
-    "deps": [
-        {
-            "name": "keys",
-            "deps": [
-                {
-                    "name": "has",
-                    "deps": []
-                },
-                {
-                    "name": "is-object",
-                    "deps": []
-                }
-            ]
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -438,10 +346,6 @@ module.exports.unescape = createEscaper(unescapeMap);
 ### Dependency tree
 
 ```json
-{
-    "name": "escape",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -472,15 +376,6 @@ module.exports = function(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "extend",
-    "deps": [
-        {
-            "name": "is-object",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -503,10 +398,6 @@ module.exports = function has(obj, key) {
 ### Dependency tree
 
 ```json
-{
-    "name": "has",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -531,15 +422,6 @@ module.exports = function indexOf(obj, val) {
 ### Dependency tree
 
 ```json
-{
-    "name": "index-of",
-    "deps": [
-        {
-            "name": "is-object",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -567,24 +449,6 @@ module.exports = function invert(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "invert",
-    "deps": [
-        {
-            "name": "keys",
-            "deps": [
-                {
-                    "name": "has",
-                    "deps": []
-                },
-                {
-                    "name": "is-object",
-                    "deps": []
-                }
-            ]
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -607,10 +471,6 @@ module.exports = function (obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-arguments",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -634,10 +494,6 @@ module.exports = isArray || function isArray(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-array",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -657,10 +513,6 @@ module.exports = function isBoolean(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-boolean",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -683,10 +535,6 @@ module.exports = function isFunction(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-date",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -717,23 +565,6 @@ module.exports = function isEmpty(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-empty",
-    "deps": [
-        {
-            "name": "is-array",
-            "deps": []
-        },
-        {
-            "name": "is-string",
-            "deps": []
-        },
-        {
-            "name": "is-arguments",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -848,28 +679,6 @@ module.exports = function isEqual(a, b) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-equal",
-    "deps": [
-        {
-            "name": "keys",
-            "deps": [
-                {
-                    "name": "has",
-                    "deps": []
-                },
-                {
-                    "name": "is-object",
-                    "deps": []
-                }
-            ]
-        },
-        {
-            "name": "is-function",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -899,10 +708,6 @@ module.exports = func;
 ### Dependency tree
 
 ```json
-{
-    "name": "is-function",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -930,15 +735,6 @@ module.exports = function isNaN(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-nan",
-    "deps": [
-        {
-            "name": "is-number",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -958,10 +754,6 @@ module.exports = function isNull(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-null",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -984,10 +776,6 @@ module.exports = function isNumber(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-number",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1008,10 +796,6 @@ module.exports = function isObject(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-object",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1034,10 +818,6 @@ module.exports = function isRegExp(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-regexp",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1060,10 +840,6 @@ module.exports = function isString(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-string",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1083,10 +859,6 @@ module.exports = function isUndefined(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "is-undefined",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1115,19 +887,6 @@ module.exports = function keys(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "keys",
-    "deps": [
-        {
-            "name": "has",
-            "deps": []
-        },
-        {
-            "name": "is-object",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -1152,10 +911,6 @@ module.exports = function last(arr, n, guard) {
 ### Dependency tree
 
 ```json
-{
-    "name": "last",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1184,15 +939,6 @@ module.exports = function once(fn) {
 ### Dependency tree
 
 ```json
-{
-    "name": "once",
-    "deps": [
-        {
-            "name": "before",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -1219,15 +965,6 @@ module.exports = function result(object, property, defaultValue) {
 ### Dependency tree
 
 ```json
-{
-    "name": "result",
-    "deps": [
-        {
-            "name": "is-function",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -1253,10 +990,6 @@ module.exports = function size(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "size",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1285,15 +1018,6 @@ module.exports = function toCamelCase(string) {
 ### Dependency tree
 
 ```json
-{
-    "name": "to-camel-case",
-    "deps": [
-        {
-            "name": "is-string",
-            "deps": []
-        }
-    ]
-}
 ```
 
 ### Credits
@@ -1320,10 +1044,6 @@ module.exports = function uniqueId(prefix) {
 ### Dependency tree
 
 ```json
-{
-    "name": "unique-id",
-    "deps": []
-}
 ```
 
 ### Credits
@@ -1349,10 +1069,6 @@ module.exports = function values(obj) {
 ### Dependency tree
 
 ```json
-{
-    "name": "values",
-    "deps": []
-}
 ```
 
 ### Credits

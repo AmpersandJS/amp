@@ -1,0 +1,17 @@
+block vars
+  - var pageTitle = "Learn"
+  - var description = "Get started with Ampersand.js"
+  - var bodyClass = "docs-page"
+  - var pageState = "learn"
+
+extends /templates/layout
+
+block content
+
+  .docs.cf
+    include /templates/learn-menu
+
+    .docs-content
+      section!= globals.content
+
+    a.back(href="/learn") Back to Guides
