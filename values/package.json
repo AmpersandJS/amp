@@ -1,7 +1,7 @@
 {
   "name": "amp-values",
   "version": "1.0.0",
-  "description": "Standalone module implementing the values util function.",
+  "description": "values util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "amp-invert",
   "version": "1.0.0",
-  "description": "Standalone module implementing the invert util function.",
+  "description": "invert util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

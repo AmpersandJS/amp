@@ -1,7 +1,7 @@
 {
   "name": "amp-is-undefined",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-undefined util function.",
+  "description": "is-undefined util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "amp-last",
   "version": "1.0.0",
-  "description": "Standalone module implementing the last util function.",
+  "description": "last util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

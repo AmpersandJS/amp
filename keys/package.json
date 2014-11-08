@@ -1,7 +1,7 @@
 {
   "name": "amp-keys",
   "version": "1.0.0",
-  "description": "Standalone module implementing the keys util function.",
+  "description": "keys util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

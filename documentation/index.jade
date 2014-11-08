@@ -9,7 +9,6 @@ mixin renderDep(obj, first)
         +renderDep(dep)
         
 
-
 extends templates/layout
 
 block content
@@ -60,7 +59,6 @@ block content
             h3 Dependency tree
 
             +renderDep(module.dependencyTree, true)
-
 
           div!= module.html
 

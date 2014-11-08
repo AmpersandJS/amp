@@ -1,7 +1,7 @@
 {
   "name": "amp-is-empty",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-empty util function.",
+  "description": "is-empty util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

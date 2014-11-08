@@ -1,7 +1,7 @@
 {
   "name": "amp-size",
   "version": "1.0.0",
-  "description": "Standalone module implementing the size util function.",
+  "description": "size util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

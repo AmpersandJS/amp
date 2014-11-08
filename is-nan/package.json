@@ -1,7 +1,7 @@
 {
   "name": "amp-is-nan",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-nan util function.",
+  "description": "is-nan util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

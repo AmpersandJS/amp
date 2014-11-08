@@ -1,7 +1,7 @@
 {
   "name": "amp-before",
   "version": "1.0.0",
-  "description": "Standalone module implementing the before util function.",
+  "description": "before util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node bin/test-all.js",
     "readmes": "node bin/build-readmes",
-    "folders": "node bin/gen-folders",
+    "folders": "node bin/gen-folders && npm run readmes",
     "make-local": "node bin/convert-requires local",
     "make-remote": "node bin/convert-requires remote",
     "build-site": "node bin/build-site",

@@ -1,7 +1,7 @@
 {
   "name": "amp-index-of",
   "version": "1.0.0",
-  "description": "Standalone module implementing the index-of util function.",
+  "description": "index-of util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

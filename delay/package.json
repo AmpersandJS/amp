@@ -1,7 +1,7 @@
 {
   "name": "amp-delay",
   "version": "1.0.0",
-  "description": "Standalone module implementing the delay util function.",
+  "description": "delay util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

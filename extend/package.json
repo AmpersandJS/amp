@@ -1,7 +1,7 @@
 {
   "name": "amp-extend",
   "version": "1.0.0",
-  "description": "Standalone module implementing the extend util function.",
+  "description": "extend util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

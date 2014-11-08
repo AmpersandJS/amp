@@ -1,7 +1,7 @@
 {
   "name": "amp-clone",
   "version": "1.0.0",
-  "description": "Standalone module implementing the clone util function.",
+  "description": "clone util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "amp-contains",
   "version": "1.0.0",
-  "description": "Standalone module implementing the contains util function.",
+  "description": "contains util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

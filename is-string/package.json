@@ -1,7 +1,7 @@
 {
   "name": "amp-is-string",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-string util function.",
+  "description": "is-string util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "amp-is-arguments",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-arguments util function.",
+  "description": "is-arguments util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

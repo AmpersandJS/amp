@@ -1,7 +1,7 @@
 {
   "name": "amp-is-function",
   "version": "1.0.0",
-  "description": "Standalone module implementing the is-function util function.",
+  "description": "is-function util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

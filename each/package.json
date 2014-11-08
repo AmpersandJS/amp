@@ -1,7 +1,7 @@
 {
   "name": "amp-each",
   "version": "1.0.0",
-  "description": "Standalone module implementing the each util function.",
+  "description": "each util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {

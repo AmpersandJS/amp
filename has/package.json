@@ -1,7 +1,7 @@
 {
   "name": "amp-has",
   "version": "1.0.0",
-  "description": "Standalone module implementing the has util function.",
+  "description": "has util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {
