@@ -13,4 +13,10 @@ getPackages().forEach(function (pack) {
     } else {
         require(pack.folder + '/test');
     }
+    if (!pack.doc) {
+        test(pack.name + ' doc integrity test', function (t) {
+            t.fail('there are no docs for' + pack.name);
+            t.end();
+        });
+    }
 });
