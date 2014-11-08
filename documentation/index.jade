@@ -6,7 +6,8 @@ mixin renderDep(obj, first)
       each dep in obj.deps
         li
           a(href='#' + dep.data.name)= dep.data.name
-        +renderDep(dep)
+          if (dep.deps.length)
+            +renderDep(dep)
         
 
 extends templates/layout

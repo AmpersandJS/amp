@@ -34,15 +34,26 @@
             <h1><span class="header-link"></span>amp-before</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the before util function.</p>
+            <p class="module-description">before util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-before">npm</a></p>
           </div>
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-before</code></pre>
-            <div><pre><code class="lang-js">before(count, function);
+            <div><pre><code class="lang-js">before(3, function);
 </code></pre>
 <p>Creates a version of the function that can be called no more than count times. The result of the last function call is memoized and returned when count has been reached.</p>
+<pre><code class="lang-js">var before = require(&#39;amp-before&#39;);
+var timesCalled = 0;
+var getCount = function () {
+    return ++timesCalled;
+}
+var modified = before(3, getCount); //=&gt; returns modified function
+
+console.log(modified()); //=&gt; 1
+console.log(modified()); //=&gt; 2
+console.log(modified()); //=&gt; 2
+</code></pre>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">module.exports = function before(times, fn) {
@@ -66,15 +77,30 @@
             <h1><span class="header-link"></span>amp-bind</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the bind util function.</p>
+            <p class="module-description">bind util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-bind">npm</a></p>
           </div>
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-bind</code></pre>
-            <div><pre><code>bind(function, object, *arguments);
-</code></pre><p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
+            <div><pre><code class="lang-javascript">bind(func, object, *arguments);
+</code></pre>
+<p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
 <p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you have native <code>Function.prototype.bind</code> there&#39;s really no reason not to just use that. It even does the partial application as described above. Most JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
+<pre><code class="lang-javascript">var bind = require(&#39;amp-bind&#39;);
+
+var obj = {};
+var func = function (greeting, who) {
+    console.log(greeting, who);    
+    console.log(this === obj);
+};
+
+var bound = bind(func, object, &#39;hello&#39;, &#39;there&#39;);
+
+bound();
+//=&gt; &#39;hello there&#39;
+//=&gt; true
+</code></pre>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isFunction = require('../is-function');
@@ -103,12 +129,10 @@ module.exports = function bind(func, context) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-function">amp-is-function</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-function">amp-is-function</a>
+              </li>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -117,7 +141,7 @@ module.exports = function bind(func, context) {
             <h1><span class="header-link"></span>amp-clone</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the clone util function.</p>
+            <p class="module-description">clone util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-clone">npm</a></p>
           </div>
           <div>
@@ -137,18 +161,16 @@ module.exports = function clone(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-is-array">amp-is-array</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-extend">amp-extend</a></li>
-              <ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+              <li><a href="#amp-is-array">amp-is-array</a>
+              </li>
+              <li><a href="#amp-extend">amp-extend</a>
                 <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
                 </ul>
-              </ul>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -157,7 +179,7 @@ module.exports = function clone(obj) {
             <h1><span class="header-link"></span>amp-contains</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the contains util function.</p>
+            <p class="module-description">contains util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-contains">npm</a></p>
           </div>
           <div>
@@ -183,15 +205,14 @@ module.exports = function contains(obj, target) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-values">amp-values</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-index-of">amp-index-of</a></li>
-              <ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+              <li><a href="#amp-values">amp-values</a>
+              </li>
+              <li><a href="#amp-index-of">amp-index-of</a>
                 <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
                 </ul>
-              </ul>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -200,7 +221,7 @@ module.exports = function contains(obj, target) {
             <h1><span class="header-link"></span>amp-debounce</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the debounce util function.</p>
+            <p class="module-description">debounce util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-debounce">npm</a></p>
           </div>
           <div>
@@ -252,7 +273,7 @@ module.exports = function debounce(func, wait, immediate) {
             <h1><span class="header-link"></span>amp-defaults</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the defaults util function.</p>
+            <p class="module-description">defaults util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-defaults">npm</a></p>
           </div>
           <div>
@@ -276,9 +297,8 @@ module.exports = function defaults(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -287,7 +307,7 @@ module.exports = function defaults(obj) {
             <h1><span class="header-link"></span>amp-delay</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the delay util function.</p>
+            <p class="module-description">delay util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-delay">npm</a></p>
           </div>
           <div>
@@ -317,7 +337,7 @@ module.exports = function delay(func, wait) {
             <h1><span class="header-link"></span>amp-each</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the each util function.</p>
+            <p class="module-description">each util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-each">npm</a></p>
           </div>
           <div>
@@ -372,15 +392,14 @@ module.exports = function each(obj, iteratee, context) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-keys">amp-keys</a></li>
-              <ul>
-                <li><a href="#amp-has">amp-has</a></li>
+              <li><a href="#amp-keys">amp-keys</a>
                 <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
                 </ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
-                <ul>
-                </ul>
-              </ul>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -389,7 +408,7 @@ module.exports = function each(obj, iteratee, context) {
             <h1><span class="header-link"></span>amp-escape</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the escape util function.</p>
+            <p class="module-description">escape util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-escape">npm</a></p>
           </div>
           <div>
@@ -437,7 +456,7 @@ module.exports.unescape = createEscaper(unescapeMap);
             <h1><span class="header-link"></span>amp-extend</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the extend util function.</p>
+            <p class="module-description">extend util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-extend">npm</a></p>
           </div>
           <div>
@@ -462,9 +481,8 @@ module.exports = function(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -473,7 +491,7 @@ module.exports = function(obj) {
             <h1><span class="header-link"></span>amp-has</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the has util function.</p>
+            <p class="module-description">has util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-has">npm</a></p>
           </div>
           <div>
@@ -497,7 +515,7 @@ module.exports = function has(obj, key) {
             <h1><span class="header-link"></span>amp-index-of</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the index-of util function.</p>
+            <p class="module-description">index-of util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-index-of">npm</a></p>
           </div>
           <div>
@@ -516,9 +534,8 @@ module.exports = function indexOf(obj, val) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -527,7 +544,7 @@ module.exports = function indexOf(obj, val) {
             <h1><span class="header-link"></span>amp-invert</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the invert util function.</p>
+            <p class="module-description">invert util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-invert">npm</a></p>
           </div>
           <div>
@@ -549,15 +566,14 @@ module.exports = function invert(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-keys">amp-keys</a></li>
-              <ul>
-                <li><a href="#amp-has">amp-has</a></li>
+              <li><a href="#amp-keys">amp-keys</a>
                 <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
                 </ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
-                <ul>
-                </ul>
-              </ul>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -566,7 +582,7 @@ module.exports = function invert(obj) {
             <h1><span class="header-link"></span>amp-is-arguments</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-arguments util function.</p>
+            <p class="module-description">is-arguments util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-arguments">npm</a></p>
           </div>
           <div>
@@ -590,7 +606,7 @@ module.exports = function (obj) {
             <h1><span class="header-link"></span>amp-is-array</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-array util function.</p>
+            <p class="module-description">is-array util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-array">npm</a></p>
           </div>
           <div>
@@ -615,7 +631,7 @@ module.exports = isArray || function isArray(obj) {
             <h1><span class="header-link"></span>amp-is-boolean</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-boolean util function.</p>
+            <p class="module-description">is-boolean util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-boolean">npm</a></p>
           </div>
           <div>
@@ -636,7 +652,7 @@ module.exports = isArray || function isArray(obj) {
             <h1><span class="header-link"></span>amp-is-date</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-date util function.</p>
+            <p class="module-description">is-date util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-date">npm</a></p>
           </div>
           <div>
@@ -660,7 +676,7 @@ module.exports = function isFunction(obj) {
             <h1><span class="header-link"></span>amp-is-empty</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-empty util function.</p>
+            <p class="module-description">is-empty util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-empty">npm</a></p>
           </div>
           <div>
@@ -685,15 +701,12 @@ module.exports = function isEmpty(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-array">amp-is-array</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-is-string">amp-is-string</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-is-arguments">amp-is-arguments</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-array">amp-is-array</a>
+              </li>
+              <li><a href="#amp-is-string">amp-is-string</a>
+              </li>
+              <li><a href="#amp-is-arguments">amp-is-arguments</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -702,7 +715,7 @@ module.exports = function isEmpty(obj) {
             <h1><span class="header-link"></span>amp-is-equal</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-equal util function.</p>
+            <p class="module-description">is-equal util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-equal">npm</a></p>
           </div>
           <div>
@@ -811,18 +824,16 @@ module.exports = function isEqual(a, b) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-keys">amp-keys</a></li>
-              <ul>
-                <li><a href="#amp-has">amp-has</a></li>
+              <li><a href="#amp-keys">amp-keys</a>
                 <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
                 </ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
-                <ul>
-                </ul>
-              </ul>
-              <li><a href="#amp-is-function">amp-is-function</a></li>
-              <ul>
-              </ul>
+              </li>
+              <li><a href="#amp-is-function">amp-is-function</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -831,7 +842,7 @@ module.exports = function isEqual(a, b) {
             <h1><span class="header-link"></span>amp-is-function</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-function util function.</p>
+            <p class="module-description">is-function util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-function">npm</a></p>
           </div>
           <div>
@@ -862,7 +873,7 @@ module.exports = func;
             <h1><span class="header-link"></span>amp-is-nan</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-nan util function.</p>
+            <p class="module-description">is-nan util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-nan">npm</a></p>
           </div>
           <div>
@@ -884,9 +895,8 @@ module.exports = function isNaN(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-number">amp-is-number</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-number">amp-is-number</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -895,7 +905,7 @@ module.exports = function isNaN(obj) {
             <h1><span class="header-link"></span>amp-is-null</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-null util function.</p>
+            <p class="module-description">is-null util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-null">npm</a></p>
           </div>
           <div>
@@ -916,7 +926,7 @@ module.exports = function isNaN(obj) {
             <h1><span class="header-link"></span>amp-is-number</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-number util function.</p>
+            <p class="module-description">is-number util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-number">npm</a></p>
           </div>
           <div>
@@ -940,7 +950,7 @@ module.exports = function isNumber(obj) {
             <h1><span class="header-link"></span>amp-is-object</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-object util function.</p>
+            <p class="module-description">is-object util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object">npm</a></p>
           </div>
           <div>
@@ -962,7 +972,7 @@ module.exports = function isNumber(obj) {
             <h1><span class="header-link"></span>amp-is-regexp</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-regexp util function.</p>
+            <p class="module-description">is-regexp util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-regexp">npm</a></p>
           </div>
           <div>
@@ -986,7 +996,7 @@ module.exports = function isRegExp(obj) {
             <h1><span class="header-link"></span>amp-is-string</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-string util function.</p>
+            <p class="module-description">is-string util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-string">npm</a></p>
           </div>
           <div>
@@ -1010,7 +1020,7 @@ module.exports = function isString(obj) {
             <h1><span class="header-link"></span>amp-is-undefined</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the is-undefined util function.</p>
+            <p class="module-description">is-undefined util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-undefined">npm</a></p>
           </div>
           <div>
@@ -1031,7 +1041,7 @@ module.exports = function isString(obj) {
             <h1><span class="header-link"></span>amp-keys</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the keys util function.</p>
+            <p class="module-description">keys util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-keys">npm</a></p>
           </div>
           <div>
@@ -1054,12 +1064,10 @@ module.exports = function keys(obj) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-has">amp-has</a></li>
-              <ul>
-              </ul>
-              <li><a href="#amp-is-object">amp-is-object</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-has">amp-has</a>
+              </li>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -1068,7 +1076,7 @@ module.exports = function keys(obj) {
             <h1><span class="header-link"></span>amp-last</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the last util function.</p>
+            <p class="module-description">last util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-last">npm</a></p>
           </div>
           <div>
@@ -1094,7 +1102,7 @@ module.exports = function last(arr, n, guard) {
             <h1><span class="header-link"></span>amp-once</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the once util function.</p>
+            <p class="module-description">once util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-once">npm</a></p>
           </div>
           <div>
@@ -1115,9 +1123,8 @@ module.exports = function once(fn) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-before">amp-before</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-before">amp-before</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -1126,7 +1133,7 @@ module.exports = function once(fn) {
             <h1><span class="header-link"></span>amp-result</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the result util function.</p>
+            <p class="module-description">result util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-result">npm</a></p>
           </div>
           <div>
@@ -1147,9 +1154,8 @@ module.exports = function result(object, property, defaultValue) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-function">amp-is-function</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-function">amp-is-function</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -1158,7 +1164,7 @@ module.exports = function result(object, property, defaultValue) {
             <h1><span class="header-link"></span>amp-size</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the size util function.</p>
+            <p class="module-description">size util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-size">npm</a></p>
           </div>
           <div>
@@ -1182,7 +1188,7 @@ module.exports = function result(object, property, defaultValue) {
             <h1><span class="header-link"></span>amp-to-camel-case</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the to-camel-case util function.</p>
+            <p class="module-description">to-camel-case util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-to-camel-case">npm</a></p>
           </div>
           <div>
@@ -1205,9 +1211,8 @@ module.exports = function toCamelCase(string) {
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
-              <li><a href="#amp-is-string">amp-is-string</a></li>
-              <ul>
-              </ul>
+              <li><a href="#amp-is-string">amp-is-string</a>
+              </li>
             </ul>
           </div>
           <div></div>
@@ -1216,7 +1221,7 @@ module.exports = function toCamelCase(string) {
             <h1><span class="header-link"></span>amp-unique-id</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the unique-id util function.</p>
+            <p class="module-description">unique-id util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-unique-id">npm</a></p>
           </div>
           <div>
@@ -1244,7 +1249,7 @@ module.exports = function uniqueId(prefix) {
             <h1><span class="header-link"></span>amp-values</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">Standalone module implementing the values util function.</p>
+            <p class="module-description">values util function.</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-values">npm</a></p>
           </div>
           <div>
