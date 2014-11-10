@@ -87,7 +87,7 @@ The idea:
     4. the doc file
     5. the generated readme
 3. Shared build system
-4. Namespaced package names `amp-` so we can 
+4. Namespaced package names `amp-` so we can keep the module names as descriptive, and therefore memorable, as possible without dealing with too many name conflicts.
 5. Shared test sytem (can be tested invidually or all together)
 6. We generate a nice, easily searchable doc site: something.com
 7. All the modules are all published individually
@@ -96,6 +96,6 @@ The idea:
 10. Because there's no bundling and they're all individual modules, the collection can keep growing over time and there's very little "inclusion cost". So things that are currently relegated to underscore.contrib can be included too. 
 11. We've started with the underscore methods we needed for ampersand, but plan to continue to expand it. 
 
-We've calling it the [amp] project, check it out, and [tweet it some love](http://twitter.com/status?)
+We're calling it the [amp] project, check it out, and [tweet it some love](http://twitter.com/status?)
 
-I'm [@HenrikJoreteg](http://twitter.com/henrikjoreteg) see you on twitter! Also, I wrote a book about sane JavaScript called [Human JavaScript](http://humanjavascript.com), [I teach JS](http://andyet.com/training), in addition, if you liked this post odds are you'll want to [check out Ampersand.js](http://ampersandjs.com) as well. If you want to hang out with a bunch of people working with these tools, come hang out in the #&yet IRC channel on freenode.
+I'm [@HenrikJoreteg](http://twitter.com/henrikjoreteg) see you on twitter! Also, I wrote a book about sane JavaScript called [Human JavaScript](http://humanjavascript.com), [I teach JS](http://andyet.com/training), in addition, if you liked this post odds are you'll want to [check out Ampersand.js](http://ampersandjs.com) as well. If you want to hang out with a bunch of people working with these tools, come join the [project chat on Gitter](https://gitter.im/AmpersandJS/AmpersandJS) or connect via IRC [using the gitter bridge](https://irc.gitter.im/).
