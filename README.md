@@ -1,5 +1,9 @@
 # amp (an idea)
 
+**WARNING: not yet published, not ready for use**
+
+**THE MERITS OF THIS ARE STILL BEING DISCUSSED**
+
 So, there's a bit of a problem. 
 
 We don't want underscore as a hard dependency of a bunch of little libraries. In many of the modules in [Ampersand.js](http://ampersandjs.com/) we only want a single function. Also, I don't want to build some half-ass, untested implementation of some utility function that should just be rock solid.
@@ -21,7 +25,7 @@ Ideally we want a bunch of small independent modules that are more like a loose 
 
 ## So why not just use a bunch of already isolated modules like `extend-object` from npm?
 
-Well, because wouldn't it be nice if they had really easy memorable names and a nice shared documentation site? They don't, but this will!
+Well, because wouldn't it be nice if they had really easy memorable names and a nice shared documentation site? They don't, but [this does!
 
 So, we namespace! And we create a bunch of build scripts to make them super consistent "amp-". Keep and maintain them all in a single git repo, but publish them independently.
 
