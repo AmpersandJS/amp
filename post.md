@@ -75,7 +75,7 @@ Sort of... yes. Feross and I independently started pulling out functions popular
 
 It works great for one or two, but it masks another problem: Turns out it's kind of a pain. Having a seperate github repo, an npm package and a bunch of independently managed tests is one thing, but then also, what about names? You have to remember that you created a module called `extend-object` or was it `object-extend` and of course you have to remember it exists to begin with, go find it, then remember how to use it. Less-than-ideal. When I used to do a bunch of jQuery it was pretty simple, go to jQuery.com and look up what the  `closest()` method does. All in one, nice, cohesive site of releated stuff. 
 
-Truth is: *the vast majority of the underscore methods are all generally related*. They solve a certain class of problem. They're essentially the "low-level" problems you often need, but don't want ot re-invent, but still don't want to be forced to use as an all-or-nothing.
+Truth is: *the vast majority of the underscore methods are all generally related*. They solve a certain class of problem. They're essentially the "low-level" problems you often need, but don't want to re-invent, but still don't want to be forced to use as an all-or-nothing.
 
 The idea:
 
