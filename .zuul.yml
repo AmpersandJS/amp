@@ -7,7 +7,7 @@ browsers:
   - name: safari
     version: latest
   - name: ie
-    version: 9..latest
+    version: 7..latest
   - name: iphone
     version: 6.1
   - name: android
