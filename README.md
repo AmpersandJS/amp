@@ -1,6 +1,6 @@
 # amp
 
-![](https://travis-ci.org/AmpersandJS/amp.svg) ![](https://badge.fury.io/js/amp.svg)
+![](https://travis-ci.org/AmpersandJS/amp.svg)
 
 **WARNING: not yet published, not ready for use**
 
