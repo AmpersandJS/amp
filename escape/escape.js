@@ -1,3 +1,4 @@
+var keys = require('../keys');
 var unescapeMap = {};
 var escapeMap = {
     '&': '&amp;',
@@ -17,7 +18,7 @@ var createEscaper = function(map) {
         return map[match];
     };
     // Regexes for identifying a key that needs to be escaped
-    var source = '(?:' + Object.keys(map).join('|') + ')';
+    var source = '(?:' + keys(map).join('|') + ')';
     var testRegexp = RegExp(source);
     var replaceRegexp = RegExp(source, 'g');
     return function (string) {

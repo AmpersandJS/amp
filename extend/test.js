@@ -1,5 +1,7 @@
 var test = require('tape');
 var extend = require('./extend');
+var keys = require('../keys');
+
 
 test('amp-extend', function(t) {
     var result;
@@ -11,7 +13,7 @@ test('amp-extend', function(t) {
     result = extend({x: 'x'}, {a: 'a', x: 2}, {a: 'b'});
     t.deepEqual(result, {x: 2, a: 'b'}, 'extending from multiple source objects last property trumps');
     result = extend({}, {a: void 0, b: null});
-    t.deepEqual(Object.keys(result), ['a', 'b'], 'extend copies undefined values');
+    t.deepEqual(keys(result), ['a', 'b'], 'extend copies undefined values');
 
     var F = function() {};
     F.prototype = {a: 'b'};

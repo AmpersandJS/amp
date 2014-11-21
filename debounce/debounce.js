@@ -1,5 +1,10 @@
 var now = Date.now;
 
+if (!now) {
+    now = function () {
+        return (new Date()).valueOf();
+    }
+}
 
 module.exports = function debounce(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
