@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var indexOf = require('./' + pack.main);
+var indexOf = require('./index-of');
 
 
 test('amp-index-of', function (t) {

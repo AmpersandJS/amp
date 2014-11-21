@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isNumber = require('./' + pack.main);
+var isNumber = require('./is-number');
 
 
 test('amp-is-number', function (t) {

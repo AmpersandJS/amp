@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var escape = require('./' + pack.main);
+var escape = require('./escape');
 var unescape = escape.unescape;
 var each = require('../each');
 

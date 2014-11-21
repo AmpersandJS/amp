@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isString = require('./' + pack.main);
+var isString = require('./is-string');
 
 
 test('amp-is-string', function (t) {

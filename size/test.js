@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var size = require('./' + pack.main);
+var size = require('./size');
 
 
 test('amp-size', function (t) {

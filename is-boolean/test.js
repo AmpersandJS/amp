@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isBoolean = require('./' + pack.main);
+var isBoolean = require('./is-boolean');
 
 
 test('amp-is-boolean', function (t) {

@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isNan = require('./' + pack.main);
+var isNan = require('./is-nan');
 
 
 test('amp-is-nan', function (t) {

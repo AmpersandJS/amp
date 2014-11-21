@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isNull = require('./' + pack.main);
+var isNull = require('./is-null');
 
 
 test('amp-is-null', function (t) {

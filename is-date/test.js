@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isDate = require('./' + pack.main);
+var isDate = require('./is-date');
 
 
 test('amp-is-date', function (t) {

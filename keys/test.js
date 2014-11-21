@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var keys = require('./' + pack.main);
+var keys = require('./keys');
 
 
 test('amp-keys', function (t) {

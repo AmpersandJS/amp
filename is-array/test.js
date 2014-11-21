@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isArray = require('./' + pack.main);
+var isArray = require('./is-array');
 
 
 test('amp-is-array', function (t) {

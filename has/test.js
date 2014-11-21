@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var has = require('./' + pack.main);
+var has = require('./has');
 
 
 test('amp-has', function (t) {

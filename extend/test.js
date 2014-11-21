@@ -1,7 +1,6 @@
 var test = require('tape');
 var extend = require('./extend');
 
-
 test('amp-extend', function(t) {
     var result;
     t.equal(extend({}, {a: 'b'}).a, 'b', 'can extend an object with the attributes of another');

@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var uniqueId = require('./' + pack.main);
+var uniqueId = require('./unique-id');
 
 
 test('amp-unique-id', function (t) {

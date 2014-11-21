@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var contains = require('./' + pack.main);
+var contains = require('./contains');
 
 
 test('amp-contains', function (t) {

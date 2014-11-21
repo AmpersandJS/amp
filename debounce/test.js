@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var debounce = require('./' + pack.main);
+var debounce = require('./debounce');
 var delay = require('../delay');
 
 

@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var invert = require('./' + pack.main);
+var invert = require('./invert');
 var keys = require('../keys');
 
 

@@ -1,4 +1,6 @@
-# amp (an idea)
+# amp
+
+![](https://travis-ci.org/AmpersandJS/amp.svg) ![](https://badge.fury.io/js/amp.svg)
 
 **WARNING: not yet published, not ready for use**
 
@@ -56,12 +58,16 @@ It contains a standard set of files:
 
 ### Running all the tests:
 
-- run `npm test`
+- `npm test`
+
+### Run all the tests on saucelabs
+
+- `npm run test-ci`
 
 ### Adding a new package:
 
 - add its name to the `packages` array in `package.json`
-- run `npm run folders`
+- run `npm run build`
 - a new folder will be generated with all the basics, as a starting point
 
 ### Building readmes:

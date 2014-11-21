@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isArguments = require('./' + pack.main);
+var isArguments = require('./is-arguments');
 
 
 test('amp-is-arguments', function (t) {

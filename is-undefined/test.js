@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isUndefined = require('./' + pack.main);
+var isUndefined = require('./is-undefined');
 
 
 test('amp-is-undefined', function (t) {

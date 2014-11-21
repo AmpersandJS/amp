@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var clone = require('./' + pack.main);
+var clone = require('./clone');
 
 
 test('amp-clone', function (t) {

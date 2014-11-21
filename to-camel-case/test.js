@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var toCamelCase = require('./' + pack.main);
+var toCamelCase = require('./to-camel-case');
 
 
 test('amp-to-camel-case', function (t) {

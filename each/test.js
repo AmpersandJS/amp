@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var each = require('./' + pack.main);
+var each = require('./each');
 var contains = require('../contains');
 
 

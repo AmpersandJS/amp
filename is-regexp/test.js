@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isRegExp = require('./' + pack.main);
+var isRegExp = require('./is-regexp');
 
 
 test('amp-is-regexp', function (t) {

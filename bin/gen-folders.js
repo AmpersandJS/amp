@@ -20,7 +20,7 @@ packages.forEach(function (method) {
     }
 
     if (!fs.existsSync(testFile)) {
-        fs.writeFileSync(testFile, getTestString(camelCased, ampName));
+        fs.writeFileSync(testFile, getTestString(camelCased, ampName, method));
     } else {
         // re-write with correct test name
         var file = fs.readFileSync(testFile, 'utf8');

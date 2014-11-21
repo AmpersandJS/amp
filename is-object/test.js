@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isObject = require('./' + pack.main);
+var isObject = require('./is-object');
 
 
 test('amp-is-object', function(t) {

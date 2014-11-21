@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var bind = require('./' + pack.main);
+var bind = require('./bind');
 
 
 test('amp-bind', function (t) {

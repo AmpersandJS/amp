@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var before = require('./' + pack.main);
+var before = require('./before');
 
 
 test('amp-before', function (t) {

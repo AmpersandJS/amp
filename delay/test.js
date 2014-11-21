@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var delay = require('./' + pack.main);
+var delay = require('./delay');
 
 
 test('amp-delay', function (t) {

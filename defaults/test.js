@@ -1,7 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isNaN = require('../is-nan');
-var defaults = require('./' + pack.main);
+var defaults = require('./defaults');
 
 
 test('amp-defaults', function (t) {

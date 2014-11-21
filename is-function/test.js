@@ -1,6 +1,5 @@
 var test = require('tape');
-var pack = require('./package.json');
-var isFunction = require('./' + pack.main);
+var isFunction = require('./is-function');
 
 
 test('amp-is-function', function (t) {
