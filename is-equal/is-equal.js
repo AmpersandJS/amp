@@ -1,4 +1,5 @@
 var hasOwn = Object.prototype.hasOwnProperty;
+var toString = Object.prototype.toString;
 var objKeys = require('../keys');
 var isFunction = require('../is-function');
 
@@ -42,9 +43,12 @@ var eq = function(a, b, aStack, bStack) {
         // Objects with different constructors are not equivalent, but `Object`s or `Array`s
         // from different frames are.
         var aCtor = a.constructor, bCtor = b.constructor;
-        if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor &&
-                                                         isFunction(bCtor) && bCtor instanceof bCtor)
-                                                && ('constructor' in a && 'constructor' in b)) {
+        if (aCtor !== bCtor && 
+            !(isFunction(aCtor) && 
+            aCtor instanceof aCtor &&
+            isFunction(bCtor) && 
+            bCtor instanceof bCtor) && 
+            ('constructor' in a && 'constructor' in b)) {
             return false;
         }
     }
