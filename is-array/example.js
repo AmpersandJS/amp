@@ -1,0 +1,1 @@
+var isArray = require('amp-is-array');

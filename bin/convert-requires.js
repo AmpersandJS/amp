@@ -1,3 +1,4 @@
+/*global process*/
 var fs = require('fs');
 var getPackages = require('../lib/get-packages');
 var which = process.argv.slice(2)[0];
@@ -11,7 +12,6 @@ var map = {
 };
 
 getPackages().forEach(function (pack) {
-    var toRemote = which === 'remote';
     if (which === 'remote') {
         pack.code = pack.code.replace(map.localRegEx, map.remoteString);
         pack.test = pack.test.replace(map.localRegEx, map.remoteString);

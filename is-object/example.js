@@ -1,0 +1,1 @@
+var isObject = require('amp-is-object');

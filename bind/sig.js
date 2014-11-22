@@ -1,0 +1,1 @@
+bind(func, object, *arguments);

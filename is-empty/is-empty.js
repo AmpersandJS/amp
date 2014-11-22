@@ -11,4 +11,4 @@ module.exports = function isEmpty(obj) {
         if (hasOwn.call(obj, key)) return false;
     }
     return true;
-}
+};

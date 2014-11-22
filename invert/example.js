@@ -1,0 +1,1 @@
+var invert = require('amp-invert');

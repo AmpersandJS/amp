@@ -1,0 +1,1 @@
+var result = require('amp-result');

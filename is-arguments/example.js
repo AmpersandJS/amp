@@ -1,0 +1,1 @@
+var isArguments = require('amp-is-arguments');

@@ -1,7 +1,7 @@
+/*global console*/
 var fsExtra = require('fs-extra');
 var fs = require('fs');
 var jade = require('jade');
-var path = require('path');
 
 
 module.exports = function (file, context, output) {
@@ -14,7 +14,7 @@ module.exports = function (file, context, output) {
         if (err) throw err;
         var filename = output || file;
         if (!filename.replace) {
-            throw "no replace"
+            throw new Error('no replace');
         }
         filename = filename.replace('.jade', '.html');
         console.log('writing', filename);

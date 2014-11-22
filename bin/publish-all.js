@@ -1,5 +1,5 @@
-var npm = require('npm');
-var fs = require('fs');
+//var npm = require('npm');
+//var fs = require('fs');
 var packages = require('../lib/get-packages')();
 
 

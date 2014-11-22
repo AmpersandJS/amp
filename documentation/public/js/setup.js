@@ -1,14 +1,4 @@
-/**
- * Expose `requestAnimationFrame()`.
- */
-
-window.requestAnimationFrame
-  || window.webkitRequestAnimationFrame
-  || window.mozRequestAnimationFrame
-  || window.oRequestAnimationFrame
-  || window.msRequestAnimationFrame
-  || fallback;
-
+/*global window, document*/
 /**
  * Fallback implementation.
  */
@@ -23,8 +13,15 @@ function fallback(fn) {
 }
 
 
+var raf = window.requestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.oRequestAnimationFrame ||
+  window.msRequestAnimationFrame ||
+  fallback;
+
 // grab all our h* tags
-var aTags = document.querySelectorAll('.nav-docs a')
+var aTags = document.querySelectorAll('.nav-docs a');
 var hTags = document.querySelector('.docs-content').querySelectorAll('a.anchor');
 
 function markActive(selected) {
@@ -62,7 +59,7 @@ function selectCurrent() {
 }
 
 window.onscroll = function () {
-  window.requestAnimationFrame(selectCurrent);
+  raf(selectCurrent);
 };
 
 selectCurrent();

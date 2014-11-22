@@ -1,9 +1,10 @@
 var now = Date.now;
 
+// IE < 9
 if (!now) {
     now = function () {
         return (new Date()).valueOf();
-    }
+    };
 }
 
 module.exports = function debounce(func, wait, immediate) {

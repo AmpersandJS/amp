@@ -42,20 +42,7 @@
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-before</code></pre>
-            <div><pre><code class="lang-js">before(3, function);
-</code></pre>
-<p>Creates a version of the function that can be called no more than count times. The result of the last function call is memoized and returned when count has been reached.</p>
-<pre><code class="lang-js">var before = require(&#39;amp-before&#39;);
-var timesCalled = 0;
-var getCount = function () {
-    return ++timesCalled;
-}
-var modified = before(3, getCount); //=&gt; returns modified function
-
-console.log(modified()); //=&gt; 1
-console.log(modified()); //=&gt; 2
-console.log(modified()); //=&gt; 2
-</code></pre>
+            <div><p>Creates a version of the function that can be called no more than count times. The result of the last function call is memoized and returned when count has been reached.</p>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">module.exports = function before(times, fn) {
@@ -85,24 +72,8 @@ console.log(modified()); //=&gt; 2
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-bind</code></pre>
-            <div><pre><code class="lang-javascript">bind(func, object, *arguments);
-</code></pre>
-<p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
+            <div><p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
 <p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you have native <code>Function.prototype.bind</code> there&#39;s really no reason not to just use that. It even does the partial application as described above. Most JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
-<pre><code class="lang-javascript">var bind = require(&#39;amp-bind&#39;);
-
-var obj = {};
-var func = function (greeting, who) {
-    console.log(greeting, who);    
-    console.log(this === obj);
-};
-
-var bound = bind(func, object, &#39;hello&#39;, &#39;there&#39;);
-
-bound();
-//=&gt; &#39;hello there&#39;
-//=&gt; true
-</code></pre>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isFunction = require('../is-function');
@@ -149,7 +120,8 @@ module.exports = function bind(func, context) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-clone</code></pre>
-            <div></div>
+            <div><p>Create a shallow-copied clone of the object. Any nested objects or arrays will be copied by reference, not duplicated.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isObject = require('../is-object');
 var isArray = require('../is-array');
@@ -187,12 +159,7 @@ module.exports = function clone(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-contains</code></pre>
-            <div><p>Determines whether an array contains an item.</p>
-<h3 id="-contains-array-item-"><code>contains(array, item)</code></h3>
-<ul>
-<li>array {Array} the array to look in</li>
-<li>item {anything} the item to look for in the array</li>
-</ul>
+            <div><p>Determines whether an array contains an item. Returns <code>true</code> or <code>false</code>.</p>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var values = require('../values');
@@ -208,6 +175,22 @@ module.exports = function contains(obj, target) {
             <h3>Dependency tree</h3>
             <ul>
               <li><a href="#amp-values">amp-values</a>
+                <ul>
+                  <li><a href="#amp-keys">amp-keys</a>
+                    <ul>
+                      <li><a href="#amp-has">amp-has</a>
+                      </li>
+                      <li><a href="#amp-index-of">amp-index-of</a>
+                        <ul>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
               <li><a href="#amp-index-of">amp-index-of</a>
                 <ul>
@@ -229,10 +212,18 @@ module.exports = function contains(obj, target) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-debounce</code></pre>
-            <div></div>
+            <div><p>Creates and returns a new debounced version of the passed function which will postpone its execution until after <strong>wait</strong> milliseconds have elapsed since the last time it was invoked. Useful for implementing behavior that should only happen after the input has stopped arriving. For example: validating an input, recalculating a layout after the window has stopped being resized, and so on.</p>
+<p>Pass <code>true</code> for the <code>immediate</code> parameter to cause debounce to trigger the function on the leading instead of the trailing edge of the wait interval.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var now = Date.now;
 
+// IE &lt; 9
+if (!now) {
+    now = function () {
+        return (new Date()).valueOf();
+    };
+}
 
 module.exports = function debounce(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
@@ -398,6 +389,12 @@ module.exports = function each(obj, iteratee, context) {
                 <ul>
                   <li><a href="#amp-has">amp-has</a>
                   </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
                   <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
@@ -418,7 +415,8 @@ module.exports = function each(obj, iteratee, context) {
             <pre><code>npm install --save amp-escape</code></pre>
             <div></div>
             <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">var unescapeMap = {};
+            <pre><code class="lang-javascript hljs">var keys = require('../keys');
+var unescapeMap = {};
 var escapeMap = {
     '&amp;': '&amp;amp;',
     '&lt;': '&amp;lt;',
@@ -437,7 +435,7 @@ var createEscaper = function(map) {
         return map[match];
     };
     // Regexes for identifying a key that needs to be escaped
-    var source = '(?:' + Object.keys(map).join('|') + ')';
+    var source = '(?:' + keys(map).join('|') + ')';
     var testRegexp = RegExp(source);
     var replaceRegexp = RegExp(source, 'g');
     return function (string) {
@@ -450,7 +448,22 @@ module.exports = createEscaper(escapeMap);
 module.exports.unescape = createEscaper(unescapeMap);
 </code></pre>
             <h3>Dependency tree</h3>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
@@ -528,6 +541,15 @@ module.exports = function has(obj, key) {
             <pre><code class="lang-javascript hljs">var isObj = require('../is-object');
 var arrayInd = Array.prototype.indexOf;
 
+// for MSIE &lt; 9
+if (!arrayInd) {
+    arrayInd = function (obj) {
+        for (var i = 0; i &lt; this.length; ++i) {
+            if (this[i] === obj) return i;
+        }
+        return -1;
+    };
+}
 
 module.exports = function indexOf(obj, val) {
     if (!isObj(obj)) return -1;
@@ -572,6 +594,12 @@ module.exports = function invert(obj) {
                 <ul>
                   <li><a href="#amp-has">amp-has</a>
                   </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
                   <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
@@ -593,11 +621,19 @@ module.exports = function invert(obj) {
             <div></div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
-
-
-module.exports = function (obj) {
+var hasOwn = Object.prototype.hasOwnProperty;
+var isArgs = function isArgs(obj) {
     return toString.call(obj) === '[object Arguments]';
 };
+
+// for IE &lt;9
+if (!isArgs(arguments)) {
+    isArgs = function (obj) {
+        return obj &amp;&amp; hasOwn.call(obj, 'callee');
+    }
+}
+
+module.exports = isArgs;
 </code></pre>
             <h3>Dependency tree</h3>
             <p>(none)</p>
@@ -699,7 +735,7 @@ module.exports = function isEmpty(obj) {
         if (hasOwn.call(obj, key)) return false;
     }
     return true;
-}
+};
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
@@ -726,6 +762,7 @@ module.exports = function isEmpty(obj) {
             <div></div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
+var toString = Object.prototype.toString;
 var objKeys = require('../keys');
 var isFunction = require('../is-function');
 
@@ -769,9 +806,12 @@ var eq = function(a, b, aStack, bStack) {
         // Objects with different constructors are not equivalent, but `Object`s or `Array`s
         // from different frames are.
         var aCtor = a.constructor, bCtor = b.constructor;
-        if (aCtor !== bCtor &amp;&amp; !(isFunction(aCtor) &amp;&amp; aCtor instanceof aCtor &amp;&amp;
-                                                         isFunction(bCtor) &amp;&amp; bCtor instanceof bCtor)
-                                                &amp;&amp; ('constructor' in a &amp;&amp; 'constructor' in b)) {
+        if (aCtor !== bCtor &amp;&amp; 
+            !(isFunction(aCtor) &amp;&amp; 
+            aCtor instanceof aCtor &amp;&amp;
+            isFunction(bCtor) &amp;&amp; 
+            bCtor instanceof bCtor) &amp;&amp; 
+            ('constructor' in a &amp;&amp; 'constructor' in b)) {
             return false;
         }
     }
@@ -830,6 +870,12 @@ module.exports = function isEqual(a, b) {
                 <ul>
                   <li><a href="#amp-has">amp-has</a>
                   </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
                   <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
@@ -855,7 +901,7 @@ module.exports = function isEqual(a, b) {
             <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 var func = function isFunction() {
     return toString.call(obj) === '[object Function]';
-}
+};
 
 // Optimize `isFunction` if appropriate. Work around an IE 11 bug.
 if (typeof /./ !== 'function') {
@@ -1052,21 +1098,40 @@ module.exports = function isString(obj) {
             <div></div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var has = require('../has');
+var indexOf = require('../index-of');
 var isObject = require('../is-object');
-var nativeKeys = Object.prototype.keys;
+var nativeKeys = Object.keys;
+var hasEnumBug = !({toString: null}).propertyIsEnumerable('toString');
+var nonEnumerableProps = ['constructor', 'valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
 
 
 module.exports = function keys(obj) {
     if (!isObject(obj)) return [];
-    if (nativeKeys) return nativeKeys(obj);
-    var keys = [];
-    for (var key in obj) if (has(obj, key)) keys.push(key);
-    return keys;
+    if (nativeKeys) {
+        return nativeKeys(obj);
+    }
+    var result = [];
+    for (var key in obj) if (has(obj, key)) result.push(key);
+    // IE &lt; 9
+    if (hasEnumBug) {
+      var nonEnumIdx = nonEnumerableProps.length;
+      while (nonEnumIdx--) {
+        var prop = nonEnumerableProps[nonEnumIdx];
+        if (has(obj, prop) &amp;&amp; indexOf(result, prop) === -1) result.push(prop);
+      }
+    }
+    return result;
 };
 </code></pre>
             <h3>Dependency tree</h3>
             <ul>
               <li><a href="#amp-has">amp-has</a>
+              </li>
+              <li><a href="#amp-index-of">amp-index-of</a>
+                <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
               </li>
               <li><a href="#amp-is-object">amp-is-object</a>
               </li>
@@ -1176,13 +1241,31 @@ module.exports = function result(object, property, defaultValue) {
 </code></pre><p>Return the number of values in the list.</p>
 </div>
             <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">module.exports = function size(obj) {
+            <pre><code class="lang-javascript hljs">var keys = require('../keys');
+
+
+module.exports = function size(obj) {
     if (obj == null) return 0;
-    return obj.length === +obj.length ? obj.length : Object.keys(obj).length;
+    return obj.length === +obj.length ? obj.length : keys(obj).length;
 };
 </code></pre>
             <h3>Dependency tree</h3>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
@@ -1231,8 +1314,7 @@ module.exports = function toCamelCase(string) {
             <pre><code>npm install --save amp-unique-id</code></pre>
             <div></div>
             <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">// Generate a unique integer id (unique within the entire client session).
-// Useful for temporary DOM ids.
+            <pre><code class="lang-javascript hljs">/*global window, global*/
 var theGlobal = (typeof window !== 'undefined') ? window : global;
 theGlobal.__ampIdCounter = 0;
 
@@ -1259,18 +1341,36 @@ module.exports = function uniqueId(prefix) {
             <pre><code>npm install --save amp-values</code></pre>
             <div></div>
             <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">module.exports = function values(obj) {
-    var keys = Object.keys(obj);
+            <pre><code class="lang-javascript hljs">var oKeys = require('../keys');
+
+
+module.exports = function values(obj) {
+    var keys = oKeys(obj);
     var length = keys.length;
-    var values = Array(length);
+    var vals = Array(length);
     for (var i = 0; i &lt; length; i++) {
-        values[i] = obj[keys[i]];
+        vals[i] = obj[keys[i]];
     }
-    return values;
+    return vals;
 };
 </code></pre>
             <h3>Dependency tree</h3>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>

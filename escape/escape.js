@@ -5,7 +5,7 @@ var escapeMap = {
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
-    "'": '&#x27;',
+    '\'': '&#x27;',
     '`': '&#x60;'
 };
 for (var key in escapeMap) {

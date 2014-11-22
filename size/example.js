@@ -1,0 +1,1 @@
+var size = require('amp-size');

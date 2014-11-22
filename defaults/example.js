@@ -1,0 +1,1 @@
+var defaults = require('amp-defaults');

@@ -1,0 +1,14 @@
+{
+  "latedef": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "eqnull": true,
+  "predef": [
+    "require",
+    "module",
+    "__dirname",
+    "setTimeout"
+  ]
+}

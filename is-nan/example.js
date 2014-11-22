@@ -1,0 +1,1 @@
+var isNan = require('amp-is-nan');

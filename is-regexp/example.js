@@ -1,0 +1,1 @@
+var isRegexp = require('amp-is-regexp');

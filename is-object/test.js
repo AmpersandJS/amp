@@ -1,3 +1,4 @@
+/*global document*/
 var test = require('tape');
 var isObject = require('./is-object');
 

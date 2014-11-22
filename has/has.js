@@ -1,6 +1,6 @@
-var hasOwnProperty = Object.prototype.hasOwnProperty;
+var hasOwn = Object.prototype.hasOwnProperty;
 
 
 module.exports = function has(obj, key) {
-    return obj != null && hasOwnProperty.call(obj, key);
+    return obj != null && hasOwn.call(obj, key);
 };

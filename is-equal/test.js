@@ -1,3 +1,4 @@
+/*global String*/
 var test = require('tape');
 var isEqual = require('./is-equal');
 

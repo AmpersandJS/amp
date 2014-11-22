@@ -1,0 +1,1 @@
+var uniqueId = require('amp-unique-id');

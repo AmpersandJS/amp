@@ -1,0 +1,1 @@
+var isEmpty = require('amp-is-empty');

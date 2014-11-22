@@ -1,5 +1,3 @@
-var fs = require('fs');
-var marked = require('marked');
 var packages = require('../lib/get-packages')();
 var renderJade = require('./render-jade');
 

@@ -1,0 +1,1 @@
+var escape = require('amp-escape');

@@ -8,7 +8,7 @@ var isArgs = function isArgs(obj) {
 if (!isArgs(arguments)) {
     isArgs = function (obj) {
         return obj && hasOwn.call(obj, 'callee');
-    }
+    };
 }
 
 module.exports = isArgs;

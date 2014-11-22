@@ -1,7 +1,7 @@
 var toString = Object.prototype.toString;
-var func = function isFunction() {
+var func = function isFunction(obj) {
     return toString.call(obj) === '[object Function]';
-}
+};
 
 // Optimize `isFunction` if appropriate. Work around an IE 11 bug.
 if (typeof /./ !== 'function') {

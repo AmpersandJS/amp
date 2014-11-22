@@ -1,0 +1,1 @@
+var extend = require('amp-extend');

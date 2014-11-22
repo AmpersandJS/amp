@@ -1,3 +1,4 @@
+/*global console*/
 // runs all the individual tests
 //var fs = require('fs');
 //var test = require('tape');
@@ -8,7 +9,7 @@ var out = __dirname + '/test-all.js';
 
 
 pack.packages.forEach(function (pack) {
-    buff += "require('../" + pack + "/test');\n"
+    buff += 'require(\'../' + pack + '/test\');\n';
 });
 
 fs.writeFileSync(out, buff, 'utf8');

@@ -1,5 +1,4 @@
 var has = require('../has');
-var contains = require('../contains');
 var indexOf = require('../index-of');
 var isObject = require('../is-object');
 var nativeKeys = Object.keys;
@@ -12,15 +11,15 @@ module.exports = function keys(obj) {
     if (nativeKeys) {
         return nativeKeys(obj);
     }
-    var keys = [];
-    for (var key in obj) if (has(obj, key)) keys.push(key);
+    var result = [];
+    for (var key in obj) if (has(obj, key)) result.push(key);
     // IE < 9
     if (hasEnumBug) {
       var nonEnumIdx = nonEnumerableProps.length;
       while (nonEnumIdx--) {
         var prop = nonEnumerableProps[nonEnumIdx];
-        if (has(obj, prop) && indexOf(keys, prop) === -1) keys.push(prop);
+        if (has(obj, prop) && indexOf(result, prop) === -1) result.push(prop);
       }
     }
-    return keys;
+    return result;
 };

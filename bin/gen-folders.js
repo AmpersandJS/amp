@@ -1,5 +1,4 @@
 var fs = require('fs');
-var rimraf = require('rimraf');
 var packages = require('../package.json').packages;
 var getTestString = require('../lib/get-test');
 var toCamelCase = require('../lib/to-camel-case');
@@ -10,7 +9,13 @@ packages.forEach(function (method) {
     var pack = require('../pack_template.json');
     var ampName = 'amp-' + method;
     var camelCased = toCamelCase(method);
-    var docFile = dir + '/doc.md';
+    var exampleFile = dir + '/example.js';
+    var sigFile = dir + '/sig.js';
+    var docFiles = [
+        dir + '/doc.md',
+        exampleFile,
+        sigFile
+    ];
     var testFile = dir + '/test.js';
 
     // rimraf.sync(dir);
@@ -25,16 +30,29 @@ packages.forEach(function (method) {
         // re-write with correct test name
         var file = fs.readFileSync(testFile, 'utf8');
 
-        var replaced = file.replace(/test\(\'(\S+)/m, function (match) {
-            return 'test(\'' + ampName + '\','
+        var replaced = file.replace(/test\(\'(\S+)/m, function () {
+            return 'test(\'' + ampName + '\',';
         });
 
         fs.writeFileSync(testFile, replaced);
     }
 
     // create empty doc.md if it doesn't exist
-    if (!fs.existsSync(docFile)) {
-        fs.writeFileSync(docFile, '```js\n' + camelCased + '()\n```');
+    docFiles.forEach(function (docFile) {
+        if (!fs.existsSync(docFile)) {
+            fs.writeFileSync(docFile, '');
+        }
+    });
+
+    // re-write first line of example.js
+    var example = fs.readFileSync(exampleFile, 'utf8').split('\n').slice(1);
+    example.unshift('var ' + camelCased + ' = require(\'' + ampName + '\');');
+    fs.writeFileSync(exampleFile, example.join('\n'));
+
+    // re-write sigfile if empty
+    var sig = fs.readFileSync(sigFile, 'utf8');
+    if (sig === '') {
+        fs.writeFileSync(sigFile, camelCased + '();', 'utf8');
     }
 
     pack.name = 'amp-' + method;

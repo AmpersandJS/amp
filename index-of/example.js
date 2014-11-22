@@ -1,0 +1,1 @@
+var indexOf = require('amp-index-of');

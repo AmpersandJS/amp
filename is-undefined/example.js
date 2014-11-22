@@ -1,0 +1,1 @@
+var isUndefined = require('amp-is-undefined');
