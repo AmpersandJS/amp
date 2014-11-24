@@ -1,1 +1,1 @@
-isNumber();
+isNumber(anything);

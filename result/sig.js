@@ -1,1 +1,1 @@
-result();
+result(obj, propertyName, [defaultValue]);

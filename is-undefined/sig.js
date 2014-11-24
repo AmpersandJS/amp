@@ -1,1 +1,1 @@
-isUndefined();
+isUndefined(anything);

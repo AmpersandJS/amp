@@ -3,10 +3,11 @@ var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
 
-module.exports = function toCamelCase(string) {
+module.exports = function toCamelCase(string, capitalizeFirst) {
     if (!isString(string)) return '';
     var replaced = string.replace(re1, function (match) {
         return match.replace(re2, '').toUpperCase();
     });
-    return replaced.slice(0, 1).toLowerCase() + replaced.slice(1);
+    var first = replaced.slice(0, 1)[capitalizeFirst ? 'toUpperCase' : 'toLowerCase']();
+    return first + replaced.slice(1);
 };

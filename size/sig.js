@@ -1,1 +1,1 @@
-size();
+size(list || object);

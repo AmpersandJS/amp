@@ -1,1 +1,1 @@
-values();
+values(obj);

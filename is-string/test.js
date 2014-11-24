@@ -8,5 +8,6 @@ test('amp-is-string', function (t) {
     t.ok(isString('I am a string literal'), 'string literals are');
     var obj = new String('I am a string object');
     t.ok(isString(obj), 'so are String objects');
+    t.ok(isString(''), 'empty string is still a string');
     t.end();
 });

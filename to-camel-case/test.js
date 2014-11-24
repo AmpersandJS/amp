@@ -10,5 +10,9 @@ test('amp-to-camel-case', function (t) {
     t.equal(toCamelCase([]), '');
     t.equal(toCamelCase({}), '');
     t.equal(toCamelCase(1), '');
+    t.equal(toCamelCase(' hi world', true), 'HiWorld');
+    t.equal(toCamelCase('_hi_world', true), 'HiWorld');
+    t.equal(toCamelCase(' _ hi--world', true), 'HiWorld');
+    t.equal(toCamelCase(' _ hi2--world', true), 'Hi2World');
     t.end();
 });

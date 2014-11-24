@@ -1,1 +1,1 @@
-toCamelCase();
+toCamelCase(string, [capitalizeFirst]);

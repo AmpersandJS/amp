@@ -1,1 +1,1 @@
-last();
+last(array|arguments, [n]);

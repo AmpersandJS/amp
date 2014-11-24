@@ -61,11 +61,12 @@
     "make-local": "node bin/convert-requires local",
     "make-remote": "node bin/convert-requires remote",
     "publish": "node bin/publish-all",
+    "publish-site": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master",
     "readmes": "node bin/build-readmes",
     "show-tree": "node bin/show-tree",
     "test": "node bin/test-all.js | tap-spec",
     "test-browser": "zuul --local 8080 -- bin/test-all.js",
     "test-ci": "zuul -- bin/test-all.js",
-    "publish-site": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
+    "validate": "node bin/check-doc.js"
   }
 }

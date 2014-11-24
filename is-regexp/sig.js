@@ -1,1 +1,1 @@
-isRegexp();
+isRegexp(anything);

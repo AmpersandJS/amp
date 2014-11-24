@@ -1,1 +1,1 @@
-isObject();
+isObject(anything);

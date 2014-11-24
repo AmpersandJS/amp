@@ -1,1 +1,1 @@
-isString();
+isString(anything);

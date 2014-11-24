@@ -1,1 +1,1 @@
-once();
+once(function);
