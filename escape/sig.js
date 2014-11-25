@@ -1,1 +1,1 @@
-escape();
+escape(string);

@@ -1,1 +1,1 @@
-has();
+has(object, key);

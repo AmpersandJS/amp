@@ -1,1 +1,1 @@
-each();
+each(list || object, function, context);

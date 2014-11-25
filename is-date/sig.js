@@ -1,1 +1,1 @@
-isDate();
+isDate(anything);

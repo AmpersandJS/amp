@@ -3,8 +3,21 @@ var delay = require('./delay');
 
 
 test('amp-delay', function (t) {
-    t.plan(2);
+    t.plan(3);
+
+    var obj = {
+        init: function () {
+            // here we maintain context
+            delay(this.sayHi, 0, this);
+        },
+        sayHi: function () {
+            t.equal(this, obj, 'maintains context');
+        }
+    };
+    obj.init();
+
     var delayed = false;
+
     delay(function(){
         delayed = true;
     }, 100);

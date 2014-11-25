@@ -1,7 +1,7 @@
 {
-  "name": "amp-is-equal",
+  "name": "amp-is-object-equal",
   "version": "1.0.0",
-  "description": "is-equal util function.",
+  "description": "is-object-equal util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
   "devDependencies": {
@@ -10,5 +10,5 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-equal.js"
+  "main": "is-object-equal.js"
 }

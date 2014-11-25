@@ -27,5 +27,8 @@ var createEscaper = function(map) {
     };
 };
 
-module.exports = createEscaper(escapeMap);
+var escape = createEscaper(escapeMap);
+
+module.exports = escape;
+module.exports.escape = escape;
 module.exports.unescape = createEscaper(unescapeMap);

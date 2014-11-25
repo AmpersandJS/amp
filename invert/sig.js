@@ -1,1 +1,1 @@
-invert();
+invert(object);

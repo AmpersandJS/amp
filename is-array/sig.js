@@ -1,1 +1,1 @@
-isArray();
+isArray(anything);

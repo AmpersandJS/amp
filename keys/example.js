@@ -6,3 +6,4 @@ var obj = {
 };
 
 keys(obj); //=> ['hi', 'oh']
+keys(undefined) //=> []

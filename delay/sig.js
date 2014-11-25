@@ -1,1 +1,1 @@
-delay();
+delay(function, wait, [context]);

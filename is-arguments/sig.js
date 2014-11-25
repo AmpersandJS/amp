@@ -1,1 +1,1 @@
-isArguments();
+isArguments(anything);

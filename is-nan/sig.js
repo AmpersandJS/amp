@@ -1,1 +1,1 @@
-isNan();
+isNan(anything);

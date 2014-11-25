@@ -1,1 +1,1 @@
-isNull();
+isNull(anything);

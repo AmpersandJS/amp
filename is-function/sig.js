@@ -1,1 +1,1 @@
-isFunction();
+isFunction(anything);

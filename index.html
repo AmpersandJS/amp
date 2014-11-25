@@ -22,7 +22,7 @@
   <body class="undefined">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Amp</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#" class="section-top">Modules</a><a href="#amp-before" class="section-sub">amp-before</a><a href="#amp-bind" class="section-sub">amp-bind</a><a href="#amp-clone" class="section-sub">amp-clone</a><a href="#amp-contains" class="section-sub">amp-contains</a><a href="#amp-debounce" class="section-sub">amp-debounce</a><a href="#amp-defaults" class="section-sub">amp-defaults</a><a href="#amp-delay" class="section-sub">amp-delay</a><a href="#amp-each" class="section-sub">amp-each</a><a href="#amp-escape" class="section-sub">amp-escape</a><a href="#amp-extend" class="section-sub">amp-extend</a><a href="#amp-has" class="section-sub">amp-has</a><a href="#amp-index-of" class="section-sub">amp-index-of</a><a href="#amp-invert" class="section-sub">amp-invert</a><a href="#amp-is-arguments" class="section-sub">amp-is-arguments</a><a href="#amp-is-array" class="section-sub">amp-is-array</a><a href="#amp-is-boolean" class="section-sub">amp-is-boolean</a><a href="#amp-is-date" class="section-sub">amp-is-date</a><a href="#amp-is-empty" class="section-sub">amp-is-empty</a><a href="#amp-is-equal" class="section-sub">amp-is-equal</a><a href="#amp-is-function" class="section-sub">amp-is-function</a><a href="#amp-is-nan" class="section-sub">amp-is-nan</a><a href="#amp-is-null" class="section-sub">amp-is-null</a><a href="#amp-is-number" class="section-sub">amp-is-number</a><a href="#amp-is-object" class="section-sub">amp-is-object</a><a href="#amp-is-regexp" class="section-sub">amp-is-regexp</a><a href="#amp-is-string" class="section-sub">amp-is-string</a><a href="#amp-is-undefined" class="section-sub">amp-is-undefined</a><a href="#amp-keys" class="section-sub">amp-keys</a><a href="#amp-last" class="section-sub">amp-last</a><a href="#amp-once" class="section-sub">amp-once</a><a href="#amp-result" class="section-sub">amp-result</a><a href="#amp-size" class="section-sub">amp-size</a><a href="#amp-to-camel-case" class="section-sub">amp-to-camel-case</a><a href="#amp-unique-id" class="section-sub">amp-unique-id</a><a href="#amp-values" class="section-sub">amp-values</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#" class="section-top">Modules</a><a href="#amp-before" class="section-sub">amp-before</a><a href="#amp-bind" class="section-sub">amp-bind</a><a href="#amp-clone" class="section-sub">amp-clone</a><a href="#amp-contains" class="section-sub">amp-contains</a><a href="#amp-debounce" class="section-sub">amp-debounce</a><a href="#amp-defaults" class="section-sub">amp-defaults</a><a href="#amp-delay" class="section-sub">amp-delay</a><a href="#amp-each" class="section-sub">amp-each</a><a href="#amp-escape" class="section-sub">amp-escape</a><a href="#amp-extend" class="section-sub">amp-extend</a><a href="#amp-has" class="section-sub">amp-has</a><a href="#amp-index-of" class="section-sub">amp-index-of</a><a href="#amp-invert" class="section-sub">amp-invert</a><a href="#amp-is-arguments" class="section-sub">amp-is-arguments</a><a href="#amp-is-array" class="section-sub">amp-is-array</a><a href="#amp-is-boolean" class="section-sub">amp-is-boolean</a><a href="#amp-is-date" class="section-sub">amp-is-date</a><a href="#amp-is-empty" class="section-sub">amp-is-empty</a><a href="#amp-is-function" class="section-sub">amp-is-function</a><a href="#amp-is-nan" class="section-sub">amp-is-nan</a><a href="#amp-is-null" class="section-sub">amp-is-null</a><a href="#amp-is-number" class="section-sub">amp-is-number</a><a href="#amp-is-object" class="section-sub">amp-is-object</a><a href="#amp-is-object-equal" class="section-sub">amp-is-object-equal</a><a href="#amp-is-regexp" class="section-sub">amp-is-regexp</a><a href="#amp-is-string" class="section-sub">amp-is-string</a><a href="#amp-is-undefined" class="section-sub">amp-is-undefined</a><a href="#amp-keys" class="section-sub">amp-keys</a><a href="#amp-last" class="section-sub">amp-last</a><a href="#amp-once" class="section-sub">amp-once</a><a href="#amp-result" class="section-sub">amp-result</a><a href="#amp-size" class="section-sub">amp-size</a><a href="#amp-to-camel-case" class="section-sub">amp-to-camel-case</a><a href="#amp-unique-id" class="section-sub">amp-unique-id</a><a href="#amp-values" class="section-sub">amp-values</a>
       </nav>
       <div class="docs-content">
         <section><a name="intro" href="#intro" class="anchor">
@@ -91,7 +91,7 @@ module.exports = function bind(func, context) {
     bound = function() {
         if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
         Ctor.prototype = func.prototype;
-        var self = new Ctor;
+        var self = new Ctor();
         Ctor.prototype = null;
         var result = func.apply(self, args.concat(slice.call(arguments)));
         if (isObject(result)) return result;
@@ -422,7 +422,7 @@ var escapeMap = {
     '&lt;': '&amp;lt;',
     '&gt;': '&amp;gt;',
     '&quot;': '&amp;quot;',
-    &quot;'&quot;: '&amp;#x27;',
+    '\'': '&amp;#x27;',
     '`': '&amp;#x60;'
 };
 for (var key in escapeMap) {
@@ -514,11 +514,11 @@ module.exports = function(obj) {
             <pre><code>npm install --save amp-has</code></pre>
             <div></div>
             <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">var hasOwnProperty = Object.prototype.hasOwnProperty;
+            <pre><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
 
 
 module.exports = function has(obj, key) {
-    return obj != null &amp;&amp; hasOwnProperty.call(obj, key);
+    return obj != null &amp;&amp; hasOwn.call(obj, key);
 };
 </code></pre>
             <h3>Dependency tree</h3>
@@ -630,7 +630,7 @@ var isArgs = function isArgs(obj) {
 if (!isArgs(arguments)) {
     isArgs = function (obj) {
         return obj &amp;&amp; hasOwn.call(obj, 'callee');
-    }
+    };
 }
 
 module.exports = isArgs;
@@ -720,17 +720,31 @@ module.exports = function isFunction(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-is-empty</code></pre>
-            <div></div>
+            <div><p>Returns <code>true</code> if passed an &quot;empty&quot; value and <code>false</code> for everything else.</p>
+<p>Empty is defined as:</p>
+<ul>
+<li>empty objects: <code>{}</code></li>
+<li>empty arrays: <code>[]</code></li>
+<li>empty string: <code>&#39;&#39;</code></li>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>NaN</code></li>
+<li>the number zero: <code>0</code></li>
+</ul>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isArray = require('../is-array');
 var isString = require('../is-string');
 var isArguments = require('../is-arguments');
+var isNumber = require('../is-number');
+var isNan = require('../is-nan');
 var hasOwn = Object.prototype.hasOwnProperty;
 
 
 module.exports = function isEmpty(obj) {
     if (obj == null) return true;
     if (isArray(obj) || isString(obj) || isArguments(obj)) return obj.length === 0;
+    if (isNumber(obj)) return obj === 0 || isNan(obj);
     for (var key in obj) {
         if (hasOwn.call(obj, key)) return false;
     }
@@ -745,21 +759,161 @@ module.exports = function isEmpty(obj) {
               </li>
               <li><a href="#amp-is-arguments">amp-is-arguments</a>
               </li>
+              <li><a href="#amp-is-number">amp-is-number</a>
+              </li>
+              <li><a href="#amp-is-nan">amp-is-nan</a>
+                <ul>
+                  <li><a href="#amp-is-number">amp-is-number</a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-is-equal" href="#amp-is-equal" class="anchor">
-            <h1><span class="header-link"></span>amp-is-equal</h1></a>
+        <section class="module"><a name="amp-is-function" href="#amp-is-function" class="anchor">
+            <h1><span class="header-link"></span>amp-is-function</h1></a>
           <div class="module-card">
             <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-equal util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-equal">npm</a></p>
+            <p class="module-description">is-function util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-function">npm</a></p>
           </div>
           <div>
             <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-equal</code></pre>
-            <div></div>
+            <pre><code>npm install --save amp-is-function</code></pre>
+            <div><p>Returns <code>true</code> if passed value is a <code>Function</code> and <code>false</code> for everything else.</p>
+</div>
+            <h3>The code</h3>
+            <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+var func = function isFunction(obj) {
+    return toString.call(obj) === '[object Function]';
+};
+
+// Optimize `isFunction` if appropriate. Work around an IE 11 bug.
+if (typeof /./ !== 'function') {
+    func = function isFunction(obj) {
+      return typeof obj == 'function' || false;
+    };
+}
+
+module.exports = func;
+</code></pre>
+            <h3>Dependency tree</h3>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-is-nan" href="#amp-is-nan" class="anchor">
+            <h1><span class="header-link"></span>amp-is-nan</h1></a>
+          <div class="module-card">
+            <p class="module-version">v1.0.0</p>
+            <p class="module-description">is-nan util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-nan">npm</a></p>
+          </div>
+          <div>
+            <h3>Usage</h3>
+            <pre><code>npm install --save amp-is-nan</code></pre>
+            <div><p>Tests whether object passed in is a <code>NaN</code>. Native implementations of <code>isNaN</code> return <code>true</code> when passed <code>undefined</code>. So if you want to test whether <code>NaN</code> is exactly <code>NaN</code> this does that. </p>
+</div>
+            <h3>The code</h3>
+            <pre><code class="lang-javascript hljs">var isNumber = require('../is-number');
+
+
+module.exports = function isNaN(obj) {
+    return isNumber(obj) &amp;&amp; obj !== +obj;
+};
+</code></pre>
+            <h3>Dependency tree</h3>
+            <ul>
+              <li><a href="#amp-is-number">amp-is-number</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-is-null" href="#amp-is-null" class="anchor">
+            <h1><span class="header-link"></span>amp-is-null</h1></a>
+          <div class="module-card">
+            <p class="module-version">v1.0.0</p>
+            <p class="module-description">is-null util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-null">npm</a></p>
+          </div>
+          <div>
+            <h3>Usage</h3>
+            <pre><code>npm install --save amp-is-null</code></pre>
+            <div><p>Returns <code>true</code> if passed value is <code>null</code> and <code>false</code> for everything else.</p>
+</div>
+            <h3>The code</h3>
+            <pre><code class="lang-javascript hljs">module.exports = function isNull(obj) {
+    return obj === null;
+};
+</code></pre>
+            <h3>Dependency tree</h3>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-is-number" href="#amp-is-number" class="anchor">
+            <h1><span class="header-link"></span>amp-is-number</h1></a>
+          <div class="module-card">
+            <p class="module-version">v1.0.0</p>
+            <p class="module-description">is-number util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-number">npm</a></p>
+          </div>
+          <div>
+            <h3>Usage</h3>
+            <pre><code>npm install --save amp-is-number</code></pre>
+            <div><p>Returns <code>true</code> if passed value is a number and <code>false</code> for everything else.</p>
+</div>
+            <h3>The code</h3>
+            <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+
+
+module.exports = function isNumber(obj) {
+    return toString.call(obj) === '[object Number]';
+};
+</code></pre>
+            <h3>Dependency tree</h3>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-is-object" href="#amp-is-object" class="anchor">
+            <h1><span class="header-link"></span>amp-is-object</h1></a>
+          <div class="module-card">
+            <p class="module-version">v1.0.0</p>
+            <p class="module-description">is-object util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object">npm</a></p>
+          </div>
+          <div>
+            <h3>Usage</h3>
+            <pre><code>npm install --save amp-is-object</code></pre>
+            <div><p>Returns <code>true</code> if passed value is an <code>Object</code>. Arrays and functions are objects too, while (normal) strings and numbers are not.</p>
+<p>So this is not a strict check per JS where <code>typeof null</code> returns <code>&#39;object&#39;</code>. This is a more practical runtime check that is useful for trying to find out whether you got passed an options object or a simple argument to a function.</p>
+</div>
+            <h3>The code</h3>
+            <pre><code class="lang-javascript hljs">module.exports = function isObject(obj) {
+    var type = typeof obj;
+    return !!obj &amp;&amp; (type === 'function' || type === 'object');
+};
+</code></pre>
+            <h3>Dependency tree</h3>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-is-object-equal" href="#amp-is-object-equal" class="anchor">
+            <h1><span class="header-link"></span>amp-is-object-equal</h1></a>
+          <div class="module-card">
+            <p class="module-version">v1.0.0</p>
+            <p class="module-description">is-object-equal util function.</p>
+            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object-equal">npm</a></p>
+          </div>
+          <div>
+            <h3>Usage</h3>
+            <pre><code>npm install --save amp-is-object-equal</code></pre>
+            <div><p>Performs an optimized deep comparison between the two objects, to determine if they should be considered equal.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
@@ -886,136 +1040,6 @@ module.exports = function isEqual(a, b) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-is-function" href="#amp-is-function" class="anchor">
-            <h1><span class="header-link"></span>amp-is-function</h1></a>
-          <div class="module-card">
-            <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-function util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-function">npm</a></p>
-          </div>
-          <div>
-            <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-function</code></pre>
-            <div></div>
-            <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
-var func = function isFunction() {
-    return toString.call(obj) === '[object Function]';
-};
-
-// Optimize `isFunction` if appropriate. Work around an IE 11 bug.
-if (typeof /./ !== 'function') {
-    func = function isFunction(obj) {
-      return typeof obj == 'function' || false;
-    };
-}
-
-module.exports = func;
-</code></pre>
-            <h3>Dependency tree</h3>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-is-nan" href="#amp-is-nan" class="anchor">
-            <h1><span class="header-link"></span>amp-is-nan</h1></a>
-          <div class="module-card">
-            <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-nan util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-nan">npm</a></p>
-          </div>
-          <div>
-            <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-nan</code></pre>
-            <div><p>Tests whether object passed in is a <code>NaN</code>. Native implementations of <code>isNaN</code> return <code>true</code> when passed <code>undefined</code>. So if you want to test whether <code>NaN</code> is exactly <code>NaN</code> this does that. </p>
-<h3 id="-isnan-obj-"><code>isNaN(obj)</code></h3>
-<ul>
-<li>obj {anything} Object to test</li>
-</ul>
-</div>
-            <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">var isNumber = require('../is-number');
-
-
-module.exports = function isNaN(obj) {
-    return isNumber(obj) &amp;&amp; obj !== +obj;
-};
-</code></pre>
-            <h3>Dependency tree</h3>
-            <ul>
-              <li><a href="#amp-is-number">amp-is-number</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-is-null" href="#amp-is-null" class="anchor">
-            <h1><span class="header-link"></span>amp-is-null</h1></a>
-          <div class="module-card">
-            <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-null util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-null">npm</a></p>
-          </div>
-          <div>
-            <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-null</code></pre>
-            <div></div>
-            <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">module.exports = function isNull(obj) {
-    return obj === null;
-};
-</code></pre>
-            <h3>Dependency tree</h3>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-is-number" href="#amp-is-number" class="anchor">
-            <h1><span class="header-link"></span>amp-is-number</h1></a>
-          <div class="module-card">
-            <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-number util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-number">npm</a></p>
-          </div>
-          <div>
-            <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-number</code></pre>
-            <div></div>
-            <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
-
-
-module.exports = function isNumber(obj) {
-    return toString.call(obj) === '[object Number]';
-};
-</code></pre>
-            <h3>Dependency tree</h3>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-is-object" href="#amp-is-object" class="anchor">
-            <h1><span class="header-link"></span>amp-is-object</h1></a>
-          <div class="module-card">
-            <p class="module-version">v1.0.0</p>
-            <p class="module-description">is-object util function.</p>
-            <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object">npm</a></p>
-          </div>
-          <div>
-            <h3>Usage</h3>
-            <pre><code>npm install --save amp-is-object</code></pre>
-            <div></div>
-            <h3>The code</h3>
-            <pre><code class="lang-javascript hljs">module.exports = function isObject(obj) {
-    var type = typeof obj;
-    return !!obj &amp;&amp; (type === 'function' || type === 'object');
-};
-</code></pre>
-            <h3>Dependency tree</h3>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
         <section class="module"><a name="amp-is-regexp" href="#amp-is-regexp" class="anchor">
             <h1><span class="header-link"></span>amp-is-regexp</h1></a>
           <div class="module-card">
@@ -1026,7 +1050,8 @@ module.exports = function isNumber(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-is-regexp</code></pre>
-            <div></div>
+            <div><p>Returns <code>true</code> if passed value is a a regular expression and <code>false</code> for everything else.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
@@ -1050,7 +1075,8 @@ module.exports = function isRegExp(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-is-string</code></pre>
-            <div></div>
+            <div><p>Returns <code>true</code> if passed value is a string (including empty string) and <code>false</code> for everything else.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
@@ -1074,7 +1100,8 @@ module.exports = function isString(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-is-undefined</code></pre>
-            <div></div>
+            <div><p>Returns <code>true</code> if passed value is <code>undefined</code> and <code>false</code> for everything else (including other falsy values, null, and NaN).</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">module.exports = function isUndefined(obj) {
     return obj === void 0;
@@ -1095,7 +1122,8 @@ module.exports = function isString(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-keys</code></pre>
-            <div></div>
+            <div><p>Retrieve all the names of the object&#39;s properties. This is much like <code>Object.keys</code> (in fact just uses it if it exists).  But there&#39;s with one difference, you can pass a non-object and it <em>won&#39;t throw</em> an error. It will always return an array. So any non-objects passed will just return <code>[]</code>.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var has = require('../has');
 var indexOf = require('../index-of');
@@ -1114,11 +1142,11 @@ module.exports = function keys(obj) {
     for (var key in obj) if (has(obj, key)) result.push(key);
     // IE &lt; 9
     if (hasEnumBug) {
-      var nonEnumIdx = nonEnumerableProps.length;
-      while (nonEnumIdx--) {
-        var prop = nonEnumerableProps[nonEnumIdx];
-        if (has(obj, prop) &amp;&amp; indexOf(result, prop) === -1) result.push(prop);
-      }
+        var nonEnumIdx = nonEnumerableProps.length;
+        while (nonEnumIdx--) {
+            var prop = nonEnumerableProps[nonEnumIdx];
+            if (has(obj, prop) &amp;&amp; indexOf(result, prop) === -1) result.push(prop);
+        }
     }
     return result;
 };
@@ -1149,7 +1177,8 @@ module.exports = function keys(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-last</code></pre>
-            <div></div>
+            <div><p>Returns the last item(s) in an array. Passing <em>n</em> will return the last <em>n</em> items in the array. Also works on <code>arguments</code>.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var slice = Array.prototype.slice;
 
@@ -1175,13 +1204,10 @@ module.exports = function last(arr, n, guard) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-once</code></pre>
-            <div><pre><code class="lang-js">once(function);
-</code></pre>
-<p>Creates a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later.</p>
+            <div><p>Returns a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later.</p>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var before = require('../before');
-var slice = Array.prototype.slice;
 
 
 module.exports = function once(fn) {
@@ -1206,7 +1232,8 @@ module.exports = function once(fn) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-result</code></pre>
-            <div></div>
+            <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or what is passed as the third argument.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isFunction = require('../is-function');
 
@@ -1237,8 +1264,7 @@ module.exports = function result(object, property, defaultValue) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-size</code></pre>
-            <div><pre><code>size(list);
-</code></pre><p>Return the number of values in the list.</p>
+            <div><p>Return the number of values in the list or keys (if you pass it an object).</p>
 </div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var keys = require('../keys');
@@ -1279,19 +1305,22 @@ module.exports = function size(obj) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-to-camel-case</code></pre>
-            <div></div>
+            <div><p>Camel cases a string by removing all whitespace and <code>-</code> and <code>_</code> characters and capitalizing first letter following those. Takes a string like <code>&quot;hi world&quot;</code> and returns it as <code>hiWorld</code>. If you pass <code>true</code> as the second argument, it will also capitalize the first letter (sometimes referred to as Pascal case).</p>
+<p>Note that multiple adjacent whitespace or <code>-</code> and <code>_</code> characters are removed.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var isString = require('../is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
 
-module.exports = function toCamelCase(string) {
+module.exports = function toCamelCase(string, capitalizeFirst) {
     if (!isString(string)) return '';
     var replaced = string.replace(re1, function (match) {
         return match.replace(re2, '').toUpperCase();
     });
-    return replaced.slice(0, 1).toLowerCase() + replaced.slice(1);
+    var first = replaced.slice(0, 1)[capitalizeFirst ? 'toUpperCase' : 'toLowerCase']();
+    return first + replaced.slice(1);
 };
 </code></pre>
             <h3>Dependency tree</h3>
@@ -1312,7 +1341,9 @@ module.exports = function toCamelCase(string) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-unique-id</code></pre>
-            <div></div>
+            <div><p>Generates a simple integer-based unique ID string. This is <em>not</em> a uuid, it&#39;s for simpler things like ids for DOM elements or client instances. Its uniqueness is only guaranteed by the fact that it&#39;s a single, global, always incremented counter. If a prefix is passed, the id will be appended to it.</p>
+<p>In order to ensure uniqueness in the case where two instances of this module is required, we keep the counter variable attached to <code>window</code> or <code>global</code> (in the case of node).</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">/*global window, global*/
 var theGlobal = (typeof window !== 'undefined') ? window : global;
@@ -1339,7 +1370,8 @@ module.exports = function uniqueId(prefix) {
           <div>
             <h3>Usage</h3>
             <pre><code>npm install --save amp-values</code></pre>
-            <div></div>
+            <div><p>Returns all the values of an object&#39;s properties as an array.</p>
+</div>
             <h3>The code</h3>
             <pre><code class="lang-javascript hljs">var oKeys = require('../keys');
 

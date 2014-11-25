@@ -1,1 +1,1 @@
-defaults();
+defaults(obj, *defaults);

@@ -1,1 +1,1 @@
-isEmpty();
+isEmpty(anything);

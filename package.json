@@ -32,7 +32,7 @@
     "is-object",
     "is-undefined",
     "is-null",
-    "is-equal",
+    "is-object-equal",
     "is-arguments",
     "is-empty",
     "is-string",

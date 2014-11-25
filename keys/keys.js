@@ -15,11 +15,11 @@ module.exports = function keys(obj) {
     for (var key in obj) if (has(obj, key)) result.push(key);
     // IE < 9
     if (hasEnumBug) {
-      var nonEnumIdx = nonEnumerableProps.length;
-      while (nonEnumIdx--) {
-        var prop = nonEnumerableProps[nonEnumIdx];
-        if (has(obj, prop) && indexOf(result, prop) === -1) result.push(prop);
-      }
+        var nonEnumIdx = nonEnumerableProps.length;
+        while (nonEnumIdx--) {
+            var prop = nonEnumerableProps[nonEnumIdx];
+            if (has(obj, prop) && indexOf(result, prop) === -1) result.push(prop);
+        }
     }
     return result;
 };

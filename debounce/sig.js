@@ -1,1 +1,1 @@
-debounce();
+debounce(function, wait, [immediate]);

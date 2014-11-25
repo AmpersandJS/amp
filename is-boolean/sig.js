@@ -1,1 +1,1 @@
-isBoolean();
+isBoolean(anything);

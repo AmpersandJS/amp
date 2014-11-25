@@ -1,0 +1,1 @@
+Retrieve all the names of the object's properties. This is much like `Object.keys` (in fact just uses it if it exists).  But there's with one difference, you can pass a non-object and it *won't throw* an error. It will always return an array. So any non-objects passed will just return `[]`.

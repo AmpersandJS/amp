@@ -48,5 +48,12 @@ test('amp-escape', function (t) {
 
     t.ok(escaped.indexOf('&') !== -1, 'handles & aka &amp;');
     t.equal(unescape(str), str, 'can unescape &amp;');
+
+    var start = '<b>Oh</b>, hello there!';
+    var target = '&lt;b&gt;Oh&lt;/b&gt;, hello there!';
+    
+    t.equal(escape.escape(start), target, 'Should work using as `escape` property of export');
+    t.equal(escape.unescape(target), start, 'Should work using as `unescape` property of export');
+
     t.end();
 });

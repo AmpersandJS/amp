@@ -15,7 +15,7 @@ require('../invert/test');
 require('../is-object/test');
 require('../is-undefined/test');
 require('../is-null/test');
-require('../is-equal/test');
+require('../is-object-equal/test');
 require('../is-arguments/test');
 require('../is-empty/test');
 require('../is-string/test');

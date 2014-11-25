@@ -22,7 +22,7 @@ packages.forEach(function (pack) {
     }
 
     if (docFile === '') {
-        errors.push(path.normalize(sigFilePath) + ' is empty');
+        errors.push(path.normalize(docFilePath) + ' is empty');
     }
 
     if (example.split('\n').length < 3) {
