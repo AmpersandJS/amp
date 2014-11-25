@@ -5,6 +5,7 @@
   "dependencies": {
     "columnizer": "",
     "fs-extra": "^0.12.0",
+    "http-server": "^0.7.3",
     "jade": "^1.7.0",
     "marked": "^0.3.2",
     "precommit-hook": "^1.0.7",
@@ -64,6 +65,7 @@
     "publish-site": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master",
     "readmes": "node bin/build-readmes",
     "show-tree": "node bin/show-tree",
+    "start": "npm run build-site && http-server ../ -p 8000",
     "test": "node bin/test-all.js | tap-spec",
     "test-browser": "zuul --local 8080 -- bin/test-all.js",
     "test-ci": "zuul -- bin/test-all.js",

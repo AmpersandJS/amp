@@ -33,9 +33,18 @@ block content
 
         p <strong>The merits of this idea are still being discussed</strong>
 
-        p This page has consolidated API reference documentation for the core modules in a single page for the sake of being 'cmd+f' friendly.
+        p This page is the consolidated reference for all the amp modules in a single page for the sake of being 'cmd+f' friendly.
 
-        p Let's stop including underscore in other modules for a single method.
+        p All modules are unit tested in a wide range of browsers (including IE6+) with a CI system composed of <a href="https://saucelabs.com">SauceLabs</a> and <a href="https://travis-ci.org/AmpersandJS/amp">Travis CI</a> by using <a href="https://www.npmjs.org/package/zuul">zuul</a> and <a href="https://www.npmjs.org/package/tape">tape</a>.
+
+        p Project goals:
+
+        ul
+          li Independently maintained and versioned
+          li Strict semver for versioning
+          li Try like crazy to maintain APIs from <code>1.x.x</code> versions
+          li Provide easy to remember names (by using namespacing)
+          li Minimize unneeded interdependencies.
 
       for module, key in globals[0].packages
         section.module
@@ -43,25 +52,28 @@ block content
             h1
               span.header-link
               | #{module.name}
-          .module-card
-            p.module-version= 'v' + module.pack.version
-            p.module-description= module.pack.description
-            p.module-links
-              a(href='https://www.npmjs.org/package/#{module.name}') npm
-
+          small= 'v' + module.pack.version
+          a(href='https://www.npmjs.org/package/#{module.name}') npm
+          a(href='https://github.com/ampersand/amp/tree/master/#{module.bareName}') github
+            
           div
-            h3 Usage
-
-            pre
-              code npm install --save #{module.name}
+            h3 Docs
 
             div!= module.docHtml
-            
-            h3 The code
+
+            h3 Example Usage
             pre
-              code.lang-javascript.hljs= module.code 
+              code.lang-javascript.hljs= module.exampleCode
             
-            h3 Dependency tree
+            button.toggle Show the code
+            pre.collapsed
+              code.lang-javascript.hljs= module.code 
+
+            button.toggle Show the tests
+            pre.collapsed
+              code.lang-javascript.hljs= module.test 
+            
+            h4 Uses
 
             +renderDep(module.dependencyTree, true)
 

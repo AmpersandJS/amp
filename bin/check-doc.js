@@ -1,3 +1,7 @@
+// Tries to make sure all required documentation
+// files exist and are filled out as a validation
+// and the precommit-hook.
+
 /*global process, console*/
 var fs = require('fs');
 var path = require('path');

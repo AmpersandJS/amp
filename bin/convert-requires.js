@@ -1,3 +1,7 @@
+// can converts all the `require` paths in the
+// project from being local to being pointed
+// at node_module names and vice versa. 
+
 /*global process*/
 var fs = require('fs');
 var getPackages = require('../lib/get-packages');

@@ -1,3 +1,7 @@
+// Generates scaffolding with folders and files
+// for packages listed in package.json.
+// also re-writes a few things for consistency.
+
 var fs = require('fs');
 var packages = require('../package.json').packages;
 var getTestString = require('../lib/get-test');

@@ -1,3 +1,4 @@
+// renders dependency depth
 var packs = require('../lib/get-packages')();
 var tree = require('../lib/get-dependency-tree')(packs);
 var Columnizer = require('columnizer');
