@@ -9,17 +9,15 @@ test('amp-debounce', function (t) {
     var incr = function () {
         counter++;
     };
-    var debouncedIncr = debounce(incr, 32);
+    var debouncedIncr = debounce(incr, 64);
     debouncedIncr();
     debouncedIncr();
-    delay(debouncedIncr, 16);
+    delay(debouncedIncr, 32);
     delay(function () {
         t.equal(counter, 1, 'incr was debounced');
         t.end();
-    }, 96);
+    }, 192);
 });
-
-/*
 
 test('debounce asap', function (t) {
     t.plan(4);
@@ -103,4 +101,3 @@ test('debounce re-entrant', function (t) {
         t.end();
     }, 100);
 });
-*/
