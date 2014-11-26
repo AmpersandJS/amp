@@ -1,9 +1,12 @@
 {
   "name": "amp",
+  "description": "A collection of utility modules as independent modules.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "columnizer": "",
+    "fixpack": "^1.1.0",
     "fs-extra": "^0.12.0",
     "http-server": "^0.7.3",
     "jade": "^1.7.0",
@@ -14,6 +17,12 @@
     "tape": "^3.0.3",
     "zuul": "^1.13.1"
   },
+  "homepage": "http://amp.ampersandjs.com",
+  "keywords": [
+    "util",
+    "collection",
+    "amp"
+  ],
   "license": "MIT",
   "packages": {
     "arrays": [
@@ -25,8 +34,7 @@
       "each",
       "size"
     ],
-    "dom": [
-    ],
+    "dom": [],
     "functions": [
       "before",
       "bind",
@@ -35,9 +43,9 @@
       "once"
     ],
     "objects": [
-      "extend",
       "clone",
       "defaults",
+      "extend",
       "has",
       "invert",
       "keys",
@@ -48,29 +56,34 @@
       "to-camel-case"
     ],
     "utils": [
-      "is-object",
-      "is-undefined",
-      "is-null",
-      "is-object-equal",
       "is-arguments",
-      "is-empty",
-      "is-string",
       "is-array",
-      "is-function",
-      "is-date",
-      "is-nan",
-      "is-number",
-      "is-regexp",
       "is-boolean",
+      "is-date",
+      "is-empty",
+      "is-function",
+      "is-nan",
+      "is-null",
+      "is-number",
+      "is-object",
+      "is-object-equal",
+      "is-regexp",
+      "is-string",
+      "is-undefined",
       "result",
       "unique-id"
     ]
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
   "scripts": {
     "before-test": "node bin/gen-testrunner",
-    "build": "npm run folders && npm run readmes && npm run before-test && npm run build-site",
+    "build": "npm run clean && npm run folders && npm run readmes && npm run before-test && npm run build-site",
     "build-site": "node bin/build-site",
+    "clean": "node bin/sort-modules && fixpack",
     "folders": "node bin/gen-folders",
     "make-local": "node bin/convert-requires local",
     "make-remote": "node bin/convert-requires remote",
