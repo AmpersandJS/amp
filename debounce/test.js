@@ -26,7 +26,7 @@ test('debounce asap', function (t) {
     var incr = function () {
         return ++counter;
     };
-    var debouncedIncr = debounce(incr, 64, true);
+    var debouncedIncr = debounce(incr, 100, true);
     a = debouncedIncr();
     b = debouncedIncr();
     t.equal(a, 1);
@@ -53,7 +53,7 @@ test('debounce asap recursively', function (t) {
     delay(function(){
         t.equal(counter, 1, 'incr was debounced');
         t.end();
-    }, 96);
+    }, 500);
 });
 
 test('debounce after system time is set backwards', function (t) {
@@ -62,7 +62,7 @@ test('debounce after system time is set backwards', function (t) {
     var origNowFunc = Date.now;
     var debouncedIncr = debounce(function () {
         counter++;
-    }, 100, true);
+    }, 50, true);
 
     debouncedIncr();
     t.equal(counter, 1, 'incr was called immediately');
@@ -99,5 +99,5 @@ test('debounce re-entrant', function (t) {
     delay(function(){
         t.equal(value, 'a1a2b1b2', 'append was debounced successfully');
         t.end();
-    }, 100);
+    }, 500);
 });
