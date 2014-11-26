@@ -11,7 +11,15 @@
     "test": "node test.js"
   },
   "main": "defaults.js",
-  "dependencies": {
-    "is-object": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-defaults",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "objects"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

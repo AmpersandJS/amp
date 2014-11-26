@@ -10,5 +10,16 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-function.js"
+  "main": "is-function.js",
+  "homepage": "http://amp.ampersandjs.com/#amp-is-function",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  }
 }

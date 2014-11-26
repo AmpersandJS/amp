@@ -11,7 +11,15 @@
     "test": "node test.js"
   },
   "main": "result.js",
-  "dependencies": {
-    "is-function": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-result",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

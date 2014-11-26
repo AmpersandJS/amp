@@ -11,8 +11,15 @@
     "test": "node test.js"
   },
   "main": "bind.js",
-  "dependencies": {
-    "is-function": "^1.0.0",
-    "is-object": "^1.2.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-bind",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "functions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

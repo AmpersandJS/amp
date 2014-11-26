@@ -10,5 +10,16 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "has.js"
+  "main": "has.js",
+  "homepage": "http://amp.ampersandjs.com/#amp-has",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "objects"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  }
 }

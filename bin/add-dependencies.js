@@ -4,6 +4,7 @@ var fs = require('fs');
 var modules = require('../lib/get-packages')();
 var size = require('../size');
 
+//console.log(modules);
 
 modules.forEach(function (mod) {
     var result = {};
@@ -13,7 +14,7 @@ modules.forEach(function (mod) {
 
     // maintain custom-set versions if they already exist
     for (var item in result) {
-        if (mod.pack.dependencies[item]) {
+        if (mod.pack.dependencies && mod.pack.dependencies[item]) {
             result[item] = mod.pack.dependencies[item];
         }
     }

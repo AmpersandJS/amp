@@ -10,5 +10,16 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "last.js"
+  "main": "last.js",
+  "homepage": "http://amp.ampersandjs.com/#amp-last",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "arrays"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  }
 }

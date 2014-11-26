@@ -11,7 +11,15 @@
     "test": "node test.js"
   },
   "main": "to-camel-case.js",
-  "dependencies": {
-    "is-string": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-to-camel-case",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "strings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

@@ -11,8 +11,15 @@
     "test": "node test.js"
   },
   "main": "contains.js",
-  "dependencies": {
-    "index-of": "^1.0.0",
-    "values": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-contains",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

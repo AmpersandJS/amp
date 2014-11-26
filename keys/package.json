@@ -11,9 +11,15 @@
     "test": "node test.js"
   },
   "main": "keys.js",
-  "dependencies": {
-    "has": "^1.0.0",
-    "index-of": "^1.0.0",
-    "is-object": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-keys",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "objects"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

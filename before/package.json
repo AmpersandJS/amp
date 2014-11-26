@@ -10,5 +10,16 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "before.js"
+  "main": "before.js",
+  "homepage": "http://amp.ampersandjs.com/#amp-before",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "functions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  }
 }

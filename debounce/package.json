@@ -10,5 +10,16 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "debounce.js"
+  "main": "debounce.js",
+  "homepage": "http://amp.ampersandjs.com/#amp-debounce",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "functions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  }
 }

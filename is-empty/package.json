@@ -11,11 +11,15 @@
     "test": "node test.js"
   },
   "main": "is-empty.js",
-  "dependencies": {
-    "is-arguments": "^1.0.0",
-    "is-array": "^1.0.0",
-    "is-nan": "^1.0.0",
-    "is-number": "^1.0.0",
-    "is-string": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-is-empty",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }

@@ -11,7 +11,15 @@
     "test": "node test.js"
   },
   "main": "each.js",
-  "dependencies": {
-    "keys": "^1.0.0"
+  "homepage": "http://amp.ampersandjs.com/#amp-each",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
   }
 }
