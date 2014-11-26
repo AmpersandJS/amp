@@ -65,13 +65,15 @@ block content
             pre
               code.lang-javascript.hljs= module.exampleCode
             
-            button.toggle Show the code
-            pre.collapsed
-              code.lang-javascript.hljs= module.code 
+            .code
+              button.toggle Show the code
+              pre(style='display: none')
+                code.lang-javascript.hljs= module.code
 
-            button.toggle Show the tests
-            pre.collapsed
-              code.lang-javascript.hljs= module.test 
+            .tests
+              button.toggle Show the tests
+              pre(style='display: none')
+                code.lang-javascript.hljs= module.test 
             
             h4 Uses
 
