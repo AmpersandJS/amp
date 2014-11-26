@@ -15,44 +15,57 @@
     "zuul": "^1.13.1"
   },
   "license": "MIT",
-  "main": "genFolders.js",
-  "packages": [
-    "before",
-    "bind",
-    "contains",
-    "clone",
-    "debounce",
-    "defaults",
-    "delay",
-    "extend",
-    "escape",
-    "each",
-    "has",
-    "index-of",
-    "invert",
-    "is-object",
-    "is-undefined",
-    "is-null",
-    "is-object-equal",
-    "is-arguments",
-    "is-empty",
-    "is-string",
-    "is-array",
-    "is-function",
-    "is-date",
-    "is-nan",
-    "is-number",
-    "is-regexp",
-    "is-boolean",
-    "keys",
-    "last",
-    "once",
-    "result",
-    "size",
-    "to-camel-case",
-    "unique-id",
-    "values"
-  ],
+  "packages": {
+    "arrays": [
+      "index-of",
+      "last"
+    ],
+    "collections": [
+      "contains",
+      "each",
+      "size"
+    ],
+    "dom": [
+    ],
+    "functions": [
+      "before",
+      "bind",
+      "debounce",
+      "delay",
+      "once"
+    ],
+    "objects": [
+      "extend",
+      "clone",
+      "defaults",
+      "has",
+      "invert",
+      "keys",
+      "values"
+    ],
+    "strings": [
+      "escape",
+      "to-camel-case"
+    ],
+    "utils": [
+      "is-object",
+      "is-undefined",
+      "is-null",
+      "is-object-equal",
+      "is-arguments",
+      "is-empty",
+      "is-string",
+      "is-array",
+      "is-function",
+      "is-date",
+      "is-nan",
+      "is-number",
+      "is-regexp",
+      "is-boolean",
+      "result",
+      "unique-id"
+    ]
+  },
   "private": true,
   "scripts": {
     "before-test": "node bin/gen-testrunner",

@@ -3,7 +3,7 @@
 // also re-writes a few things for consistency.
 
 var fs = require('fs');
-var packages = require('../package.json').packages;
+var packages = require('../lib/get-names')();
 var getTestString = require('../lib/get-test');
 var toCamelCase = require('../lib/to-camel-case');
 

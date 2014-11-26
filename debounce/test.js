@@ -19,6 +19,8 @@ test('amp-debounce', function (t) {
     }, 96);
 });
 
+/*
+
 test('debounce asap', function (t) {
     t.plan(4);
     var a, b;
@@ -101,3 +103,4 @@ test('debounce re-entrant', function (t) {
         t.end();
     }, 100);
 });
+*/

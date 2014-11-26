@@ -59,8 +59,9 @@ console.log(modified()); //=&gt; 1
 console.log(modified()); //=&gt; 2
 console.log(modified()); //=&gt; 2
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">module.exports = function before(times, fn) {
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function before(times, fn) {
     var memo;
     return function() {
         if (--times &gt; 0) {
@@ -71,9 +72,11 @@ console.log(modified()); //=&gt; 2
         return memo;
     };
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var before = require('./before');
 
 
@@ -109,6 +112,7 @@ test('amp-before', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -136,8 +140,9 @@ bound();
 //=&gt; 'hello there'
 //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isFunction = require('../is-function');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isFunction = require('../is-function');
 var isObject = require('../is-object');
 var nativeBind = Function.prototype.bind;
 var slice = Array.prototype.slice;
@@ -160,9 +165,11 @@ module.exports = function bind(func, context) {
     };
     return bound;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var bind = require('./bind');
 
 
@@ -218,6 +225,7 @@ test('amp-bind', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-function">amp-is-function</a>
@@ -245,8 +253,9 @@ var array = ['hi', 'there'];
 var copied = clone(array); //=&gt; ['hi', 'there']
 console.log(array === copied); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
 var isArray = require('../is-array');
 var extend = require('../extend');
 
@@ -255,9 +264,11 @@ module.exports = function clone(obj) {
     if (!isObject(obj)) return obj;
     return isArray(obj) ? obj.slice() : extend({}, obj);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var clone = require('./clone');
 
 
@@ -278,6 +289,7 @@ test('amp-clone', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-object">amp-is-object</a>
@@ -305,8 +317,9 @@ test('amp-clone', function (t) {
 
 console.log(contains(['hi'], 'hi')); //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var values = require('../values');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var values = require('../values');
 var indexOf = require('../index-of');
 
 
@@ -315,9 +328,11 @@ module.exports = function contains(obj, target) {
     if (obj.length !== +obj.length) obj = values(obj);
     return indexOf(obj, target) &gt;= 0;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var contains = require('./contains');
 
 
@@ -330,6 +345,7 @@ test('amp-contains', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-values">amp-values</a>
@@ -383,8 +399,9 @@ debouncedGreeting();
 // *200ms pass*
 //=&gt; 'hi'
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var now = Date.now;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var now = Date.now;
 
 // IE &lt; 9
 if (!now) {
@@ -424,9 +441,11 @@ module.exports = function debounce(func, wait, immediate) {
         return result;
     };
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var debounce = require('./debounce');
 var delay = require('../delay');
 
@@ -530,6 +549,7 @@ test('debounce re-entrant', function (t) {
     }, 100);
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -565,8 +585,9 @@ console.log(person);
 //   age: 'unknown'
 // }
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
 
 
 module.exports = function defaults(obj) {
@@ -579,9 +600,11 @@ module.exports = function defaults(obj) {
     }
     return obj;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var defaults = require('./defaults');
 
 
@@ -611,6 +634,7 @@ test('amp-defaults', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-object">amp-is-object</a>
@@ -653,17 +677,20 @@ var obj = {
 //=&gt; 200ms pause
 //=&gt; 'Oh, hello there, Mr. Fox!'
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var bind = require('../bind');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var bind = require('../bind');
 
 
 module.exports = function delay(func, wait, context) {
     if (context) func = bind(func, context);
     return setTimeout(func, wait);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var delay = require('./delay');
 
 
@@ -695,6 +722,7 @@ test('amp-delay', function (t) {
     }, 150);
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-bind">amp-bind</a>
@@ -746,8 +774,9 @@ each([1, 2], function () {
 //=&gt; {thing: 'stuff'}
 //=&gt; {thing: 'stuff'}
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
 
 
 // Internal function that returns an efficient (for current engines) version
@@ -791,9 +820,11 @@ module.exports = function each(obj, iteratee, context) {
     }
     return obj;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var each = require('./each');
 var contains = require('../contains');
 
@@ -856,6 +887,7 @@ test('amp-each', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
@@ -901,8 +933,9 @@ var escaper = require('amp-escape');
 escaper.escape(htmlString); //=&gt; '&amp;lt;b&amp;gt;HI&amp;lt;/b&amp;gt;'
 escaper.unescape(escaped); //=&gt; '&lt;b&gt;HI&lt;/b&gt;'
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
 var unescapeMap = {};
 var escapeMap = {
     '&amp;': '&amp;amp;',
@@ -936,9 +969,11 @@ var escape = createEscaper(escapeMap);
 module.exports = escape;
 module.exports.escape = escape;
 module.exports.unescape = createEscaper(unescapeMap);
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var escape = require('./escape');
 var unescape = escape.unescape;
 var each = require('../each');
@@ -998,6 +1033,7 @@ test('amp-escape', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
@@ -1048,8 +1084,9 @@ extend(person, attributes, preferences);
 //   food: 'Swedish Fish'
 // }
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
 
 
 module.exports = function(obj) {
@@ -1063,9 +1100,11 @@ module.exports = function(obj) {
     }
     return obj;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var extend = require('./extend');
 var keys = require('../keys');
 
@@ -1100,6 +1139,7 @@ test('amp-extend', function(t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-object">amp-is-object</a>
@@ -1125,16 +1165,19 @@ var obj = {
 has(obj, 'greeting'); //=&gt; true
 has(obj, 'hasOwnProperty'); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
 
 
 module.exports = function has(obj, key) {
     return obj != null &amp;&amp; hasOwn.call(obj, key);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var has = require('./has');
 
 
@@ -1148,6 +1191,7 @@ test('amp-has', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1165,8 +1209,9 @@ test('amp-has', function (t) {
 indexOf(['oh', 'hello', 'there'], 'hello'); //=&gt; 1
 indexOf(['hi', 'there'], 'hello'); //=&gt; -1
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isObj = require('../is-object');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObj = require('../is-object');
 var arrayInd = Array.prototype.indexOf;
 
 // for MSIE &lt; 9
@@ -1183,9 +1228,11 @@ module.exports = function indexOf(obj, val) {
     if (!isObj(obj)) return -1;
     return arrayInd.call(obj, val);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var indexOf = require('./index-of');
 
 
@@ -1203,6 +1250,7 @@ test('amp-index-of', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-object">amp-is-object</a>
@@ -1232,8 +1280,9 @@ invert(person);
 //   'swedish pancakes': 'favoriteFood'
 // }
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
 
 
 module.exports = function invert(obj) {
@@ -1244,9 +1293,11 @@ module.exports = function invert(obj) {
     }
     return result;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var invert = require('./invert');
 var keys = require('../keys');
 
@@ -1261,6 +1312,7 @@ test('amp-invert', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
@@ -1293,8 +1345,9 @@ test('amp-invert', function (t) {
 isArguments(arguments); //=&gt; true
 isArguments([]); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 var hasOwn = Object.prototype.hasOwnProperty;
 var isArgs = function isArgs(obj) {
     return toString.call(obj) === '[object Arguments]';
@@ -1308,9 +1361,11 @@ if (!isArgs(arguments)) {
 }
 
 module.exports = isArgs;
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isArguments = require('./is-arguments');
 
 
@@ -1324,6 +1379,7 @@ test('amp-is-arguments', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1342,17 +1398,20 @@ isArray([]); //=&gt; true
 isArray([1, 2, 3]); //=&gt; true
 isArray(arguments); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 var isArray = Array.isArray;
 
 
 module.exports = isArray || function isArray(obj) {
     return toString.call(obj) === '[object Array]';
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isArray = require('./is-array');
 
 
@@ -1364,6 +1423,7 @@ test('amp-is-array', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1382,13 +1442,16 @@ isBoolean(true); //=&gt; true
 isBoolean(false); //=&gt; true
 isBoolean(0); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isBoolean(obj) {
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isBoolean(obj) {
     return obj === true || obj === false;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isBoolean = require('./is-boolean');
 
 
@@ -1406,6 +1469,7 @@ test('amp-is-boolean', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1422,16 +1486,19 @@ test('amp-is-boolean', function (t) {
 
 isDate(new Date()); //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
 
 module.exports = function isFunction(obj) {
     return toString.call(obj) === '[object Date]';
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isDate = require('./is-date');
 
 
@@ -1442,6 +1509,7 @@ test('amp-is-date', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1474,8 +1542,9 @@ isEmpty(null); //=&gt; true
 isEmpty(undefined); //=&gt; true
 isEmpty(NaN); //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isArray = require('../is-array');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isArray = require('../is-array');
 var isString = require('../is-string');
 var isArguments = require('../is-arguments');
 var isNumber = require('../is-number');
@@ -1492,9 +1561,11 @@ module.exports = function isEmpty(obj) {
     }
     return true;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isEmpty = require('./is-empty');
 
 
@@ -1522,6 +1593,7 @@ test('amp-is-empty', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-array">amp-is-array</a>
@@ -1554,8 +1626,9 @@ test('amp-is-empty', function (t) {
 isFunction(function () {}); //=&gt; true
 isFunction({}); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 var func = function isFunction(obj) {
     return toString.call(obj) === '[object Function]';
 };
@@ -1568,9 +1641,11 @@ if (typeof /./ !== 'function') {
 }
 
 module.exports = func;
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isFunction = require('./is-function');
 
 
@@ -1586,6 +1661,7 @@ test('amp-is-function', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1604,16 +1680,19 @@ isNan(NaN); //=&gt; true
 isNan(undefined); //=&gt; false
 isNan(0); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isNumber = require('../is-number');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isNumber = require('../is-number');
 
 
 module.exports = function isNaN(obj) {
     return isNumber(obj) &amp;&amp; obj !== +obj;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isNan = require('./is-nan');
 
 
@@ -1626,6 +1705,7 @@ test('amp-is-nan', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-number">amp-is-number</a>
@@ -1646,13 +1726,16 @@ test('amp-is-nan', function (t) {
 isNull(null); //=&gt; true
 isNull('anything else'); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isNull(obj) {
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isNull(obj) {
     return obj === null;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isNull = require('./is-null');
 
 
@@ -1663,6 +1746,7 @@ test('amp-is-null', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1681,16 +1765,19 @@ isNumber(5); //=&gt; true
 isNumber(Infinity); //=&gt; true
 isNumber('5'); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
 
 module.exports = function isNumber(obj) {
     return toString.call(obj) === '[object Number]';
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isNumber = require('./is-number');
 
 
@@ -1706,6 +1793,7 @@ test('amp-is-number', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1729,14 +1817,17 @@ isObject(['hi', 'there']); //=&gt; true
 isObject(new String('hi')); //=&gt; true
 
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isObject(obj) {
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isObject(obj) {
     var type = typeof obj;
     return !!obj &amp;&amp; (type === 'function' || type === 'object');
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">/*global document*/
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">/*global document*/
 var test = require('tape');
 var isObject = require('./is-object');
 
@@ -1757,6 +1848,7 @@ test('amp-is-object', function(t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -1779,8 +1871,9 @@ swede == swedeClone; //=&gt; false
 // but they're deep equal
 isObjectEqual(swede1, swedeClone); //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
 var objKeys = require('../keys');
 var isFunction = require('../is-function');
@@ -1882,9 +1975,11 @@ var eq = function(a, b, aStack, bStack) {
 module.exports = function isEqual(a, b) {
     return eq(a, b, [], []);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">/*global String*/
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">/*global String*/
 var test = require('tape');
 var isObjectEqual = require('./is-object-equal');
 
@@ -2131,6 +2226,7 @@ test('amp-is-object-equal', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
@@ -2165,16 +2261,19 @@ test('amp-is-object-equal', function (t) {
 isRegexp(/oh hello there/); //=&gt; true
 isRegexp(new RegExp('oh hello there')); //=&gt; true
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
 
 module.exports = function isRegExp(obj) {
     return toString.call(obj) === '[object RegExp]';
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isRegExp = require('./is-regexp');
 
 
@@ -2184,6 +2283,7 @@ test('amp-is-regexp', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -2202,16 +2302,19 @@ isString('oh, hello there!'); //=&gt; true
 isString(''); //=&gt; true
 isString(5); //=&gt; false
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
 
 
 module.exports = function isString(obj) {
     return toString.call(obj) === '[object String]';
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isString = require('./is-string');
 
 
@@ -2225,6 +2328,7 @@ test('amp-is-string', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -2244,13 +2348,16 @@ isUndefined(NaN); //=&gt; false
 isUndefined(undefined); //=&gt; true
 
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isUndefined(obj) {
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isUndefined(obj) {
     return obj === void 0;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var isUndefined = require('./is-undefined');
 
 
@@ -2264,6 +2371,7 @@ test('amp-is-undefined', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -2286,8 +2394,9 @@ var obj = {
 keys(obj); //=&gt; ['hi', 'oh']
 keys(undefined) //=&gt; []
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var has = require('../has');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var has = require('../has');
 var indexOf = require('../index-of');
 var isObject = require('../is-object');
 var nativeKeys = Object.keys;
@@ -2312,9 +2421,11 @@ module.exports = function keys(obj) {
     }
     return result;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var keys = require('./keys');
 
 
@@ -2349,6 +2460,7 @@ test('amp-keys', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-has">amp-has</a>
@@ -2377,8 +2489,9 @@ test('amp-keys', function (t) {
 last([1, 2, 3]); //=&gt; 3
 last([1, 2, 3], 2); //=&gt; [2, 3]
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var slice = Array.prototype.slice;
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var slice = Array.prototype.slice;
 
 
 module.exports = function last(arr, n, guard) {
@@ -2386,9 +2499,11 @@ module.exports = function last(arr, n, guard) {
     if (n == null || guard) return arr[arr.length - 1];
     return slice.call(arr, Math.max(0, arr.length - n));
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var last = require('./last');
 
 
@@ -2409,6 +2524,7 @@ test('amp-last', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -2437,16 +2553,19 @@ modified();
 modified(); //=&gt; 1
 modified(); //=&gt; 1
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var before = require('../before');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var before = require('../before');
 
 
 module.exports = function once(fn) {
     return before(2, fn);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var once = require('./once');
 
 
@@ -2467,6 +2586,7 @@ test('amp-once', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-before">amp-before</a>
@@ -2494,8 +2614,9 @@ result(obj, 'hi'); //=&gt; 'there'
 result(obj, 'oh'); //=&gt; 'hello there'
 result(obj, 'nothing', 'wat'); //=&gt; 'wat'
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isFunction = require('../is-function');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isFunction = require('../is-function');
 
 
 module.exports = function result(object, property, defaultValue) {
@@ -2505,9 +2626,11 @@ module.exports = function result(object, property, defaultValue) {
     }
     return isFunction(value) ? object[property]() : value;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var result = require('./result');
 
 
@@ -2545,6 +2668,7 @@ test('amp-result', function(t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-function">amp-is-function</a>
@@ -2565,17 +2689,20 @@ test('amp-result', function(t) {
 size([1, 2, 3]); //=&gt; 3
 size({hi: 'there', oh: 'hello there'}); //=&gt; 2
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
 
 
 module.exports = function size(obj) {
     if (obj == null) return 0;
     return obj.length === +obj.length ? obj.length : keys(obj).length;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var size = require('./size');
 
 
@@ -2597,6 +2724,7 @@ test('amp-size', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
@@ -2630,8 +2758,9 @@ test('amp-size', function (t) {
 toCamelCase('hi there'); //=&gt; &quot;hiThere&quot;
 toCamelCase('oh hello there', true); //=&gt; &quot;OhHelloThere&quot;
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var isString = require('../is-string');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isString = require('../is-string');
 var re1 = /([\W_\-]+\S?)/g;
 var re2 = /[\W_]/g;
 
@@ -2644,9 +2773,11 @@ module.exports = function toCamelCase(string, capitalizeFirst) {
     var first = replaced.slice(0, 1)[capitalizeFirst ? 'toUpperCase' : 'toLowerCase']();
     return first + replaced.slice(1);
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var toCamelCase = require('./to-camel-case');
 
 
@@ -2665,6 +2796,7 @@ test('amp-to-camel-case', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-is-string">amp-is-string</a>
@@ -2686,8 +2818,9 @@ test('amp-to-camel-case', function (t) {
 uniqueId(); //=&gt; &quot;1&quot;
 uniqueId('hi_'); //=&gt; &quot;hi_2&quot;
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">/*global window, global*/
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">/*global window, global*/
 var theGlobal = (typeof window !== 'undefined') ? window : global;
 theGlobal.__ampIdCounter = 0;
 
@@ -2696,9 +2829,11 @@ module.exports = function uniqueId(prefix) {
     var id = ++theGlobal.__ampIdCounter + '';
     return prefix ? prefix + id : id;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var uniqueId = require('./unique-id');
 
 
@@ -2711,6 +2846,7 @@ test('amp-unique-id', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <p>(none)</p>
           </div>
@@ -2731,8 +2867,9 @@ var obj = {
 };
 values(obj); //=&gt; ['there', 'you']
 </code></pre>
-            <button class="toggle">Show the code</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var oKeys = require('../keys');
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var oKeys = require('../keys');
 
 
 module.exports = function values(obj) {
@@ -2744,9 +2881,11 @@ module.exports = function values(obj) {
     }
     return vals;
 };
-</code></pre><br>
-            <button class="toggle">Show the tests</button>
-            <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var values = require('./values');
 
 
@@ -2756,6 +2895,7 @@ test('amp-values', function (t) {
     t.end();
 });
 </code></pre>
+            </div>
             <h4>Uses</h4>
             <ul>
               <li><a href="#amp-keys">amp-keys</a>
