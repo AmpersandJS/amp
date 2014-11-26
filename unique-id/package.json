@@ -1,25 +1,25 @@
 {
   "name": "amp-unique-id",
+  "description": "unique-id util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "unique-id util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "unique-id.js",
   "homepage": "http://amp.ampersandjs.com/#amp-unique-id",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "unique-id.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

@@ -1,25 +1,25 @@
 {
   "name": "amp-last",
+  "description": "last util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "last util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "last.js",
   "homepage": "http://amp.ampersandjs.com/#amp-last",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "arrays"
   ],
+  "license": "MIT",
+  "main": "last.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

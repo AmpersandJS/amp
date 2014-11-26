@@ -1,25 +1,29 @@
 {
   "name": "amp-is-object-equal",
+  "description": "is-object-equal util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "is-object-equal util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-function": "^1.0.0",
+    "keys": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "is-object-equal.js",
   "homepage": "http://amp.ampersandjs.com/#amp-is-object-equal",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "is-object-equal.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

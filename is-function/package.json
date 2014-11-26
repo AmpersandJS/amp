@@ -1,25 +1,25 @@
 {
   "name": "amp-is-function",
+  "description": "is-function util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "is-function util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "is-function.js",
   "homepage": "http://amp.ampersandjs.com/#amp-is-function",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "is-function.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

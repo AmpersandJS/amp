@@ -4,7 +4,6 @@
 
 var fs = require('fs');
 var packages = require('../lib/get-names')();
-var getPackageByName = require('../lib/get-package-by-name');
 var getTestString = require('../lib/get-test');
 var toCamelCase = require('../lib/to-camel-case');
 
@@ -60,24 +59,10 @@ packages.forEach(function (method) {
         fs.writeFileSync(sigFile, camelCased + '();', 'utf8');
     }
 
-    var details = getPackageByName(method);
-
-    pack.name = details.name;
-    pack.main = details.fileName;
+    pack.name = ampName;
+    pack.main = method + '.js';
     pack.description = method + ' util function.';
-    pack.homepage = details.docUrl;
-    pack.bugs = 'https://github.com/ampersandjs/amp/issues';
-    pack.keywords = [
-        'amp', 
-        'util',
-        details.category
-    ];
-
-    pack.repository = {
-        type: 'git',
-        url: 'git://github.com/ampersandjs/amp'
-    };
-
+    
     fs.writeFileSync(dir + '/package.json', JSON.stringify(pack, null, 2));
 });
 

@@ -1,25 +1,30 @@
 {
   "name": "amp-clone",
+  "description": "clone util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "clone util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "extend": "^1.0.0",
+    "is-array": "^1.0.0",
+    "is-object": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "clone.js",
   "homepage": "http://amp.ampersandjs.com/#amp-clone",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "objects"
   ],
+  "license": "MIT",
+  "main": "clone.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

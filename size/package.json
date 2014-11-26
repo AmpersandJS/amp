@@ -1,25 +1,28 @@
 {
   "name": "amp-size",
+  "description": "size util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "size util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "keys": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "size.js",
   "homepage": "http://amp.ampersandjs.com/#amp-size",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "collections"
   ],
+  "license": "MIT",
+  "main": "size.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

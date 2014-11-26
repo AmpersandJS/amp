@@ -1,25 +1,28 @@
 {
   "name": "amp-result",
+  "description": "result util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "result util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-function": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "result.js",
   "homepage": "http://amp.ampersandjs.com/#amp-result",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "result.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

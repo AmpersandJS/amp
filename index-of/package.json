@@ -1,25 +1,28 @@
 {
   "name": "amp-index-of",
+  "description": "index-of util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "index-of util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-object": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "index-of.js",
   "homepage": "http://amp.ampersandjs.com/#amp-index-of",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "arrays"
   ],
+  "license": "MIT",
+  "main": "index-of.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

@@ -1,25 +1,25 @@
 {
   "name": "amp-debounce",
+  "description": "debounce util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "debounce util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "debounce.js",
   "homepage": "http://amp.ampersandjs.com/#amp-debounce",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "functions"
   ],
+  "license": "MIT",
+  "main": "debounce.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

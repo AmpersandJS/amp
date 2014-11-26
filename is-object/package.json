@@ -1,25 +1,25 @@
 {
   "name": "amp-is-object",
+  "description": "is-object util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "is-object util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "is-object.js",
   "homepage": "http://amp.ampersandjs.com/#amp-is-object",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "is-object.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

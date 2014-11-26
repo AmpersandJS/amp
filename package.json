@@ -6,7 +6,7 @@
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "columnizer": "",
-    "fixpack": "^1.1.0",
+    "fixpack": "^1.2.0",
     "fs-extra": "^0.12.0",
     "http-server": "^0.7.3",
     "jade": "^1.7.0",
@@ -80,9 +80,8 @@
     "url": "git://github.com/ampersandjs/amp"
   },
   "scripts": {
-    "add-dependencies": "node bin/add-dependencies",
     "before-test": "node bin/gen-testrunner",
-    "build": "npm run add-dependencies && npm run clean && npm run folders && npm run readmes && npm run before-test && npm run build-site",
+    "build": "npm run clean && npm run folders && npm run write-package-files && npm run readmes && npm run before-test && npm run build-site",
     "build-site": "node bin/build-site",
     "clean": "node bin/sort-modules && fixpack",
     "folders": "node bin/gen-folders",
@@ -96,6 +95,7 @@
     "test": "node bin/test-all.js | tap-spec",
     "test-browser": "zuul --local 8080 -- bin/test-all.js",
     "test-ci": "zuul -- bin/test-all.js",
-    "validate": "node bin/check-doc.js"
+    "validate": "node bin/check-doc.js",
+    "write-package-files": "node bin/write-package-files"
   }
 }

@@ -1,25 +1,28 @@
 {
   "name": "amp-extend",
+  "description": "extend util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "extend util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-object": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "extend.js",
   "homepage": "http://amp.ampersandjs.com/#amp-extend",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "objects"
   ],
+  "license": "MIT",
+  "main": "extend.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }

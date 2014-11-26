@@ -1,25 +1,32 @@
 {
   "name": "amp-is-empty",
+  "description": "is-empty util function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "description": "is-empty util function.",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-arguments": "^1.0.0",
+    "is-array": "^1.0.0",
+    "is-nan": "^1.0.0",
+    "is-number": "^1.0.0",
+    "is-string": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "2.14.0"
   },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "main": "is-empty.js",
   "homepage": "http://amp.ampersandjs.com/#amp-is-empty",
-  "bugs": "https://github.com/ampersandjs/amp/issues",
   "keywords": [
     "amp",
     "util",
     "utils"
   ],
+  "license": "MIT",
+  "main": "is-empty.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }
