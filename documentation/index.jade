@@ -18,8 +18,11 @@ block content
     nav.nav-docs
       a.logo.logo-ampersand(href="/")
       a.section-top(href= '#intro') Introduction
-      a.section-top(href= '#') Modules
+      - var lastCategory;
       for module, key in globals[0].packages
+        - if (lastCategory !== module.category)
+          - lastCategory = module.category
+          a.section-top(href= '#')= module.category
         a.section-sub(href= '#' + module.name)!= module.name
 
     .docs-content

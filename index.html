@@ -22,7 +22,7 @@
   <body class="undefined">
     <nav class="nav-main cf"><a href="/" class="logo logo-ampersand">Amp</a></nav>
     <div class="docs cf">
-      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#" class="section-top">Modules</a><a href="#amp-before" class="section-sub">amp-before</a><a href="#amp-bind" class="section-sub">amp-bind</a><a href="#amp-clone" class="section-sub">amp-clone</a><a href="#amp-contains" class="section-sub">amp-contains</a><a href="#amp-debounce" class="section-sub">amp-debounce</a><a href="#amp-defaults" class="section-sub">amp-defaults</a><a href="#amp-delay" class="section-sub">amp-delay</a><a href="#amp-each" class="section-sub">amp-each</a><a href="#amp-escape" class="section-sub">amp-escape</a><a href="#amp-extend" class="section-sub">amp-extend</a><a href="#amp-has" class="section-sub">amp-has</a><a href="#amp-index-of" class="section-sub">amp-index-of</a><a href="#amp-invert" class="section-sub">amp-invert</a><a href="#amp-is-arguments" class="section-sub">amp-is-arguments</a><a href="#amp-is-array" class="section-sub">amp-is-array</a><a href="#amp-is-boolean" class="section-sub">amp-is-boolean</a><a href="#amp-is-date" class="section-sub">amp-is-date</a><a href="#amp-is-empty" class="section-sub">amp-is-empty</a><a href="#amp-is-function" class="section-sub">amp-is-function</a><a href="#amp-is-nan" class="section-sub">amp-is-nan</a><a href="#amp-is-null" class="section-sub">amp-is-null</a><a href="#amp-is-number" class="section-sub">amp-is-number</a><a href="#amp-is-object" class="section-sub">amp-is-object</a><a href="#amp-is-object-equal" class="section-sub">amp-is-object-equal</a><a href="#amp-is-regexp" class="section-sub">amp-is-regexp</a><a href="#amp-is-string" class="section-sub">amp-is-string</a><a href="#amp-is-undefined" class="section-sub">amp-is-undefined</a><a href="#amp-keys" class="section-sub">amp-keys</a><a href="#amp-last" class="section-sub">amp-last</a><a href="#amp-once" class="section-sub">amp-once</a><a href="#amp-result" class="section-sub">amp-result</a><a href="#amp-size" class="section-sub">amp-size</a><a href="#amp-to-camel-case" class="section-sub">amp-to-camel-case</a><a href="#amp-unique-id" class="section-sub">amp-unique-id</a><a href="#amp-values" class="section-sub">amp-values</a>
+      <nav class="nav-docs"><a href="/" class="logo logo-ampersand"></a><a href="#intro" class="section-top">Introduction</a><a href="#" class="section-top">arrays</a><a href="#amp-index-of" class="section-sub">amp-index-of</a><a href="#amp-last" class="section-sub">amp-last</a><a href="#" class="section-top">collections</a><a href="#amp-contains" class="section-sub">amp-contains</a><a href="#amp-each" class="section-sub">amp-each</a><a href="#amp-size" class="section-sub">amp-size</a><a href="#" class="section-top">functions</a><a href="#amp-before" class="section-sub">amp-before</a><a href="#amp-bind" class="section-sub">amp-bind</a><a href="#amp-debounce" class="section-sub">amp-debounce</a><a href="#amp-delay" class="section-sub">amp-delay</a><a href="#amp-once" class="section-sub">amp-once</a><a href="#" class="section-top">objects</a><a href="#amp-clone" class="section-sub">amp-clone</a><a href="#amp-defaults" class="section-sub">amp-defaults</a><a href="#amp-extend" class="section-sub">amp-extend</a><a href="#amp-has" class="section-sub">amp-has</a><a href="#amp-invert" class="section-sub">amp-invert</a><a href="#amp-keys" class="section-sub">amp-keys</a><a href="#amp-values" class="section-sub">amp-values</a><a href="#" class="section-top">strings</a><a href="#amp-escape" class="section-sub">amp-escape</a><a href="#amp-to-camel-case" class="section-sub">amp-to-camel-case</a><a href="#" class="section-top">utils</a><a href="#amp-is-arguments" class="section-sub">amp-is-arguments</a><a href="#amp-is-array" class="section-sub">amp-is-array</a><a href="#amp-is-boolean" class="section-sub">amp-is-boolean</a><a href="#amp-is-date" class="section-sub">amp-is-date</a><a href="#amp-is-empty" class="section-sub">amp-is-empty</a><a href="#amp-is-function" class="section-sub">amp-is-function</a><a href="#amp-is-nan" class="section-sub">amp-is-nan</a><a href="#amp-is-null" class="section-sub">amp-is-null</a><a href="#amp-is-number" class="section-sub">amp-is-number</a><a href="#amp-is-object" class="section-sub">amp-is-object</a><a href="#amp-is-object-equal" class="section-sub">amp-is-object-equal</a><a href="#amp-is-regexp" class="section-sub">amp-is-regexp</a><a href="#amp-is-string" class="section-sub">amp-is-string</a><a href="#amp-is-undefined" class="section-sub">amp-is-undefined</a><a href="#amp-result" class="section-sub">amp-result</a><a href="#amp-unique-id" class="section-sub">amp-unique-id</a>
       </nav>
       <div class="docs-content">
         <section><a name="intro" href="#intro" class="anchor">
@@ -39,6 +39,430 @@
             <li>Provide easy to remember names (by using namespacing)</li>
             <li>Minimize unneeded interdependencies.</li>
           </ul>
+        </section>
+        <section class="module"><a name="amp-index-of" href="#amp-index-of" class="anchor">
+            <h1><span class="header-link"></span>amp-index-of</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-index-of">npm</a><a href="https://github.com/ampersand/amp/tree/master/index-of">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Uses native <code>Array.prototype.indexOf</code> if present. But, unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var indexOf = require('amp-index-of');
+
+indexOf(['oh', 'hello', 'there'], 'hello'); //=&gt; 1
+indexOf(['hi', 'there'], 'hello'); //=&gt; -1
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObj = require('../is-object');
+var arrayInd = Array.prototype.indexOf;
+
+// for MSIE &lt; 9
+if (!arrayInd) {
+    arrayInd = function (obj) {
+        for (var i = 0; i &lt; this.length; ++i) {
+            if (this[i] === obj) return i;
+        }
+        return -1;
+    };
+}
+
+module.exports = function indexOf(obj, val) {
+    if (!isObj(obj)) return -1;
+    return arrayInd.call(obj, val);
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var indexOf = require('./index-of');
+
+
+test('amp-index-of', function (t) {
+    var args = (function () { return arguments })('hi', 'there');
+    t.equal(indexOf(args, 'there'), 1, 'works on `arguments` objects');
+    t.equal(indexOf({'hi': 'hello'}, 'hi'), -1, 'returns `-1` if passed object');
+    t.equal(indexOf(['a', 'b'], 1), -1);
+    t.equal(indexOf(undefined, 1), -1);
+    t.equal(indexOf(null, 1), -1);
+    t.equal(indexOf(NaN, 1), -1);
+    t.equal(indexOf({}, 1), -1);
+    t.equal(indexOf(['a'], 'a'), 0);
+    t.equal(indexOf(['a' , 1], 1), 1);
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-last" href="#amp-last" class="anchor">
+            <h1><span class="header-link"></span>amp-last</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-last">npm</a><a href="https://github.com/ampersand/amp/tree/master/last">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Returns the last item(s) in an array. Passing <em>n</em> will return the last <em>n</em> items in the array. Also works on <code>arguments</code>.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var last = require('amp-last');
+
+last([1, 2, 3]); //=&gt; 3
+last([1, 2, 3], 2); //=&gt; [2, 3]
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var slice = Array.prototype.slice;
+
+
+module.exports = function last(arr, n, guard) {
+    if (arr == null) return void 0;
+    if (n == null || guard) return arr[arr.length - 1];
+    return slice.call(arr, Math.max(0, arr.length - n));
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var last = require('./last');
+
+
+test('amp-last', function (t) {
+    t.equal(last([1, 2, 3]), 3, 'can pull out the last element of an array');
+    t.deepEqual(last([1, 2, 3], 0), [], 'can pass an index to last');
+    t.deepEqual(last([1, 2, 3], 2), [2, 3], 'can pass an index to last');
+    t.deepEqual(last([1, 2, 3], 5), [1, 2, 3], 'can pass an index to last');
+    var result = (function(){ return last(arguments); }(1, 2, 3, 4));
+    t.equal(result, 4, 'works on an arguments object');
+    if ([].map) {
+        result = [[1, 2, 3], [1, 2, 3]].map(last);
+        t.deepEqual(result, [3, 3], 'works well with map');
+    }
+
+    t.equal(last(null), undefined, 'handles nulls');
+    t.strictEqual(last([1, 2, 3], -1).length, 0);
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-contains" href="#amp-contains" class="anchor">
+            <h1><span class="header-link"></span>amp-contains</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-contains">npm</a><a href="https://github.com/ampersand/amp/tree/master/contains">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Determines whether an array contains an item. Returns <code>true</code> or <code>false</code>.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var contains = require('amp-contains');
+
+console.log(contains(['hi'], 'hi')); //=&gt; true
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var values = require('../values');
+var indexOf = require('../index-of');
+
+
+module.exports = function contains(obj, target) {
+    if (obj == null) return false;
+    if (obj.length !== +obj.length) obj = values(obj);
+    return indexOf(obj, target) &gt;= 0;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var contains = require('./contains');
+
+
+test('amp-contains', function (t) {
+    t.ok(contains(['hi', 'there'], 'hi'));
+    t.ok(contains(['hi', 1], 1));
+    var obj = {};
+    t.ok([obj, 'hi'], obj);
+    t.ok(!contains(undefined, 'hi'));
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-values">amp-values</a>
+                <ul>
+                  <li><a href="#amp-keys">amp-keys</a>
+                    <ul>
+                      <li><a href="#amp-has">amp-has</a>
+                      </li>
+                      <li><a href="#amp-index-of">amp-index-of</a>
+                        <ul>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-index-of">amp-index-of</a>
+                <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-each" href="#amp-each" class="anchor">
+            <h1><span class="header-link"></span>amp-each</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-each">npm</a><a href="https://github.com/ampersand/amp/tree/master/each">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>You can think of this as an <code>Array.prototype.forEach</code> that also works on objects and rather than returning <code>undefined</code> as the native <code>forEach</code> does, it returns the list/object you&#39;re iterating over.</p>
+<p>It iterates over all items in an array or keys in an object one at a time, passing each item to the function you supply. That function&#39;s <code>this</code> will be the context object, you provide if you passed one as a third argument.</p>
+<p>Your function will be called with three arguments. In the case of an <code>Array</code> or <code>arguments</code> object those items will be <code>(item, index, list)</code>. </p>
+<p>In the case of an object the arguments will be <code>(value, key, list)</code>.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var each = require('amp-each');
+
+var list = ['oh', 'hello', 'there'];
+var obj = {name: 'Henrik', greeting: 'Oh, hello there!'};
+
+each(list, function (item, index) {
+    console.log(item, index);
+});
+//=&gt; 'oh', 0
+//=&gt; 'hi', 1
+//=&gt; 'there', 2
+
+each(obj, function (value, key) {
+    console.log(value, key);
+});
+//=&gt; 'Henrik', 'name'
+//=&gt; 'Oh, hello there!', 'greeting'
+
+// with a context
+var myContext = {thing: 'stuff'};
+
+each([1, 2], function () {
+    console.log(this);
+}, myContext);
+//=&gt; {thing: 'stuff'}
+//=&gt; {thing: 'stuff'}
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
+
+
+// Internal function that returns an efficient (for current engines) version
+// of the passed-in callback, to be repeatedly applied in other Underscore
+// functions.
+var createCallback = function(func, context, argCount) {
+    if (context === void 0) return func;
+    switch (argCount == null ? 3 : argCount) {
+    case 1: return function(value) {
+        return func.call(context, value);
+    };
+    case 2: return function(value, other) {
+        return func.call(context, value, other);
+    };
+    case 3: return function(value, index, collection) {
+        return func.call(context, value, index, collection);
+    };
+    case 4: return function(accumulator, value, index, collection) {
+        return func.call(context, accumulator, value, index, collection);
+    };
+    }
+    return function() {
+        return func.apply(context, arguments);
+    };
+};
+
+
+module.exports = function each(obj, iteratee, context) {
+    if (obj == null) return obj;
+    iteratee = createCallback(iteratee, context);
+    var i, length = obj.length;
+    if (length === +length) {
+        for (i = 0; i &lt; length; i++) {
+            iteratee(obj[i], i, obj);
+        }
+    } else {
+        var keys = objKeys(obj);
+        for (i = 0, length = keys.length; i &lt; length; i++) {
+            iteratee(obj[keys[i]], keys[i], obj);
+        }
+    }
+    return obj;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var each = require('./each');
+var contains = require('../contains');
+
+
+test('amp-each', function (t) {
+    each([1, 2, 3], function(num, i) {
+        t.equal(num, i + 1, 'each iterators provide value and iteration count');
+    });
+
+    var answers = [];
+    each([1, 2, 3], function(num) {
+        answers.push(num * this.multiplier);
+    }, {multiplier : 5});
+    t.deepEqual(answers, [5, 10, 15], 'context object property accessed');
+
+    answers = [];
+    each([1, 2, 3], function(num){ answers.push(num); });
+    t.deepEqual(answers, [1, 2, 3], 'aliased as &quot;forEach&quot;');
+
+    answers = [];
+    var obj = {one : 1, two : 2, three : 3};
+    obj.constructor.prototype.four = 4;
+    each(obj, function(value, key){ answers.push(key); });
+    t.deepEqual(answers, ['one', 'two', 'three'], 'iterating over objects works, and ignores the object prototype.');
+    delete obj.constructor.prototype.four;
+
+    var answer = null;
+    each([1, 2, 3], function(num, index, arr){ if (contains(arr, num)) answer = true; });
+    t.ok(answer, 'can reference the original collection from inside the iterator');
+
+    answers = 0;
+    each(null, function(){ ++answers; });
+    t.equal(answers, 0, 'handles a null properly');
+
+    each(false, function(){});
+
+    var a = [1, 2, 3];
+    t.strictEqual(each(a, function(){}), a);
+    t.strictEqual(each(null, function(){}), null);
+
+    var b = [1, 2, 3];
+    b.length = 100;
+    answers = 0;
+    each(b, function(){ ++answers; });
+    t.equal(answers, 100, 'enumerates [0, length)');
+
+
+    var collection = [1, 2, 3], count = 0;
+    each(collection, function() {
+      if (count &lt; 10) collection.push(count++);
+    });
+    t.equal(count, 3);
+
+    collection = {a: 1, b: 2, c: 3};
+    count = 0;
+    each(collection, function() {
+      if (count &lt; 10) collection[count] = count++;
+    });
+    t.equal(count, 3);
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-size" href="#amp-size" class="anchor">
+            <h1><span class="header-link"></span>amp-size</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-size">npm</a><a href="https://github.com/ampersand/amp/tree/master/size">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Return the number of values in the list or keys (if you pass it an object).</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var size = require('amp-size');
+
+size([1, 2, 3]); //=&gt; 3
+size({hi: 'there', oh: 'hello there'}); //=&gt; 2
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
+
+
+module.exports = function size(obj) {
+    if (obj == null) return 0;
+    return obj.length === +obj.length ? obj.length : keys(obj).length;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var size = require('./size');
+
+
+test('amp-size', function (t) {
+    t.equal(size({one : 1, two : 2, three : 3}), 3, 'can compute the size of an object');
+    t.equal(size([1, 2, 3]), 3, 'can compute the size of an array');
+    t.equal(size({length: 3, 0: 0, 1: 0, 2: 0}), 3, 'can compute the size of Array-likes');
+
+    var func = function() {
+        return size(arguments);
+    };
+
+    t.equal(func(1, 2, 3, 4), 4, 'can test the size of the arguments object');
+
+    t.equal(size('hello'), 5, 'can compute the size of a string literal');
+    t.equal(size(new String('hello')), 5, 'can compute the size of string object');
+
+    t.equal(size(null), 0, 'handles nulls');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
         </section>
         <section class="module"><a name="amp-before" href="#amp-before" class="anchor">
             <h1><span class="header-link"></span>amp-before</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-before">npm</a><a href="https://github.com/ampersand/amp/tree/master/before">github</a>
@@ -236,146 +660,6 @@ test('amp-bind', function (t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-clone" href="#amp-clone" class="anchor">
-            <h1><span class="header-link"></span>amp-clone</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-clone">npm</a><a href="https://github.com/ampersand/amp/tree/master/clone">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Create a shallow-copied clone of the object. Any nested objects or arrays will be copied by reference, not duplicated.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var clone = require('amp-clone');
-
-var original = {name: 'henrik'};
-var copy = clone(original); //=&gt; {name: 'henrik'}
-console.log(original === copy); //=&gt; false
-
-var array = ['hi', 'there'];
-var copied = clone(array); //=&gt; ['hi', 'there']
-console.log(array === copied); //=&gt; false
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
-var isArray = require('../is-array');
-var extend = require('../extend');
-
-
-module.exports = function clone(obj) {
-    if (!isObject(obj)) return obj;
-    return isArray(obj) ? obj.slice() : extend({}, obj);
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var clone = require('./clone');
-
-
-test('amp-clone', function (t) {
-    var moe = {name : 'moe', lucky : [13, 27, 34]};
-    var moeClone = clone(moe);
-    t.equal(moeClone.name, 'moe', 'the clone as the attributes of the original');
-
-    moeClone.name = 'curly';
-    t.ok(moeClone.name === 'curly' &amp;&amp; moe.name === 'moe', 'clones can change shallow attributes without affecting the original');
-
-    moeClone.lucky.push(101);
-    t.equal(moe.lucky[moe.lucky.length - 1], 101, 'changes to deep attributes are shared with the original');
-
-    t.equal(clone(undefined), void 0, 'non objects should not be changed by clone');
-    t.equal(clone(1), 1, 'non objects should not be changed by clone');
-    t.equal(clone(null), null, 'non objects should not be changed by clone');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-              <li><a href="#amp-is-array">amp-is-array</a>
-              </li>
-              <li><a href="#amp-extend">amp-extend</a>
-                <ul>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-contains" href="#amp-contains" class="anchor">
-            <h1><span class="header-link"></span>amp-contains</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-contains">npm</a><a href="https://github.com/ampersand/amp/tree/master/contains">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Determines whether an array contains an item. Returns <code>true</code> or <code>false</code>.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var contains = require('amp-contains');
-
-console.log(contains(['hi'], 'hi')); //=&gt; true
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var values = require('../values');
-var indexOf = require('../index-of');
-
-
-module.exports = function contains(obj, target) {
-    if (obj == null) return false;
-    if (obj.length !== +obj.length) obj = values(obj);
-    return indexOf(obj, target) &gt;= 0;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var contains = require('./contains');
-
-
-test('amp-contains', function (t) {
-    t.ok(contains(['hi', 'there'], 'hi'));
-    t.ok(contains(['hi', 1], 1));
-    var obj = {};
-    t.ok([obj, 'hi'], obj);
-    t.ok(!contains(undefined, 'hi'));
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-values">amp-values</a>
-                <ul>
-                  <li><a href="#amp-keys">amp-keys</a>
-                    <ul>
-                      <li><a href="#amp-has">amp-has</a>
-                      </li>
-                      <li><a href="#amp-index-of">amp-index-of</a>
-                        <ul>
-                          <li><a href="#amp-is-object">amp-is-object</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a href="#amp-is-object">amp-is-object</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#amp-index-of">amp-index-of</a>
-                <ul>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
         <section class="module"><a name="amp-debounce" href="#amp-debounce" class="anchor">
             <h1><span class="header-link"></span>amp-debounce</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-debounce">npm</a><a href="https://github.com/ampersand/amp/tree/master/debounce">github</a>
           <div>
@@ -555,94 +839,6 @@ test('debounce re-entrant', function (t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-defaults" href="#amp-defaults" class="anchor">
-            <h1><span class="header-link"></span>amp-defaults</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-defaults">npm</a><a href="https://github.com/ampersand/amp/tree/master/defaults">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Fills in <code>undefined</code> properties in the first object with the first value present in the passed list of defaults objects.</p>
-<p>A bit like <code>extend</code> except it&#39;s used to &quot;fill in gaps&quot; in first object with your defaults.</p>
-<p>Returns the modified first object.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var defaults = require('amp-defaults');
-
-var person = {
-    name: 'Joe',
-    favoriteColor: 'blue'
-};
-
-defaults(person, {
-    height: 'unknown',
-    age: 'unknown'
-});
-
-console.log(person);
-//=&gt;
-// {
-//   name: 'Joe',
-//   favoriteColor: 'blue',
-//   height: 'unknown',
-//   age: 'unknown'
-// }
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
-
-
-module.exports = function defaults(obj) {
-    if (!isObject(obj)) return obj;
-    for (var i = 1, length = arguments.length; i &lt; length; i++) {
-        var source = arguments[i];
-        for (var prop in source) {
-            if (obj[prop] === void 0) obj[prop] = source[prop];
-        }
-    }
-    return obj;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var defaults = require('./defaults');
-
-
-test('amp-defaults', function (t) {
-    var options = {zero: 0, one: 1, empty: '', nan: NaN, nothing: null};
-
-    defaults(options, {zero: 1, one: 10, twenty: 20, nothing: 'str'});
-    t.equal(options.zero, 0, 'value exists');
-    t.equal(options.one, 1, 'value exists');
-    t.equal(options.twenty, 20, 'default applied');
-    t.equal(options.nothing, null, &quot;null isn't overridden&quot;);
-
-    defaults(options, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
-    t.equal(options.empty, '', 'value exists');
-    t.ok(isNaN(options.nan), &quot;NaN isn't overridden&quot;);
-    t.equal(options.word, 'word', 'new value is added, first one wins');
-
-    try {
-      options = {};
-      defaults(options, null, undefined, {a: 1});
-    } catch(ex) {}
-
-    t.equal(options.a, 1, 'should not error on `null` or `undefined` sources');
-
-    t.strictEqual(defaults(null, {a: 1}), null, 'result is null if destination is null');
-    t.strictEqual(defaults(undefined, {a: 1}), undefined, 'result is undefined if destination is undefined');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
         <section class="module"><a name="amp-delay" href="#amp-delay" class="anchor">
             <h1><span class="header-link"></span>amp-delay</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-delay">npm</a><a href="https://github.com/ampersand/amp/tree/master/delay">github</a>
           <div>
@@ -737,85 +933,182 @@ test('amp-delay', function (t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-each" href="#amp-each" class="anchor">
-            <h1><span class="header-link"></span>amp-each</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-each">npm</a><a href="https://github.com/ampersand/amp/tree/master/each">github</a>
+        <section class="module"><a name="amp-once" href="#amp-once" class="anchor">
+            <h1><span class="header-link"></span>amp-once</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-once">npm</a><a href="https://github.com/ampersand/amp/tree/master/once">github</a>
           <div>
             <h3>Docs</h3>
-            <div><p>You can think of this as an <code>Array.prototype.forEach</code> that also works on objects and rather than returning <code>undefined</code> as the native <code>forEach</code> does, it returns the list/object you&#39;re iterating over.</p>
-<p>It iterates over all items in an array or keys in an object one at a time, passing each item to the function you supply. That function&#39;s <code>this</code> will be the context object, you provide if you passed one as a third argument.</p>
-<p>Your function will be called with three arguments. In the case of an <code>Array</code> or <code>arguments</code> object those items will be <code>(item, index, list)</code>. </p>
-<p>In the case of an object the arguments will be <code>(value, key, list)</code>.</p>
+            <div><p>Returns a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later.</p>
 </div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var each = require('amp-each');
+            <pre><code class="lang-javascript hljs">var once = require('amp-once');
 
-var list = ['oh', 'hello', 'there'];
-var obj = {name: 'Henrik', greeting: 'Oh, hello there!'};
-
-each(list, function (item, index) {
-    console.log(item, index);
+var counter = 0;
+var modified = once(function () {
+    console.log('called!');
+    return ++counter;
 });
-//=&gt; 'oh', 0
-//=&gt; 'hi', 1
-//=&gt; 'there', 2
 
-each(obj, function (value, key) {
-    console.log(value, key);
-});
-//=&gt; 'Henrik', 'name'
-//=&gt; 'Oh, hello there!', 'greeting'
-
-// with a context
-var myContext = {thing: 'stuff'};
-
-each([1, 2], function () {
-    console.log(this);
-}, myContext);
-//=&gt; {thing: 'stuff'}
-//=&gt; {thing: 'stuff'}
+modified(); 
+// logs out &quot;called!&quot;
+//=&gt; 1
+// subsequent calls returns result from
+// first without actually running again.
+modified(); //=&gt; 1
+modified(); //=&gt; 1
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
+              <pre style="display: none"><code class="lang-javascript hljs">var before = require('../before');
 
 
-// Internal function that returns an efficient (for current engines) version
-// of the passed-in callback, to be repeatedly applied in other Underscore
-// functions.
-var createCallback = function(func, context, argCount) {
-    if (context === void 0) return func;
-    switch (argCount == null ? 3 : argCount) {
-    case 1: return function(value) {
-        return func.call(context, value);
-    };
-    case 2: return function(value, other) {
-        return func.call(context, value, other);
-    };
-    case 3: return function(value, index, collection) {
-        return func.call(context, value, index, collection);
-    };
-    case 4: return function(accumulator, value, index, collection) {
-        return func.call(context, accumulator, value, index, collection);
-    };
-    }
-    return function() {
-        return func.apply(context, arguments);
-    };
+module.exports = function once(fn) {
+    return before(2, fn);
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var once = require('./once');
+
+
+test('amp-once', function (t) {
+    var num = 0;
+    var increment = once(function () {
+        return ++num;
+    });
+    increment();
+    increment();
+    t.equal(num, 1, 'should never call more than once');
+    t.equal(increment(), 1, 'stores a memo of the last value');
+    var sayHi = once(function (name) {
+        return name;
+    });
+    t.equal(sayHi('there'), 'there', 'make sure arguments are being applied');
+    t.equal(sayHi('new thing'), 'there', 'should still return the same thing');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-before">amp-before</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-clone" href="#amp-clone" class="anchor">
+            <h1><span class="header-link"></span>amp-clone</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-clone">npm</a><a href="https://github.com/ampersand/amp/tree/master/clone">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Create a shallow-copied clone of the object. Any nested objects or arrays will be copied by reference, not duplicated.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var clone = require('amp-clone');
+
+var original = {name: 'henrik'};
+var copy = clone(original); //=&gt; {name: 'henrik'}
+console.log(original === copy); //=&gt; false
+
+var array = ['hi', 'there'];
+var copied = clone(array); //=&gt; ['hi', 'there']
+console.log(array === copied); //=&gt; false
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+var isArray = require('../is-array');
+var extend = require('../extend');
+
+
+module.exports = function clone(obj) {
+    if (!isObject(obj)) return obj;
+    return isArray(obj) ? obj.slice() : extend({}, obj);
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var clone = require('./clone');
+
+
+test('amp-clone', function (t) {
+    var moe = {name : 'moe', lucky : [13, 27, 34]};
+    var moeClone = clone(moe);
+    t.equal(moeClone.name, 'moe', 'the clone as the attributes of the original');
+
+    moeClone.name = 'curly';
+    t.ok(moeClone.name === 'curly' &amp;&amp; moe.name === 'moe', 'clones can change shallow attributes without affecting the original');
+
+    moeClone.lucky.push(101);
+    t.equal(moe.lucky[moe.lucky.length - 1], 101, 'changes to deep attributes are shared with the original');
+
+    t.equal(clone(undefined), void 0, 'non objects should not be changed by clone');
+    t.equal(clone(1), 1, 'non objects should not be changed by clone');
+    t.equal(clone(null), null, 'non objects should not be changed by clone');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+              <li><a href="#amp-is-array">amp-is-array</a>
+              </li>
+              <li><a href="#amp-extend">amp-extend</a>
+                <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-defaults" href="#amp-defaults" class="anchor">
+            <h1><span class="header-link"></span>amp-defaults</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-defaults">npm</a><a href="https://github.com/ampersand/amp/tree/master/defaults">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Fills in <code>undefined</code> properties in the first object with the first value present in the passed list of defaults objects.</p>
+<p>A bit like <code>extend</code> except it&#39;s used to &quot;fill in gaps&quot; in first object with your defaults.</p>
+<p>Returns the modified first object.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var defaults = require('amp-defaults');
+
+var person = {
+    name: 'Joe',
+    favoriteColor: 'blue'
 };
 
+defaults(person, {
+    height: 'unknown',
+    age: 'unknown'
+});
 
-module.exports = function each(obj, iteratee, context) {
-    if (obj == null) return obj;
-    iteratee = createCallback(iteratee, context);
-    var i, length = obj.length;
-    if (length === +length) {
-        for (i = 0; i &lt; length; i++) {
-            iteratee(obj[i], i, obj);
-        }
-    } else {
-        var keys = objKeys(obj);
-        for (i = 0, length = keys.length; i &lt; length; i++) {
-            iteratee(obj[keys[i]], keys[i], obj);
+console.log(person);
+//=&gt;
+// {
+//   name: 'Joe',
+//   favoriteColor: 'blue',
+//   height: 'unknown',
+//   age: 'unknown'
+// }
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+
+
+module.exports = function defaults(obj) {
+    if (!isObject(obj)) return obj;
+    for (var i = 1, length = arguments.length; i &lt; length; i++) {
+        var source = arguments[i];
+        for (var prop in source) {
+            if (obj[prop] === void 0) obj[prop] = source[prop];
         }
     }
     return obj;
@@ -825,65 +1118,401 @@ module.exports = function each(obj, iteratee, context) {
             <div class="tests">
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var each = require('./each');
-var contains = require('../contains');
+var defaults = require('./defaults');
 
 
-test('amp-each', function (t) {
-    each([1, 2, 3], function(num, i) {
-        t.equal(num, i + 1, 'each iterators provide value and iteration count');
-    });
+test('amp-defaults', function (t) {
+    var options = {zero: 0, one: 1, empty: '', nan: NaN, nothing: null};
 
-    var answers = [];
-    each([1, 2, 3], function(num) {
-        answers.push(num * this.multiplier);
-    }, {multiplier : 5});
-    t.deepEqual(answers, [5, 10, 15], 'context object property accessed');
+    defaults(options, {zero: 1, one: 10, twenty: 20, nothing: 'str'});
+    t.equal(options.zero, 0, 'value exists');
+    t.equal(options.one, 1, 'value exists');
+    t.equal(options.twenty, 20, 'default applied');
+    t.equal(options.nothing, null, &quot;null isn't overridden&quot;);
 
-    answers = [];
-    each([1, 2, 3], function(num){ answers.push(num); });
-    t.deepEqual(answers, [1, 2, 3], 'aliased as &quot;forEach&quot;');
+    defaults(options, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
+    t.equal(options.empty, '', 'value exists');
+    t.ok(isNaN(options.nan), &quot;NaN isn't overridden&quot;);
+    t.equal(options.word, 'word', 'new value is added, first one wins');
 
-    answers = [];
-    var obj = {one : 1, two : 2, three : 3};
-    obj.constructor.prototype.four = 4;
-    each(obj, function(value, key){ answers.push(key); });
-    t.deepEqual(answers, ['one', 'two', 'three'], 'iterating over objects works, and ignores the object prototype.');
-    delete obj.constructor.prototype.four;
+    try {
+      options = {};
+      defaults(options, null, undefined, {a: 1});
+    } catch(ex) {}
 
-    var answer = null;
-    each([1, 2, 3], function(num, index, arr){ if (contains(arr, num)) answer = true; });
-    t.ok(answer, 'can reference the original collection from inside the iterator');
+    t.equal(options.a, 1, 'should not error on `null` or `undefined` sources');
 
-    answers = 0;
-    each(null, function(){ ++answers; });
-    t.equal(answers, 0, 'handles a null properly');
+    t.strictEqual(defaults(null, {a: 1}), null, 'result is null if destination is null');
+    t.strictEqual(defaults(undefined, {a: 1}), undefined, 'result is undefined if destination is undefined');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-extend" href="#amp-extend" class="anchor">
+            <h1><span class="header-link"></span>amp-extend</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-extend">npm</a><a href="https://github.com/ampersand/amp/tree/master/extend">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Copy all of the properties in the source objects over to the destination object, and return the destination object. This is done in order, so the last source will override properties of the same name in previous arguments.</p>
+<p>Note that this is a shallow copy, meaning that nested objects won&#39;t be merged or extended.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var extend = require('amp-extend');
 
-    each(false, function(){});
+var person = {
+    nickname: 'The Swede'
+};
 
-    var a = [1, 2, 3];
-    t.strictEqual(each(a, function(){}), a);
-    t.strictEqual(each(null, function(){}), null);
+var attributes = {
+    greeting: 'Oh, hello there!'
+};
 
-    var b = [1, 2, 3];
-    b.length = 100;
-    answers = 0;
-    each(b, function(){ ++answers; });
-    t.equal(answers, 100, 'enumerates [0, length)');
+var preferences = {
+    food: 'Swedish Fish'
+};
+
+extend(person, attributes, preferences);
+//=&gt; 
+// {
+//   nickname: 'The Swede',
+//   greeting: 'Oh, hello there!',
+//   food: 'Swedish Fish'
+// }
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
 
 
-    var collection = [1, 2, 3], count = 0;
-    each(collection, function() {
-      if (count &lt; 10) collection.push(count++);
-    });
-    t.equal(count, 3);
+module.exports = function(obj) {
+    if (!isObject(obj)) return obj;
+    var source, prop;
+    for (var i = 1, length = arguments.length; i &lt; length; i++) {
+        source = arguments[i];
+        for (prop in source) {
+            obj[prop] = source[prop];
+        }
+    }
+    return obj;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var extend = require('./extend');
+var keys = require('../keys');
 
-    collection = {a: 1, b: 2, c: 3};
-    count = 0;
-    each(collection, function() {
-      if (count &lt; 10) collection[count] = count++;
-    });
-    t.equal(count, 3);
+
+test('amp-extend', function(t) {
+    var result;
+    t.equal(extend({}, {a: 'b'}).a, 'b', 'can extend an object with the attributes of another');
+    t.equal(extend({a: 'x'}, {a: 'b'}).a, 'b', 'properties in source override destination');
+    t.equal(extend({x: 'x'}, {a: 'b'}).x, 'x', &quot;properties not in source don't get overriden&quot;);
+    result = extend({x: 'x'}, {a: 'a'}, {b: 'b'});
+    t.deepEqual(result, {x: 'x', a: 'a', b: 'b'}, 'can extend from multiple source objects');
+    result = extend({x: 'x'}, {a: 'a', x: 2}, {a: 'b'});
+    t.deepEqual(result, {x: 2, a: 'b'}, 'extending from multiple source objects last property trumps');
+    result = extend({}, {a: void 0, b: null});
+    t.deepEqual(keys(result), ['a', 'b'], 'extend copies undefined values');
+
+    var F = function() {};
+    F.prototype = {a: 'b'};
+    var subObj = new F();
+    subObj.c = 'd';
+    t.deepEqual(extend({}, subObj), {a: 'b', c: 'd'}, 'extend copies all properties from source');
+
+    try {
+      result = {};
+      extend(result, null, undefined, {a: 1});
+    } catch(ex) {}
+
+    t.equal(result.a, 1, 'should not error on `null` or `undefined` sources');
+
+    t.strictEqual(extend(null, {a: 1}), null, 'extending null results in null');
+    t.strictEqual(extend(undefined, {a: 1}), undefined, 'extending undefined results in undefined');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-has" href="#amp-has" class="anchor">
+            <h1><span class="header-link"></span>amp-has</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-has">npm</a><a href="https://github.com/ampersand/amp/tree/master/has">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Returns <code>true</code> if the object contains the given key, <code>false</code> otherwise. Identical to <code>object.hasOwnProperty(key)</code>, but uses <code>Object.prototype.hasOwnProperty</code> directly in case it&#39;s been overridden on the object itself.</p>
+<p>Also, protects against some obscure quirks with enumerable built-ins in IE &lt; 9.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var has = require('amp-has');
+
+var obj = {
+    greeting: 'Oh, hello there!'
+};
+
+has(obj, 'greeting'); //=&gt; true
+has(obj, 'hasOwnProperty'); //=&gt; false
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
+
+
+module.exports = function has(obj, key) {
+    return obj != null &amp;&amp; hasOwn.call(obj, key);
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var has = require('./has');
+
+
+test('amp-has', function (t) {
+    t.ok(has({'hi': 'thing'}, 'hi'));
+    t.ok(!has({'hi': 'thing'}, 'hasOwnProperty'));
+    t.ok(!has(['a', 'b'], 'a'));
+    t.ok(!has(undefined, 1));
+    t.ok(!has(null, 1));
+    t.ok(!has(NaN, 1));
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <p>(none)</p>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-invert" href="#amp-invert" class="anchor">
+            <h1><span class="header-link"></span>amp-invert</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-invert">npm</a><a href="https://github.com/ampersand/amp/tree/master/invert">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Returns a copy of the object where the keys have become the values and the values the keys. Your object&#39;s values should be unique and string serializable (a.k.a. <code>JSON.stringify</code>-able). If the values are not unique, inverting it would squash some keys, since keys in an object have to be unique.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var invert = require('amp-invert');
+
+var person = {
+    favoriteColor: 'magenta',
+    favoriteFood: 'swedish pancakes'
+};
+
+invert(person);
+//=&gt; 
+// { 
+//   magenta: 'favoriteColor',
+//   'swedish pancakes': 'favoriteFood'
+// }
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
+
+
+module.exports = function invert(obj) {
+    var result = {};
+    var keys = objKeys(obj);
+    for (var i = 0, length = keys.length; i &lt; length; i++) {
+        result[obj[keys[i]]] = keys[i];
+    }
+    return result;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var invert = require('./invert');
+var keys = require('../keys');
+
+
+test('amp-invert', function (t) {
+    var obj = {first: 'Moe', second: 'Larry', third: 'Curly'};
+    t.deepEqual(keys(invert(obj)), ['Moe', 'Larry', 'Curly'], 'can invert an object');
+    t.deepEqual(invert(invert(obj)), obj, 'two inverts gets you back where you started');
+
+    obj = {length: 3};
+    t.equal(invert(obj)['3'], 'length', 'can invert an object with &quot;length&quot;');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-keys" href="#amp-keys" class="anchor">
+            <h1><span class="header-link"></span>amp-keys</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-keys">npm</a><a href="https://github.com/ampersand/amp/tree/master/keys">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Retrieve all the names of the object&#39;s properties. This is much like <code>Object.keys</code> (in fact just uses it if it exists).  But there&#39;s with one difference, you can pass a non-object and it <em>won&#39;t throw</em> an error. It will always return an array. So any non-objects passed will just return <code>[]</code>.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var keys = require('amp-keys');
+
+var obj = {
+    hi: 'there',
+    oh: 'hello there'
+};
+
+keys(obj); //=&gt; ['hi', 'oh']
+keys(undefined) //=&gt; []
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var has = require('../has');
+var indexOf = require('../index-of');
+var isObject = require('../is-object');
+var nativeKeys = Object.keys;
+var hasEnumBug = !({toString: null}).propertyIsEnumerable('toString');
+var nonEnumerableProps = ['constructor', 'valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+
+module.exports = function keys(obj) {
+    if (!isObject(obj)) return [];
+    if (nativeKeys) {
+        return nativeKeys(obj);
+    }
+    var result = [];
+    for (var key in obj) if (has(obj, key)) result.push(key);
+    // IE &lt; 9
+    if (hasEnumBug) {
+        var nonEnumIdx = nonEnumerableProps.length;
+        while (nonEnumIdx--) {
+            var prop = nonEnumerableProps[nonEnumIdx];
+            if (has(obj, prop) &amp;&amp; indexOf(result, prop) === -1) result.push(prop);
+        }
+    }
+    return result;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var keys = require('./keys');
+
+
+test('amp-keys', function (t) {
+    t.deepEqual(keys({one : 1, two : 2}), ['one', 'two'], 'can extract the keys from an object');
+    // the test above is not safe because it relies on for-in enumeration order
+    var a = []; a[1] = 0;
+    t.deepEqual(keys(a), ['1'], 'is not fooled by sparse arrays; see issue #95');
+    t.deepEqual(keys(null), []);
+    t.deepEqual(keys(void 0), []);
+    t.deepEqual(keys(1), []);
+    t.deepEqual(keys('a'), []);
+    t.deepEqual(keys(true), []);
+
+    // keys that may be missed if the implementation isn't careful
+    var trouble = {
+      'constructor': Object,
+      'valueOf': function () {},
+      'hasOwnProperty': null,
+      'toString': 5,
+      'toLocaleString': undefined,
+      'propertyIsEnumerable': /a/,
+      'isPrototypeOf': this,
+      '__defineGetter__': Boolean,
+      '__defineSetter__': {},
+      '__lookupSetter__': false,
+      '__lookupGetter__': []
+    };
+    var troubleKeys = ['constructor', 'valueOf', 'hasOwnProperty', 'toString', 'toLocaleString', 'propertyIsEnumerable',
+                  'isPrototypeOf', '__defineGetter__', '__defineSetter__', '__lookupSetter__', '__lookupGetter__'].sort();
+    t.deepEqual(keys(trouble).sort(), troubleKeys, 'matches non-enumerable properties');
+    t.end();
+});
+</code></pre>
+            </div>
+            <h4>Uses</h4>
+            <ul>
+              <li><a href="#amp-has">amp-has</a>
+              </li>
+              <li><a href="#amp-index-of">amp-index-of</a>
+                <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-is-object">amp-is-object</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </section>
+        <section class="module"><a name="amp-values" href="#amp-values" class="anchor">
+            <h1><span class="header-link"></span>amp-values</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-values">npm</a><a href="https://github.com/ampersand/amp/tree/master/values">github</a>
+          <div>
+            <h3>Docs</h3>
+            <div><p>Returns all the values of an object&#39;s properties as an array.</p>
+</div>
+            <h3>Example Usage</h3>
+            <pre><code class="lang-javascript hljs">var values = require('amp-values');
+
+var obj = {
+    hi: 'there', 
+    hello: 'you'
+};
+values(obj); //=&gt; ['there', 'you']
+</code></pre>
+            <div class="code">
+              <button class="toggle">Show the code</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var oKeys = require('../keys');
+
+
+module.exports = function values(obj) {
+    var keys = oKeys(obj);
+    var length = keys.length;
+    var vals = Array(length);
+    for (var i = 0; i &lt; length; i++) {
+        vals[i] = obj[keys[i]];
+    }
+    return vals;
+};
+</code></pre>
+            </div>
+            <div class="tests">
+              <button class="toggle">Show the tests</button>
+              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
+var values = require('./values');
+
+
+test('amp-values', function (t) {
+    t.deepEqual(values({one: 1, two: 2}), [1, 2], 'can extract the values from an object');
+    t.deepEqual(values({one: 1, two: 2, length: 3}), [1, 2, 3], 'works when one of them is &quot;length&quot;');
     t.end();
 });
 </code></pre>
@@ -1054,280 +1683,61 @@ test('amp-escape', function (t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-extend" href="#amp-extend" class="anchor">
-            <h1><span class="header-link"></span>amp-extend</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-extend">npm</a><a href="https://github.com/ampersand/amp/tree/master/extend">github</a>
+        <section class="module"><a name="amp-to-camel-case" href="#amp-to-camel-case" class="anchor">
+            <h1><span class="header-link"></span>amp-to-camel-case</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-to-camel-case">npm</a><a href="https://github.com/ampersand/amp/tree/master/to-camel-case">github</a>
           <div>
             <h3>Docs</h3>
-            <div><p>Copy all of the properties in the source objects over to the destination object, and return the destination object. This is done in order, so the last source will override properties of the same name in previous arguments.</p>
-<p>Note that this is a shallow copy, meaning that nested objects won&#39;t be merged or extended.</p>
+            <div><p>Camel cases a string by removing all whitespace and <code>-</code> and <code>_</code> characters and capitalizing first letter following those. Takes a string like <code>&quot;hi world&quot;</code> and returns it as <code>hiWorld</code>. If you pass <code>true</code> as the second argument, it will also capitalize the first letter (sometimes referred to as Pascal case).</p>
+<p>Note that multiple adjacent whitespace or <code>-</code> and <code>_</code> characters are removed.</p>
 </div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var extend = require('amp-extend');
+            <pre><code class="lang-javascript hljs">var toCamelCase = require('amp-to-camel-case');
 
-var person = {
-    nickname: 'The Swede'
-};
-
-var attributes = {
-    greeting: 'Oh, hello there!'
-};
-
-var preferences = {
-    food: 'Swedish Fish'
-};
-
-extend(person, attributes, preferences);
-//=&gt; 
-// {
-//   nickname: 'The Swede',
-//   greeting: 'Oh, hello there!',
-//   food: 'Swedish Fish'
-// }
+toCamelCase('hi there'); //=&gt; &quot;hiThere&quot;
+toCamelCase('oh hello there', true); //=&gt; &quot;OhHelloThere&quot;
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isObject = require('../is-object');
+              <pre style="display: none"><code class="lang-javascript hljs">var isString = require('../is-string');
+var re1 = /([\W_\-]+\S?)/g;
+var re2 = /[\W_]/g;
 
 
-module.exports = function(obj) {
-    if (!isObject(obj)) return obj;
-    var source, prop;
-    for (var i = 1, length = arguments.length; i &lt; length; i++) {
-        source = arguments[i];
-        for (prop in source) {
-            obj[prop] = source[prop];
-        }
-    }
-    return obj;
+module.exports = function toCamelCase(string, capitalizeFirst) {
+    if (!isString(string)) return '';
+    var replaced = string.replace(re1, function (match) {
+        return match.replace(re2, '').toUpperCase();
+    });
+    var first = replaced.slice(0, 1)[capitalizeFirst ? 'toUpperCase' : 'toLowerCase']();
+    return first + replaced.slice(1);
 };
 </code></pre>
             </div>
             <div class="tests">
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var extend = require('./extend');
-var keys = require('../keys');
+var toCamelCase = require('./to-camel-case');
 
 
-test('amp-extend', function(t) {
-    var result;
-    t.equal(extend({}, {a: 'b'}).a, 'b', 'can extend an object with the attributes of another');
-    t.equal(extend({a: 'x'}, {a: 'b'}).a, 'b', 'properties in source override destination');
-    t.equal(extend({x: 'x'}, {a: 'b'}).x, 'x', &quot;properties not in source don't get overriden&quot;);
-    result = extend({x: 'x'}, {a: 'a'}, {b: 'b'});
-    t.deepEqual(result, {x: 'x', a: 'a', b: 'b'}, 'can extend from multiple source objects');
-    result = extend({x: 'x'}, {a: 'a', x: 2}, {a: 'b'});
-    t.deepEqual(result, {x: 2, a: 'b'}, 'extending from multiple source objects last property trumps');
-    result = extend({}, {a: void 0, b: null});
-    t.deepEqual(keys(result), ['a', 'b'], 'extend copies undefined values');
-
-    var F = function() {};
-    F.prototype = {a: 'b'};
-    var subObj = new F();
-    subObj.c = 'd';
-    t.deepEqual(extend({}, subObj), {a: 'b', c: 'd'}, 'extend copies all properties from source');
-
-    try {
-      result = {};
-      extend(result, null, undefined, {a: 1});
-    } catch(ex) {}
-
-    t.equal(result.a, 1, 'should not error on `null` or `undefined` sources');
-
-    t.strictEqual(extend(null, {a: 1}), null, 'extending null results in null');
-    t.strictEqual(extend(undefined, {a: 1}), undefined, 'extending undefined results in undefined');
+test('amp-to-camel-case', function (t) {
+    t.equal(toCamelCase(' hi world'), 'hiWorld');
+    t.equal(toCamelCase('_hi_world'), 'hiWorld');
+    t.equal(toCamelCase(' _ hi--world'), 'hiWorld');
+    t.equal(toCamelCase(' _ hi2--world'), 'hi2World');
+    t.equal(toCamelCase([]), '');
+    t.equal(toCamelCase({}), '');
+    t.equal(toCamelCase(1), '');
+    t.equal(toCamelCase(' hi world', true), 'HiWorld');
+    t.equal(toCamelCase('_hi_world', true), 'HiWorld');
+    t.equal(toCamelCase(' _ hi--world', true), 'HiWorld');
+    t.equal(toCamelCase(' _ hi2--world', true), 'Hi2World');
     t.end();
 });
 </code></pre>
             </div>
             <h4>Uses</h4>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-has" href="#amp-has" class="anchor">
-            <h1><span class="header-link"></span>amp-has</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-has">npm</a><a href="https://github.com/ampersand/amp/tree/master/has">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns <code>true</code> if the object contains the given key, <code>false</code> otherwise. Identical to <code>object.hasOwnProperty(key)</code>, but uses <code>Object.prototype.hasOwnProperty</code> directly in case it&#39;s been overridden on the object itself.</p>
-<p>Also, protects against some obscure quirks with enumerable built-ins in IE &lt; 9.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var has = require('amp-has');
-
-var obj = {
-    greeting: 'Oh, hello there!'
-};
-
-has(obj, 'greeting'); //=&gt; true
-has(obj, 'hasOwnProperty'); //=&gt; false
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var hasOwn = Object.prototype.hasOwnProperty;
-
-
-module.exports = function has(obj, key) {
-    return obj != null &amp;&amp; hasOwn.call(obj, key);
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var has = require('./has');
-
-
-test('amp-has', function (t) {
-    t.ok(has({'hi': 'thing'}, 'hi'));
-    t.ok(!has({'hi': 'thing'}, 'hasOwnProperty'));
-    t.ok(!has(['a', 'b'], 'a'));
-    t.ok(!has(undefined, 1));
-    t.ok(!has(null, 1));
-    t.ok(!has(NaN, 1));
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-index-of" href="#amp-index-of" class="anchor">
-            <h1><span class="header-link"></span>amp-index-of</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-index-of">npm</a><a href="https://github.com/ampersand/amp/tree/master/index-of">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Uses native <code>Array.prototype.indexOf</code> if present. But, unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var indexOf = require('amp-index-of');
-
-indexOf(['oh', 'hello', 'there'], 'hello'); //=&gt; 1
-indexOf(['hi', 'there'], 'hello'); //=&gt; -1
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isObj = require('../is-object');
-var arrayInd = Array.prototype.indexOf;
-
-// for MSIE &lt; 9
-if (!arrayInd) {
-    arrayInd = function (obj) {
-        for (var i = 0; i &lt; this.length; ++i) {
-            if (this[i] === obj) return i;
-        }
-        return -1;
-    };
-}
-
-module.exports = function indexOf(obj, val) {
-    if (!isObj(obj)) return -1;
-    return arrayInd.call(obj, val);
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var indexOf = require('./index-of');
-
-
-test('amp-index-of', function (t) {
-    var args = (function () { return arguments })('hi', 'there');
-    t.equal(indexOf(args, 'there'), 1, 'works on `arguments` objects');
-    t.equal(indexOf({'hi': 'hello'}, 'hi'), -1, 'returns `-1` if passed object');
-    t.equal(indexOf(['a', 'b'], 1), -1);
-    t.equal(indexOf(undefined, 1), -1);
-    t.equal(indexOf(null, 1), -1);
-    t.equal(indexOf(NaN, 1), -1);
-    t.equal(indexOf({}, 1), -1);
-    t.equal(indexOf(['a'], 'a'), 0);
-    t.equal(indexOf(['a' , 1], 1), 1);
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-invert" href="#amp-invert" class="anchor">
-            <h1><span class="header-link"></span>amp-invert</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-invert">npm</a><a href="https://github.com/ampersand/amp/tree/master/invert">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns a copy of the object where the keys have become the values and the values the keys. Your object&#39;s values should be unique and string serializable (a.k.a. <code>JSON.stringify</code>-able). If the values are not unique, inverting it would squash some keys, since keys in an object have to be unique.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var invert = require('amp-invert');
-
-var person = {
-    favoriteColor: 'magenta',
-    favoriteFood: 'swedish pancakes'
-};
-
-invert(person);
-//=&gt; 
-// { 
-//   magenta: 'favoriteColor',
-//   'swedish pancakes': 'favoriteFood'
-// }
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var objKeys = require('../keys');
-
-
-module.exports = function invert(obj) {
-    var result = {};
-    var keys = objKeys(obj);
-    for (var i = 0, length = keys.length; i &lt; length; i++) {
-        result[obj[keys[i]]] = keys[i];
-    }
-    return result;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var invert = require('./invert');
-var keys = require('../keys');
-
-
-test('amp-invert', function (t) {
-    var obj = {first: 'Moe', second: 'Larry', third: 'Curly'};
-    t.deepEqual(keys(invert(obj)), ['Moe', 'Larry', 'Curly'], 'can invert an object');
-    t.deepEqual(invert(invert(obj)), obj, 'two inverts gets you back where you started');
-
-    obj = {length: 3};
-    t.equal(invert(obj)['3'], 'length', 'can invert an object with &quot;length&quot;');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-keys">amp-keys</a>
-                <ul>
-                  <li><a href="#amp-has">amp-has</a>
-                  </li>
-                  <li><a href="#amp-index-of">amp-index-of</a>
-                    <ul>
-                      <li><a href="#amp-is-object">amp-is-object</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
+              <li><a href="#amp-is-string">amp-is-string</a>
               </li>
             </ul>
           </div>
@@ -2377,224 +2787,6 @@ test('amp-is-undefined', function (t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-keys" href="#amp-keys" class="anchor">
-            <h1><span class="header-link"></span>amp-keys</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-keys">npm</a><a href="https://github.com/ampersand/amp/tree/master/keys">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Retrieve all the names of the object&#39;s properties. This is much like <code>Object.keys</code> (in fact just uses it if it exists).  But there&#39;s with one difference, you can pass a non-object and it <em>won&#39;t throw</em> an error. It will always return an array. So any non-objects passed will just return <code>[]</code>.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var keys = require('amp-keys');
-
-var obj = {
-    hi: 'there',
-    oh: 'hello there'
-};
-
-keys(obj); //=&gt; ['hi', 'oh']
-keys(undefined) //=&gt; []
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var has = require('../has');
-var indexOf = require('../index-of');
-var isObject = require('../is-object');
-var nativeKeys = Object.keys;
-var hasEnumBug = !({toString: null}).propertyIsEnumerable('toString');
-var nonEnumerableProps = ['constructor', 'valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
-
-
-module.exports = function keys(obj) {
-    if (!isObject(obj)) return [];
-    if (nativeKeys) {
-        return nativeKeys(obj);
-    }
-    var result = [];
-    for (var key in obj) if (has(obj, key)) result.push(key);
-    // IE &lt; 9
-    if (hasEnumBug) {
-        var nonEnumIdx = nonEnumerableProps.length;
-        while (nonEnumIdx--) {
-            var prop = nonEnumerableProps[nonEnumIdx];
-            if (has(obj, prop) &amp;&amp; indexOf(result, prop) === -1) result.push(prop);
-        }
-    }
-    return result;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var keys = require('./keys');
-
-
-test('amp-keys', function (t) {
-    t.deepEqual(keys({one : 1, two : 2}), ['one', 'two'], 'can extract the keys from an object');
-    // the test above is not safe because it relies on for-in enumeration order
-    var a = []; a[1] = 0;
-    t.deepEqual(keys(a), ['1'], 'is not fooled by sparse arrays; see issue #95');
-    t.deepEqual(keys(null), []);
-    t.deepEqual(keys(void 0), []);
-    t.deepEqual(keys(1), []);
-    t.deepEqual(keys('a'), []);
-    t.deepEqual(keys(true), []);
-
-    // keys that may be missed if the implementation isn't careful
-    var trouble = {
-      'constructor': Object,
-      'valueOf': function () {},
-      'hasOwnProperty': null,
-      'toString': 5,
-      'toLocaleString': undefined,
-      'propertyIsEnumerable': /a/,
-      'isPrototypeOf': this,
-      '__defineGetter__': Boolean,
-      '__defineSetter__': {},
-      '__lookupSetter__': false,
-      '__lookupGetter__': []
-    };
-    var troubleKeys = ['constructor', 'valueOf', 'hasOwnProperty', 'toString', 'toLocaleString', 'propertyIsEnumerable',
-                  'isPrototypeOf', '__defineGetter__', '__defineSetter__', '__lookupSetter__', '__lookupGetter__'].sort();
-    t.deepEqual(keys(trouble).sort(), troubleKeys, 'matches non-enumerable properties');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-has">amp-has</a>
-              </li>
-              <li><a href="#amp-index-of">amp-index-of</a>
-                <ul>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-last" href="#amp-last" class="anchor">
-            <h1><span class="header-link"></span>amp-last</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-last">npm</a><a href="https://github.com/ampersand/amp/tree/master/last">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns the last item(s) in an array. Passing <em>n</em> will return the last <em>n</em> items in the array. Also works on <code>arguments</code>.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var last = require('amp-last');
-
-last([1, 2, 3]); //=&gt; 3
-last([1, 2, 3], 2); //=&gt; [2, 3]
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var slice = Array.prototype.slice;
-
-
-module.exports = function last(arr, n, guard) {
-    if (arr == null) return void 0;
-    if (n == null || guard) return arr[arr.length - 1];
-    return slice.call(arr, Math.max(0, arr.length - n));
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var last = require('./last');
-
-
-test('amp-last', function (t) {
-    t.equal(last([1, 2, 3]), 3, 'can pull out the last element of an array');
-    t.deepEqual(last([1, 2, 3], 0), [], 'can pass an index to last');
-    t.deepEqual(last([1, 2, 3], 2), [2, 3], 'can pass an index to last');
-    t.deepEqual(last([1, 2, 3], 5), [1, 2, 3], 'can pass an index to last');
-    var result = (function(){ return last(arguments); }(1, 2, 3, 4));
-    t.equal(result, 4, 'works on an arguments object');
-    if ([].map) {
-        result = [[1, 2, 3], [1, 2, 3]].map(last);
-        t.deepEqual(result, [3, 3], 'works well with map');
-    }
-
-    t.equal(last(null), undefined, 'handles nulls');
-    t.strictEqual(last([1, 2, 3], -1).length, 0);
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-once" href="#amp-once" class="anchor">
-            <h1><span class="header-link"></span>amp-once</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-once">npm</a><a href="https://github.com/ampersand/amp/tree/master/once">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var once = require('amp-once');
-
-var counter = 0;
-var modified = once(function () {
-    console.log('called!');
-    return ++counter;
-});
-
-modified(); 
-// logs out &quot;called!&quot;
-//=&gt; 1
-// subsequent calls returns result from
-// first without actually running again.
-modified(); //=&gt; 1
-modified(); //=&gt; 1
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var before = require('../before');
-
-
-module.exports = function once(fn) {
-    return before(2, fn);
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var once = require('./once');
-
-
-test('amp-once', function (t) {
-    var num = 0;
-    var increment = once(function () {
-        return ++num;
-    });
-    increment();
-    increment();
-    t.equal(num, 1, 'should never call more than once');
-    t.equal(increment(), 1, 'stores a memo of the last value');
-    var sayHi = once(function (name) {
-        return name;
-    });
-    t.equal(sayHi('there'), 'there', 'make sure arguments are being applied');
-    t.equal(sayHi('new thing'), 'there', 'should still return the same thing');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-before">amp-before</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
         <section class="module"><a name="amp-result" href="#amp-result" class="anchor">
             <h1><span class="header-link"></span>amp-result</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-result">npm</a><a href="https://github.com/ampersand/amp/tree/master/result">github</a>
           <div>
@@ -2677,134 +2869,6 @@ test('amp-result', function(t) {
           </div>
           <div></div>
         </section>
-        <section class="module"><a name="amp-size" href="#amp-size" class="anchor">
-            <h1><span class="header-link"></span>amp-size</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-size">npm</a><a href="https://github.com/ampersand/amp/tree/master/size">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Return the number of values in the list or keys (if you pass it an object).</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var size = require('amp-size');
-
-size([1, 2, 3]); //=&gt; 3
-size({hi: 'there', oh: 'hello there'}); //=&gt; 2
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var keys = require('../keys');
-
-
-module.exports = function size(obj) {
-    if (obj == null) return 0;
-    return obj.length === +obj.length ? obj.length : keys(obj).length;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var size = require('./size');
-
-
-test('amp-size', function (t) {
-    t.equal(size({one : 1, two : 2, three : 3}), 3, 'can compute the size of an object');
-    t.equal(size([1, 2, 3]), 3, 'can compute the size of an array');
-    t.equal(size({length: 3, 0: 0, 1: 0, 2: 0}), 3, 'can compute the size of Array-likes');
-
-    var func = function() {
-        return size(arguments);
-    };
-
-    t.equal(func(1, 2, 3, 4), 4, 'can test the size of the arguments object');
-
-    t.equal(size('hello'), 5, 'can compute the size of a string literal');
-    t.equal(size(new String('hello')), 5, 'can compute the size of string object');
-
-    t.equal(size(null), 0, 'handles nulls');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-keys">amp-keys</a>
-                <ul>
-                  <li><a href="#amp-has">amp-has</a>
-                  </li>
-                  <li><a href="#amp-index-of">amp-index-of</a>
-                    <ul>
-                      <li><a href="#amp-is-object">amp-is-object</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-to-camel-case" href="#amp-to-camel-case" class="anchor">
-            <h1><span class="header-link"></span>amp-to-camel-case</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-to-camel-case">npm</a><a href="https://github.com/ampersand/amp/tree/master/to-camel-case">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Camel cases a string by removing all whitespace and <code>-</code> and <code>_</code> characters and capitalizing first letter following those. Takes a string like <code>&quot;hi world&quot;</code> and returns it as <code>hiWorld</code>. If you pass <code>true</code> as the second argument, it will also capitalize the first letter (sometimes referred to as Pascal case).</p>
-<p>Note that multiple adjacent whitespace or <code>-</code> and <code>_</code> characters are removed.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var toCamelCase = require('amp-to-camel-case');
-
-toCamelCase('hi there'); //=&gt; &quot;hiThere&quot;
-toCamelCase('oh hello there', true); //=&gt; &quot;OhHelloThere&quot;
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isString = require('../is-string');
-var re1 = /([\W_\-]+\S?)/g;
-var re2 = /[\W_]/g;
-
-
-module.exports = function toCamelCase(string, capitalizeFirst) {
-    if (!isString(string)) return '';
-    var replaced = string.replace(re1, function (match) {
-        return match.replace(re2, '').toUpperCase();
-    });
-    var first = replaced.slice(0, 1)[capitalizeFirst ? 'toUpperCase' : 'toLowerCase']();
-    return first + replaced.slice(1);
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var toCamelCase = require('./to-camel-case');
-
-
-test('amp-to-camel-case', function (t) {
-    t.equal(toCamelCase(' hi world'), 'hiWorld');
-    t.equal(toCamelCase('_hi_world'), 'hiWorld');
-    t.equal(toCamelCase(' _ hi--world'), 'hiWorld');
-    t.equal(toCamelCase(' _ hi2--world'), 'hi2World');
-    t.equal(toCamelCase([]), '');
-    t.equal(toCamelCase({}), '');
-    t.equal(toCamelCase(1), '');
-    t.equal(toCamelCase(' hi world', true), 'HiWorld');
-    t.equal(toCamelCase('_hi_world', true), 'HiWorld');
-    t.equal(toCamelCase(' _ hi--world', true), 'HiWorld');
-    t.equal(toCamelCase(' _ hi2--world', true), 'Hi2World');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-is-string">amp-is-string</a>
-              </li>
-            </ul>
-          </div>
-          <div></div>
-        </section>
         <section class="module"><a name="amp-unique-id" href="#amp-unique-id" class="anchor">
             <h1><span class="header-link"></span>amp-unique-id</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-unique-id">npm</a><a href="https://github.com/ampersand/amp/tree/master/unique-id">github</a>
           <div>
@@ -2849,70 +2913,6 @@ test('amp-unique-id', function (t) {
             </div>
             <h4>Uses</h4>
             <p>(none)</p>
-          </div>
-          <div></div>
-        </section>
-        <section class="module"><a name="amp-values" href="#amp-values" class="anchor">
-            <h1><span class="header-link"></span>amp-values</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-values">npm</a><a href="https://github.com/ampersand/amp/tree/master/values">github</a>
-          <div>
-            <h3>Docs</h3>
-            <div><p>Returns all the values of an object&#39;s properties as an array.</p>
-</div>
-            <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var values = require('amp-values');
-
-var obj = {
-    hi: 'there', 
-    hello: 'you'
-};
-values(obj); //=&gt; ['there', 'you']
-</code></pre>
-            <div class="code">
-              <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var oKeys = require('../keys');
-
-
-module.exports = function values(obj) {
-    var keys = oKeys(obj);
-    var length = keys.length;
-    var vals = Array(length);
-    for (var i = 0; i &lt; length; i++) {
-        vals[i] = obj[keys[i]];
-    }
-    return vals;
-};
-</code></pre>
-            </div>
-            <div class="tests">
-              <button class="toggle">Show the tests</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
-var values = require('./values');
-
-
-test('amp-values', function (t) {
-    t.deepEqual(values({one: 1, two: 2}), [1, 2], 'can extract the values from an object');
-    t.deepEqual(values({one: 1, two: 2, length: 3}), [1, 2, 3], 'works when one of them is &quot;length&quot;');
-    t.end();
-});
-</code></pre>
-            </div>
-            <h4>Uses</h4>
-            <ul>
-              <li><a href="#amp-keys">amp-keys</a>
-                <ul>
-                  <li><a href="#amp-has">amp-has</a>
-                  </li>
-                  <li><a href="#amp-index-of">amp-index-of</a>
-                    <ul>
-                      <li><a href="#amp-is-object">amp-is-object</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#amp-is-object">amp-is-object</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </div>
           <div></div>
         </section>
