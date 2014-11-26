@@ -10,5 +10,12 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-empty.js"
+  "main": "is-empty.js",
+  "dependencies": {
+    "is-arguments": "^1.0.0",
+    "is-array": "^1.0.0",
+    "is-nan": "^1.0.0",
+    "is-number": "^1.0.0",
+    "is-string": "^1.0.0"
+  }
 }

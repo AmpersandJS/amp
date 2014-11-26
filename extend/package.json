@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "extend.js"
+  "main": "extend.js",
+  "dependencies": {
+    "is-object": "^1.0.0"
+  }
 }

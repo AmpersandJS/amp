@@ -10,5 +10,10 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "clone.js"
+  "main": "clone.js",
+  "dependencies": {
+    "extend": "^1.0.0",
+    "is-array": "^1.0.0",
+    "is-object": "^1.0.0"
+  }
 }

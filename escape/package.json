@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "escape.js"
+  "main": "escape.js",
+  "dependencies": {
+    "keys": "^1.0.0"
+  }
 }

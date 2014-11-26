@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "size.js"
+  "main": "size.js",
+  "dependencies": {
+    "keys": "^1.0.0"
+  }
 }

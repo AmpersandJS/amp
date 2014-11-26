@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "delay.js"
+  "main": "delay.js",
+  "dependencies": {
+    "bind": "^1.0.0"
+  }
 }

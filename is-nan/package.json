@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-nan.js"
+  "main": "is-nan.js",
+  "dependencies": {
+    "is-number": "^1.0.0"
+  }
 }

@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "once.js"
+  "main": "once.js",
+  "dependencies": {
+    "before": "^1.0.0"
+  }
 }

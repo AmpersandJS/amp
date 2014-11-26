@@ -10,5 +10,10 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "keys.js"
+  "main": "keys.js",
+  "dependencies": {
+    "has": "^1.0.0",
+    "index-of": "^1.0.0",
+    "is-object": "^1.0.0"
+  }
 }

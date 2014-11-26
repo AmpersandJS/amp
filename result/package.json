@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "result.js"
+  "main": "result.js",
+  "dependencies": {
+    "is-function": "^1.0.0"
+  }
 }

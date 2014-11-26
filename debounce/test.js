@@ -16,7 +16,7 @@ test('amp-debounce', function (t) {
     delay(function () {
         t.equal(counter, 1, 'incr was debounced');
         t.end();
-    }, 192);
+    }, 500);
 });
 
 test('debounce asap', function (t) {
@@ -38,7 +38,7 @@ test('debounce asap', function (t) {
     delay(function(){
         t.equal(counter, 1, 'incr was debounced');
         t.end();
-    }, 128);
+    }, 500);
 });
 
 test('debounce asap recursively', function (t) {

@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "index-of.js"
+  "main": "index-of.js",
+  "dependencies": {
+    "is-object": "^1.0.0"
+  }
 }

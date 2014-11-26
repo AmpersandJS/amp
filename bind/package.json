@@ -10,5 +10,9 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "bind.js"
+  "main": "bind.js",
+  "dependencies": {
+    "is-function": "^1.0.0",
+    "is-object": "^1.0.0"
+  }
 }

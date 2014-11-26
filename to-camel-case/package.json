@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "to-camel-case.js"
+  "main": "to-camel-case.js",
+  "dependencies": {
+    "is-string": "^1.0.0"
+  }
 }

@@ -10,5 +10,8 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "each.js"
+  "main": "each.js",
+  "dependencies": {
+    "keys": "^1.0.0"
+  }
 }

@@ -10,5 +10,9 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "contains.js"
+  "main": "contains.js",
+  "dependencies": {
+    "index-of": "^1.0.0",
+    "values": "^1.0.0"
+  }
 }

@@ -80,8 +80,9 @@
     "url": "git://github.com/ampersandjs/amp"
   },
   "scripts": {
+    "add-dependencies": "node bin/add-dependencies",
     "before-test": "node bin/gen-testrunner",
-    "build": "npm run clean && npm run folders && npm run readmes && npm run before-test && npm run build-site",
+    "build": "npm run add-dependencies && npm run clean && npm run folders && npm run readmes && npm run before-test && npm run build-site",
     "build-site": "node bin/build-site",
     "clean": "node bin/sort-modules && fixpack",
     "folders": "node bin/gen-folders",

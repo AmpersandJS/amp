@@ -197,6 +197,12 @@ test('amp-contains', function (t) {
             </div>
             <h4>Dependency graph</h4>
             <ul>
+              <li><a href="#amp-index-of">amp-index-of</a>
+                <ul>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
               <li><a href="#amp-values">amp-values</a>
                 <ul>
                   <li><a href="#amp-keys">amp-keys</a>
@@ -212,12 +218,6 @@ test('amp-contains', function (t) {
                       <li><a href="#amp-is-object">amp-is-object</a>
                       </li>
                     </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#amp-index-of">amp-index-of</a>
-                <ul>
-                  <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
               </li>
@@ -1054,15 +1054,15 @@ test('amp-clone', function (t) {
             </div>
             <h4>Dependency graph</h4>
             <ul>
-              <li><a href="#amp-is-object">amp-is-object</a>
-              </li>
-              <li><a href="#amp-is-array">amp-is-array</a>
-              </li>
               <li><a href="#amp-extend">amp-extend</a>
                 <ul>
                   <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
+              </li>
+              <li><a href="#amp-is-array">amp-is-array</a>
+              </li>
+              <li><a href="#amp-is-object">amp-is-object</a>
               </li>
             </ul>
           </div>
@@ -2006,19 +2006,19 @@ test('amp-is-empty', function (t) {
             </div>
             <h4>Dependency graph</h4>
             <ul>
-              <li><a href="#amp-is-array">amp-is-array</a>
-              </li>
-              <li><a href="#amp-is-string">amp-is-string</a>
-              </li>
               <li><a href="#amp-is-arguments">amp-is-arguments</a>
               </li>
-              <li><a href="#amp-is-number">amp-is-number</a>
+              <li><a href="#amp-is-array">amp-is-array</a>
               </li>
               <li><a href="#amp-is-nan">amp-is-nan</a>
                 <ul>
                   <li><a href="#amp-is-number">amp-is-number</a>
                   </li>
                 </ul>
+              </li>
+              <li><a href="#amp-is-number">amp-is-number</a>
+              </li>
+              <li><a href="#amp-is-string">amp-is-string</a>
               </li>
             </ul>
           </div>
@@ -2639,6 +2639,8 @@ test('amp-is-object-equal', function (t) {
             </div>
             <h4>Dependency graph</h4>
             <ul>
+              <li><a href="#amp-is-function">amp-is-function</a>
+              </li>
               <li><a href="#amp-keys">amp-keys</a>
                 <ul>
                   <li><a href="#amp-has">amp-has</a>
@@ -2652,8 +2654,6 @@ test('amp-is-object-equal', function (t) {
                   <li><a href="#amp-is-object">amp-is-object</a>
                   </li>
                 </ul>
-              </li>
-              <li><a href="#amp-is-function">amp-is-function</a>
               </li>
             </ul>
           </div>

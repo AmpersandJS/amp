@@ -10,5 +10,9 @@
   "scripts": {
     "test": "node test.js"
   },
-  "main": "is-object-equal.js"
+  "main": "is-object-equal.js",
+  "dependencies": {
+    "is-function": "^1.0.0",
+    "keys": "^1.0.0"
+  }
 }
