@@ -77,8 +77,6 @@
     ],
     "utils": [
       "create-callback",
-      "identity",
-      "identity",
       "is-arguments",
       "is-array",
       "is-boolean",

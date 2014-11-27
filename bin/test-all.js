@@ -35,8 +35,6 @@ require('../includes/test');
 require('../to-camel-case/test');
 require('../trim/test');
 require('../create-callback/test');
-require('../identity/test');
-require('../identity/test');
 require('../is-arguments/test');
 require('../is-array/test');
 require('../is-boolean/test');
