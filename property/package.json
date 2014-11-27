@@ -1,30 +1,23 @@
 {
-  "name": "amp-iteratee",
-  "description": "iteratee function part of http://amp.ampersandjs.com.",
+  "name": "amp-property",
+  "description": "property function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": true
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
-  "dependencies": {
-    "create-callback": "^1.0.0",
-    "is-function": "^1.0.0",
-    "is-object": "^1.0.0",
-    "matches": "^1.0.0",
-    "property": "^1.0.0"
-  },
   "devDependencies": {
     "tape": "^3.0.3"
   },
-  "homepage": "http://amp.ampersandjs.com/#amp-iteratee",
+  "homepage": "http://amp.ampersandjs.com/#amp-property",
   "keywords": [
     "amp",
     "util",
-    "arrays"
+    "objects"
   ],
   "license": "MIT",
-  "main": "iteratee.js",
+  "main": "property.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"

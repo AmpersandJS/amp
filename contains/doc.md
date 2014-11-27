@@ -1,1 +1,1 @@
-Determines whether an array contains an item. Returns `true` or `false`.
+Determines whether the array of object contains an item. Returns `true` or `false`. Note that in the case of an object it checks the values not key names.

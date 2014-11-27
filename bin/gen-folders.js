@@ -20,6 +20,7 @@ packages.forEach(function (method) {
         sigFile
     ];
     var testFile = dir + '/test.js';
+    var packFile = dir + '/package.json';
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
@@ -55,6 +56,11 @@ packages.forEach(function (method) {
     var sig = fs.readFileSync(sigFile, 'utf8');
     if (sig === '') {
         fs.writeFileSync(sigFile, camelCased + '();', 'utf8');
+    }
+
+    // create empty package.json if doesn't exist
+    if (!fs.existsSync(packFile)) {
+        fs.writeFileSync(packFile, "{}", 'utf8');
     }
 });
 
