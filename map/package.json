@@ -15,7 +15,7 @@
   "keywords": [
     "amp",
     "util",
-    "objects"
+    "collections"
   ],
   "license": "MIT",
   "main": "map.js",

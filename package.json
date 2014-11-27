@@ -41,6 +41,7 @@
     "collections": [
       "contains",
       "each",
+      "map",
       "size"
     ],
     "dom": [
@@ -63,7 +64,6 @@
       "has",
       "invert",
       "keys",
-      "map",
       "matches",
       "pairs",
       "property",
