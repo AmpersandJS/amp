@@ -29,8 +29,13 @@
   "license": "MIT",
   "packages": {
     "arrays": [
+      "difference",
       "index-of",
-      "last"
+      "intersection",
+      "last",
+      "union",
+      "unique",
+      "without"
     ],
     "collections": [
       "contains",
