@@ -1,6 +1,6 @@
 {
   "name": "amp-contains",
-  "description": "contains util function part of http://amp.ampersandjs.com.",
+  "description": "contains function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
@@ -9,7 +9,7 @@
     "values": "^1.0.0"
   },
   "devDependencies": {
-    "tape": "2.14.0"
+    "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-contains",
   "keywords": [

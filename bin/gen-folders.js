@@ -10,7 +10,6 @@ var toCamelCase = require('../lib/to-camel-case');
 
 packages.forEach(function (method) {
     var dir = __dirname + '/../' + method;
-    var pack = require('../pack_template.json');
     var ampName = 'amp-' + method;
     var camelCased = toCamelCase(method);
     var exampleFile = dir + '/example.js';
@@ -22,7 +21,6 @@ packages.forEach(function (method) {
     ];
     var testFile = dir + '/test.js';
 
-    // rimraf.sync(dir);
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
         fs.writeFileSync(dir + '/' + method + '.js', 'module.exports = function ' + camelCased +'() {}');
@@ -58,11 +56,5 @@ packages.forEach(function (method) {
     if (sig === '') {
         fs.writeFileSync(sigFile, camelCased + '();', 'utf8');
     }
-
-    pack.name = ampName;
-    pack.main = method + '.js';
-    pack.description = method + ' util function.';
-    
-    fs.writeFileSync(dir + '/package.json', JSON.stringify(pack, null, 2));
 });
 

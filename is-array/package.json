@@ -1,11 +1,11 @@
 {
   "name": "amp-is-array",
-  "description": "is-array util function part of http://amp.ampersandjs.com.",
+  "description": "is-array function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
-    "tape": "2.14.0"
+    "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-is-array",
   "keywords": [

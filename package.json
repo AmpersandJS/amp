@@ -32,6 +32,7 @@
       "difference",
       "index-of",
       "intersection",
+      "iteratee",
       "last",
       "union",
       "unique",
@@ -62,6 +63,7 @@
       "has",
       "invert",
       "keys",
+      "pairs",
       "values"
     ],
     "strings": [
@@ -71,6 +73,8 @@
       "trim"
     ],
     "utils": [
+      "create-callback",
+      "identity",
       "is-arguments",
       "is-array",
       "is-boolean",

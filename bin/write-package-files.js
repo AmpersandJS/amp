@@ -30,26 +30,42 @@ modules.forEach(function (mod) {
 
     pack.name = mod.name;
     pack.main = mod.fileName;
-    pack.description = mod.bareName + ' util function part of http://amp.ampersandjs.com.';
+    pack.description = mod.bareName + ' function part of http://amp.ampersandjs.com.';
     pack.homepage = mod.docUrl;
+    pack.version = pack.version || '1.0.0';
     pack.bugs = 'https://github.com/ampersandjs/amp/issues';
     pack.keywords = [
         'amp', 
         'util',
         mod.category
     ];
+    
+    if (mod.internal) {
+        pack.amp = {
+            internal: true
+        };
+    }
+
+    pack.author = "Henrik Joreteg <henrik@andyet.net>";
+    pack.license = "MIT";
+    pack.scripts = {
+        test: "node test.js"
+    };
 
     pack.repository = {
         type: 'git',
         url: 'git://github.com/ampersandjs/amp'
     };
 
+    if (!pack.devDependencies) {
+        pack.devDependencies = {};
+    }
+    
+    pack.devDependencies['tape'] = mainPack.dependencies['tape'];
+
     if (mod.requiresDom) {
         if (!pack.scripts) {
             pack.scripts = {};
-        }
-        if (!pack.devDependencies) {
-            pack.devDependencies = {};
         }
         pack.scripts.test = 'browserify test.js | tape-run | tap-spec';
         pack.devDependencies.browserify = mainPack.dependencies.browserify;

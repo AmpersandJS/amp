@@ -1,6 +1,6 @@
 {
   "name": "amp-remove-class",
-  "description": "remove-class util function part of http://amp.ampersandjs.com.",
+  "description": "remove-class function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
@@ -11,7 +11,7 @@
   "devDependencies": {
     "browserify": "^6.3.3",
     "tap-spec": "^2.1.0",
-    "tape": "2.14.0",
+    "tape": "^3.0.3",
     "tape-run": "^0.3.0"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-remove-class",
