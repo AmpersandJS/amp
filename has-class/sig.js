@@ -1,0 +1,1 @@
+hasClass(element, *classes);

@@ -1,0 +1,1 @@
+includes(string, stringToLookFor, [startIndex]);

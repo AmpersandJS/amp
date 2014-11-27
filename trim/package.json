@@ -1,0 +1,25 @@
+{
+  "name": "amp-trim",
+  "description": "trim util function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-trim",
+  "keywords": [
+    "amp",
+    "util",
+    "strings"
+  ],
+  "license": "MIT",
+  "main": "trim.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

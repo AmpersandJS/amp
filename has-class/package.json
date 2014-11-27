@@ -1,0 +1,31 @@
+{
+  "name": "amp-has-class",
+  "description": "has-class util function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "is-string": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^6.3.3",
+    "tap-spec": "^2.1.0",
+    "tape": "2.14.0",
+    "tape-run": "^0.3.0"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-has-class",
+  "keywords": [
+    "amp",
+    "util",
+    "dom"
+  ],
+  "license": "MIT",
+  "main": "has-class.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "browserify test.js | tape-run | tap-spec"
+  }
+}

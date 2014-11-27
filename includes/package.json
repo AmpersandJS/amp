@@ -1,0 +1,25 @@
+{
+  "name": "amp-includes",
+  "description": "includes util function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "devDependencies": {
+    "tape": "2.14.0"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-includes",
+  "keywords": [
+    "amp",
+    "util",
+    "strings"
+  ],
+  "license": "MIT",
+  "main": "includes.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

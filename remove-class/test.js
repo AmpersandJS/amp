@@ -1,0 +1,34 @@
+var test = require('tape');
+var removeClass = require('./remove-class');
+
+
+function getEl(className) {
+    var div = document.createElement('div');
+    div.className = className;
+    return div;
+}
+
+
+test('amp-remove-class', function (t) {
+    var el = getEl('oh hello there');
+    
+    removeClass(el, 'oh');
+    t.equal(el.className, 'hello there');   
+    
+    removeClass(el, 'oh');
+    t.equal(el.className, 'hello there', 'removing non-existant class should do nothing');   
+    
+    removeClass(el, 'hello', 'there');
+    t.equal(el.className, '', 'should be able to remove several');   
+    
+    removeClass(el, 'oh', 'hello', 'there');
+    t.equal(el.className, '', 'should be ok if doing again');
+
+    // reset it
+    el = getEl('oh hello there');
+
+    removeClass(el, undefined, null, NaN, 0, '');
+    t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
+
+    t.end();
+});

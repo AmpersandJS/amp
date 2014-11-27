@@ -4,6 +4,7 @@ var fs = require('fs');
 var modules = require('../lib/get-packages')();
 var size = require('../size');
 var fixpack = require('fixpack');
+var mainPack = require('../package.json');
 
 
 modules.forEach(function (mod) {
@@ -42,6 +43,19 @@ modules.forEach(function (mod) {
         type: 'git',
         url: 'git://github.com/ampersandjs/amp'
     };
+
+    if (mod.requiresDom) {
+        if (!pack.scripts) {
+            pack.scripts = {};
+        }
+        if (!pack.devDependencies) {
+            pack.devDependencies = {};
+        }
+        pack.scripts.test = 'browserify test.js | tape-run | tap-spec';
+        pack.devDependencies.browserify = mainPack.dependencies.browserify;
+        pack.devDependencies['tape-run'] = mainPack.dependencies['tape-run'];
+        pack.devDependencies['tap-spec'] = mainPack.dependencies['tap-spec'];
+    }
 
     fs.writeFileSync(mod.folder + '/package.json', JSON.stringify(pack, null, 2), 'utf8');
 

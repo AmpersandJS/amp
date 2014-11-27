@@ -37,7 +37,12 @@
       "each",
       "size"
     ],
-    "dom": [],
+    "dom": [
+      "add-class",
+      "get-classes",
+      "has-class",
+      "remove-class"
+    ],
     "functions": [
       "before",
       "bind",
@@ -56,7 +61,9 @@
     ],
     "strings": [
       "escape",
-      "to-camel-case"
+      "includes",
+      "to-camel-case",
+      "trim"
     ],
     "utils": [
       "is-arguments",
@@ -96,9 +103,9 @@
     "show-tree": "node bin/show-tree",
     "start": "npm run build-site && http-server -p 8000",
     "test": "browserify bin/test-all.js | tape-run | tap-spec",
-    "test-node": "node bin/test-server.js | tap-spec",
     "test-browser": "zuul --local 8080 -- bin/test-all.js",
     "test-ci": "zuul -- bin/test-all.js",
+    "test-node": "node bin/test-server.js | tap-spec",
     "validate": "node bin/check-doc.js",
     "write-package-files": "node bin/write-package-files"
   }
