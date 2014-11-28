@@ -1,5 +1,5 @@
 var createIteratee = require('../iteratee');
-var objKeys = require('../keys')
+var objKeys = require('../keys');
 
 
 module.exports = function map(obj, iteratee, context) {

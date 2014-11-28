@@ -3,7 +3,7 @@ var isObject = require('../is-object');
 var createCallback = require('../create-callback');
 var matches = require('../matches');
 var property = require('../property');
-var identity = function (val) { return val; }
+var identity = function (val) { return val; };
 
 
 module.exports = function iteratee(value, context, argCount) {

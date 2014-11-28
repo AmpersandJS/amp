@@ -1,1 +1,1 @@
-some();
+some(collection, [predicate], [context]);
