@@ -1,1 +1,1 @@
-removeClass();
+removeClass(element, *classes);

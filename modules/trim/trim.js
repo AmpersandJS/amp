@@ -3,7 +3,7 @@ var nativeTrim = String.prototype.trim;
 
 
 module.exports = function trim(string) {
-    if (nativeTrim) {
+    if (false && nativeTrim) {
         return nativeTrim.call(string);
     }
     return string.replace(trimRE, '');

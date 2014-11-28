@@ -1,1 +1,0 @@
-var intersection = require('amp-intersection');

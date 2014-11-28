@@ -1,30 +1,25 @@
-var indexOf = require('../index-of');
-var isString = require('../is-string');
+var trim = require('../trim');
 var slice = Array.prototype.slice;
-var whiteSpace = /\s+/;
+var support = !!document.documentElement.classList;
+var cleanup = /\s{2,}/g;
 
 
-module.exports = function removeClass(el) {
-    var toRemove = slice.call(arguments, 1);
-    var classes = el.className.split(whiteSpace);
-    var removed = false;
-    var i = 0;
-    var l = toRemove.length;
-    var item, index;
-
-    // see if we have anything to 
-    for (; i < l; i++) {
-        item = toRemove[i];
-        if (!isString(item) || !item) continue;
-        
-        index = indexOf(classes, item);
-        if (index !== -1) {
-            classes.splice(index, 1);
-            removed = true;
-        }
+module.exports = function removeClass(el, cls) {
+    // optimize for best, most common case
+    if (arguments.length === 2 && support && cls) {
+        el.classList.remove(cls);
+        return el;
     }
-    if (removed) {
-        el.className = classes.join(' ');
+    var classes = slice.call(arguments, 1);
+    // store two copies
+    var clsName = el.className;
+    var result = clsName;
+    for (var i = 0, l = classes.length; i < l; i++) {
+        result = result.replace(classes[i], '');
+    }
+    // only write if modified
+    if (clsName !== result) {
+        el.className = trim(result.replace(cleanup, ' '));
     }
     return el;
 };

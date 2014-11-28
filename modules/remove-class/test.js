@@ -30,5 +30,11 @@ test('amp-remove-class', function (t) {
     removeClass(el, undefined, null, NaN, 0, '');
     t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
 
+    el = getEl('  oh   hello there');
+    var clsName = el.className;
+    
+    t.equal(clsName, removeClass(el, 'not', 'changing').className, 'should not touch classNames if not modifying');
+    t.equal(removeClass(el, 'hello', 'yo').className, 'oh there', 'should clean up classNames whitespacing, if modifying anyway');
+
     t.end();
 });

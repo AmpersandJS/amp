@@ -5,8 +5,7 @@
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "index-of": "^1.0.0",
-    "is-string": "^1.0.0"
+    "trim": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^6.3.3",

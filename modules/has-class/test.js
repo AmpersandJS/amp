@@ -17,6 +17,11 @@ test('amp-has-class', function (t) {
     t.notOk(hasClass(getEl('hi-there'), 'there'));
     t.notOk(hasClass(getEl('hi-there'), 'i-t'));
     t.notOk(hasClass(getEl('hi-there'), '-'));
-    t.notOk(hasClass(getEl('hi-there')));
+
+    var className = getEl('hi there').className;
+    t.ok(hasClass(className, 'hi'));
+    t.ok(hasClass(className, 'there'));
+    t.notOk(hasClass(className, 'something'));
+
     t.end();
 });

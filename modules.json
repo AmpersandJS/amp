@@ -2,11 +2,8 @@
   "arrays": [
     "difference",
     "index-of",
-    "intersection",
     "last",
-    "union",
-    "unique",
-    "without"
+    "unique"
   ],
   "collections": [
     "contains",
@@ -19,7 +16,6 @@
   ],
   "dom": [
     "add-class",
-    "get-classes",
     "has-class",
     "remove-class"
   ],

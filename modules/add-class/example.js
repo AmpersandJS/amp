@@ -1,8 +1,9 @@
 var addClass = require('amp-add-class');
 
 var element = document.querySelector('#my-el');
-
 element.outerHTML; //=> '<div>greetings</div>';
+
+// basic adding
 addClass(element, 'oh');
 element.outerHTML; //=> '<div class="oh">greetings</div>';
 
