@@ -4,7 +4,7 @@ var objKeys = require('../keys')
 
 module.exports = function map(obj, iteratee, context) {
     if (obj == null) return [];
-    iteratee = createIteratee(iteratee, context);
+    iteratee = createIteratee(iteratee, context, 3);
     var keys = obj.length !== +obj.length && objKeys(obj);
     var length = (keys || obj).length;
     var results = Array(length);

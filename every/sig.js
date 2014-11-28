@@ -1,0 +1,1 @@
+every(collection, function, [context]);

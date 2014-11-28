@@ -1,0 +1,1 @@
+var some = require('amp-some');

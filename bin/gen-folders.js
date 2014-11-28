@@ -24,7 +24,7 @@ packages.forEach(function (method) {
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
-        fs.writeFileSync(dir + '/' + method + '.js', 'module.exports = function ' + camelCased +'() {}');
+        fs.writeFileSync(dir + '/' + method + '.js', 'module.exports = function ' + camelCased +'() {};');
     }
 
     if (!fs.existsSync(testFile)) {

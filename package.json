@@ -32,7 +32,6 @@
       "difference",
       "index-of",
       "intersection",
-      "iteratee",
       "last",
       "union",
       "unique",
@@ -41,8 +40,10 @@
     "collections": [
       "contains",
       "each",
+      "every",
       "map",
-      "size"
+      "size",
+      "some"
     ],
     "dom": [
       "add-class",
@@ -77,6 +78,7 @@
     ],
     "utils": [
       "create-callback",
+      "internal-flatten",
       "is-arguments",
       "is-array",
       "is-boolean",
@@ -91,6 +93,7 @@
       "is-regexp",
       "is-string",
       "is-undefined",
+      "iteratee",
       "result",
       "unique-id"
     ]
