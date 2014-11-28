@@ -4,6 +4,11 @@
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "contains": "^1.0.0",
+    "is-boolean": "^1.0.0",
+    "iteratee": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "^3.0.3"
   },

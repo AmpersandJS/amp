@@ -45,12 +45,31 @@
             <h1><span class="header-link"></span>amp-difference</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-difference">npm</a><a href="https://github.com/ampersand/amp/tree/master/difference">github</a>
           <div>
             <h3>Docs</h3>
-            <div></div>
+            <div><p>Returns all the values from the array that are not present in any of the other arrays.</p>
+</div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var difference = require('amp-difference');</code></pre>
+            <pre><code class="lang-javascript hljs">var difference = require('amp-difference');
+
+difference([1, 2, 3, 4, 5], [1, 2]); //=&gt; [3, 4, 5]
+
+// can also pass multiple
+difference([1, 2, 3, 4, 5], [1, 2], [3]); //=&gt; [4, 5]
+</code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function difference() {}</code></pre>
+              <pre style="display: none"><code class="lang-javascript hljs">var filter = require('../filter');
+var flatten = require('../internal-flatten');
+var contains = require('../contains');
+var slice = Array.prototype.slice;
+
+
+module.exports = function difference(array) {
+    var rest = flatten(slice.call(arguments, 1), true, true, []);
+    return filter(array, function (value) {
+        return !contains(rest, value);
+    });
+};
+</code></pre>
             </div>
             <div class="tests">
               <button class="toggle">Show the tests</button>
@@ -59,11 +78,167 @@ var difference = require('./difference');
 
 
 test('amp-difference', function (t) {
+    var result = difference([1, 2, 3], [2, 30, 40]);
+    t.deepEqual(result, [1, 3], 'takes the difference of two arrays');
+
+    result = difference([1, 2, 3, 4], [2, 30, 40], [1, 11, 111]);
+    t.deepEqual(result, [3, 4], 'takes the difference of three arrays');
+
+    result = difference([1, 2, 3], 1);
+    t.deepEqual(result, [1, 2, 3], 'restrict the difference to arrays only');
     t.end();
-});</code></pre>
+});
+</code></pre>
             </div>
             <h4>Dependency graph</h4>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-contains">amp-contains</a>
+                <ul>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-values">amp-values</a>
+                    <ul>
+                      <li><a href="#amp-keys">amp-keys</a>
+                        <ul>
+                          <li><a href="#amp-has">amp-has</a>
+                          </li>
+                          <li><a href="#amp-index-of">amp-index-of</a>
+                            <ul>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-filter">amp-filter</a>
+                <ul>
+                  <li><a href="#amp-each">amp-each</a>
+                    <ul>
+                      <li><a href="#amp-create-callback">amp-create-callback</a>
+                      </li>
+                      <li><a href="#amp-keys">amp-keys</a>
+                        <ul>
+                          <li><a href="#amp-has">amp-has</a>
+                          </li>
+                          <li><a href="#amp-index-of">amp-index-of</a>
+                            <ul>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-iteratee">amp-iteratee</a>
+                    <ul>
+                      <li><a href="#amp-create-callback">amp-create-callback</a>
+                      </li>
+                      <li><a href="#amp-is-function">amp-is-function</a>
+                      </li>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                      <li><a href="#amp-matches">amp-matches</a>
+                        <ul>
+                          <li><a href="#amp-pairs">amp-pairs</a>
+                            <ul>
+                              <li><a href="#amp-keys">amp-keys</a>
+                                <ul>
+                                  <li><a href="#amp-has">amp-has</a>
+                                  </li>
+                                  <li><a href="#amp-index-of">amp-index-of</a>
+                                    <ul>
+                                      <li><a href="#amp-is-object">amp-is-object</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="#amp-is-object">amp-is-object</a>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#amp-property">amp-property</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-internal-flatten">amp-internal-flatten</a>
+                <ul>
+                  <li><a href="#amp-every">amp-every</a>
+                    <ul>
+                      <li><a href="#amp-iteratee">amp-iteratee</a>
+                        <ul>
+                          <li><a href="#amp-create-callback">amp-create-callback</a>
+                          </li>
+                          <li><a href="#amp-is-function">amp-is-function</a>
+                          </li>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                          <li><a href="#amp-matches">amp-matches</a>
+                            <ul>
+                              <li><a href="#amp-pairs">amp-pairs</a>
+                                <ul>
+                                  <li><a href="#amp-keys">amp-keys</a>
+                                    <ul>
+                                      <li><a href="#amp-has">amp-has</a>
+                                      </li>
+                                      <li><a href="#amp-index-of">amp-index-of</a>
+                                        <ul>
+                                          <li><a href="#amp-is-object">amp-is-object</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li><a href="#amp-is-object">amp-is-object</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a href="#amp-property">amp-property</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#amp-keys">amp-keys</a>
+                        <ul>
+                          <li><a href="#amp-has">amp-has</a>
+                          </li>
+                          <li><a href="#amp-index-of">amp-index-of</a>
+                            <ul>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-arguments">amp-is-arguments</a>
+                  </li>
+                  <li><a href="#amp-is-array">amp-is-array</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
@@ -238,25 +413,207 @@ test('amp-union', function (t) {
             <h1><span class="header-link"></span>amp-unique</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-unique">npm</a><a href="https://github.com/ampersand/amp/tree/master/unique">github</a>
           <div>
             <h3>Docs</h3>
-            <div></div>
+            <div><p>Produces a duplicate-free version of the array, (using === to test object equality, by default). </p>
+<p>If you know in advance that the array is sorted, passing <code>true</code> for isSorted will run a much faster algorithm. </p>
+<p>If you want to compute unique items based on a transformation, pass an <code>iteratee</code> function. If said <code>iteratee</code> requires custom context, you can pass that as the last argument.</p>
+</div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var unique = require('amp-unique');</code></pre>
+            <pre><code class="lang-javascript hljs">var unique = require('amp-unique');
+
+unique([1, 4, 2, 4, 3]); //=&gt; [1, 4, 2, 3]
+
+// if sorted, you can speed things up
+unique([1, 1, 2, 3, 4, 4, 5], true); //=&gt; [1, 2, 3, 4, 5]
+
+// getting unique objects checking a property value in list
+// of objects also works
+var people = [
+    {name: 'sue'},
+    {name: 'max'},
+    {name: 'sue'}
+};
+
+// can just pass name of property as string
+unique(people, 'name');
+//=&gt; [
+//=&gt;   {name: 'sue'},
+//=&gt;   {name: 'max'}
+//=&gt; ]
+
+// You can use your own iterator, just return
+// value to use to check uniqueness
+unique(people, function (person) {
+    return person.name;
+});
+//=&gt; [
+//=&gt;   {name: 'sue'},
+//=&gt;   {name: 'max'}
+//=&gt; ]
+</code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function unique() {}</code></pre>
+              <pre style="display: none"><code class="lang-javascript hljs">var isBoolean = require('../is-boolean');
+var contains = require('../contains');
+var getIteratee = require('../iteratee');
+
+
+module.exports = function unique(array, isSorted, iteratee, context) {
+    if (array == null) return [];
+    if (!isBoolean(isSorted)) {
+        context = iteratee;
+        iteratee = isSorted;
+        isSorted = false;
+    }
+    if (iteratee != null) iteratee = getIteratee(iteratee, context);
+    var result = [];
+    var seen = [];
+    for (var i = 0, length = array.length; i &lt; length; i++) {
+        var value = array[i];
+        var computed = iteratee ? iteratee(value, i, array) : value;
+        if (isSorted) {
+            if (!i || seen !== computed) result.push(value);
+            seen = computed;
+        } else if (iteratee) {
+            if (!contains(seen, computed)) {
+                seen.push(computed);
+                result.push(value);
+            }
+        } else if (!contains(result, value)) {
+            result.push(value);
+        }
+    }
+    return result;
+};
+</code></pre>
             </div>
             <div class="tests">
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var unique = require('./unique');
+var map = require('../map');
 
 
 test('amp-unique', function (t) {
+    var list = [1, 2, 1, 3, 1, 4];
+    t.deepEqual(unique(list), [1, 2, 3, 4], 'can find the unique values of an unsorted array');
+
+    list = [1, 1, 1, 2, 2, 3];
+    t.deepEqual(unique(list, true), [1, 2, 3], 'can find the unique values of a sorted array faster');
+
+    list = [{name: 'moe'}, {name: 'curly'}, {name: 'larry'}, {name: 'curly'}];
+    var iterator = function(value) { return value.name; };
+    t.deepEqual(map(unique(list, false, iterator), iterator), ['moe', 'curly', 'larry'], 'can find the unique values of an array using a custom iterator');
+
+    t.deepEqual(map(unique(list, iterator), iterator), ['moe', 'curly', 'larry'], 'can find the unique values of an array using a custom iterator without specifying whether array is sorted');
+
+    iterator = function(value) { return value + 1; };
+    list = [1, 2, 2, 3, 4, 4];
+    t.deepEqual(unique(list, true, iterator), [1, 2, 3, 4], 'iterator works with sorted array');
+
+    var kittens = [
+        {kitten: 'Celery', cuteness: 8},
+        {kitten: 'Juniper', cuteness: 10},
+        {kitten: 'Spottis', cuteness: 10}
+    ];
+
+    var expected = [
+        {kitten: 'Celery', cuteness: 8},
+        {kitten: 'Juniper', cuteness: 10}
+    ];
+
+    t.deepEqual(unique(kittens, true, 'cuteness'), expected, 'string iterator works with sorted array');
+
+
+    var result = (function(){ return unique(arguments); }(1, 2, 1, 3, 1, 4));
+    t.deepEqual(result, [1, 2, 3, 4], 'works on an arguments object');
+
+    var a = {}, b = {}, c = {};
+    t.deepEqual(unique([a, b, a, b, c]), [a, b, c], 'works on values that can be tested for equivalency but not ordered');
+
+    t.deepEqual(unique(null), []);
+
+    var context = {};
+    list = [3];
+    unique(list, function(value, index, array) {
+        t.strictEqual(this, context);
+        t.strictEqual(value, 3);
+        t.strictEqual(index, 0);
+        t.strictEqual(array, list);
+    }, context);
+
+    t.deepEqual(unique([{a: 1, b: 1}, {a: 1, b: 2}, {a: 1, b: 3}, {a: 2, b: 1}], 'a'), [{a: 1, b: 1}, {a: 2, b: 1}], 'can use pluck like iterator');
+    t.deepEqual(unique([{0: 1, b: 1}, {0: 1, b: 2}, {0: 1, b: 3}, {0: 2, b: 1}], 0), [{0: 1, b: 1}, {0: 2, b: 1}], 'can use falsey pluck like iterator');
     t.end();
-});</code></pre>
+});
+</code></pre>
             </div>
             <h4>Dependency graph</h4>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-contains">amp-contains</a>
+                <ul>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-values">amp-values</a>
+                    <ul>
+                      <li><a href="#amp-keys">amp-keys</a>
+                        <ul>
+                          <li><a href="#amp-has">amp-has</a>
+                          </li>
+                          <li><a href="#amp-index-of">amp-index-of</a>
+                            <ul>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-is-boolean">amp-is-boolean</a>
+              </li>
+              <li><a href="#amp-iteratee">amp-iteratee</a>
+                <ul>
+                  <li><a href="#amp-create-callback">amp-create-callback</a>
+                  </li>
+                  <li><a href="#amp-is-function">amp-is-function</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                  <li><a href="#amp-matches">amp-matches</a>
+                    <ul>
+                      <li><a href="#amp-pairs">amp-pairs</a>
+                        <ul>
+                          <li><a href="#amp-keys">amp-keys</a>
+                            <ul>
+                              <li><a href="#amp-has">amp-has</a>
+                              </li>
+                              <li><a href="#amp-index-of">amp-index-of</a>
+                                <ul>
+                                  <li><a href="#amp-is-object">amp-is-object</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-property">amp-property</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
@@ -688,7 +1045,7 @@ console.log(result); //=&gt; [5, 3]
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var createIteratee = require('../iteratee');
-var objKeys = require('../keys')
+var objKeys = require('../keys');
 
 
 module.exports = function map(obj, iteratee, context) {
@@ -864,25 +1221,147 @@ test('amp-size', function (t) {
             <h1><span class="header-link"></span>amp-some</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-some">npm</a><a href="https://github.com/ampersand/amp/tree/master/some">github</a>
           <div>
             <h3>Docs</h3>
-            <div></div>
+            <div><p>Returns <code>true</code> if any of the values in the list pass the passed in test function. Stops iterating once found.</p>
+<p>If no test function is passed, looks for any &quot;truthy&quot; value.</p>
+</div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var some = require('amp-some');</code></pre>
+            <pre><code class="lang-javascript hljs">var some = require('amp-some');
+
+some([false, true]); //=&gt; true
+
+var isEven = function (num) {
+    return num % 2 === 0;
+};
+
+some([1, 3, 6, 14], isEven); //=&gt; true 
+// the `14` would never be checked
+// because `6` passes
+
+</code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function some() {}</code></pre>
+              <pre style="display: none"><code class="lang-javascript hljs">var iteratee = require('../iteratee');
+var objKeys = require('../keys');
+
+
+module.exports = function some(obj, func, context) {
+    if (obj == null) return false;
+    var keys = obj.length !== +obj.length &amp;&amp; objKeys(obj);
+    var length = (keys || obj).length;
+    var index = 0;
+    var currentKey;
+    
+    func = iteratee(func, context);
+    for (; index &lt; length; index++) {
+        currentKey = keys ? keys[index] : index;
+        if (func(obj[currentKey], currentKey, obj)) return true;
+    }
+    return false;
+};
+</code></pre>
             </div>
             <div class="tests">
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var some = require('./some');
+var isObject = require('../is-object');
+var isNumber = require('../is-number');
 
 
 test('amp-some', function (t) {
+    t.notOk(some([]), 'the empty set');
+    t.notOk(some([false, false, false]), 'all false values');
+    t.ok(some([false, false, true]), 'one true value');
+    t.ok(some([null, 0, 'yes', false]), 'a string');
+    t.notOk(some([null, 0, '', false]), 'falsy values');
+    
+    var isEven = function (num) {
+        return num % 2 === 0;
+    };
+
+    t.notOk(some([1, 11, 29], isEven), 'all odd numbers');
+    t.ok(some([1, 10, 29], isEven), 'an even number');
+    
+    var identity = function (val) {
+        return val;
+    };
+
+    t.ok(some([1], identity) === true, 'cast to boolean - true');
+    t.ok(some([0], identity) === false, 'cast to boolean - false');
+    t.ok(some([false, false, true]));
+
+    var list = [{a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}];
+    t.notOk(some(list, {a: 5, b: 2}), 'Can be called with object');
+    t.ok(some(list, 'a'), 'String mapped to object property');
+
+    list = [{a: 1, b: 2}, {a: 2, b: 2, c: true}];
+    t.ok(some(list, {b: 2}), 'Can be called with object');
+    t.notOk(some(list, 'd'), 'String mapped to object property');
+
+    t.ok(some({a: '1', b: '2', c: '3', d: '4', e: 6}, isNumber), 'takes objects');
+    t.notOk(some({a: 1, b: 2, c: 3, d: 4}, isObject), 'takes objects');
+    
+    var hasProperty = function (value) {
+        return !!this[value];
+    };
+
+    t.ok(some(['a', 'b', 'c', 'd'], hasProperty, {a: 1, b: 2, c: 3, d: 4}), 'context works');
+    t.notOk(some(['x', 'y', 'z'], hasProperty, {a: 1, b: 2, c: 3, d: 4}), 'context works');
     t.end();
-});</code></pre>
+});
+</code></pre>
             </div>
             <h4>Dependency graph</h4>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-iteratee">amp-iteratee</a>
+                <ul>
+                  <li><a href="#amp-create-callback">amp-create-callback</a>
+                  </li>
+                  <li><a href="#amp-is-function">amp-is-function</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                  <li><a href="#amp-matches">amp-matches</a>
+                    <ul>
+                      <li><a href="#amp-pairs">amp-pairs</a>
+                        <ul>
+                          <li><a href="#amp-keys">amp-keys</a>
+                            <ul>
+                              <li><a href="#amp-has">amp-has</a>
+                              </li>
+                              <li><a href="#amp-index-of">amp-index-of</a>
+                                <ul>
+                                  <li><a href="#amp-is-object">amp-is-object</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-property">amp-property</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-keys">amp-keys</a>
+                <ul>
+                  <li><a href="#amp-has">amp-has</a>
+                  </li>
+                  <li><a href="#amp-index-of">amp-index-of</a>
+                    <ul>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
@@ -890,12 +1369,34 @@ test('amp-some', function (t) {
             <h1><span class="header-link"></span>amp-filter</h1></a><small>v1.0.0</small><a href="https://www.npmjs.org/package/amp-filter">npm</a><a href="https://github.com/ampersand/amp/tree/master/filter">github</a>
           <div>
             <h3>Docs</h3>
-            <div></div>
+            <div><p>Looks through each value in the collection, returning an array of all the values that pass the truth test function you pass in.</p>
+</div>
             <h3>Example Usage</h3>
-            <pre><code class="lang-javascript hljs">var filter = require('amp-filter');</code></pre>
+            <pre><code class="lang-javascript hljs">var filter = require('amp-filter');
+
+var isEven = function(num){ 
+    return num % 2 === 0;
+};
+
+filter([1, 2, 3, 4], isEven); //=&gt; [2, 4]
+filter({one: 1, two: 2, three: 3, four: 4}, isEven); //=&gt; [2, 4]
+</code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function filter() {};</code></pre>
+              <pre style="display: none"><code class="lang-javascript hljs">var iteratee = require('../iteratee');
+var each = require('../each');
+
+
+module.exports = function filter(obj, func, context) {
+    var results = [];
+    if (obj == null) return results;
+    func = iteratee(func, context);
+    each(obj, function(value, index, list) {
+        if (func(value, index, list)) results.push(value);
+    });
+    return results;
+};
+</code></pre>
             </div>
             <div class="tests">
               <button class="toggle">Show the tests</button>
@@ -904,11 +1405,89 @@ var filter = require('./filter');
 
 
 test('amp-filter', function (t) {
+    var evenArray = [1, 2, 3, 4, 5, 6];
+    var evenObject = {one: 1, two: 2, three: 3};
+    
+    var isEven = function(num){ 
+        return num % 2 === 0;
+    };
+
+    t.deepEqual(filter(evenArray, isEven), [2, 4, 6]);
+    t.deepEqual(filter(evenObject, isEven), [2], 'can filter objects');
+    t.deepEqual(filter([{}, evenObject, []], 'two'), [evenObject], 'predicate string map to object properties');
+
+    filter([1], function() {
+        t.equal(this, evenObject, 'given context');
+    }, evenObject);
+
+    // Can be used like amp-where.
+    var list = [{a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}];
+    
+    t.deepEqual(filter(list, {a: 1}), [{a: 1, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}]);
+    t.deepEqual(filter(list, {b: 2}), [{a: 1, b: 2}, {a: 2, b: 2}]);
+    t.deepEqual(filter(list, {}), list, 'Empty object accepts all items');
+    
     t.end();
-});</code></pre>
+});
+</code></pre>
             </div>
             <h4>Dependency graph</h4>
-            <p>(none)</p>
+            <ul>
+              <li><a href="#amp-each">amp-each</a>
+                <ul>
+                  <li><a href="#amp-create-callback">amp-create-callback</a>
+                  </li>
+                  <li><a href="#amp-keys">amp-keys</a>
+                    <ul>
+                      <li><a href="#amp-has">amp-has</a>
+                      </li>
+                      <li><a href="#amp-index-of">amp-index-of</a>
+                        <ul>
+                          <li><a href="#amp-is-object">amp-is-object</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#amp-is-object">amp-is-object</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#amp-iteratee">amp-iteratee</a>
+                <ul>
+                  <li><a href="#amp-create-callback">amp-create-callback</a>
+                  </li>
+                  <li><a href="#amp-is-function">amp-is-function</a>
+                  </li>
+                  <li><a href="#amp-is-object">amp-is-object</a>
+                  </li>
+                  <li><a href="#amp-matches">amp-matches</a>
+                    <ul>
+                      <li><a href="#amp-pairs">amp-pairs</a>
+                        <ul>
+                          <li><a href="#amp-keys">amp-keys</a>
+                            <ul>
+                              <li><a href="#amp-has">amp-has</a>
+                              </li>
+                              <li><a href="#amp-index-of">amp-index-of</a>
+                                <ul>
+                                  <li><a href="#amp-is-object">amp-is-object</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a href="#amp-is-object">amp-is-object</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#amp-property">amp-property</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
           <div></div>
         </section>
