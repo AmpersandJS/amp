@@ -5,7 +5,7 @@
 var fs = require('fs');
 var packages = require('../lib/get-names')();
 var getTestString = require('../lib/get-test');
-var toCamelCase = require('../lib/to-camel-case');
+var toCamelCase = require('../modules/to-camel-case');
 
 
 packages.forEach(function (method) {
