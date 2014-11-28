@@ -9,7 +9,7 @@ var packages = require('../lib/get-packages')();
 var errors = [];
 
 packages.forEach(function (pack) {
-    var folder = __dirname + '/../' + pack.bareName;
+    var folder = __dirname + '/../modules/' + pack.bareName;
     var sigFilePath = folder + '/sig.js';
     var docFilePath = folder + '/doc.md';
     var examplePath = folder + '/example.js';

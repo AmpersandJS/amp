@@ -2,7 +2,7 @@
 // based on actual dependencies used.
 var fs = require('fs');
 var modules = require('../lib/get-packages')();
-var size = require('../size');
+var size = require('../modules/size');
 var fixpack = require('fixpack');
 var mainPack = require('../package.json');
 
@@ -46,10 +46,10 @@ modules.forEach(function (mod) {
         };
     }
 
-    pack.author = "Henrik Joreteg <henrik@andyet.net>";
-    pack.license = "MIT";
+    pack.author = 'Henrik Joreteg <henrik@andyet.net>';
+    pack.license = 'MIT';
     pack.scripts = {
-        test: "node test.js"
+        test: 'node test.js'
     };
 
     pack.repository = {
@@ -61,7 +61,7 @@ modules.forEach(function (mod) {
         pack.devDependencies = {};
     }
     
-    pack.devDependencies['tape'] = mainPack.dependencies['tape'];
+    pack.devDependencies.tape = mainPack.dependencies.tape;
 
     if (mod.requiresDom) {
         if (!pack.scripts) {

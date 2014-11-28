@@ -8,8 +8,7 @@ module.exports = function (file, context, output) {
     jade.render(fs.readFileSync(file, 'utf8'), {
         globals: [context],
         pretty: true,
-        filename: file,
-        //basedir: __dirname + '/../documentation'
+        filename: file
     }, function (err, html) {
         if (err) throw err;
         var filename = output || file;

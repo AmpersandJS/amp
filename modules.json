@@ -1,0 +1,71 @@
+{
+  "arrays": [
+    "difference",
+    "index-of",
+    "intersection",
+    "last",
+    "union",
+    "unique",
+    "without"
+  ],
+  "collections": [
+    "contains",
+    "each",
+    "every",
+    "map",
+    "size",
+    "some"
+  ],
+  "dom": [
+    "add-class",
+    "get-classes",
+    "has-class",
+    "remove-class"
+  ],
+  "functions": [
+    "before",
+    "bind",
+    "debounce",
+    "delay",
+    "once"
+  ],
+  "objects": [
+    "clone",
+    "defaults",
+    "extend",
+    "has",
+    "invert",
+    "keys",
+    "matches",
+    "pairs",
+    "property",
+    "values"
+  ],
+  "strings": [
+    "escape",
+    "includes",
+    "to-camel-case",
+    "trim"
+  ],
+  "utils": [
+    "create-callback",
+    "internal-flatten",
+    "is-arguments",
+    "is-array",
+    "is-boolean",
+    "is-date",
+    "is-empty",
+    "is-function",
+    "is-nan",
+    "is-null",
+    "is-number",
+    "is-object",
+    "is-object-equal",
+    "is-regexp",
+    "is-string",
+    "is-undefined",
+    "iteratee",
+    "result",
+    "unique-id"
+  ]
+}

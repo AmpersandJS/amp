@@ -9,7 +9,7 @@ var toCamelCase = require('../lib/to-camel-case');
 
 
 packages.forEach(function (method) {
-    var dir = __dirname + '/../' + method;
+    var dir = __dirname + '/../modules/' + method;
     var ampName = 'amp-' + method;
     var camelCased = toCamelCase(method);
     var exampleFile = dir + '/example.js';
@@ -60,7 +60,7 @@ packages.forEach(function (method) {
 
     // create empty package.json if doesn't exist
     if (!fs.existsSync(packFile)) {
-        fs.writeFileSync(packFile, "{}", 'utf8');
+        fs.writeFileSync(packFile, '{}', 'utf8');
     }
 });
 

@@ -1,8 +1,8 @@
 node_modules
-*/node_modules
-*/example.js
-*/sig.js
-*/test.js
-is-equal/test.js
+modules/*/node_modules
+modules/*/example.js
+modules/*/sig.js
+modules/*/test.js
+modules/is-equal/test.js
 documentation/public/js/highlight.pack.js
 documentation/public/js/slugger.js
