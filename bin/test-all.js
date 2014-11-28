@@ -12,6 +12,7 @@ require('../modules/every/test');
 require('../modules/map/test');
 require('../modules/size/test');
 require('../modules/some/test');
+require('../modules/filter/test');
 require('../modules/add-class/test');
 require('../modules/get-classes/test');
 require('../modules/has-class/test');

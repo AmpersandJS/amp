@@ -14,7 +14,8 @@
     "every",
     "map",
     "size",
-    "some"
+    "some",
+    "filter"
   ],
   "dom": [
     "add-class",

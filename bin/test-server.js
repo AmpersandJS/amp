@@ -12,6 +12,7 @@ require('../modules/every/test');
 require('../modules/map/test');
 require('../modules/size/test');
 require('../modules/some/test');
+require('../modules/filter/test');
 require('../modules/before/test');
 require('../modules/bind/test');
 require('../modules/debounce/test');

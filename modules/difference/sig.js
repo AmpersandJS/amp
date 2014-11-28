@@ -1,1 +1,1 @@
-difference();
+difference(array, *otherArray);
