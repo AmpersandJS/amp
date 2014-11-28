@@ -18,7 +18,7 @@
     "tap-spec": "^2.1.0",
     "tape": "^3.0.3",
     "tape-run": "^0.3.0",
-    "zuul": "^1.13.1"
+    "zuul": "1.13.1"
   },
   "homepage": "http://amp.ampersandjs.com",
   "keywords": [
