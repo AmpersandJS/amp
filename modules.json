@@ -1,19 +1,4 @@
 {
-  "arrays": [
-    "difference",
-    "index-of",
-    "last",
-    "unique"
-  ],
-  "collections": [
-    "contains",
-    "each",
-    "every",
-    "map",
-    "size",
-    "some",
-    "filter"
-  ],
   "dom": [
     "add-class",
     "has-class",
@@ -25,6 +10,21 @@
     "debounce",
     "delay",
     "once"
+  ],
+  "collections": [
+    "contains",
+    "each",
+    "every",
+    "filter",
+    "map",
+    "size",
+    "some"
+  ],
+  "arrays": [
+    "difference",
+    "index-of",
+    "last",
+    "unique"
   ],
   "objects": [
     "clone",

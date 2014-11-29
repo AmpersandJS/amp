@@ -3,6 +3,12 @@
   "description": "delay function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "1.73 kB",
+      "minified": "343 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "bind": "^1.0.0"

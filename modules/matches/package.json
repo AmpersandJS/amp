@@ -3,6 +3,12 @@
   "description": "matches function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "2.55 kB",
+      "minified": "486 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "pairs": "^1.0.0"

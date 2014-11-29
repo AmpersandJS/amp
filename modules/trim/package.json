@@ -3,6 +3,12 @@
   "description": "trim function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "250 B",
+      "minified": "59 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
     "tape": "^3.0.3"

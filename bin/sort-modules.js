@@ -1,10 +1,10 @@
 // sorts modules as listed in package.json
-var pack = require('../package.json');
+var pack = require('../modules.json');
 var fs = require('fs');
 
 
-for (var category in pack.packages) {
-    pack.packages[category].sort();
+for (var category in pack) {
+    pack[category].sort();
 }
 
-fs.writeFileSync(__dirname + '/../package.json', JSON.stringify(pack, null, 2), 'utf8');
+fs.writeFileSync(__dirname + '/../modules.json', JSON.stringify(pack, null, 2), 'utf8');

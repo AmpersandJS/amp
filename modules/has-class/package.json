@@ -3,6 +3,12 @@
   "description": "has-class function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "591 B",
+      "minified": "156 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "is-string": "^1.0.0"

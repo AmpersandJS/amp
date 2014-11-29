@@ -3,6 +3,12 @@
   "description": "clone function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "1.09 kB",
+      "minified": "220 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "extend": "^1.0.0",

@@ -3,6 +3,12 @@
   "description": "index-of function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "583 B",
+      "minified": "126 B"
+    }
+  },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "is-object": "^1.0.0"

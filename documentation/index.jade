@@ -52,6 +52,23 @@ block content
           li Provide easy to remember names (by using namespacing)
           li Minimize unneeded interdependencies.
 
+      section
+        a.anchor(name= 'sizes', href= '#sizes')
+          h2 
+            span.header-link
+            | How filesizes are calculated
+
+        p To give you a rough idea of what impact a given module will have on a browserify bundle's filesize we calculate it as follows:
+
+        pre
+          |  
+          |    amp module (browserified, min + gzip)
+          |  - empty file (browserified, min + gzip)
+          | ----------------------------------------
+          |       estimated weight added to your app
+
+        p However, this is still a flawed estimate since if you use multiple amp modules, the actual de-duped size will be even small since they likely share dependencies.
+
       for module, key in globals[0].packages
         section.module
           a.anchor(name= module.name, href= '#' + module.name)
@@ -61,7 +78,7 @@ block content
           small= 'v' + module.pack.version
           a(href='https://www.npmjs.org/package/#{module.name}') npm
           a(href='https://github.com/ampersand/amp/tree/master/#{module.bareName}') github
-            
+
           div
             h3 Docs
 
@@ -81,9 +98,21 @@ block content
               pre(style='display: none')
                 code.lang-javascript.hljs= module.test 
             
-            h4 Dependency graph
+            h3 Estimated bundle size increase
 
-            +renderDep(module.dependencyTree, true)
+            p ~#{module.pack.amp.size.minified}
+
+            h4 Dependencies
+
+            div(style='display: none')
+              +renderDep(module.dependencyTree, true)
+            
+            div.dependency-list
+              ul
+                for dep, key in module.dependencyList
+                  li
+                    a(href='#' + dep.name)= dep.name
+
 
           div!= module.html
 
