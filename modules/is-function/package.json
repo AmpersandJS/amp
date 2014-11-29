@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
+    "internal": false,
     "size": {
-      "original": "355 B",
+      "original": "354 B",
       "minified": "65 B"
     }
   },

@@ -45,8 +45,6 @@
     "trim"
   ],
   "utils": [
-    "create-callback",
-    "internal-flatten",
     "is-arguments",
     "is-array",
     "is-boolean",
@@ -64,5 +62,9 @@
     "iteratee",
     "result",
     "unique-id"
+  ],
+  "internal": [
+    "create-callback",
+    "internal-flatten"
   ]
 }

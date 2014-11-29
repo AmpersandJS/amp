@@ -21,6 +21,7 @@ block content
       a.section-top.external(href='http://ampersandjs.com') Ampersand.js
       a.section-top.external(href='https://github.com/ampersandjs/amp') GitHub Project
       a.section-top.external(href='https://github.com/ampersandjs/amp/issues') Bugs
+      a.section-top.external(href='#sizes') Filesizes
       - var lastCategory;
       for module, key in globals[0].packages
         - if (lastCategory !== module.category)
@@ -100,7 +101,8 @@ block content
             
             h3 Estimated bundle size increase
 
-            p ~#{module.pack.amp.size.minified}
+            p 
+              a(href='#sizes') ~#{module.pack.amp.size.minified} (details)
 
             h4 Dependencies
 

@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "internal": true
+    "internal": true,
+    "size": {
+      "original": "744 B",
+      "minified": "99 B"
+    }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
@@ -14,7 +18,7 @@
   "keywords": [
     "amp",
     "util",
-    "utils"
+    "internal"
   ],
   "license": "MIT",
   "main": "create-callback.js",

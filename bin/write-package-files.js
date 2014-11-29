@@ -40,11 +40,10 @@ modules.forEach(function (mod) {
         mod.category
     ];
     
-    if (mod.internal) {
-        pack.amp = {
-            internal: true
-        };
+    if (!pack.amp) {
+        pack.amp = {};
     }
+    pack.amp.internal = mod.internal;
 
     pack.author = 'Henrik Joreteg <henrik@andyet.net>';
     pack.license = 'MIT';

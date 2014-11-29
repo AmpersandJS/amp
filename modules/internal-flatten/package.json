@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "internal": true
+    "internal": true,
+    "size": {
+      "original": "6.59 kB",
+      "minified": "1.03 kB"
+    }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
@@ -19,7 +23,7 @@
   "keywords": [
     "amp",
     "util",
-    "utils"
+    "internal"
   ],
   "license": "MIT",
   "main": "internal-flatten.js",
