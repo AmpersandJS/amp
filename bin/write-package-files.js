@@ -40,7 +40,9 @@ modules.forEach(function (mod) {
     ];
     
     if (!pack.amp) {
-        pack.amp = {};
+        pack.amp = {
+            size: {}
+        };
     }
     pack.amp.internal = mod.internal;
 
