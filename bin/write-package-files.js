@@ -2,7 +2,6 @@
 // based on actual dependencies used.
 var fs = require('fs');
 var modules = require('../lib/get-packages')();
-var size = require('../modules/size');
 var fixpack = require('fixpack');
 var mainPack = require('../package.json');
 
@@ -22,7 +21,7 @@ modules.forEach(function (mod) {
         }
     }
     
-    if (size(result)) {
+    if (Object.keys(result).length) {
         pack.dependencies = result;
     } else {
         delete pack.dependencies;

@@ -1,7 +1,7 @@
 {
   "name": "amp-is-regexp",
   "description": "is-regexp function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
