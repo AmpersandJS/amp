@@ -1,8 +1,20 @@
-//var npm = require('npm');
-//var fs = require('fs');
-var packages = require('../lib/get-packages')();
+/*global console*/
+var npm = require('npm');
+var modules = require('../lib/get-packages')();
 
+npm.load({}, function () {
+    modules = [modules[0]];
 
-packages.forEach(function () {
-
+    modules.forEach(function (module) {    
+        npm.commands.publish([module.folder], function (err) {
+            if (err) {
+                console.log('failed to publish ' + module.name);
+                console.log(err.toString());
+            }
+        });
+    });
 });
+
+
+
+
