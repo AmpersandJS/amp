@@ -208,6 +208,11 @@ hr {
   margin-top: 40px;
   max-width: 350px;
 }
+@media (max-width: 400px) {
+  .illustration.amp {
+    max-width: 250px;
+  }
+}
 button {
   border: none;
 }
@@ -449,6 +454,8 @@ pre .diff .change {
   border-right: 1px solid #e6eaed;
 }
 nav.nav-main {
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 40px 60px 50px;
   font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
   background: #fff;
@@ -571,12 +578,6 @@ nav.nav-main .button {
   }
 }
 @media (max-width: 768px) {
-  nav.nav-main {
-    text-align: center;
-  }
-  nav.nav-main .button {
-    display: none;
-  }
   .learn-index .nav-docs {
     padding-top: 0;
     text-align: center;
@@ -589,13 +590,7 @@ nav.nav-main .button {
 }
 @media (max-width: 600px) {
   nav.nav-main {
-    padding: 20px 10px 40px;
-  }
-  nav.nav-main .logo-ampersand {
-    width: 170px;
-    margin: 0 auto 10px;
-    display: block;
-    text-align: left;
+    padding-bottom: 20px;
   }
   nav.nav-main .nav-item {
     margin-left: 10px;
@@ -794,6 +789,9 @@ nav.nav-main .button {
 .docs-content {
   padding-left: 280px;
   min-height: 350px;
+}
+.docs-content section:first-child .anchor {
+  margin-top: 0;
 }
 .docs-content .anchor {
   position: relative;
