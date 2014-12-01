@@ -79,9 +79,12 @@ block content
             h1
               span.header-link
               | #{module.name}
-          small= 'v' + module.pack.version
-          a(href='https://www.npmjs.org/package/#{module.name}') npm
-          a(href='https://github.com/ampersand/amp/tree/master/#{module.bareName}') github
+          .module-card
+            h4.module-name #{module.name}
+            p.module-version= 'v' + module.pack.version
+            p.module-links
+              a(href='https://www.npmjs.org/package/#{module.name}') npm
+              a(href='https://github.com/ampersand/amp/tree/master/#{module.bareName}') github
 
           div
             h3 Docs
