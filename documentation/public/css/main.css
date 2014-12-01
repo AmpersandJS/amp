@@ -204,6 +204,10 @@ hr {
 .illustration.guide {
   margin-top: 40px;
 }
+.illustration.amp {
+  margin-top: 40px;
+  max-width: 350px;
+}
 button {
   border: none;
 }
