@@ -301,12 +301,19 @@ module.exports = function removeClass(el, cls) {
         el.classList.remove(cls);
         return el;
     }
-    var classes = slice.call(arguments, 1);
+    cls = slice.call(arguments, 1);
     // store two copies
-    var clsName = el.className;
+    var clsName = ' ' + el.className + ' ';
     var result = clsName;
-    for (var i = 0, l = classes.length; i &lt; l; i++) {
-        result = result.replace(classes[i], '');
+    var current;
+    var start;
+    for (var i = 0, l = cls.length; i &lt; l; i++) {
+        current = cls[i];
+        start = result.indexOf(' ' + current + ' ');
+        if (start !== -1) {
+            start += 1;
+            result = result.slice(0, start) + result.slice(start + current.length);
+        }
     }
     // only write if modified
     if (clsName !== result) {
@@ -352,16 +359,19 @@ test('amp-remove-class', function (t) {
 
     el = getEl('  oh   hello there');
     var clsName = el.className;
-    
+
     t.equal(clsName, removeClass(el, 'not', 'changing').className, 'should not touch classNames if not modifying');
     t.equal(removeClass(el, 'hello', 'yo').className, 'oh there', 'should clean up classNames whitespacing, if modifying anyway');
+
+    el = removeClass(getEl('foobar'), 'foo', 'bar');
+    t.equal(el.className, 'foobar');
 
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p> <a href="#sizes">~220 B (details)</a></p>
+            <p> <a href="#sizes">~263 B (details)</a></p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -961,7 +971,7 @@ test('amp-once', function (t) {
             <h1><span class="header-link"></span>amp-contains</h1></a><small>v0.0.0</small><a href="https://www.npmjs.org/package/amp-contains">npm</a><a href="https://github.com/ampersand/amp/tree/master/contains">github</a>
           <div>
             <h3>Docs</h3>
-            <div><p>Determines whether the array of object contains an item. Returns <code>true</code> or <code>false</code>. Note that in the case of an object it checks the values not key names.</p>
+            <div><p>Determines whether the array or object contains an item. Returns <code>true</code> or <code>false</code>. Note that in the case of an object it checks the values not key names.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var contains = require('amp-contains');
