@@ -152,7 +152,7 @@ test('amp-add-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p> <a href="#sizes">~374 B (details)</a></p>
+            <p> <a href="#sizes">~375 B (details)</a></p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -210,8 +210,9 @@ var slice = Array.prototype.slice;
 module.exports = function hasClass(el) {
     var cls = slice.call(arguments, 1);
     var clsName = isString(el) ? el : el.className;
+    clsName = ' ' + clsName +  ' ';
     for (var i = 0, l = cls.length; i &lt; l; i++) {
-        if ((' ' + clsName +  ' ').indexOf(' ' + cls[i] + ' ') &lt; 0) {
+        if (clsName.indexOf(' ' + cls[i] + ' ') &lt; 0) {
             return false;
         }
     }
@@ -251,7 +252,7 @@ test('amp-has-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p> <a href="#sizes">~156 B (details)</a></p>
+            <p> <a href="#sizes">~158 B (details)</a></p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
