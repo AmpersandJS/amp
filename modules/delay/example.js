@@ -20,5 +20,7 @@ var obj = {
         console.log('Oh, hello there, ' + this.name + '!');
     }
 };
+
+obj.someMethod();
 //=> 200ms pause
 //=> 'Oh, hello there, Mr. Fox!'
