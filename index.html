@@ -157,7 +157,7 @@ test('amp-add-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~375 B (<a href="#sizes">details</a>)</p>
+            <p>~345 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -190,7 +190,7 @@ test('amp-add-class', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns <code>true</code> if the <code>element</code> has the class(es) and <code>false</code> otherwise. You can pass as many classes as you want. </p>
+            <div><p>Returns <code>true</code> if the <code>element</code> has the class and <code>false</code> otherwise.</p>
 <p>If the first argument is a string, it is assumed to be what you&#39;d get from <code>el.className</code>. This allows it to be used repeatedly for a single element without reading from the DOM more than once.</p>
 </div>
             <h3>Example Usage</h3>
@@ -202,31 +202,21 @@ el.outerHTML; //=&gt; &lt;div class=&quot;oh hi&quot;&gt;hello&lt;/div&gt;
 
 hasClass(el, 'oh'); //=&gt; true
 hasClass(el, 'no'); //=&gt; false
-hasClass(el, 'oh', 'hi'); //=&gt; true
 
 // also works with the string result of `el.className`
 var className = el.className;
 
 hasClass(className, 'oh'); //=&gt; true
 hasClass(className, 'no'); //=&gt; false
-hasClass(className, 'oh', 'hi'); //=&gt; true
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var isString = require('../is-string');
-var slice = Array.prototype.slice;
 
 
-module.exports = function hasClass(el) {
-    var cls = slice.call(arguments, 1);
+module.exports = function hasClass(el, cls) {
     var clsName = isString(el) ? el : el.className;
-    clsName = ' ' + clsName +  ' ';
-    for (var i = 0, l = cls.length; i &lt; l; i++) {
-        if (clsName.indexOf(' ' + cls[i] + ' ') &lt; 0) {
-            return false;
-        }
-    }
-    return true;
+    return (' ' + clsName + ' ').indexOf(' ' + cls + ' ') !== -1;
 };
 </code></pre>
             </div>
@@ -262,7 +252,7 @@ test('amp-has-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~158 B (<a href="#sizes">details</a>)</p>
+            <p>~106 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
