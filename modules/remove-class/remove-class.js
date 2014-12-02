@@ -10,12 +10,19 @@ module.exports = function removeClass(el, cls) {
         el.classList.remove(cls);
         return el;
     }
-    var classes = slice.call(arguments, 1);
+    cls = slice.call(arguments, 1);
     // store two copies
-    var clsName = el.className;
+    var clsName = ' ' + el.className + ' ';
     var result = clsName;
-    for (var i = 0, l = classes.length; i < l; i++) {
-        result = result.replace(classes[i], '');
+    var current;
+    var start;
+    for (var i = 0, l = cls.length; i < l; i++) {
+        current = cls[i];
+        start = result.indexOf(' ' + current + ' ');
+        if (start !== -1) {
+            start += 1;
+            result = result.slice(0, start) + result.slice(start + current.length);
+        }
     }
     // only write if modified
     if (clsName !== result) {

@@ -157,7 +157,7 @@ test('amp-add-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~374 B (<a href="#sizes">details</a>)</p>
+            <p>~375 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -220,8 +220,9 @@ var slice = Array.prototype.slice;
 module.exports = function hasClass(el) {
     var cls = slice.call(arguments, 1);
     var clsName = isString(el) ? el : el.className;
+    clsName = ' ' + clsName +  ' ';
     for (var i = 0, l = cls.length; i &lt; l; i++) {
-        if ((' ' + clsName +  ' ').indexOf(' ' + cls[i] + ' ') &lt; 0) {
+        if (clsName.indexOf(' ' + cls[i] + ' ') &lt; 0) {
             return false;
         }
     }
@@ -261,7 +262,7 @@ test('amp-has-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~156 B (<a href="#sizes">details</a>)</p>
+            <p>~158 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -316,12 +317,19 @@ module.exports = function removeClass(el, cls) {
         el.classList.remove(cls);
         return el;
     }
-    var classes = slice.call(arguments, 1);
+    cls = slice.call(arguments, 1);
     // store two copies
-    var clsName = el.className;
+    var clsName = ' ' + el.className + ' ';
     var result = clsName;
-    for (var i = 0, l = classes.length; i &lt; l; i++) {
-        result = result.replace(classes[i], '');
+    var current;
+    var start;
+    for (var i = 0, l = cls.length; i &lt; l; i++) {
+        current = cls[i];
+        start = result.indexOf(' ' + current + ' ');
+        if (start !== -1) {
+            start += 1;
+            result = result.slice(0, start) + result.slice(start + current.length);
+        }
     }
     // only write if modified
     if (clsName !== result) {
@@ -367,16 +375,19 @@ test('amp-remove-class', function (t) {
 
     el = getEl('  oh   hello there');
     var clsName = el.className;
-    
+
     t.equal(clsName, removeClass(el, 'not', 'changing').className, 'should not touch classNames if not modifying');
     t.equal(removeClass(el, 'hello', 'yo').className, 'oh there', 'should clean up classNames whitespacing, if modifying anyway');
+
+    el = removeClass(getEl('foobar'), 'foo', 'bar');
+    t.equal(el.className, 'foobar');
 
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~220 B (<a href="#sizes">details</a>)</p>
+            <p>~263 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -401,7 +412,7 @@ test('amp-remove-class', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Creates a version of the function that can be called no more than count times. The result of the last function call is memoized and returned when count has been reached.</p>
+            <div><p>Creates a version of the function that can be called up to <code>count</code> number of times. The result of the last function call is memoized and returned when <code>count</code> has been reached.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var before = require('amp-before');
@@ -493,7 +504,7 @@ test('amp-before', function (t) {
           <div>
             <h3>Docs</h3>
             <div><p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
-<p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you have native <code>Function.prototype.bind</code> there&#39;s really no reason not to just use that. It even does the partial application as described above. Most JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
+<p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you have native <code>Function.prototype.bind</code> there&#39;s really no reason not to just use that. It even does the partial application as described above. Many JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var bind = require('amp-bind');
@@ -844,6 +855,8 @@ var obj = {
         console.log('Oh, hello there, ' + this.name + '!');
     }
 };
+
+obj.someMethod();
 //=&gt; 200ms pause
 //=&gt; 'Oh, hello there, Mr. Fox!'
 </code></pre>
@@ -1006,7 +1019,7 @@ test('amp-once', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Determines whether the array of object contains an item. Returns <code>true</code> or <code>false</code>. Note that in the case of an object it checks the values not key names.</p>
+            <div><p>Determines whether the array or object contains an item. Returns <code>true</code> or <code>false</code>. Note that in the case of an object it checks the values not key names.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var contains = require('amp-contains');
