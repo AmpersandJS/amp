@@ -12,10 +12,12 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "iteratee": "^1.0.0",
-    "keys": "^1.0.0"
+    "amp-iteratee": "^1.0.0",
+    "amp-keys": "^1.0.0"
   },
   "devDependencies": {
+    "amp-is-number": "^1.0.0",
+    "amp-is-object": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-every",

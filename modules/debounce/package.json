@@ -12,6 +12,7 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "devDependencies": {
+    "amp-delay": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-debounce",

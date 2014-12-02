@@ -12,11 +12,12 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "contains": "^1.0.0",
-    "is-boolean": "^1.0.0",
-    "iteratee": "^1.0.0"
+    "amp-contains": "^1.0.0",
+    "amp-is-boolean": "^1.0.0",
+    "amp-iteratee": "^1.0.0"
   },
   "devDependencies": {
+    "amp-map": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-unique",

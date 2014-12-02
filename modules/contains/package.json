@@ -12,8 +12,8 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "index-of": "^1.0.0",
-    "values": "^1.0.0"
+    "amp-index-of": "^1.0.0",
+    "amp-values": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"

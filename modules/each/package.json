@@ -12,10 +12,11 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "create-callback": "^1.0.0",
-    "keys": "^1.0.0"
+    "amp-create-callback": "^1.0.0",
+    "amp-keys": "^1.0.0"
   },
   "devDependencies": {
+    "amp-contains": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-each",

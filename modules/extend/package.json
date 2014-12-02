@@ -12,9 +12,10 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "is-object": "^1.0.0"
+    "amp-is-object": "^1.0.0"
   },
   "devDependencies": {
+    "amp-keys": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-extend",

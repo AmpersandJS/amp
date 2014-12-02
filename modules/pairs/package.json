@@ -12,7 +12,7 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "keys": "^1.0.0"
+    "amp-keys": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"

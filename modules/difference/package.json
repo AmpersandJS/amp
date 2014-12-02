@@ -12,9 +12,9 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "contains": "^1.0.0",
-    "filter": "^1.0.0",
-    "internal-flatten": "^1.0.0"
+    "amp-contains": "^1.0.0",
+    "amp-filter": "^1.0.0",
+    "amp-internal-flatten": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"

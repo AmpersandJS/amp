@@ -504,7 +504,7 @@ test('amp-before', function (t) {
           <div>
             <h3>Docs</h3>
             <div><p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
-<p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you have native <code>Function.prototype.bind</code> there&#39;s really no reason not to just use that. It even does the partial application as described above. Many JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
+<p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you&#39;ll have native <code>Function.prototype.bind</code> (such as node.js) there&#39;s really no reason not to just use that. It even does the partial application as described above. Many JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var bind = require('amp-bind');

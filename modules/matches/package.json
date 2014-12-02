@@ -12,9 +12,10 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "pairs": "^1.0.0"
+    "amp-pairs": "^1.0.0"
   },
   "devDependencies": {
+    "amp-map": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-matches",

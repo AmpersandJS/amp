@@ -12,9 +12,9 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "every": "^1.0.0",
-    "is-arguments": "^1.0.0",
-    "is-array": "^1.0.0"
+    "amp-every": "^1.0.0",
+    "amp-is-arguments": "^1.0.0",
+    "amp-is-array": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"

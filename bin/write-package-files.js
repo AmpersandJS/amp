@@ -11,7 +11,7 @@ modules.forEach(function (mod) {
     var pack = mod.pack;
 
     mod.dependencies.forEach(function (dep) {
-        result[dep] = '^1.0.0';
+        result['amp-' + dep] = '^1.0.0';
     });
 
     // maintain custom-set versions if they already exist
@@ -26,6 +26,22 @@ modules.forEach(function (mod) {
     } else {
         delete pack.dependencies;
     }
+
+    // do the same for dev deps
+    result = {};
+
+    mod.devDependencies.forEach(function (dep) {
+        result['amp-' + dep] = '^1.0.0';
+    });
+
+    // maintain custom-set versions if they already exist
+    for (item in result) {
+        if (pack.devDependencies && pack.devDependencies[item]) {
+            result[item] = pack.devDependencies[item];
+        }
+    }
+    
+    pack.devDependencies = result;
 
     pack.name = mod.name;
     pack.main = mod.fileName;
