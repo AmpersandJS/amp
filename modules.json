@@ -5,10 +5,10 @@
     "remove-class"
   ],
   "functions": [
-    "before",
     "bind",
     "debounce",
     "delay",
+    "limit-calls",
     "once"
   ],
   "collections": [

@@ -1,0 +1,1 @@
+limitCalls(function, limit);

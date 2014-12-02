@@ -1,6 +1,6 @@
-var before = require('../before');
+var limitCalls = require('../limit-calls');
 
 
 module.exports = function once(fn) {
-    return before(2, fn);
+    return limitCalls(fn, 1);
 };
