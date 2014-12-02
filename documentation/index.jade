@@ -119,7 +119,7 @@ block content
               +renderDep(module.dependencyTree, true)
             
             div.dependency-list
-              - if (module.dependencyList.length)
+              - if (Object.keys(module.dependencyList).length)
                 ul
                   for dep, key in module.dependencyList
                     li
