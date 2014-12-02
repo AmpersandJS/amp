@@ -1,22 +1,21 @@
-var every = require('../every');
 var isArray = require('../is-array');
 var isArguments = require('../is-arguments');
-var concat = Array.prototype.concat;
-var push = Array.prototype.push;
 
 
-var flatten = function flatten(input, shallow, strict, output) {
-    if (shallow && every(input, isArray)) {
-        return concat.apply(output, input);
-    }
-    for (var i = 0, length = input.length; i < length; i++) {
-        var value = input[i];
-        if (!isArray(value) && !isArguments(value)) {
-            if (!strict) output.push(value);
-        } else if (shallow) {
-            push.apply(output, value);
-        } else {
-            flatten(value, shallow, strict, output);
+var flatten = function flatten(input, shallow, strict, startIndex) {
+    var output = [], idx = 0, value;
+    for (var i = startIndex || 0, length = input && input.length; i < length; i++) {
+        value = input[i];
+        if (value && value.length >= 0 && (isArray(value) || isArguments(value))) {
+            //flatten current level of array or arguments object
+            if (!shallow) value = flatten(value, shallow, strict);
+            var j = 0, len = value.length;
+            output.length += len;
+            while (j < len) {
+                output[idx++] = value[j++];
+            }
+        } else if (!strict) {
+            output[idx++] = value;
         }
     }
     return output;

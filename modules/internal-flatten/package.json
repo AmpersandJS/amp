@@ -6,13 +6,12 @@
   "amp": {
     "internal": true,
     "size": {
-      "original": "6.59 kB",
-      "minified": "1.03 kB"
+      "original": "1.45 kB",
+      "minified": "261 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-every": "^1.0.0",
     "amp-is-arguments": "^1.0.0",
     "amp-is-array": "^1.0.0"
   },

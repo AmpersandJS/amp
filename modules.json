@@ -22,8 +22,10 @@
   ],
   "arrays": [
     "difference",
+    "flatten",
     "index-of",
     "last",
+    "range",
     "unique"
   ],
   "objects": [

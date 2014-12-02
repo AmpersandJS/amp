@@ -1,30 +1,27 @@
 {
-  "name": "amp-defaults",
-  "description": "defaults function part of http://amp.ampersandjs.com.",
-  "version": "0.0.0",
+  "name": "amp-range",
+  "description": "range function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "internal": false,
     "size": {
-      "original": "547 B",
-      "minified": "117 B"
-    }
+      "original": "372 B",
+      "minified": "85 B"
+    },
+    "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
-  "dependencies": {
-    "amp-is-object": "^1.0.0"
-  },
   "devDependencies": {
     "tape": "^3.0.3"
   },
-  "homepage": "http://amp.ampersandjs.com/#amp-defaults",
+  "homepage": "http://amp.ampersandjs.com/#amp-range",
   "keywords": [
     "amp",
     "util",
-    "objects"
+    "arrays"
   ],
   "license": "MIT",
-  "main": "defaults.js",
+  "main": "range.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"

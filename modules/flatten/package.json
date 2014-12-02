@@ -1,32 +1,31 @@
 {
-  "name": "amp-difference",
-  "description": "difference function part of http://amp.ampersandjs.com.",
-  "version": "0.0.0",
+  "name": "amp-flatten",
+  "description": "flatten function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "internal": false,
     "size": {
-      "original": "8.19 kB",
-      "minified": "1.22 kB"
-    }
+      "original": "1.68 kB",
+      "minified": "299 B"
+    },
+    "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-contains": "^1.0.0",
-    "amp-filter": "^1.0.0",
     "amp-internal-flatten": "^1.0.0"
   },
   "devDependencies": {
+    "amp-range": "^1.0.0",
     "tape": "^3.0.3"
   },
-  "homepage": "http://amp.ampersandjs.com/#amp-difference",
+  "homepage": "http://amp.ampersandjs.com/#amp-flatten",
   "keywords": [
     "amp",
     "util",
     "arrays"
   ],
   "license": "MIT",
-  "main": "difference.js",
+  "main": "flatten.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
