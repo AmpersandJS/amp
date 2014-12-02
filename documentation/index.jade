@@ -119,10 +119,13 @@ block content
               +renderDep(module.dependencyTree, true)
             
             div.dependency-list
-              ul
-                for dep, key in module.dependencyList
-                  li
-                    a(href='#' + dep.name)= dep.name
+              - if (module.dependencyList.length)
+                ul
+                  for dep, key in module.dependencyList
+                    li
+                      a(href='#' + dep.name)= dep.name
+              - else
+                p none
 
 
           div!= module.html
