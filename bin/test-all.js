@@ -2,6 +2,7 @@
 require('../modules/add-class/test');
 require('../modules/has-class/test');
 require('../modules/remove-class/test');
+require('../modules/toggle-class/test');
 require('../modules/bind/test');
 require('../modules/debounce/test');
 require('../modules/delay/test');

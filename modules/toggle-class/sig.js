@@ -1,0 +1,1 @@
+toggleClass(element, class, [condition]);

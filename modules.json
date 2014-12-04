@@ -2,7 +2,8 @@
   "dom": [
     "add-class",
     "has-class",
-    "remove-class"
+    "remove-class",
+    "toggle-class"
   ],
   "functions": [
     "bind",
