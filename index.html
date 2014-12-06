@@ -61,6 +61,11 @@
           <div>
             <h3>Docs</h3>
             <div><p>Adds class(es) to an element.</p>
+<p>All of the following work:</p>
+<pre><code class="lang-javascript">addClass(el, &#39;foo&#39;);
+addClass(el, &#39;foo&#39;, &#39;bar&#39;);
+addClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
+</code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of adding a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
 </div>
             <h3>Example Usage</h3>
@@ -79,10 +84,15 @@ addClass(element, 'oh');
 // add multiple at once
 addClass(element, 'hello', 'there'); 
 element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there&quot;&gt;greetings&lt;/div&gt;';
+
+// using array
+addClass(element, ['foo', 'bar']); 
+element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there foo bar&quot;&gt;greetings&lt;/div&gt;';
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var hasClass = require('../has-class');
+var isArray = require('../is-array');
 var trim = require('../trim');
 var slice = Array.prototype.slice;
 var support = !!document.documentElement.classList;
@@ -90,13 +100,12 @@ var cleanup = /\s{2,}/g;
 
 
 module.exports = function addClass(el, cls) {
+    cls = isArray(cls) ? cls : slice.call(arguments, 1);
     // optimize for best, most common case
-    if (arguments.length === 2 &amp;&amp; support &amp;&amp; cls) {
-        el.classList.add(cls);
+    if (cls.length === 1 &amp;&amp; support) {
+        if (cls[0]) el.classList.add(cls[0]);
         return el;
     }
-
-    cls = slice.call(arguments, 1);
     var toAdd = [];
     var i = 0;
     var l = cls.length;
@@ -147,6 +156,10 @@ test('amp-add-class', function (t) {
     addClass(el, undefined, null, NaN, 0, '');
     t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
 
+    el = getEl('');
+    addClass(el, ['oh', 'hello', 'there']);
+    t.equal(el.className, 'oh hello there', 'should work with arrays too');
+
     el = getEl('   oh    hello  there  ');
     var clsName = el.className;
     t.equal(clsName, addClass(el, 'hello', 'there').className, 'should not touch classNames if not modifying');
@@ -157,7 +170,7 @@ test('amp-add-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~345 B (<a href="#sizes">details</a>)</p>
+            <p>~388 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -167,6 +180,8 @@ test('amp-add-class', function (t) {
                     </li>
                   </ul>
                 </li>
+                <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
               </ul>
@@ -175,6 +190,7 @@ test('amp-add-class', function (t) {
               <ul>
                 <li><a href="#amp-has-class">amp-has-class</a></li>
                 <li><a href="#amp-is-string">amp-is-string</a></li>
+                <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
               </ul>
             </div>
@@ -278,6 +294,11 @@ test('amp-has-class', function (t) {
           <div>
             <h3>Docs</h3>
             <div><p>Removes class(es) from an element.</p>
+<p>All of the following work:</p>
+<pre><code class="lang-javascript">removeClass(el, &#39;foo&#39;);
+removeClass(el, &#39;foo&#39;, &#39;bar&#39;);
+removeClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
+</code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of removing a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
 </div>
             <h3>Example Usage</h3>
@@ -291,23 +312,27 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;hello there&quot;&gt;greetings&l
 
 // remove multiple at once
 removeClass(element, 'hello', 'there'); 
+// can also be done by passing array
+removeClass(element, ['hello', 'there']); 
+
 element.outerHTML; //=&gt; '&lt;div class=&quot;&quot;&gt;greetings&lt;/div&gt;';
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var trim = require('../trim');
+var isArray = require('../is-array');
 var slice = Array.prototype.slice;
 var support = !!document.documentElement.classList;
 var cleanup = /\s{2,}/g;
 
 
 module.exports = function removeClass(el, cls) {
+    cls = isArray(cls) ? cls : slice.call(arguments, 1);
     // optimize for best, most common case
-    if (arguments.length === 2 &amp;&amp; support &amp;&amp; cls) {
-        el.classList.remove(cls);
+    if (cls.length === 1 &amp;&amp; support) {
+        if (cls[0]) el.classList.remove(cls[0]);
         return el;
     }
-    cls = slice.call(arguments, 1);
     // store two copies
     var clsName = ' ' + el.className + ' ';
     var result = clsName;
@@ -315,7 +340,7 @@ module.exports = function removeClass(el, cls) {
     var start;
     for (var i = 0, l = cls.length; i &lt; l; i++) {
         current = cls[i];
-        start = result.indexOf(' ' + current + ' ');
+        start = current ? result.indexOf(' ' + current + ' ') : -1;
         if (start !== -1) {
             start += 1;
             result = result.slice(0, start) + result.slice(start + current.length);
@@ -363,6 +388,15 @@ test('amp-remove-class', function (t) {
     removeClass(el, undefined, null, NaN, 0, '');
     t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
 
+    el = getEl('undefined null NaN');
+    removeClass(el, undefined, null, NaN, 0, '');
+    t.equal(el.className, 'undefined null NaN', 'should not remove classes named `undefined` etc.');
+
+    el = getEl('oh hello there');
+    t.equal(el.className, 'oh hello there');
+    removeClass(el, ['oh', 'hello', 'there']);
+    t.equal(el.className, '');
+
     el = getEl('  oh   hello there');
     var clsName = el.className;
 
@@ -377,16 +411,19 @@ test('amp-remove-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~263 B (<a href="#sizes">details</a>)</p>
+            <p>~335 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
+                <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
               </ul>
             </div>
             <div class="dependency-list">
               <ul>
+                <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
               </ul>
             </div>
@@ -508,7 +545,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~565 B (<a href="#sizes">details</a>)</p>
+            <p>~616 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -519,6 +556,8 @@ test('amp-toggle-class', function (t) {
                         <li><a href="#amp-is-string">amp-is-string</a>
                         </li>
                       </ul>
+                    </li>
+                    <li><a href="#amp-is-array">amp-is-array</a>
                     </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
@@ -534,6 +573,8 @@ test('amp-toggle-class', function (t) {
                 </li>
                 <li><a href="#amp-remove-class">amp-remove-class</a>
                   <ul>
+                    <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
                   </ul>
@@ -545,6 +586,7 @@ test('amp-toggle-class', function (t) {
                 <li><a href="#amp-add-class">amp-add-class</a></li>
                 <li><a href="#amp-has-class">amp-has-class</a></li>
                 <li><a href="#amp-is-string">amp-is-string</a></li>
+                <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
                 <li><a href="#amp-is-undefined">amp-is-undefined</a></li>
                 <li><a href="#amp-remove-class">amp-remove-class</a></li>
@@ -3036,7 +3078,7 @@ test('amp-defaults', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~117 B (<a href="#sizes">details</a>)</p>
+            <p>~118 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5570,7 +5612,7 @@ test('amp-result', function(t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~129 B (<a href="#sizes">details</a>)</p>
+            <p>~130 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

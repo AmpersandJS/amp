@@ -27,6 +27,10 @@ test('amp-add-class', function (t) {
     addClass(el, undefined, null, NaN, 0, '');
     t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
 
+    el = getEl('');
+    addClass(el, ['oh', 'hello', 'there']);
+    t.equal(el.className, 'oh hello there', 'should work with arrays too');
+
     el = getEl('   oh    hello  there  ');
     var clsName = el.className;
     t.equal(clsName, addClass(el, 'hello', 'there').className, 'should not touch classNames if not modifying');

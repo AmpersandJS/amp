@@ -30,6 +30,15 @@ test('amp-remove-class', function (t) {
     removeClass(el, undefined, null, NaN, 0, '');
     t.equal(el.className, 'oh hello there', 'should be reasonably tolerant of nonsense');
 
+    el = getEl('undefined null NaN');
+    removeClass(el, undefined, null, NaN, 0, '');
+    t.equal(el.className, 'undefined null NaN', 'should not remove classes named `undefined` etc.');
+
+    el = getEl('oh hello there');
+    t.equal(el.className, 'oh hello there');
+    removeClass(el, ['oh', 'hello', 'there']);
+    t.equal(el.className, '');
+
     el = getEl('  oh   hello there');
     var clsName = el.className;
 

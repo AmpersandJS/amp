@@ -13,3 +13,7 @@ addClass(element, 'oh');
 // add multiple at once
 addClass(element, 'hello', 'there'); 
 element.outerHTML; //=> '<div class="oh hello there">greetings</div>';
+
+// using array
+addClass(element, ['foo', 'bar']); 
+element.outerHTML; //=> '<div class="oh hello there foo bar">greetings</div>';

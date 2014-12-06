@@ -1,4 +1,5 @@
 var hasClass = require('../has-class');
+var isArray = require('../is-array');
 var trim = require('../trim');
 var slice = Array.prototype.slice;
 var support = !!document.documentElement.classList;
@@ -6,13 +7,12 @@ var cleanup = /\s{2,}/g;
 
 
 module.exports = function addClass(el, cls) {
+    cls = isArray(cls) ? cls : slice.call(arguments, 1);
     // optimize for best, most common case
-    if (arguments.length === 2 && support && cls) {
-        el.classList.add(cls);
+    if (cls.length === 1 && support) {
+        if (cls[0]) el.classList.add(cls[0]);
         return el;
     }
-
-    cls = slice.call(arguments, 1);
     var toAdd = [];
     var i = 0;
     var l = cls.length;

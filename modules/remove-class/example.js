@@ -8,4 +8,7 @@ element.outerHTML; //=> '<div class="hello there">greetings</div>';
 
 // remove multiple at once
 removeClass(element, 'hello', 'there'); 
+// can also be done by passing array
+removeClass(element, ['hello', 'there']); 
+
 element.outerHTML; //=> '<div class="">greetings</div>';

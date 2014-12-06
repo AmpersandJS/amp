@@ -1,16 +1,17 @@
 var trim = require('../trim');
+var isArray = require('../is-array');
 var slice = Array.prototype.slice;
 var support = !!document.documentElement.classList;
 var cleanup = /\s{2,}/g;
 
 
 module.exports = function removeClass(el, cls) {
+    cls = isArray(cls) ? cls : slice.call(arguments, 1);
     // optimize for best, most common case
-    if (arguments.length === 2 && support && cls) {
-        el.classList.remove(cls);
+    if (cls.length === 1 && support) {
+        if (cls[0]) el.classList.remove(cls[0]);
         return el;
     }
-    cls = slice.call(arguments, 1);
     // store two copies
     var clsName = ' ' + el.className + ' ';
     var result = clsName;
@@ -18,7 +19,7 @@ module.exports = function removeClass(el, cls) {
     var start;
     for (var i = 0, l = cls.length; i < l; i++) {
         current = cls[i];
-        start = result.indexOf(' ' + current + ' ');
+        start = current ? result.indexOf(' ' + current + ' ') : -1;
         if (start !== -1) {
             start += 1;
             result = result.slice(0, start) + result.slice(start + current.length);
