@@ -2385,8 +2385,8 @@ test('amp-flatten', function (t) {
 
     t.equal(flatten([range(10), range(10), 5, 1, 3], true).length, 23);
     t.equal(flatten([range(10), range(10), 5, 1, 3]).length, 23);
-    t.equal(flatten([new Array(1000000), range(56000), 5, 1, 3]).length, 1056003, 'Flatten can handle massive collections');
-    t.equal(flatten([new Array(1000000), range(56000), 5, 1, 3], true).length, 1056003, 'Flatten can handle massive collections');
+    t.equal(flatten([new Array(10000), range(5600), 5, 1, 3]).length, 15603, 'Flatten can handle massive collections');
+    t.equal(flatten([new Array(10000), range(5600), 5, 1, 3], true).length, 15603, 'Flatten can handle massive collections');
     t.end();
 });
 </code></pre>
