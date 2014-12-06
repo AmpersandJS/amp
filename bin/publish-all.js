@@ -4,6 +4,7 @@ var modules = require('../lib/get-packages')();
 
 npm.load({}, function () {
     var picks = [
+        'amp-add-class',
         'amp-has-class',
         'amp-is-string',
         'amp-is-array',
