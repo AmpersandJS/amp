@@ -1,7 +1,7 @@
 var toString = Object.prototype.toString;
-var isArray = Array.isArray;
+var nativeIsArray = Array.isArray;
 
 
-module.exports = isArray || function isArray(obj) {
+module.exports = nativeIsArray || function isArray(obj) {
     return toString.call(obj) === '[object Array]';
 };

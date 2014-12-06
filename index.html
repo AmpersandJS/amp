@@ -434,7 +434,7 @@ test('amp-remove-class', function (t) {
             <h1><span class="header-link"></span>amp-toggle-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-toggle-class</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v0.0.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-toggle-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/toggle-class">github</a></p>
           </div>
           <div>
@@ -4284,10 +4284,10 @@ isArray(arguments); //=&gt; false
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
-var isArray = Array.isArray;
+var nativeIsArray = Array.isArray;
 
 
-module.exports = isArray || function isArray(obj) {
+module.exports = nativeIsArray || function isArray(obj) {
     return toString.call(obj) === '[object Array]';
 };
 </code></pre>
