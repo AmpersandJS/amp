@@ -1,7 +1,7 @@
 {
   "name": "amp-is-nan",
   "description": "is-nan function part of http://amp.ampersandjs.com.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,

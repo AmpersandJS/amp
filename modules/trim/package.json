@@ -1,7 +1,7 @@
 {
   "name": "amp-trim",
   "description": "trim function part of http://amp.ampersandjs.com.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
