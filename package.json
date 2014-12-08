@@ -25,7 +25,8 @@
     "tape-run": "^0.3.0",
     "through2": "^0.6.3",
     "uglifyjs": "^2.3.6",
-    "zuul": "1.13.1"
+    "zuul": "1.13.1",
+    "zuulnice": "^1.0.0"
   },
   "homepage": "http://amp.ampersandjs.com",
   "keywords": [
