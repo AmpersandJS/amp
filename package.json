@@ -1,7 +1,7 @@
 {
   "name": "amp",
   "description": "A collection of utility modules as independent modules.",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
