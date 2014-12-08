@@ -1,14 +1,13 @@
 var trim = require('amp-trim');
 var isArray = require('amp-is-array');
 var slice = Array.prototype.slice;
-var support = !!document.documentElement.classList;
 var cleanup = /\s{2,}/g;
 
 
 module.exports = function removeClass(el, cls) {
     cls = isArray(cls) ? cls : slice.call(arguments, 1);
     // optimize for best, most common case
-    if (cls.length === 1 && support) {
+    if (cls.length === 1 && el.classList) {
         if (cls[0]) el.classList.remove(cls[0]);
         return el;
     }

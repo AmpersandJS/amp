@@ -1,13 +1,13 @@
 {
   "name": "amp-add-class",
   "description": "add-class function part of http://amp.ampersandjs.com.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.93 kB",
-      "minified": "388 B"
+      "original": "1.88 kB",
+      "minified": "371 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
