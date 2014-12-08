@@ -85,6 +85,7 @@ modules.forEach(function (mod) {
             pack.scripts = {};
         }
         pack.scripts.test = 'browserify test.js | tape-run | tap-spec';
+        pack.scripts.testLocal = 'browserify -t ../../lib/make-local.js test.js | tape-run | tap-spec';
         pack.devDependencies.browserify = mainPack.dependencies.browserify;
         pack.devDependencies['tape-run'] = mainPack.dependencies['tape-run'];
         pack.devDependencies['tap-spec'] = mainPack.dependencies['tap-spec'];

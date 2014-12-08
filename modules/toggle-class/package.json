@@ -36,6 +36,7 @@
     "url": "git://github.com/ampersandjs/amp"
   },
   "scripts": {
-    "test": "browserify test.js | tape-run | tap-spec"
+    "test": "browserify test.js | tape-run | tap-spec",
+    "testLocal": "browserify -t ../../lib/make-local.js test.js | tape-run | tap-spec"
   }
 }
