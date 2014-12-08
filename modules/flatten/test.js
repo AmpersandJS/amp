@@ -1,6 +1,6 @@
 var test = require('tape');
 var flatten = require('./flatten');
-var range = require('../range');
+var range = require('amp-range');
 
 
 test('amp-flatten', function (t) {

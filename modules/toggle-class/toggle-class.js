@@ -1,7 +1,7 @@
-var isUndefined = require('../is-undefined');
-var hasClass = require('../has-class');
-var addClass = require('../add-class');
-var removeClass = require('../remove-class');
+var isUndefined = require('amp-is-undefined');
+var hasClass = require('amp-has-class');
+var addClass = require('amp-add-class');
+var removeClass = require('amp-remove-class');
 
 
 var actions = {

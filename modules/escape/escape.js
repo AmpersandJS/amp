@@ -1,4 +1,4 @@
-var keys = require('../keys');
+var keys = require('amp-keys');
 var unescapeMap = {};
 var escapeMap = {
     '&': '&amp;',

@@ -1,5 +1,5 @@
-var iteratee = require('../iteratee');
-var each = require('../each');
+var iteratee = require('amp-iteratee');
+var each = require('amp-each');
 
 
 module.exports = function filter(obj, func, context) {

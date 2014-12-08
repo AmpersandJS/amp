@@ -1,5 +1,5 @@
-var objKeys = require('../keys');
-var createCallback = require('../create-callback');
+var objKeys = require('amp-keys');
+var createCallback = require('amp-create-callback');
 
 
 module.exports = function each(obj, iteratee, context) {

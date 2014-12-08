@@ -1,4 +1,4 @@
-var objKeys = require('../keys');
+var objKeys = require('amp-keys');
 
 
 module.exports = function pairs(obj) {

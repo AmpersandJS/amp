@@ -1,6 +1,6 @@
 var test = require('tape');
 var each = require('./each');
-var contains = require('../contains');
+var contains = require('amp-contains');
 
 
 test('amp-each', function (t) {

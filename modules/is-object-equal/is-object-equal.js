@@ -1,7 +1,7 @@
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
-var objKeys = require('../keys');
-var isFunction = require('../is-function');
+var objKeys = require('amp-keys');
+var isFunction = require('amp-is-function');
 
 
 // Internal recursive comparison function for `isEqual`.
@@ -9,7 +9,7 @@ var eq = function(a, b, aStack, bStack) {
     // Identical objects are equal. `0 === -0`, but they aren't identical.
     // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
     if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == require('../`.
+    // A strict comparison is necessary because `null == require('amp-`.
     if (a == null || b == null) return a === b;
     // Compare `[[Class]]` names.
     var className = toString.call(a);

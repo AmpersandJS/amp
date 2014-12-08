@@ -1,5 +1,5 @@
-var isArray = require('../is-array');
-var isArguments = require('../is-arguments');
+var isArray = require('amp-is-array');
+var isArguments = require('amp-is-arguments');
 
 
 var flatten = function flatten(input, shallow, strict, startIndex) {

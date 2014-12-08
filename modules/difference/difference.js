@@ -1,6 +1,6 @@
-var filter = require('../filter');
-var flatten = require('../internal-flatten');
-var contains = require('../contains');
+var filter = require('amp-filter');
+var flatten = require('amp-internal-flatten');
+var contains = require('amp-contains');
 
 
 module.exports = function difference(array) {

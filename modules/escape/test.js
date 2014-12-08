@@ -1,7 +1,7 @@
 var test = require('tape');
 var escape = require('./escape');
 var unescape = escape.unescape;
-var each = require('../each');
+var each = require('amp-each');
 
 
 test('amp-escape', function (t) {

@@ -1,8 +1,8 @@
-var isFunction = require('../is-function');
-var isObject = require('../is-object');
-var createCallback = require('../create-callback');
-var matches = require('../matches');
-var property = require('../property');
+var isFunction = require('amp-is-function');
+var isObject = require('amp-is-object');
+var createCallback = require('amp-create-callback');
+var matches = require('amp-matches');
+var property = require('amp-property');
 var identity = function (val) { return val; };
 
 

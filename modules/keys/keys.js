@@ -1,6 +1,6 @@
-var has = require('../has');
-var indexOf = require('../index-of');
-var isObject = require('../is-object');
+var has = require('amp-has');
+var indexOf = require('amp-index-of');
+var isObject = require('amp-is-object');
 var nativeKeys = Object.keys;
 var hasEnumBug = !({toString: null}).propertyIsEnumerable('toString');
 var nonEnumerableProps = ['constructor', 'valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];

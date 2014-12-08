@@ -1,4 +1,4 @@
-var isString = require('../is-string');
+var isString = require('amp-is-string');
 
 
 module.exports = function hasClass(el, cls) {

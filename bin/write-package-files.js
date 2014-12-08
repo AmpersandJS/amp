@@ -4,6 +4,7 @@ var fs = require('fs');
 var modules = require('../lib/get-packages')();
 var fixpack = require('fixpack');
 var mainPack = require('../package.json');
+var os = require('os');
 
 
 modules.forEach(function (mod) {
@@ -89,7 +90,7 @@ modules.forEach(function (mod) {
         pack.devDependencies['tap-spec'] = mainPack.dependencies['tap-spec'];
     }
 
-    fs.writeFileSync(mod.folder + '/package.json', JSON.stringify(pack, null, 2), 'utf8');
+    fs.writeFileSync(mod.folder + '/package.json', JSON.stringify(pack, null, 2) + os.EOL, 'utf8');
 
     fixpack(mod.folder + '/package.json');
 }); 

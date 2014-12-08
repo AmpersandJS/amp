@@ -1,6 +1,6 @@
 var test = require('tape');
 var extend = require('./extend');
-var keys = require('../keys');
+var keys = require('amp-keys');
 
 
 test('amp-extend', function(t) {

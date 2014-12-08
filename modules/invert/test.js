@@ -1,6 +1,6 @@
 var test = require('tape');
 var invert = require('./invert');
-var keys = require('../keys');
+var keys = require('amp-keys');
 
 
 test('amp-invert', function (t) {

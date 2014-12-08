@@ -1,4 +1,4 @@
-var limitCalls = require('../limit-calls');
+var limitCalls = require('amp-limit-calls');
 
 
 module.exports = function once(fn) {

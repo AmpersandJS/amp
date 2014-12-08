@@ -1,5 +1,5 @@
-var objKeys = require('../keys');
-var iteratee = require('../iteratee');
+var objKeys = require('amp-keys');
+var iteratee = require('amp-iteratee');
 
 
 module.exports = function every(obj, func, context) {

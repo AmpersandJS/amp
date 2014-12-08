@@ -1,8 +1,8 @@
-var isArray = require('../is-array');
-var isString = require('../is-string');
-var isArguments = require('../is-arguments');
-var isNumber = require('../is-number');
-var isNan = require('../is-nan');
+var isArray = require('amp-is-array');
+var isString = require('amp-is-string');
+var isArguments = require('amp-is-arguments');
+var isNumber = require('amp-is-number');
+var isNan = require('amp-is-nan');
 var hasOwn = Object.prototype.hasOwnProperty;
 
 

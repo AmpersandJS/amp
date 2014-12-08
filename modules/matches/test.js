@@ -1,6 +1,6 @@
 var test = require('tape');
 var matches = require('./matches');
-var map = require('../map');
+var map = require('amp-map');
 
 
 test('amp-matches', function (t) {

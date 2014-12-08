@@ -1,4 +1,4 @@
-var bind = require('../bind');
+var bind = require('amp-bind');
 
 
 module.exports = function delay(func, wait, context) {

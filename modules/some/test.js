@@ -1,7 +1,7 @@
 var test = require('tape');
 var some = require('./some');
-var isObject = require('../is-object');
-var isNumber = require('../is-number');
+var isObject = require('amp-is-object');
+var isNumber = require('amp-is-number');
 
 
 test('amp-some', function (t) {

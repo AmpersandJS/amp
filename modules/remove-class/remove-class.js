@@ -1,5 +1,5 @@
-var trim = require('../trim');
-var isArray = require('../is-array');
+var trim = require('amp-trim');
+var isArray = require('amp-is-array');
 var slice = Array.prototype.slice;
 var support = !!document.documentElement.classList;
 var cleanup = /\s{2,}/g;

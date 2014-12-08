@@ -1,5 +1,5 @@
-var isFunction = require('../is-function');
-var isObject = require('../is-object');
+var isFunction = require('amp-is-function');
+var isObject = require('amp-is-object');
 var nativeBind = Function.prototype.bind;
 var slice = Array.prototype.slice;
 var Ctor = function () {};

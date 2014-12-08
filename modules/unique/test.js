@@ -1,6 +1,6 @@
 var test = require('tape');
 var unique = require('./unique');
-var map = require('../map');
+var map = require('amp-map');
 
 
 test('amp-unique', function (t) {

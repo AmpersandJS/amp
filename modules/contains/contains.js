@@ -1,5 +1,5 @@
-var values = require('../values');
-var indexOf = require('../index-of');
+var values = require('amp-values');
+var indexOf = require('amp-index-of');
 
 
 module.exports = function contains(obj, target) {

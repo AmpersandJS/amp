@@ -1,4 +1,4 @@
-var isObject = require('../is-object');
+var isObject = require('amp-is-object');
 
 
 module.exports = function defaults(obj) {

@@ -1,6 +1,6 @@
-var isBoolean = require('../is-boolean');
-var contains = require('../contains');
-var getIteratee = require('../iteratee');
+var isBoolean = require('amp-is-boolean');
+var contains = require('amp-contains');
+var getIteratee = require('amp-iteratee');
 
 
 module.exports = function unique(array, isSorted, iteratee, context) {

@@ -1,6 +1,6 @@
 var test = require('tape');
 var debounce = require('./debounce');
-var delay = require('../delay');
+var delay = require('amp-delay');
 
 
 test('amp-debounce', function (t) {

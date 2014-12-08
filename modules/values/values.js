@@ -1,4 +1,4 @@
-var oKeys = require('../keys');
+var oKeys = require('amp-keys');
 
 
 module.exports = function values(obj) {

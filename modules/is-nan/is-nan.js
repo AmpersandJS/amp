@@ -1,4 +1,4 @@
-var isNumber = require('../is-number');
+var isNumber = require('amp-is-number');
 
 
 module.exports = function isNaN(obj) {

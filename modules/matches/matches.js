@@ -1,4 +1,4 @@
-var getPairs = require('../pairs');
+var getPairs = require('amp-pairs');
 
 
 module.exports = function matches(attrs) {
