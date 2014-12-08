@@ -6,6 +6,9 @@ npm.load({}, function () {
     var picks = [
         'amp-add-class',
         'amp-has-class',
+        'amp-remove-class',
+        'amp-toggle-class',
+        'amp-is-undefined',
         'amp-is-string',
         'amp-is-array',
         'amp-trim'

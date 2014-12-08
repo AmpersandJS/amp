@@ -1,7 +1,7 @@
 {
   "name": "amp-toggle-class",
   "description": "toggle-class function part of http://amp.ampersandjs.com.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "size": {
@@ -12,10 +12,10 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-add-class": "^1.0.0",
-    "amp-has-class": "^1.0.0",
-    "amp-is-undefined": "^1.0.0",
-    "amp-remove-class": "^1.0.0"
+    "amp-add-class": "0.0.4",
+    "amp-has-class": "0.0.2",
+    "amp-is-undefined": "0.0.0",
+    "amp-remove-class": "0.0.2"
   },
   "devDependencies": {
     "browserify": "^6.3.3",

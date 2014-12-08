@@ -1,7 +1,7 @@
 {
   "name": "amp-remove-class",
   "description": "remove-class function part of http://amp.ampersandjs.com.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
@@ -12,8 +12,8 @@
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-is-array": "^1.0.0",
-    "amp-trim": "^1.0.0"
+    "amp-is-array": "0.0.0",
+    "amp-trim": "0.0.0"
   },
   "devDependencies": {
     "browserify": "^6.3.3",
