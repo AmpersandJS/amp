@@ -1,0 +1,1 @@
+invoke(list, methodName, *arguments);
