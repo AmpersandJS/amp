@@ -1,6 +1,6 @@
 # amp
 
-![](https://travis-ci.org/AmpersandJS/amp.svg)
+![](https://api.travis-ci.org/AmpersandJS/amp.svg?branch=master)
 
 [![amp logo](http://amp.ampersand.com/documentation/public/images/ampersand-amp.svg)](http://amp.ampersandjs.com/)
 
