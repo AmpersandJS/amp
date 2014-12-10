@@ -2,7 +2,7 @@
   "name": "amp-find",
   "description": "find function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "author": "Michael Garvin <gar@andyet.net>",
   "amp": {
     "size": {
       "original": "5.61 kB",
