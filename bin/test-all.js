@@ -16,6 +16,7 @@ require('../modules/map/test');
 require('../modules/size/test');
 require('../modules/some/test');
 require('../modules/difference/test');
+require('../modules/first/test');
 require('../modules/flatten/test');
 require('../modules/index-of/test');
 require('../modules/last/test');

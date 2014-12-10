@@ -23,6 +23,7 @@
   ],
   "arrays": [
     "difference",
+    "first",
     "flatten",
     "index-of",
     "last",
