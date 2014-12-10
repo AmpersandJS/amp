@@ -1,1 +1,1 @@
-Looks through each value in the collection, returning an array of all the values that pass the truth test function you pass in.
+Looks through each value in the collection, returning an array of all the values that pass the truth test function you pass in.  Alternatively you can pass in an attributeObject to use for truth testing.
