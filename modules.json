@@ -18,6 +18,7 @@
     "every",
     "filter",
     "map",
+    "pluck",
     "size",
     "some"
   ],
