@@ -9,6 +9,7 @@ require('../modules/each/test');
 require('../modules/every/test');
 require('../modules/filter/test');
 require('../modules/map/test');
+require('../modules/pluck/test');
 require('../modules/size/test');
 require('../modules/some/test');
 require('../modules/difference/test');
