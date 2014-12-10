@@ -1,1 +1,1 @@
-filter(collection, function, [context]);
+filter(collection, function||attributeObject, [context]);
