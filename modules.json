@@ -10,6 +10,7 @@
     "debounce",
     "delay",
     "limit-calls",
+    "negate",
     "once"
   ],
   "collections": [
@@ -37,7 +38,9 @@
     "invert",
     "keys",
     "matches",
+    "omit",
     "pairs",
+    "pick",
     "property",
     "values"
   ],
