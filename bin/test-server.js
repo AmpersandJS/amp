@@ -3,6 +3,7 @@ require('../modules/bind/test');
 require('../modules/debounce/test');
 require('../modules/delay/test');
 require('../modules/limit-calls/test');
+require('../modules/negate/test');
 require('../modules/once/test');
 require('../modules/contains/test');
 require('../modules/each/test');
