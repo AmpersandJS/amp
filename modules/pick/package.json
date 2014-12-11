@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "amp-create-callback": "^1.0.0",
+    "amp-flatten": "^1.0.0",
+    "amp-is-function": "^1.0.0"
+  }
+}

@@ -38,6 +38,7 @@
     "keys",
     "matches",
     "pairs",
+    "pick",
     "property",
     "values"
   ],

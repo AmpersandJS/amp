@@ -29,6 +29,7 @@ require('../modules/invert/test');
 require('../modules/keys/test');
 require('../modules/matches/test');
 require('../modules/pairs/test');
+require('../modules/pick/test');
 require('../modules/property/test');
 require('../modules/values/test');
 require('../modules/escape/test');
