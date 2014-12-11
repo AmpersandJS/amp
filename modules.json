@@ -19,6 +19,7 @@
     "every",
     "filter",
     "map",
+    "reject",
     "size",
     "some"
   ],
