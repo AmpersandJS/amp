@@ -24,6 +24,7 @@ require('../modules/has/test');
 require('../modules/invert/test');
 require('../modules/keys/test');
 require('../modules/matches/test');
+require('../modules/omit/test');
 require('../modules/pairs/test');
 require('../modules/pick/test');
 require('../modules/property/test');

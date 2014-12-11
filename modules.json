@@ -37,6 +37,7 @@
     "invert",
     "keys",
     "matches",
+    "omit",
     "pairs",
     "pick",
     "property",
