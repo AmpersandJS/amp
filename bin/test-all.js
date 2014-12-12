@@ -55,6 +55,7 @@ require('../modules/is-regexp/test');
 require('../modules/is-string/test');
 require('../modules/is-undefined/test');
 require('../modules/iteratee/test');
+require('../modules/random/test');
 require('../modules/result/test');
 require('../modules/unique-id/test');
 require('../modules/create-callback/test');
