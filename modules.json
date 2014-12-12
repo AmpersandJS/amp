@@ -10,7 +10,8 @@
     "debounce",
     "delay",
     "limit-calls",
-    "once"
+    "once",
+    "partial"
   ],
   "collections": [
     "contains",
@@ -20,7 +21,8 @@
     "map",
     "shuffle",
     "size",
-    "some"
+    "some",
+    "to-array"
   ],
   "arrays": [
     "difference",
@@ -49,6 +51,7 @@
     "trim"
   ],
   "utils": [
+    "identity",
     "is-arguments",
     "is-array",
     "is-boolean",
