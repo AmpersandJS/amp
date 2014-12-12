@@ -63,6 +63,7 @@
     "is-string",
     "is-undefined",
     "iteratee",
+    "random",
     "result",
     "unique-id"
   ],
