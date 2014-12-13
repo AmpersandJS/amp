@@ -20,18 +20,22 @@
     "filter",
     "map",
     "pluck",
+    "sample",
     "shuffle",
     "size",
     "some",
+    "sort-by",
     "to-array"
   ],
   "arrays": [
     "difference",
     "flatten",
     "index-of",
+    "intersection",
     "last",
     "range",
-    "unique"
+    "unique",
+    "union"
   ],
   "objects": [
     "clone",
