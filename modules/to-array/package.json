@@ -5,19 +5,21 @@
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "size": {
-      "original": "6.07 kB",
-      "minified": "937 B"
+      "original": "6.32 kB",
+      "minified": "955 B"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "amp-identity": "^1.0.0",
+    "amp-is-array": "^1.0.0",
     "amp-map": "^1.0.0",
     "amp-values": "^1.0.0"
   },
   "devDependencies": {
     "amp-identity": "^1.0.0",
+    "amp-is-array": "^1.0.0",
     "amp-map": "^1.0.0",
     "tape": "^3.0.3"
   },

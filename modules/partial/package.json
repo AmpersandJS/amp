@@ -5,12 +5,15 @@
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "size": {
-      "original": "480 B",
-      "minified": "109 B"
+      "original": "913 B",
+      "minified": "204 B"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-is-object": "^1.0.0"
+  },
   "devDependencies": {
     "amp-to-array": "^1.0.0",
     "tape": "^3.0.3"

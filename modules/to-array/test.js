@@ -12,6 +12,6 @@ test('amp-to-array', function (t) {
     t.deepEqual(toArray(a), [1, 2, 3], 'cloned array contains same elements');
 
     var numbers = toArray({one : 1, two : 2, three : 3});
-    t.deepEqual(numbers, [1, 2, 3], 'object flattened into array');
+    t.deepEqual(numbers, [1, 2, 3], 'object flattened into array ' + JSON.stringify(numbers));
     t.end();
 });

@@ -1,1 +1,40 @@
-{}
+{
+  "name": "amp-shuffle",
+  "description": "shuffle function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "2.78 kB",
+      "minified": "528 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-random": "^1.0.0",
+    "amp-values": "^1.0.0"
+  },
+  "devDependencies": {
+    "amp-contains": "^1.0.0",
+    "amp-every": "^1.0.0",
+    "amp-partial": "^1.0.0",
+    "amp-range": "^1.0.0",
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-shuffle",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "shuffle.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

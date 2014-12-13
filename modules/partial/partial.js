@@ -1,14 +1,6 @@
 var slice = Array.prototype.slice;
 var isObject = require('amp-is-object');
 
-var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
-    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-    var self = baseCreate(sourceFunc.prototype);
-    var result = sourceFunc.apply(self, args);
-    if (isObject(result)) return result;
-    return self;
-};
-
 module.exports = function partial(func) {
     var boundArgs = slice.call(arguments, 1);
     return function bound() {
@@ -18,6 +10,10 @@ module.exports = function partial(func) {
             if (args[i] === partial) args[i] = arguments[position++];
         }
         while (position < arguments.length) args.push(arguments[position++]);
-        return executeBound(func, bound, this, this, args);
+        if (!(this instanceof bound)) return func.apply(this, args);
+        var self = Object.create(func.prototype);
+        var result = func.apply(self, args);
+        if (isObject(result)) return result;
+        return self;
     };
 };
