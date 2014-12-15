@@ -1,1 +1,1 @@
-random(number, number);
+random(number, [number]);

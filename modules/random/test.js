@@ -4,6 +4,7 @@ var every = require('amp-every');
 var some = require('amp-some');
 var range = require('amp-range');
 
+
 test('amp-random', function (t) {
     var array = range(1000);
     var min = Math.pow(2, 31);
