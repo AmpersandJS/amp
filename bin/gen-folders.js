@@ -21,6 +21,16 @@ packages.forEach(function (method) {
     ];
     var testFile = dir + '/test.js';
     var packFile = dir + '/package.json';
+    var licenseFile = dir + '/LICENSE.md';
+    var licenseSource = dir + '/../../LICENSE.md';
+    var readmeFile =  dir + '/README.md';
+    var readmeBuff = [];
+
+    readmeBuff.push('# amp-' + method);
+    readmeBuff.push('');
+    readmeBuff.push('See [the documentation](http://amp.ampersandjs.com#amp-' + method + ') for more info.');
+    readmeBuff.push('');
+    readmeBuff.push('Part of the [amp project](http://amp.ampersandjs.com#amp-' + method + '), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).');
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
@@ -39,6 +49,9 @@ packages.forEach(function (method) {
 
         fs.writeFileSync(testFile, replaced);
     }
+    if (!fs.existsSync(licenseFile)) {
+        fs.createReadStream(licenseSource).pipe(fs.createWriteStream(licenseFile));
+    }
 
     // create empty doc.md if it doesn't exist
     docFiles.forEach(function (docFile) {
@@ -46,6 +59,9 @@ packages.forEach(function (method) {
             fs.writeFileSync(docFile, '');
         }
     });
+
+    // create README.md
+    fs.writeFileSync(readmeFile, readmeBuff.join('\n'));
 
     // re-write first line of example.js
     var example = fs.readFileSync(exampleFile, 'utf8').split('\n').slice(1);
