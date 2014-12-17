@@ -1,6 +1,6 @@
 // sorts modules as listed in package.json
 var pack = require('../modules.json');
-var fs = require('fs');
+var writeJSON = require('../lib/write-json');
 
 
 for (var category in pack) {
@@ -11,4 +11,4 @@ for (var category in pack) {
     });
 }
 
-fs.writeFileSync(__dirname + '/../modules.json', JSON.stringify(pack, null, 2), 'utf8');
+writeJSON(__dirname + '/../modules.json', pack);

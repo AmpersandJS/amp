@@ -1,10 +1,9 @@
 //Add a module to amp
 //CLI: add-module category module-name
 
-/*global process, console*/
-
-var fs = require('fs');
+/*global console*/
 var pack = require('../modules.json');
+var writeJSON = require('../lib/write-json');
 
 var args = process.argv.slice(2);
 var category = args[0];
@@ -34,7 +33,7 @@ if (licenseType !== 'underscore' && licenseType !== 'amp') {
 /* Add new module pack, resort, rewrite modules.json */
 pack[category].push({name: newModule, license: licenseType});
 pack[category].sort();
-fs.writeFileSync(__dirname + '/../modules.json', JSON.stringify(pack, null, 2), 'utf8');
+writeJSON(__dirname + '/../modules.json', pack);
 
 /* Generate folders and files */
 require('./gen-folders');
