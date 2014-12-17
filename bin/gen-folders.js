@@ -41,13 +41,13 @@ packages.forEach(function (module) {
     readmeBuff.push('');
     readmeBuff.push('Part of the [amp project](http://amp.ampersandjs.com#amp-' + method + '), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).');
 
-    // create README.md
-    fs.writeFileSync(readmeFile, readmeBuff.join('\n'));
-
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
         fs.writeFileSync(dir + '/' + method + '.js', 'module.exports = function ' + camelCased +'() {};');
     }
+
+    // create README.md
+    fs.writeFileSync(readmeFile, readmeBuff.join('\n'));
 
     if (!fs.existsSync(testFile)) {
         fs.writeFileSync(testFile, getTestString(camelCased, ampName, method));
