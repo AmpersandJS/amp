@@ -5,6 +5,7 @@
   "unused": true,
   "trailing": true,
   "eqnull": true,
+  "loopfunc": true,
   "predef": [
     "require",
     "module",

@@ -3,12 +3,22 @@
 // also re-writes a few things for consistency.
 
 var fs = require('fs');
-var packages = require('../lib/get-names')();
+var modules = require('../modules.json');
 var getTestString = require('../lib/get-test');
 var toCamelCase = require('../lib/to-camel-case');
+var mainLicense = fs.readFileSync(__dirname + '/../LICENSE.md', 'utf8');
+var underscoreLicense = fs.readFileSync(__dirname + '/../UNDERSCORE_LICENSE', 'utf8');
+var packages = [];
 
+for (var category in modules) {
+    modules[category].forEach(function (module) {
+        module.category = category;
+        packages.push(module);
+    });
+}
 
-packages.forEach(function (method) {
+packages.forEach(function (module) {
+    var method = module.name;
     var dir = __dirname + '/../modules/' + method;
     var ampName = 'amp-' + method;
     var camelCased = toCamelCase(method);
@@ -22,7 +32,6 @@ packages.forEach(function (method) {
     var testFile = dir + '/test.js';
     var packFile = dir + '/package.json';
     var licenseFile = dir + '/LICENSE.md';
-    var licenseSource = dir + '/../../LICENSE.md';
     var readmeFile =  dir + '/README.md';
     var readmeBuff = [];
 
@@ -31,6 +40,9 @@ packages.forEach(function (method) {
     readmeBuff.push('See [the documentation](http://amp.ampersandjs.com#amp-' + method + ') for more info.');
     readmeBuff.push('');
     readmeBuff.push('Part of the [amp project](http://amp.ampersandjs.com#amp-' + method + '), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).');
+
+    // create README.md
+    fs.writeFileSync(readmeFile, readmeBuff.join('\n'));
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
@@ -50,7 +62,10 @@ packages.forEach(function (method) {
         fs.writeFileSync(testFile, replaced);
     }
     if (!fs.existsSync(licenseFile)) {
-        fs.createReadStream(licenseSource).pipe(fs.createWriteStream(licenseFile));
+        fs.writeFileSync(licenseFile, mainLicense, 'utf8');
+    }
+    if (module.license === 'underscore') {
+        fs.writeFileSync(dir + '/NOTICE', underscoreLicense, 'utf8');
     }
 
     // create empty doc.md if it doesn't exist
@@ -59,9 +74,6 @@ packages.forEach(function (method) {
             fs.writeFileSync(docFile, '');
         }
     });
-
-    // create README.md
-    fs.writeFileSync(readmeFile, readmeBuff.join('\n'));
 
     // re-write first line of example.js
     var example = fs.readFileSync(exampleFile, 'utf8').split('\n').slice(1);
