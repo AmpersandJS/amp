@@ -10,7 +10,8 @@
     "debounce",
     "delay",
     "limit-calls",
-    "once"
+    "once",
+    "partial"
   ],
   "collections": [
     "contains",
@@ -18,16 +19,23 @@
     "every",
     "filter",
     "map",
+    "pluck",
+    "sample",
+    "shuffle",
     "size",
-    "some"
+    "some",
+    "sort-by",
+    "to-array"
   ],
   "arrays": [
     "difference",
     "flatten",
     "index-of",
+    "intersection",
     "last",
     "range",
-    "unique"
+    "unique",
+    "union"
   ],
   "objects": [
     "clone",
@@ -48,6 +56,7 @@
     "trim"
   ],
   "utils": [
+    "identity",
     "is-arguments",
     "is-array",
     "is-boolean",
@@ -63,6 +72,7 @@
     "is-string",
     "is-undefined",
     "iteratee",
+    "random",
     "result",
     "unique-id"
   ],

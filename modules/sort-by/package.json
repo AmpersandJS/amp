@@ -1,0 +1,39 @@
+{
+  "name": "amp-sort-by",
+  "description": "sort-by function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "6.17 kB",
+      "minified": "985 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-iteratee": "^1.0.0",
+    "amp-map": "^1.0.0",
+    "amp-pluck": "^1.0.0"
+  },
+  "devDependencies": {
+    "amp-identity": "^1.0.0",
+    "amp-pluck": "^1.0.0",
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-sort-by",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "sort-by.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
