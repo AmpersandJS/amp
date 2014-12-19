@@ -7,7 +7,7 @@ var modules = require('../modules.json');
 var getTestString = require('../lib/get-test');
 var toCamelCase = require('../lib/to-camel-case');
 var mainLicense = fs.readFileSync(__dirname + '/../LICENSE.md', 'utf8');
-var underscoreLicense = fs.readFileSync(__dirname + '/../UNDERSCORE_LICENSE', 'utf8');
+var underscoreLicense = fs.readFileSync(__dirname + '/../lib/underscore_license_src', 'utf8');
 var packages = [];
 
 for (var category in modules) {
