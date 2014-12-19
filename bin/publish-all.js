@@ -2,7 +2,7 @@
 var npm = require('npm');
 var modules = require('../lib/get-packages')();
 
-npm.load({}, function () {
+npm.load({registry: 'https://registry.npmjs.org'}, function () {
     modules.forEach(function (module) {    
         npm.commands.publish([module.folder], function (err) {
             if (err) {
