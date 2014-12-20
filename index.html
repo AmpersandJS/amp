@@ -2814,7 +2814,7 @@ test('amp-unique', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~975 B (<a href="#sizes">details</a>)</p>
+            <p>~987 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4321,7 +4321,7 @@ test('amp-is-array', function (t) {
             <h1><span class="header-link"></span>amp-is-boolean</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-boolean</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-boolean">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-boolean">github</a></p>
           </div>
           <div>
@@ -4337,8 +4337,11 @@ isBoolean(0); //=&gt; false
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isBoolean(obj) {
-    return obj === true || obj === false;
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+
+
+module.exports = function isBoolean(obj) {
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
 };
 </code></pre>
             </div>
@@ -4359,12 +4362,14 @@ test('amp-is-boolean', function (t) {
     t.ok(!isBoolean(null), 'null is not a boolean');
     t.ok(isBoolean(true), 'but true is');
     t.ok(isBoolean(false), 'and so is false');
+    t.ok(isBoolean(new Boolean(false)), 'and so is class version of false');
+    t.ok(isBoolean(new Boolean(true)), 'and so is class version of true');
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~17 B (<a href="#sizes">details</a>)</p>
+            <p>~55 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4709,7 +4714,7 @@ test('amp-is-null', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~13 B (<a href="#sizes">details</a>)</p>
+            <p>~14 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
