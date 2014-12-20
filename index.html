@@ -4432,7 +4432,7 @@ test('amp-is-date', function (t) {
             <h1><span class="header-link"></span>amp-is-empty</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-empty</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-empty">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-empty">github</a></p>
           </div>
           <div>
@@ -4467,16 +4467,14 @@ var isString = require('amp-is-string');
 var isArguments = require('amp-is-arguments');
 var isNumber = require('amp-is-number');
 var isNan = require('amp-is-nan');
-var hasOwn = Object.prototype.hasOwnProperty;
+var keys = require('amp-keys');
 
 
 module.exports = function isEmpty(obj) {
     if (obj == null) return true;
     if (isArray(obj) || isString(obj) || isArguments(obj)) return obj.length === 0;
     if (isNumber(obj)) return obj === 0 || isNan(obj);
-    for (var key in obj) {
-        if (hasOwn.call(obj, key)) return false;
-    }
+    if (keys(obj).length !== 0) return false;
     return true;
 };
 </code></pre>
@@ -4513,7 +4511,7 @@ test('amp-is-empty', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~299 B (<a href="#sizes">details</a>)</p>
+            <p>~598 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4531,6 +4529,20 @@ test('amp-is-empty', function (t) {
                 </li>
                 <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
+                <li><a href="#amp-keys">amp-keys</a>
+                  <ul>
+                    <li><a href="#amp-has">amp-has</a>
+                    </li>
+                    <li><a href="#amp-index-of">amp-index-of</a>
+                      <ul>
+                        <li><a href="#amp-is-object">amp-is-object</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#amp-is-object">amp-is-object</a>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div class="dependency-list">
@@ -4540,6 +4552,10 @@ test('amp-is-empty', function (t) {
                 <li><a href="#amp-is-nan">amp-is-nan</a></li>
                 <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-string">amp-is-string</a></li>
+                <li><a href="#amp-keys">amp-keys</a></li>
+                <li><a href="#amp-has">amp-has</a></li>
+                <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
           </div>

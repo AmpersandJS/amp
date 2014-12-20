@@ -1,13 +1,13 @@
 {
   "name": "amp-is-empty",
   "description": "is-empty function part of http://amp.ampersandjs.com.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.82 kB",
-      "minified": "299 B"
+      "original": "3.55 kB",
+      "minified": "598 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
@@ -16,7 +16,8 @@
     "amp-is-array": "^1.0.0",
     "amp-is-nan": "^1.0.0",
     "amp-is-number": "^1.0.0",
-    "amp-is-string": "^1.0.0"
+    "amp-is-string": "^1.0.0",
+    "amp-keys": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"
