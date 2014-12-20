@@ -1,13 +1,13 @@
 {
   "name": "amp-property",
   "description": "property function part of http://amp.ampersandjs.com.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": true,
     "size": {
-      "original": "100 B",
-      "minified": "16 B"
+      "original": "123 B",
+      "minified": "27 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

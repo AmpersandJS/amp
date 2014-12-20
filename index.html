@@ -1550,7 +1550,7 @@ test('amp-every', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~839 B (<a href="#sizes">details</a>)</p>
+            <p>~845 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1693,7 +1693,7 @@ test('amp-filter', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~893 B (<a href="#sizes">details</a>)</p>
+            <p>~898 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1865,7 +1865,7 @@ test('amp-map', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~839 B (<a href="#sizes">details</a>)</p>
+            <p>~845 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2121,7 +2121,7 @@ test('amp-some', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~835 B (<a href="#sizes">details</a>)</p>
+            <p>~841 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2246,7 +2246,7 @@ test('amp-difference', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~1.22 kB (<a href="#sizes">details</a>)</p>
+            <p>~1.23 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2814,7 +2814,7 @@ test('amp-unique', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~987 B (<a href="#sizes">details</a>)</p>
+            <p>~990 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3705,7 +3705,7 @@ test('amp-pairs', function (t) {
             <h1><span class="header-link"></span>amp-property</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-property</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-property">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/property">github</a></p>
           </div>
           <div>
@@ -3724,7 +3724,7 @@ greetingGetter(person); //=&gt; 'oh, hello!'
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">module.exports = function property(key) {
     return function(obj) {
-        return obj[key];
+        return obj == null ? void 0 : obj[key];
     };
 };
 </code></pre>
@@ -3740,12 +3740,15 @@ test('amp-property', function (t) {
     var person = {greeting: 'oh, hello!'};
 
     t.equal(greetingGetter(person), 'oh, hello!');
+    t.doesNotThrow(function () {
+        greetingGetter(null);
+    }, 'should handle null-ish object issue #28');
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~16 B (<a href="#sizes">details</a>)</p>
+            <p>~27 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -5495,7 +5498,7 @@ test('amp-iteratee', function (t) {
 });</code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~745 B (<a href="#sizes">details</a>)</p>
+            <p>~751 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

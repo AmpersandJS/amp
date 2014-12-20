@@ -7,5 +7,8 @@ test('amp-property', function (t) {
     var person = {greeting: 'oh, hello!'};
 
     t.equal(greetingGetter(person), 'oh, hello!');
+    t.doesNotThrow(function () {
+        greetingGetter(null);
+    }, 'should handle null-ish object issue #28');
     t.end();
 });
