@@ -1,7 +1,7 @@
 {
   "name": "amp-has-class",
   "description": "has-class function part of http://amp.ampersandjs.com.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,

@@ -26,7 +26,7 @@ test('amp-has-class', function (t) {
     t.ok(hasClass(getEl('\thi'), 'hi'), 'can be \t issue #27');
     t.ok(hasClass(getEl('\nhi'), 'hi'), 'can be \n issue #27');
     t.ok(hasClass(getEl('\rhi'), 'hi'), 'can be \r issue #27');
-    t.ok(hasClass(getEl('\fhi'), 'hi'), 'can be \f issue #27');
+    t.ok(hasClass(getEl('\fhello\fhi\f'), 'hi'), 'can be \f issue #27');
 
     t.end();
 });
