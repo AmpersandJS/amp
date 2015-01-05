@@ -2472,7 +2472,8 @@ test('amp-flatten', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Uses native <code>Array.prototype.indexOf</code> if present. But, unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>.</p>
+            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Uses native <code>Array.prototype.indexOf</code> if present. But, unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>. </p>
+<p><em>note:</em> This is not intended for use with sparse arrays as there will be some inconsistencies in how those are handled in the fallback implementation for old IEs.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var indexOf = require('amp-index-of');
