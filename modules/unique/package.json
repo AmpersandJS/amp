@@ -6,8 +6,8 @@
   "amp": {
     "internal": false,
     "size": {
-      "original": "6.55 kB",
-      "minified": "990 B"
+      "original": "6.66 kB",
+      "minified": "1.01 kB"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
