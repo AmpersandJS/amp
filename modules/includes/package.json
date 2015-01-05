@@ -1,13 +1,13 @@
 {
   "name": "amp-includes",
   "description": "includes function part of http://amp.ampersandjs.com.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "217 B",
-      "minified": "49 B"
+      "original": "160 B",
+      "minified": "37 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

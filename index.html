@@ -4014,7 +4014,7 @@ test('amp-escape', function (t) {
             <h1><span class="header-link"></span>amp-includes</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-includes</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-includes">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/includes">github</a></p>
           </div>
           <div>
@@ -4037,10 +4037,7 @@ includes(myString, 'hi'); //=&gt; false
 
 
 module.exports = function includes(string, query, position) {
-    if (position) {
-        string = string.slice(position);
-    }
-    return indexOf.call(string, query) !== -1;
+    return indexOf.call(string, query, position) !== -1;
 };
 </code></pre>
             </div>
@@ -4064,7 +4061,7 @@ test('amp-includes', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~49 B (<a href="#sizes">details</a>)</p>
+            <p>~37 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4256,7 +4253,7 @@ test('amp-is-arguments', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~89 B (<a href="#sizes">details</a>)</p>
+            <p>~88 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -5561,12 +5558,12 @@ test('amp-iteratee', function (t) {
             <h1><span class="header-link"></span>amp-result</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-result</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-result">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/result">github</a></p>
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or what is passed as the third argument.</p>
+            <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or the <code>defaultValue</code>. If <code>defaultValue</code> is a function it will be executed and its result returned.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var result = require('amp-result');
@@ -5589,7 +5586,7 @@ result(obj, 'nothing', 'wat'); //=&gt; 'wat'
 module.exports = function result(object, property, defaultValue) {
     var value = object == null ? void 0 : object[property];
     if (value === void 0) {
-        return defaultValue;
+        return isFunction(defaultValue) ? defaultValue() : defaultValue;
     }
     return isFunction(value) ? object[property]() : value;
 };
@@ -5632,12 +5629,18 @@ test('amp-result', function(t) {
     var obj = {a: function() {}};
     t.strictEqual(result(obj, 'a', 'failed'), undefined);
 
+    var defaultFunc = function () {
+        return 'hi';
+    };
+
+    t.strictEqual(result({}, 'something', defaultFunc), 'hi', 'should execute default value if func');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~130 B (<a href="#sizes">details</a>)</p>
+            <p>~136 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
