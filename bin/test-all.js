@@ -31,6 +31,7 @@ require('../modules/matches/test');
 require('../modules/pairs/test');
 require('../modules/property/test');
 require('../modules/values/test');
+require('../modules/capitalize/test');
 require('../modules/escape/test');
 require('../modules/includes/test');
 require('../modules/to-camel-case/test');

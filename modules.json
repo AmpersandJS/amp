@@ -139,6 +139,10 @@
   ],
   "strings": [
     {
+      "name": "capitalize",
+      "license": "amp"
+    },
+    {
       "name": "escape",
       "license": "underscore"
     },

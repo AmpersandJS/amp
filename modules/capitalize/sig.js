@@ -1,0 +1,1 @@
+capitalize(string, [upperCase]);
