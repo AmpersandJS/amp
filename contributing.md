@@ -22,10 +22,14 @@ Here's how you'd add an `is-awesome` module to `collections`:
 $ node bin/add-module collections is-awesome
 ```
 
-2. From there, write your implementation, your tests, send us a pull request.
+2. This will create a stub of your the new `is-awesome` module inside the `modules` directory with all the files it's expected to have.
+
+3. From there, write your implementation, your tests, send us a pull request.
 
 ## Running the tests
 
-You can either run *all* the tests for all the modules by doing `npm test` from the project root, this will include yours, or do it just for module by running `npm test` after `cd`'ing into your folder.
+You can either run *all* the tests for all the modules by doing `npm test` from the project root, this will include yours, or do it just for module by running `npm test` after `cd`'ing into your folder. If you're testing a single module you may need to run `npm install` in that specific module folder if you're missing dependencies. Just be sure to delete the 
+
+Don't worry about versioning or rebuilding the site, etc. That will be done when the pull request is merged. 
 
 ## Thanks! You're awesome :)
