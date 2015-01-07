@@ -1,4 +1,4 @@
-/*global window, document*/
+/*global window, document, navigator*/
 /**
  * Fallback implementation.
  */
@@ -19,6 +19,23 @@ var raf = window.requestAnimationFrame ||
     window.oRequestAnimationFrame ||
     window.msRequestAnimationFrame ||
     fallback;
+
+
+// fix scrollbar issues in Safari
+var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+var isSafari = navigator.userAgent.indexOf('Safari') > -1;
+if (isChrome && isSafari) {
+    isSafari=false;
+}
+if (isSafari) {
+    var navStyle = document.querySelector('.nav-docs').style;
+    navStyle.position = 'relative';
+    navStyle.float = 'left';
+    navStyle.top = '-40px';
+    document.querySelector('.nav-docs .logo-ampersand').style.display = 'none';
+}
+
+
 
 // grab all our h* tags
 var aTags = document.querySelectorAll('.nav-docs a');
@@ -58,9 +75,11 @@ function selectCurrent() {
     if (found) markActive(found);
 }
 
-window.onscroll = function () {
-    raf(selectCurrent);
-};
+if (!isSafari) {
+    window.onscroll = function () {
+        raf(selectCurrent);
+    };
+}
 
 document.addEventListener('click', function (e) {
     var target = e.target;
@@ -76,4 +95,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
-selectCurrent();
+if (!isSafari) {
+    selectCurrent();
+}
+
