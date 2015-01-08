@@ -18,11 +18,34 @@ test('amp-toggle-class', function (t) {
     
     el = getEl('oh');    
     toggleClass(el, 'oh', true);
-    t.equal(el.className, 'oh', 'should leave it alone if condition is passed and class is already present');
+    t.equal(el.className, 'oh', 'should leave it alone if condition is boolean true and class is already present');
+
+    el = getEl('oh');    
+    toggleClass(el, 'hi', true);
+    t.equal(el.className, 'oh hi', 'should add class if condition is boolean true');
     
     el = getEl('');
     toggleClass(el, 'oh', false);
-    t.equal(el.className, '', 'should not add if not present but condition is false');
+    t.equal(el.className, '', 'should not remove class if not present and condition is false');
+
+    el = getEl('oh');
+    toggleClass(el, 'oh', false);
+    t.equal(el.className, '', 'should remove class if condition is boolean false');
+
+    // toggling with condition as a booleans
+    el = getEl('oh');
+    toggleClass(el, 'hi', function (element) {
+        t.equal(el, element, 'should pass element to a condition function');
+        return 1 + 1 === 2;
+    });
+    t.equal(el.className, 'oh hi', 'should add class if condition is a function returning true');
+
+    el = getEl('oh');
+    toggleClass(el, 'oh', function (element) {
+        t.equal(el, element, 'should pass element to a condition function');
+        return 1 + 1 === 1;
+    });
+    t.equal(el.className, '', 'should remove class if condition is a function returning false');
 
     var nonsense = [undefined, null, NaN, 0, ''];
 
@@ -41,7 +64,7 @@ test('amp-toggle-class', function (t) {
     t.equal(el, toggleClass(el, 'hi', true), 'should always return element');
     el = getEl('oh');
     t.equal(el, toggleClass(el, 'hi', false), 'should always return element');
-    
+
     // toggling without conditions
     el = getEl('oh');
     t.equal(el, toggleClass(el, 'oh'), 'should always return element');

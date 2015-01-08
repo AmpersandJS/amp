@@ -14,6 +14,7 @@
   "dependencies": {
     "amp-add-class": "^1.0.0",
     "amp-has-class": "^1.0.0",
+    "amp-is-function": "^1.0.1",
     "amp-is-undefined": "^1.0.0",
     "amp-remove-class": "^1.0.0"
   },
