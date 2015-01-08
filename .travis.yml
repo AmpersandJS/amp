@@ -6,8 +6,8 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 env:
   global:
-  - secure: Gi4Tp3TQ3B2w38jHpDCr52jVZOLOEdWcvC61Bis+Jv+IlmkUdER3eWcIzwwBCgEvJQaU+Y+EmFeLZo4rJYoT32HDpEVpgIHVfPxT9PbEVe297xpZlpM5VDTeFpHMzLsjorKCOx9o96viIMkAkrnSfW9Dhv/BmigVyL0p1IdEyac=
-  - secure: SnqcErCrB8DIo40CTg8OgGZIMgMiNN/Tx+L0Q50mGoCD/2FdqH/V3AanUo9+9lcIdPvFEODPVsC5DTZZSH5+68L+EZcR+GAOQxcGdN2GWnVD8NP85HbrtryQIP+lGegmmcTL+ADNfm35ROqoTRisf2cgwO45LlgfRQBcsZu2/4I=
+  - secure: nQ9ciBKFWAbg6W0RlikyhgLgQF8PMhPbNaIFGC7zwkJ+1iOslYYYbE2Ve959v5fvX6TdCMiQRjzsZoH5PC+IdSxRJWau23m/6r8yRPKhouLAkHAEgRMEMHzOdVkk/HxYxtnMdJ9MfY58wjBfxAX0WR4W7TydUkLL6DLfUYZauTs=
+  - secure: OKuVsB6Y19yGsRLkaKOXG3yOJouSCkzuVYrjBHahhZ3pCVFHY3829zEkeI1jZ0QcHSqIYhqpAFhrjLSEafqVQOTSkEjetQOPKTf4mPFBlxwSAgmFJocUEPnKpKuyYTorhddrM5kDrHcq1zscgwAaToamabIN7Pt9ykjPtvUb9b8=
 addons:
   sauce_connect: true
 script: npm run test-ci
