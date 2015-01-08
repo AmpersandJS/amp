@@ -1,1 +1,1 @@
-next(array, currentItem);
+next(array, [currentItem]);
