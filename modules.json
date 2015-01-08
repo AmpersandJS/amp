@@ -87,6 +87,10 @@
       "license": "underscore"
     },
     {
+      "name": "next",
+      "license": "amp"
+    },
+    {
       "name": "range",
       "license": "underscore"
     },

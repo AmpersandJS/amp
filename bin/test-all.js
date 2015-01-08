@@ -19,6 +19,7 @@ require('../modules/difference/test');
 require('../modules/flatten/test');
 require('../modules/index-of/test');
 require('../modules/last/test');
+require('../modules/next/test');
 require('../modules/range/test');
 require('../modules/unique/test');
 require('../modules/clone/test');
