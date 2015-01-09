@@ -15,6 +15,7 @@ require('../modules/filter/test');
 require('../modules/map/test');
 require('../modules/size/test');
 require('../modules/some/test');
+require('../modules/reduce/test');
 require('../modules/difference/test');
 require('../modules/flatten/test');
 require('../modules/index-of/test');

@@ -67,6 +67,10 @@
     {
       "name": "some",
       "license": "underscore"
+    },
+    {
+      "name": "reduce",
+      "license": "amp"
     }
   ],
   "arrays": [
