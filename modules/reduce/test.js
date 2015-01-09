@@ -3,11 +3,11 @@ var reduce = require('./reduce');
 
 
 test('amp-reduce', function (t) {
-	var sum = reduce([1, 2, 3], function(sum, num){ return sum + num; }, 0);
+    var sum = reduce([1, 2, 3], function(sum, num){ return sum + num; }, 0);
     t.equal(sum, 6, 'can sum up an array');
 
-	sum = reduce({one: 1, two: 2, three: 3}, function(sum, num, key, obj){ return sum + obj[key]; }, 0);
-	t.equal(sum, 6, 'can sum up an object');
+    sum = reduce({one: 1, two: 2, three: 3}, function(sum, num, key, obj){ return sum + obj[key]; }, 0);
+    t.equal(sum, 6, 'can sum up an object');
 
     var context = {multiplier : 3};
     sum = reduce([1, 2, 3], function(sum, num){ return sum + num * this.multiplier; }, 0, context);
@@ -23,12 +23,12 @@ test('amp-reduce', function (t) {
     t.equal(reduce([], function() {}, undefined), undefined, 'undefined can be passed as a special case');
     t.equal(reduce(['_'], function() {}), '_', 'collection of length one with no initial value returns the first item');
     t.throws(function() {
-		reduce([], function() {});
-	}, TypeError, 'throws TypeError when array is empty and no initial value');
+        reduce([], function() {});
+    }, TypeError, 'throws TypeError when array is empty and no initial value');
 
-	t.throws(function() {
-		reduce({}, function() {});
-	}, TypeError, 'throws TypeError when object is empty and no initial value');
+    t.throws(function() {
+        reduce({}, function() {});
+    }, TypeError, 'throws TypeError when object is empty and no initial value');
 
     t.end();
 });
