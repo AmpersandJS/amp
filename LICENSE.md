@@ -1,4 +1,4 @@
-Copyright © 2014 &yet, LLC and AmpersandJS contributors
+Copyright © 2015 &yet, LLC and AmpersandJS contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
