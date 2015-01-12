@@ -97,11 +97,11 @@
   ],
   "objects": [
     {
-      "name": "clone",
+      "name": "keys",
       "license": "underscore"
     },
     {
-      "name": "defaults",
+      "name": "clone",
       "license": "underscore"
     },
     {
@@ -117,7 +117,7 @@
       "license": "underscore"
     },
     {
-      "name": "keys",
+      "name": "defaults",
       "license": "underscore"
     },
     {
@@ -135,6 +135,10 @@
     {
       "name": "values",
       "license": "underscore"
+    },
+    {
+      "name": "merge",
+      "license": "amp"
     }
   ],
   "strings": [

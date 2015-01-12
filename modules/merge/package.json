@@ -1,0 +1,36 @@
+{
+  "name": "amp-merge",
+  "description": "merge function part of http://amp.ampersandjs.com.",
+  "version": "1.0.1",
+  "author": "Richard Torruellas <rtorruellas@gmail.com>",
+  "amp": {
+    "internal": false,
+    "size": {
+      "original": "526 B",
+      "minified": "111 B"
+    }
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-extend": "^1.0.1"
+  },
+  "devDependencies": {
+    "amp-keys": "^1.0.0",
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-merge",
+  "keywords": [
+    "amp",
+    "util",
+    "objects"
+  ],
+  "license": "MIT",
+  "main": "merge.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
