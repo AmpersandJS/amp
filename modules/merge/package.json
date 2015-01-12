@@ -1,8 +1,17 @@
 {
   "name": "amp-merge",
   "description": "merge function part of http://amp.ampersandjs.com.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "Richard Torruellas <rtorruellas@gmail.com>",
+  "contributors": [{
+      "name": "Henrik Joreteg henrik@andyet.net",
+      "email": "henrik@andyet.net",
+      "url": "http://andyet.net/"
+    },{
+      "name": "Matt Wondra",
+      "email": "mattwondra@gmail.com",
+      "url": "http://mattwondra.com/"
+  }],
   "amp": {
     "internal": false,
     "size": {
