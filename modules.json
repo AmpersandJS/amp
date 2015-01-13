@@ -35,8 +35,16 @@
       "license": "underscore"
     },
     {
+      "name": "negate",
+      "license": "amp"
+    },
+    {
       "name": "once",
       "license": "underscore"
+    },
+    {
+      "name": "create-callback",
+      "license": "amp"
     }
   ],
   "collections": [
@@ -101,11 +109,11 @@
   ],
   "objects": [
     {
-      "name": "clone",
+      "name": "keys",
       "license": "underscore"
     },
     {
-      "name": "defaults",
+      "name": "clone",
       "license": "underscore"
     },
     {
@@ -121,7 +129,7 @@
       "license": "underscore"
     },
     {
-      "name": "keys",
+      "name": "defaults",
       "license": "underscore"
     },
     {
@@ -131,6 +139,10 @@
     {
       "name": "pairs",
       "license": "underscore"
+    },
+    {
+      "name": "pick",
+      "license": "amp"
     },
     {
       "name": "property",
