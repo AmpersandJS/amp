@@ -1867,7 +1867,8 @@ module.exports = function invoke(obj, method) {
     var args = slice.call(arguments, 2);
     var isFunc = isFunction(method);
     return map(obj, function(value) {
-        return (isFunc ? method : value[method]).apply(value, args);
+        var func = isFunc ? method : value[method];
+        return func == null ? func : func.apply(value, args);
     });
 };
 </code></pre>
@@ -1899,12 +1900,16 @@ test('amp-invoke', function (t) {
         return this.greeting;
     }), ['hi', 'there'], 'works when passed a function');
 
+    t.deepEqual(invoke([{a: null}, {}, {a: function () {
+        return 1; 
+    }}], 'a'), [null, void 0, 1], 'handles null &amp; undefined');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~931 B (<a href="#sizes">details</a>)</p>
+            <p>~937 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

@@ -23,5 +23,9 @@ test('amp-invoke', function (t) {
         return this.greeting;
     }), ['hi', 'there'], 'works when passed a function');
 
+    t.deepEqual(invoke([{a: null}, {}, {a: function () {
+        return 1; 
+    }}], 'a'), [null, void 0, 1], 'handles null & undefined');
+
     t.end();
 });
