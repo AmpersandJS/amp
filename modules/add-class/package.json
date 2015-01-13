@@ -6,14 +6,15 @@
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.86 kB",
-      "minified": "374 B"
+      "original": "2.04 kB",
+      "minified": "408 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "amp-has-class": "^1.0.0",
     "amp-is-array": "^1.0.0",
+    "amp-is-string": "^1.0.0",
     "amp-trim": "^1.0.0"
   },
   "devDependencies": {

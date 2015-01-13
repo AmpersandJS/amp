@@ -55,7 +55,7 @@
             <h1><span class="header-link"></span>amp-add-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-add-class</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-add-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/add-class">github</a></p>
           </div>
           <div>
@@ -63,10 +63,12 @@
             <div><p>Adds class(es) to an element.</p>
 <p>All of the following work:</p>
 <pre><code class="lang-javascript">addClass(el, &#39;foo&#39;);
+addClass(el, &#39;foo bar&#39;);
 addClass(el, &#39;foo&#39;, &#39;bar&#39;);
 addClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
 </code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of adding a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
+<p><strong>note</strong>: Don&#39;t mix-and-match approaches. For example, don&#39;t do <code>addClass(el, &#39;foo&#39;, [&#39;bar&#39;, &#39;baz&#39;])</code>. If you need this, flatten it first.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var addClass = require('amp-add-class');
@@ -88,18 +90,28 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there&quot;&gt;greeting
 // using array
 addClass(element, ['foo', 'bar']); 
 element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there foo bar&quot;&gt;greetings&lt;/div&gt;';
+
+// add multiple at once with space-separated string
+addClass(element, 'baz boo'); 
+element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there baz boo&quot;&gt;greetings&lt;/div&gt;';
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var hasClass = require('amp-has-class');
+var isString = require('amp-is-string');
 var isArray = require('amp-is-array');
 var trim = require('amp-trim');
 var slice = Array.prototype.slice;
 var cleanup = /\s{2,}/g;
+var ws = /\s+/;
 
 
 module.exports = function addClass(el, cls) {
-    cls = isArray(cls) ? cls : slice.call(arguments, 1);
+    if (arguments.length === 2 &amp;&amp; isString(cls)) {
+        cls = trim(cls).split(ws);
+    } else {
+        cls = isArray(cls) ? cls : slice.call(arguments, 1);    
+    }
     // optimize for best, most common case
     if (cls.length === 1 &amp;&amp; el.classList) {
         if (cls[0]) el.classList.add(cls[0]);
@@ -164,12 +176,20 @@ test('amp-add-class', function (t) {
     t.equal(clsName, addClass(el, 'hello', 'there').className, 'should not touch classNames if not modifying');
     t.equal(addClass(el, 'hello', 'yo').className, 'oh hello there yo', 'should clean up className whitespacing if modifying anyway');
 
+    el = getEl('oh');
+    addClass(el, 'hello there');
+    t.equal(el.className, 'oh hello there', 'supports adding space separated chars');   
+
+    el = getEl('oh');
+    addClass(el, '\t\r\nhello \n  there   ');
+    t.equal(el.className, 'oh hello there', 'tolerate extra spaces when adding space separated chars');  
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~374 B (<a href="#sizes">details</a>)</p>
+            <p>~408 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -180,6 +200,8 @@ test('amp-add-class', function (t) {
                   </ul>
                 </li>
                 <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
+                <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
@@ -294,7 +316,7 @@ test('amp-has-class', function (t) {
             <h1><span class="header-link"></span>amp-remove-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-remove-class</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-remove-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/remove-class">github</a></p>
           </div>
           <div>
@@ -302,10 +324,12 @@ test('amp-has-class', function (t) {
             <div><p>Removes class(es) from an element.</p>
 <p>All of the following work:</p>
 <pre><code class="lang-javascript">removeClass(el, &#39;foo&#39;);
+removeClass(el, &#39;foo bar&#39;);
 removeClass(el, &#39;foo&#39;, &#39;bar&#39;);
 removeClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
 </code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of removing a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
+<p><strong>note</strong>: Don&#39;t mix-and-match approaches. For example, don&#39;t do <code>removeClass(el, &#39;foo&#39;, [&#39;bar&#39;, &#39;baz&#39;])</code>. If you need this, flatten it first.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var removeClass = require('amp-remove-class');
@@ -318,6 +342,8 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;hello there&quot;&gt;greetings&l
 
 // remove multiple at once
 removeClass(element, 'hello', 'there'); 
+// can be done with a space-separated string
+removeClass(element, 'hello there');
 // can also be done by passing array
 removeClass(element, ['hello', 'there']); 
 
@@ -325,14 +351,20 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;&quot;&gt;greetings&lt;/div&gt;'
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var trim = require('amp-trim');
+              <pre style="display: none"><code class="lang-javascript hljs">var isString = require('amp-is-string');
 var isArray = require('amp-is-array');
+var trim = require('amp-trim');
 var slice = Array.prototype.slice;
 var cleanup = /\s{2,}/g;
+var ws = /\s+/;
 
 
 module.exports = function removeClass(el, cls) {
-    cls = isArray(cls) ? cls : slice.call(arguments, 1);
+    if (arguments.length === 2 &amp;&amp; isString(cls)) {
+        cls = trim(cls).split(ws);
+    } else {
+        cls = isArray(cls) ? cls : slice.call(arguments, 1);    
+    }
     // optimize for best, most common case
     if (cls.length === 1 &amp;&amp; el.classList) {
         if (cls[0]) el.classList.remove(cls[0]);
@@ -411,16 +443,24 @@ test('amp-remove-class', function (t) {
     el = removeClass(getEl('foobar'), 'foo', 'bar');
     t.equal(el.className, 'foobar');
 
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, 'hello there').className, 'oh', 'should support space separated string of classes');
+
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, '\r  hello \t \nthere  ').className, 'oh', 'should support other weird whitespace when using a string of classes');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~310 B (<a href="#sizes">details</a>)</p>
+            <p>~356 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
                 <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
+                <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
@@ -429,6 +469,7 @@ test('amp-remove-class', function (t) {
             <div class="dependency-list">
               <ul>
                 <li><a href="#amp-is-array">amp-is-array</a></li>
+                <li><a href="#amp-is-string">amp-is-string</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
               </ul>
             </div>
@@ -550,7 +591,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~595 B (<a href="#sizes">details</a>)</p>
+            <p>~650 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -563,6 +604,8 @@ test('amp-toggle-class', function (t) {
                       </ul>
                     </li>
                     <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
+                    <li><a href="#amp-is-string">amp-is-string</a>
                     </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
@@ -579,6 +622,8 @@ test('amp-toggle-class', function (t) {
                 <li><a href="#amp-remove-class">amp-remove-class</a>
                   <ul>
                     <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
+                    <li><a href="#amp-is-string">amp-is-string</a>
                     </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
@@ -3484,7 +3529,7 @@ test('amp-keys', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~383 B (<a href="#sizes">details</a>)</p>
+            <p>~382 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
