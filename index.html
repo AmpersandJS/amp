@@ -1900,9 +1900,16 @@ test('amp-invoke', function (t) {
         return this.greeting;
     }), ['hi', 'there'], 'works when passed a function');
 
-    t.deepEqual(invoke([{a: null}, {}, {a: function () {
-        return 1; 
-    }}], 'a'), [null, void 0, 1], 'handles null &amp; undefined');
+    t.equal(invoke([{a: null}], 'a')[0], null);
+    t.equal(invoke([{}], 'a')[0], void 0);
+    t.equal(invoke([{a: function () { return 1; }}], 'a')[0], 1);
+
+    var res = invoke([{a: null}, {}, {a: function () { return 1; }}], 'a')
+
+    t.equal(res[0], null, 'handles null');
+    t.equal(res[1], void 0, 'handles missing');
+    t.equal(res[2], 1, 'handles method');
+    t.equal(res.length, 3, 'has right results');
 
     t.end();
 });
