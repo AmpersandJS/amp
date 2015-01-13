@@ -1,13 +1,13 @@
 {
   "name": "amp-is-object-equal",
   "description": "is-object-equal function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "6.34 kB",
-      "minified": "783 B"
+      "original": "6.46 kB",
+      "minified": "809 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

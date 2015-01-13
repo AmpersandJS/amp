@@ -1,13 +1,13 @@
 {
   "name": "amp-iteratee",
   "description": "iteratee function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": true,
     "size": {
-      "original": "4.55 kB",
-      "minified": "745 B"
+      "original": "4.68 kB",
+      "minified": "772 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

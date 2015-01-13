@@ -1,74 +1,242 @@
 {
   "dom": [
-    "add-class",
-    "has-class",
-    "remove-class",
-    "toggle-class"
+    {
+      "name": "add-class",
+      "license": "amp"
+    },
+    {
+      "name": "has-class",
+      "license": "amp"
+    },
+    {
+      "name": "remove-class",
+      "license": "amp"
+    },
+    {
+      "name": "toggle-class",
+      "license": "amp"
+    }
   ],
   "functions": [
-    "bind",
-    "debounce",
-    "delay",
-    "limit-calls",
-    "once"
+    {
+      "name": "bind",
+      "license": "underscore"
+    },
+    {
+      "name": "debounce",
+      "license": "underscore"
+    },
+    {
+      "name": "delay",
+      "license": "underscore"
+    },
+    {
+      "name": "limit-calls",
+      "license": "underscore"
+    },
+    {
+      "name": "once",
+      "license": "underscore"
+    }
   ],
   "collections": [
-    "contains",
-    "each",
-    "every",
-    "filter",
-    "invoke",
-    "map",
-    "size",
-    "some"
+    {
+      "name": "contains",
+      "license": "underscore"
+    },
+    {
+      "name": "each",
+      "license": "underscore"
+    },
+    {
+      "name": "every",
+      "license": "underscore"
+    },
+    {
+      "name": "filter",
+      "license": "underscore"
+    },
+    {
+      "name": "invoke",
+      "license": "underscore"
+    },
+    {
+      "name": "map",
+      "license": "underscore"
+    },
+    {
+      "name": "size",
+      "license": "underscore"
+    },
+    {
+      "name": "some",
+      "license": "underscore"
+    }
   ],
   "arrays": [
-    "difference",
-    "flatten",
-    "index-of",
-    "last",
-    "range",
-    "unique"
+    {
+      "name": "difference",
+      "license": "underscore"
+    },
+    {
+      "name": "flatten",
+      "license": "underscore"
+    },
+    {
+      "name": "index-of",
+      "license": "underscore"
+    },
+    {
+      "name": "last",
+      "license": "underscore"
+    },
+    {
+      "name": "range",
+      "license": "underscore"
+    },
+    {
+      "name": "unique",
+      "license": "underscore"
+    }
   ],
   "objects": [
-    "clone",
-    "defaults",
-    "extend",
-    "has",
-    "invert",
-    "keys",
-    "matches",
-    "pairs",
-    "property",
-    "values"
+    {
+      "name": "clone",
+      "license": "underscore"
+    },
+    {
+      "name": "defaults",
+      "license": "underscore"
+    },
+    {
+      "name": "extend",
+      "license": "underscore"
+    },
+    {
+      "name": "has",
+      "license": "underscore"
+    },
+    {
+      "name": "invert",
+      "license": "underscore"
+    },
+    {
+      "name": "keys",
+      "license": "underscore"
+    },
+    {
+      "name": "matches",
+      "license": "underscore"
+    },
+    {
+      "name": "pairs",
+      "license": "underscore"
+    },
+    {
+      "name": "property",
+      "license": "underscore"
+    },
+    {
+      "name": "values",
+      "license": "underscore"
+    }
   ],
   "strings": [
-    "escape",
-    "includes",
-    "to-camel-case",
-    "trim"
+    {
+      "name": "escape",
+      "license": "underscore"
+    },
+    {
+      "name": "includes",
+      "license": "amp"
+    },
+    {
+      "name": "to-camel-case",
+      "license": "amp"
+    },
+    {
+      "name": "trim",
+      "license": "amp"
+    }
   ],
   "utils": [
-    "is-arguments",
-    "is-array",
-    "is-boolean",
-    "is-date",
-    "is-empty",
-    "is-function",
-    "is-nan",
-    "is-null",
-    "is-number",
-    "is-object",
-    "is-object-equal",
-    "is-regexp",
-    "is-string",
-    "is-undefined",
-    "iteratee",
-    "result",
-    "unique-id"
+    {
+      "name": "is-arguments",
+      "license": "underscore"
+    },
+    {
+      "name": "is-array",
+      "license": "underscore"
+    },
+    {
+      "name": "is-boolean",
+      "license": "underscore"
+    },
+    {
+      "name": "is-date",
+      "license": "underscore"
+    },
+    {
+      "name": "is-empty",
+      "license": "underscore"
+    },
+    {
+      "name": "is-function",
+      "license": "underscore"
+    },
+    {
+      "name": "is-nan",
+      "license": "underscore"
+    },
+    {
+      "name": "is-null",
+      "license": "underscore"
+    },
+    {
+      "name": "is-number",
+      "license": "underscore"
+    },
+    {
+      "name": "is-object",
+      "license": "underscore"
+    },
+    {
+      "name": "is-object-equal",
+      "license": "underscore"
+    },
+    {
+      "name": "is-regexp",
+      "license": "underscore"
+    },
+    {
+      "name": "is-string",
+      "license": "underscore"
+    },
+    {
+      "name": "is-undefined",
+      "license": "underscore"
+    },
+    {
+      "name": "iteratee",
+      "license": "underscore"
+    },
+    {
+      "name": "result",
+      "license": "underscore"
+    },
+    {
+      "name": "unique-id",
+      "license": "underscore"
+    }
   ],
   "internal": [
-    "create-callback",
-    "internal-flatten"
+    {
+      "name": "create-callback",
+      "license": "underscore"
+    },
+    {
+      "name": "internal-flatten",
+      "license": "underscore"
+    }
   ]
 }

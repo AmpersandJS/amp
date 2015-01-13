@@ -1,10 +1,9 @@
 // re-writes dependencies in package.json of each module
 // based on actual dependencies used.
-var fs = require('fs');
-var modules = require('../lib/get-packages')();
 var fixpack = require('fixpack');
+var modules = require('../lib/get-packages')();
 var mainPack = require('../package.json');
-var os = require('os');
+var writeJSON = require('../lib/write-json');
 
 
 modules.forEach(function (mod) {
@@ -63,7 +62,7 @@ modules.forEach(function (mod) {
     }
     pack.amp.internal = mod.internal;
 
-    pack.author = 'Henrik Joreteg <henrik@andyet.net>';
+    pack.author = pack.author || 'Henrik Joreteg <henrik@andyet.net>';
     pack.license = 'MIT';
     pack.scripts = {
         test: 'node test.js'
@@ -91,7 +90,7 @@ modules.forEach(function (mod) {
         pack.devDependencies['tap-spec'] = mainPack.dependencies['tap-spec'];
     }
 
-    fs.writeFileSync(mod.folder + '/package.json', JSON.stringify(pack, null, 2) + os.EOL, 'utf8');
+    writeJSON(mod.folder + '/package.json', pack);
 
     fixpack(mod.folder + '/package.json');
 }); 

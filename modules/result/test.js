@@ -33,5 +33,11 @@ test('amp-result', function(t) {
     var obj = {a: function() {}};
     t.strictEqual(result(obj, 'a', 'failed'), undefined);
 
+    var defaultFunc = function () {
+        return 'hi';
+    };
+
+    t.strictEqual(result({}, 'something', defaultFunc), 'hi', 'should execute default value if func');
+
     t.end();
 });

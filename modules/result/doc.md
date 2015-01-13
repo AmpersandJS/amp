@@ -1,1 +1,1 @@
-Returns the value of the named property, or if it's a function invoke it with the object as context. If no such property exists, returns `undefined` or what is passed as the third argument.
+Returns the value of the named property, or if it's a function invoke it with the object as context. If no such property exists, returns `undefined` or the `defaultValue`. If `defaultValue` is a function it will be executed and its result returned.

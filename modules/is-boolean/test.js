@@ -13,5 +13,7 @@ test('amp-is-boolean', function (t) {
     t.ok(!isBoolean(null), 'null is not a boolean');
     t.ok(isBoolean(true), 'but true is');
     t.ok(isBoolean(false), 'and so is false');
+    t.ok(isBoolean(new Boolean(false)), 'and so is class version of false');
+    t.ok(isBoolean(new Boolean(true)), 'and so is class version of true');
     t.end();
 });

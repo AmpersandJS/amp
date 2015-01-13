@@ -1,8 +1,8 @@
 # amp
 
-![](https://travis-ci.org/AmpersandJS/amp.svg)
+![](https://api.travis-ci.org/AmpersandJS/amp.svg?branch=master)
 
-[![amp logo](http://amp.ampersand.com/documentation/public/images/ampersand-amp.svg)](http://amp.ampersandjs.com/)
+<a href="http://amp.ampersandjs.com"><img width="300" height="150" src="http://amp.ampersandjs.com/documentation/public/images/ampersand-amp.svg" alt="amp logo" /></a>
 
 Documentation is here: http://amp.ampersandjs.com
 

@@ -35,12 +35,12 @@
             <li>Excellent, cross-browser test coverage</li>
             <li>Independently maintained and versioned</li>
             <li>Strict semver for versioning</li>
-            <li>Try like crazy to maintain APIs, ideally staying on <code>1.x.x</code> version</li>
+            <li>Try very hard to maintain APIs, ideally staying on <code>1.x.x</code> version</li>
             <li>Try to consider the published versions "done" code</li>
             <li>Provide easy to remember names (by using namespacing)</li>
             <li>Minimize unneeded interdependencies</li>
           </ul>
-          <p>Many of the tests and implementations were ported from <a href="http://underscorejs.org/">Underscore.js</a> in order benefit from its battle-tested code. Much props to <a href="https://twitter.com/jashkenas">Jeremy Ashkenas</a> and the other underscore contributors. This project would not be exist if not for them and underscore's generous MIT license.</p>
+          <p>Many of the tests and implementations were ported from <a href="http://underscorejs.org/">Underscore.js</a> in order to benefit from its battle-tested code. Much props to <a href="https://twitter.com/jashkenas">Jeremy Ashkenas</a> and the other underscore contributors. This project would not exist if not for them and underscore's generous MIT license.</p>
         </section>
         <section><a name="sizes" href="#sizes" class="anchor">
             <h2> <span class="header-link"></span>How filesizes are calculated</h2></a>
@@ -55,7 +55,7 @@
             <h1><span class="header-link"></span>amp-add-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-add-class</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-add-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/add-class">github</a></p>
           </div>
           <div>
@@ -63,10 +63,12 @@
             <div><p>Adds class(es) to an element.</p>
 <p>All of the following work:</p>
 <pre><code class="lang-javascript">addClass(el, &#39;foo&#39;);
+addClass(el, &#39;foo bar&#39;);
 addClass(el, &#39;foo&#39;, &#39;bar&#39;);
 addClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
 </code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of adding a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
+<p><strong>note</strong>: Don&#39;t mix-and-match approaches. For example, don&#39;t do <code>addClass(el, &#39;foo&#39;, [&#39;bar&#39;, &#39;baz&#39;])</code>. If you need this, flatten it first.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var addClass = require('amp-add-class');
@@ -88,18 +90,28 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there&quot;&gt;greeting
 // using array
 addClass(element, ['foo', 'bar']); 
 element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there foo bar&quot;&gt;greetings&lt;/div&gt;';
+
+// add multiple at once with space-separated string
+addClass(element, 'baz boo'); 
+element.outerHTML; //=&gt; '&lt;div class=&quot;oh hello there baz boo&quot;&gt;greetings&lt;/div&gt;';
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var hasClass = require('amp-has-class');
+var isString = require('amp-is-string');
 var isArray = require('amp-is-array');
 var trim = require('amp-trim');
 var slice = Array.prototype.slice;
 var cleanup = /\s{2,}/g;
+var ws = /\s+/;
 
 
 module.exports = function addClass(el, cls) {
-    cls = isArray(cls) ? cls : slice.call(arguments, 1);
+    if (arguments.length === 2 &amp;&amp; isString(cls)) {
+        cls = trim(cls).split(ws);
+    } else {
+        cls = isArray(cls) ? cls : slice.call(arguments, 1);    
+    }
     // optimize for best, most common case
     if (cls.length === 1 &amp;&amp; el.classList) {
         if (cls[0]) el.classList.add(cls[0]);
@@ -164,12 +176,20 @@ test('amp-add-class', function (t) {
     t.equal(clsName, addClass(el, 'hello', 'there').className, 'should not touch classNames if not modifying');
     t.equal(addClass(el, 'hello', 'yo').className, 'oh hello there yo', 'should clean up className whitespacing if modifying anyway');
 
+    el = getEl('oh');
+    addClass(el, 'hello there');
+    t.equal(el.className, 'oh hello there', 'supports adding space separated chars');   
+
+    el = getEl('oh');
+    addClass(el, '\t\r\nhello \n  there   ');
+    t.equal(el.className, 'oh hello there', 'tolerate extra spaces when adding space separated chars');  
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~371 B (<a href="#sizes">details</a>)</p>
+            <p>~408 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -180,6 +200,8 @@ test('amp-add-class', function (t) {
                   </ul>
                 </li>
                 <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
+                <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
@@ -200,7 +222,7 @@ test('amp-add-class', function (t) {
             <h1><span class="header-link"></span>amp-has-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-has-class</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.3</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-has-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/has-class">github</a></p>
           </div>
           <div>
@@ -227,11 +249,13 @@ hasClass(className, 'no'); //=&gt; false
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var isString = require('amp-is-string');
+var whitespaceRE = /[\t\r\n\f]/g;
 
 
+// note: this is jQuery's approach
 module.exports = function hasClass(el, cls) {
-    var clsName = isString(el) ? el : el.className;
-    return (' ' + clsName + ' ').indexOf(' ' + cls + ' ') !== -1;
+    var cName = (isString(el) ? el : el.className).replace(whitespaceRE, ' ');
+    return (' ' + cName + ' ').indexOf(' ' + cls + ' ') !== -1;
 };
 </code></pre>
             </div>
@@ -262,12 +286,17 @@ test('amp-has-class', function (t) {
     t.ok(hasClass(className, 'there'));
     t.notOk(hasClass(className, 'something'));
 
+    t.ok(hasClass(getEl('\thi'), 'hi'), 'can be \t issue #27');
+    t.ok(hasClass(getEl('\nhi'), 'hi'), 'can be \n issue #27');
+    t.ok(hasClass(getEl('\rhi'), 'hi'), 'can be \r issue #27');
+    t.ok(hasClass(getEl('\fhello\fhi\f'), 'hi'), 'can be \f issue #27');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~106 B (<a href="#sizes">details</a>)</p>
+            <p>~130 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -287,7 +316,7 @@ test('amp-has-class', function (t) {
             <h1><span class="header-link"></span>amp-remove-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-remove-class</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-remove-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/remove-class">github</a></p>
           </div>
           <div>
@@ -295,10 +324,12 @@ test('amp-has-class', function (t) {
             <div><p>Removes class(es) from an element.</p>
 <p>All of the following work:</p>
 <pre><code class="lang-javascript">removeClass(el, &#39;foo&#39;);
+removeClass(el, &#39;foo bar&#39;);
 removeClass(el, &#39;foo&#39;, &#39;bar&#39;);
 removeClass(el, [&#39;foo&#39;, &#39;bar&#39;]);
 </code></pre>
 <p>Optimized for minimal DOM manipulation. The most common usecase of removing a single class will use native <code>Element.classList</code> if available. Otherwise, it will do a single read of <code>el.className</code> and only write back to it once, and only if something was actually changed.</p>
+<p><strong>note</strong>: Don&#39;t mix-and-match approaches. For example, don&#39;t do <code>removeClass(el, &#39;foo&#39;, [&#39;bar&#39;, &#39;baz&#39;])</code>. If you need this, flatten it first.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var removeClass = require('amp-remove-class');
@@ -311,6 +342,8 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;hello there&quot;&gt;greetings&l
 
 // remove multiple at once
 removeClass(element, 'hello', 'there'); 
+// can be done with a space-separated string
+removeClass(element, 'hello there');
 // can also be done by passing array
 removeClass(element, ['hello', 'there']); 
 
@@ -318,14 +351,20 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;&quot;&gt;greetings&lt;/div&gt;'
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var trim = require('amp-trim');
+              <pre style="display: none"><code class="lang-javascript hljs">var isString = require('amp-is-string');
 var isArray = require('amp-is-array');
+var trim = require('amp-trim');
 var slice = Array.prototype.slice;
 var cleanup = /\s{2,}/g;
+var ws = /\s+/;
 
 
 module.exports = function removeClass(el, cls) {
-    cls = isArray(cls) ? cls : slice.call(arguments, 1);
+    if (arguments.length === 2 &amp;&amp; isString(cls)) {
+        cls = trim(cls).split(ws);
+    } else {
+        cls = isArray(cls) ? cls : slice.call(arguments, 1);    
+    }
     // optimize for best, most common case
     if (cls.length === 1 &amp;&amp; el.classList) {
         if (cls[0]) el.classList.remove(cls[0]);
@@ -404,16 +443,24 @@ test('amp-remove-class', function (t) {
     el = removeClass(getEl('foobar'), 'foo', 'bar');
     t.equal(el.className, 'foobar');
 
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, 'hello there').className, 'oh', 'should support space separated string of classes');
+
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, '\r  hello \t \nthere  ').className, 'oh', 'should support other weird whitespace when using a string of classes');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~319 B (<a href="#sizes">details</a>)</p>
+            <p>~356 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
                 <li><a href="#amp-is-array">amp-is-array</a>
+                </li>
+                <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
                 <li><a href="#amp-trim">amp-trim</a>
                 </li>
@@ -422,6 +469,7 @@ test('amp-remove-class', function (t) {
             <div class="dependency-list">
               <ul>
                 <li><a href="#amp-is-array">amp-is-array</a></li>
+                <li><a href="#amp-is-string">amp-is-string</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
               </ul>
             </div>
@@ -432,7 +480,7 @@ test('amp-remove-class', function (t) {
             <h1><span class="header-link"></span>amp-toggle-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-toggle-class</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-toggle-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/toggle-class">github</a></p>
           </div>
           <div>
@@ -543,7 +591,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~590 B (<a href="#sizes">details</a>)</p>
+            <p>~650 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -556,6 +604,8 @@ test('amp-toggle-class', function (t) {
                       </ul>
                     </li>
                     <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
+                    <li><a href="#amp-is-string">amp-is-string</a>
                     </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
@@ -572,6 +622,8 @@ test('amp-toggle-class', function (t) {
                 <li><a href="#amp-remove-class">amp-remove-class</a>
                   <ul>
                     <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
+                    <li><a href="#amp-is-string">amp-is-string</a>
                     </li>
                     <li><a href="#amp-trim">amp-trim</a>
                     </li>
@@ -597,7 +649,7 @@ test('amp-toggle-class', function (t) {
             <h1><span class="header-link"></span>amp-bind</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-bind</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-bind">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/bind">github</a></p>
           </div>
           <div>
@@ -730,7 +782,7 @@ test('amp-bind', function (t) {
             <h1><span class="header-link"></span>amp-debounce</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-debounce</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-debounce">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/debounce">github</a></p>
           </div>
           <div>
@@ -921,7 +973,7 @@ test('debounce re-entrant', function (t) {
             <h1><span class="header-link"></span>amp-delay</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-delay</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-delay">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/delay">github</a></p>
           </div>
           <div>
@@ -1033,7 +1085,7 @@ test('amp-delay', function (t) {
             <h1><span class="header-link"></span>amp-limit-calls</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-limit-calls</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-limit-calls">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/limit-calls">github</a></p>
           </div>
           <div>
@@ -1047,7 +1099,7 @@ var timesCalled = 0;
 var getCount = function () {
     return ++timesCalled;
 }
-var modified = before(getCount, 2); //=&gt; returns modified function
+var modified = limitCalls(getCount, 2); //=&gt; returns modified function
 
 console.log(modified()); //=&gt; 1
 console.log(modified()); //=&gt; 2
@@ -1123,7 +1175,7 @@ test('amp-limit-calls', function (t) {
             <h1><span class="header-link"></span>amp-once</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-once</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-once">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/once">github</a></p>
           </div>
           <div>
@@ -1202,7 +1254,7 @@ test('amp-once', function (t) {
             <h1><span class="header-link"></span>amp-contains</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-contains</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-contains">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/contains">github</a></p>
           </div>
           <div>
@@ -1248,13 +1300,13 @@ test('amp-contains', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~448 B (<a href="#sizes">details</a>)</p>
+            <p>~484 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
                 <li><a href="#amp-index-of">amp-index-of</a>
                   <ul>
-                    <li><a href="#amp-is-object">amp-is-object</a>
+                    <li><a href="#amp-is-number">amp-is-number</a>
                     </li>
                   </ul>
                 </li>
@@ -1266,7 +1318,7 @@ test('amp-contains', function (t) {
                         </li>
                         <li><a href="#amp-index-of">amp-index-of</a>
                           <ul>
-                            <li><a href="#amp-is-object">amp-is-object</a>
+                            <li><a href="#amp-is-number">amp-is-number</a>
                             </li>
                           </ul>
                         </li>
@@ -1281,10 +1333,11 @@ test('amp-contains', function (t) {
             <div class="dependency-list">
               <ul>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-values">amp-values</a></li>
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
+                <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
           </div>
@@ -1294,7 +1347,7 @@ test('amp-contains', function (t) {
             <h1><span class="header-link"></span>amp-each</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-each</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-each">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/each">github</a></p>
           </div>
           <div>
@@ -1423,7 +1476,7 @@ test('amp-each', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~554 B (<a href="#sizes">details</a>)</p>
+            <p>~582 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1435,7 +1488,7 @@ test('amp-each', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -1451,6 +1504,7 @@ test('amp-each', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -1461,7 +1515,7 @@ test('amp-each', function (t) {
             <h1><span class="header-link"></span>amp-every</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-every</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-every">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/every">github</a></p>
           </div>
           <div>
@@ -1550,7 +1604,7 @@ test('amp-every', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~839 B (<a href="#sizes">details</a>)</p>
+            <p>~865 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1572,7 +1626,7 @@ test('amp-every', function (t) {
                                 </li>
                                 <li><a href="#amp-index-of">amp-index-of</a>
                                   <ul>
-                                    <li><a href="#amp-is-object">amp-is-object</a>
+                                    <li><a href="#amp-is-number">amp-is-number</a>
                                     </li>
                                   </ul>
                                 </li>
@@ -1594,7 +1648,7 @@ test('amp-every', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -1615,6 +1669,7 @@ test('amp-every', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-property">amp-property</a></li>
               </ul>
             </div>
@@ -1625,7 +1680,7 @@ test('amp-every', function (t) {
             <h1><span class="header-link"></span>amp-filter</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-filter</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-filter">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/filter">github</a></p>
           </div>
           <div>
@@ -1693,7 +1748,7 @@ test('amp-filter', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~893 B (<a href="#sizes">details</a>)</p>
+            <p>~919 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1707,7 +1762,7 @@ test('amp-filter', function (t) {
                         </li>
                         <li><a href="#amp-index-of">amp-index-of</a>
                           <ul>
-                            <li><a href="#amp-is-object">amp-is-object</a>
+                            <li><a href="#amp-is-number">amp-is-number</a>
                             </li>
                           </ul>
                         </li>
@@ -1735,7 +1790,7 @@ test('amp-filter', function (t) {
                                 </li>
                                 <li><a href="#amp-index-of">amp-index-of</a>
                                   <ul>
-                                    <li><a href="#amp-is-object">amp-is-object</a>
+                                    <li><a href="#amp-is-number">amp-is-number</a>
                                     </li>
                                   </ul>
                                 </li>
@@ -1760,6 +1815,7 @@ test('amp-filter', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
                 <li><a href="#amp-iteratee">amp-iteratee</a></li>
                 <li><a href="#amp-is-function">amp-is-function</a></li>
@@ -1848,7 +1904,7 @@ test('amp-invoke', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~905 B (<a href="#sizes">details</a>)</p>
+            <p>~931 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1874,7 +1930,7 @@ test('amp-invoke', function (t) {
                                     </li>
                                     <li><a href="#amp-index-of">amp-index-of</a>
                                       <ul>
-                                        <li><a href="#amp-is-object">amp-is-object</a>
+                                        <li><a href="#amp-is-number">amp-is-number</a>
                                         </li>
                                       </ul>
                                     </li>
@@ -1896,7 +1952,7 @@ test('amp-invoke', function (t) {
                         </li>
                         <li><a href="#amp-index-of">amp-index-of</a>
                           <ul>
-                            <li><a href="#amp-is-object">amp-is-object</a>
+                            <li><a href="#amp-is-number">amp-is-number</a>
                             </li>
                           </ul>
                         </li>
@@ -1920,6 +1976,7 @@ test('amp-invoke', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-property">amp-property</a></li>
               </ul>
             </div>
@@ -1930,7 +1987,7 @@ test('amp-invoke', function (t) {
             <h1><span class="header-link"></span>amp-map</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-map</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-map">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/map">github</a></p>
           </div>
           <div>
@@ -2020,7 +2077,7 @@ test('amp-map', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~839 B (<a href="#sizes">details</a>)</p>
+            <p>~867 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2042,7 +2099,7 @@ test('amp-map', function (t) {
                                 </li>
                                 <li><a href="#amp-index-of">amp-index-of</a>
                                   <ul>
-                                    <li><a href="#amp-is-object">amp-is-object</a>
+                                    <li><a href="#amp-is-number">amp-is-number</a>
                                     </li>
                                   </ul>
                                 </li>
@@ -2064,7 +2121,7 @@ test('amp-map', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -2085,6 +2142,7 @@ test('amp-map', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-property">amp-property</a></li>
               </ul>
             </div>
@@ -2095,7 +2153,7 @@ test('amp-map', function (t) {
             <h1><span class="header-link"></span>amp-size</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-size</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-size">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/size">github</a></p>
           </div>
           <div>
@@ -2145,7 +2203,7 @@ test('amp-size', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~390 B (<a href="#sizes">details</a>)</p>
+            <p>~420 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2155,7 +2213,7 @@ test('amp-size', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -2170,6 +2228,7 @@ test('amp-size', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -2180,7 +2239,7 @@ test('amp-size', function (t) {
             <h1><span class="header-link"></span>amp-some</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-some</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-some">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/some">github</a></p>
           </div>
           <div>
@@ -2276,7 +2335,7 @@ test('amp-some', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~835 B (<a href="#sizes">details</a>)</p>
+            <p>~861 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2298,7 +2357,7 @@ test('amp-some', function (t) {
                                 </li>
                                 <li><a href="#amp-index-of">amp-index-of</a>
                                   <ul>
-                                    <li><a href="#amp-is-object">amp-is-object</a>
+                                    <li><a href="#amp-is-number">amp-is-number</a>
                                     </li>
                                   </ul>
                                 </li>
@@ -2320,7 +2379,7 @@ test('amp-some', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -2341,6 +2400,7 @@ test('amp-some', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-property">amp-property</a></li>
               </ul>
             </div>
@@ -2351,7 +2411,7 @@ test('amp-some', function (t) {
             <h1><span class="header-link"></span>amp-difference</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-difference</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-difference">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/difference">github</a></p>
           </div>
           <div>
@@ -2401,7 +2461,7 @@ test('amp-difference', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~1.22 kB (<a href="#sizes">details</a>)</p>
+            <p>~1.25 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2409,7 +2469,7 @@ test('amp-difference', function (t) {
                   <ul>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -2421,7 +2481,7 @@ test('amp-difference', function (t) {
                             </li>
                             <li><a href="#amp-index-of">amp-index-of</a>
                               <ul>
-                                <li><a href="#amp-is-object">amp-is-object</a>
+                                <li><a href="#amp-is-number">amp-is-number</a>
                                 </li>
                               </ul>
                             </li>
@@ -2445,7 +2505,7 @@ test('amp-difference', function (t) {
                             </li>
                             <li><a href="#amp-index-of">amp-index-of</a>
                               <ul>
-                                <li><a href="#amp-is-object">amp-is-object</a>
+                                <li><a href="#amp-is-number">amp-is-number</a>
                                 </li>
                               </ul>
                             </li>
@@ -2473,7 +2533,7 @@ test('amp-difference', function (t) {
                                     </li>
                                     <li><a href="#amp-index-of">amp-index-of</a>
                                       <ul>
-                                        <li><a href="#amp-is-object">amp-is-object</a>
+                                        <li><a href="#amp-is-number">amp-is-number</a>
                                         </li>
                                       </ul>
                                     </li>
@@ -2505,10 +2565,11 @@ test('amp-difference', function (t) {
               <ul>
                 <li><a href="#amp-contains">amp-contains</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-values">amp-values</a></li>
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
+                <li><a href="#amp-is-object">amp-is-object</a></li>
                 <li><a href="#amp-filter">amp-filter</a></li>
                 <li><a href="#amp-each">amp-each</a></li>
                 <li><a href="#amp-create-callback">amp-create-callback</a></li>
@@ -2529,7 +2590,7 @@ test('amp-difference', function (t) {
             <h1><span class="header-link"></span>amp-flatten</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-flatten</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-flatten">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/flatten">github</a></p>
           </div>
           <div>
@@ -2615,12 +2676,12 @@ test('amp-flatten', function (t) {
             <h1><span class="header-link"></span>amp-index-of</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-index-of</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-index-of">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/index-of">github</a></p>
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Uses native <code>Array.prototype.indexOf</code> if present. But, unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>.</p>
+            <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>. You can optionally pass a <code>fromIndex</code> as the third argument to start the search there.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var indexOf = require('amp-index-of');
@@ -2630,22 +2691,19 @@ indexOf(['hi', 'there'], 'hello'); //=&gt; -1
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var isObj = require('amp-is-object');
-var arrayInd = Array.prototype.indexOf;
+              <pre style="display: none"><code class="lang-javascript hljs">var isNumber = require('amp-is-number');
 
-// for MSIE &lt; 9
-if (!arrayInd) {
-    arrayInd = function (obj) {
-        for (var i = 0; i &lt; this.length; ++i) {
-            if (this[i] === obj) return i;
-        }
-        return -1;
-    };
-}
 
-module.exports = function indexOf(obj, val) {
-    if (!isObj(obj)) return -1;
-    return arrayInd.call(obj, val);
+module.exports = function indexOf(arr, item, from) {
+    var i = 0;
+    var l = arr &amp;&amp; arr.length;
+    if (isNumber(from)) {
+        i = from &lt; 0 ? Math.max(0, l + from) : from;
+    }
+    for (; i &lt; l; i++) {
+        if (arr[i] === item) return i;
+    }
+    return -1;
 };
 </code></pre>
             </div>
@@ -2653,6 +2711,8 @@ module.exports = function indexOf(obj, val) {
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var indexOf = require('./index-of');
+var isArray = require('amp-is-array');
+var each = require('amp-each');
 
 
 test('amp-index-of', function (t) {
@@ -2666,22 +2726,48 @@ test('amp-index-of', function (t) {
     t.equal(indexOf({}, 1), -1);
     t.equal(indexOf(['a'], 'a'), 0);
     t.equal(indexOf(['a' , 1], 1), 1);
+    
+    each([null, void 0, [], false], function(val) {
+        var msg = 'Handles: ' + (isArray(val) ? '[]' : val);
+        t.equal(indexOf(val, 2), -1, msg);
+        t.equal(indexOf(val, 2, -1), -1, msg);
+        t.equal(indexOf(val, 2, -20), -1, msg);
+        t.equal(indexOf(val, 2, 15), -1, msg);
+    });
+
+    var numbers = [1, 2, 3, 1, 2, 3, 1, 2, 3];
+    t.equal(indexOf(numbers, 2, 5), 7, 'supports the fromIndex argument');
+
+    index = indexOf([,,,], undefined);
+    t.equal(index, 0, 'treats sparse arrays as if they were dense');
+
+    var array = [1, 2, 3, 1, 2, 3];
+    t.strictEqual(indexOf(array, 1, -3), 3, 'neg `fromIndex` starts at the right index');
+    t.strictEqual(indexOf(array, 1, -2), -1, 'neg `fromIndex` starts at the right index');
+    t.strictEqual(indexOf(array, 2, -3), 4);
+    each([-6, -8, -Infinity], function(fromIndex) {
+      t.strictEqual(indexOf(array, 1, fromIndex), 0);
+    });
+    t.strictEqual(indexOf([1, 2, 3], 1, true), 0);
+
     t.end();
 });
+
+
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~126 B (<a href="#sizes">details</a>)</p>
+            <p>~131 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
-                <li><a href="#amp-is-object">amp-is-object</a>
+                <li><a href="#amp-is-number">amp-is-number</a>
                 </li>
               </ul>
             </div>
             <div class="dependency-list">
               <ul>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
               </ul>
             </div>
           </div>
@@ -2691,7 +2777,7 @@ test('amp-index-of', function (t) {
             <h1><span class="header-link"></span>amp-last</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-last</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-last">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/last">github</a></p>
           </div>
           <div>
@@ -2756,7 +2842,7 @@ test('amp-last', function (t) {
             <h1><span class="header-link"></span>amp-range</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-range</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-range">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/range">github</a></p>
           </div>
           <div>
@@ -2829,7 +2915,7 @@ test('amp-range', function (t) {
             <h1><span class="header-link"></span>amp-unique</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-unique</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-unique">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/unique">github</a></p>
           </div>
           <div>
@@ -2969,7 +3055,7 @@ test('amp-unique', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~975 B (<a href="#sizes">details</a>)</p>
+            <p>~1.01 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2977,7 +3063,7 @@ test('amp-unique', function (t) {
                   <ul>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -2989,7 +3075,7 @@ test('amp-unique', function (t) {
                             </li>
                             <li><a href="#amp-index-of">amp-index-of</a>
                               <ul>
-                                <li><a href="#amp-is-object">amp-is-object</a>
+                                <li><a href="#amp-is-number">amp-is-number</a>
                                 </li>
                               </ul>
                             </li>
@@ -3021,7 +3107,7 @@ test('amp-unique', function (t) {
                                 </li>
                                 <li><a href="#amp-index-of">amp-index-of</a>
                                   <ul>
-                                    <li><a href="#amp-is-object">amp-is-object</a>
+                                    <li><a href="#amp-is-number">amp-is-number</a>
                                     </li>
                                   </ul>
                                 </li>
@@ -3043,10 +3129,11 @@ test('amp-unique', function (t) {
               <ul>
                 <li><a href="#amp-contains">amp-contains</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
-                <li><a href="#amp-is-object">amp-is-object</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-values">amp-values</a></li>
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
+                <li><a href="#amp-is-object">amp-is-object</a></li>
                 <li><a href="#amp-is-boolean">amp-is-boolean</a></li>
                 <li><a href="#amp-iteratee">amp-iteratee</a></li>
                 <li><a href="#amp-create-callback">amp-create-callback</a></li>
@@ -3063,7 +3150,7 @@ test('amp-unique', function (t) {
             <h1><span class="header-link"></span>amp-clone</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-clone</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-clone">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/clone">github</a></p>
           </div>
           <div>
@@ -3149,7 +3236,7 @@ test('amp-clone', function (t) {
             <h1><span class="header-link"></span>amp-defaults</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-defaults</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-defaults">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/defaults">github</a></p>
           </div>
           <div>
@@ -3251,7 +3338,7 @@ test('amp-defaults', function (t) {
             <h1><span class="header-link"></span>amp-extend</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-extend</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-extend">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/extend">github</a></p>
           </div>
           <div>
@@ -3359,7 +3446,7 @@ test('amp-extend', function(t) {
             <h1><span class="header-link"></span>amp-has</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-has</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-has">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/has">github</a></p>
           </div>
           <div>
@@ -3420,7 +3507,7 @@ test('amp-has', function (t) {
             <h1><span class="header-link"></span>amp-invert</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-invert</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-invert">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/invert">github</a></p>
           </div>
           <div>
@@ -3476,7 +3563,7 @@ test('amp-invert', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~402 B (<a href="#sizes">details</a>)</p>
+            <p>~429 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3486,7 +3573,7 @@ test('amp-invert', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -3501,6 +3588,7 @@ test('amp-invert', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -3511,7 +3599,7 @@ test('amp-invert', function (t) {
             <h1><span class="header-link"></span>amp-keys</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-keys</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-keys">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/keys">github</a></p>
           </div>
           <div>
@@ -3597,7 +3685,7 @@ test('amp-keys', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~352 B (<a href="#sizes">details</a>)</p>
+            <p>~382 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3605,7 +3693,7 @@ test('amp-keys', function (t) {
                 </li>
                 <li><a href="#amp-index-of">amp-index-of</a>
                   <ul>
-                    <li><a href="#amp-is-object">amp-is-object</a>
+                    <li><a href="#amp-is-number">amp-is-number</a>
                     </li>
                   </ul>
                 </li>
@@ -3617,6 +3705,7 @@ test('amp-keys', function (t) {
               <ul>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -3627,7 +3716,7 @@ test('amp-keys', function (t) {
             <h1><span class="header-link"></span>amp-matches</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-matches</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-matches">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/matches">github</a></p>
           </div>
           <div>
@@ -3742,7 +3831,7 @@ test('amp-matches', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~485 B (<a href="#sizes">details</a>)</p>
+            <p>~520 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3754,7 +3843,7 @@ test('amp-matches', function (t) {
                         </li>
                         <li><a href="#amp-index-of">amp-index-of</a>
                           <ul>
-                            <li><a href="#amp-is-object">amp-is-object</a>
+                            <li><a href="#amp-is-number">amp-is-number</a>
                             </li>
                           </ul>
                         </li>
@@ -3772,6 +3861,7 @@ test('amp-matches', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -3782,7 +3872,7 @@ test('amp-matches', function (t) {
             <h1><span class="header-link"></span>amp-pairs</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-pairs</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-pairs">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/pairs">github</a></p>
           </div>
           <div>
@@ -3825,7 +3915,7 @@ test('amp-pairs', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~407 B (<a href="#sizes">details</a>)</p>
+            <p>~442 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3835,7 +3925,7 @@ test('amp-pairs', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -3850,6 +3940,7 @@ test('amp-pairs', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -3860,7 +3951,7 @@ test('amp-pairs', function (t) {
             <h1><span class="header-link"></span>amp-property</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-property</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-property">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/property">github</a></p>
           </div>
           <div>
@@ -3879,7 +3970,7 @@ greetingGetter(person); //=&gt; 'oh, hello!'
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">module.exports = function property(key) {
     return function(obj) {
-        return obj[key];
+        return obj == null ? void 0 : obj[key];
     };
 };
 </code></pre>
@@ -3895,12 +3986,15 @@ test('amp-property', function (t) {
     var person = {greeting: 'oh, hello!'};
 
     t.equal(greetingGetter(person), 'oh, hello!');
+    t.doesNotThrow(function () {
+        greetingGetter(null);
+    }, 'should handle null-ish object issue #28');
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~16 B (<a href="#sizes">details</a>)</p>
+            <p>~27 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -3915,7 +4009,7 @@ test('amp-property', function (t) {
             <h1><span class="header-link"></span>amp-values</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-values</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-values">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/values">github</a></p>
           </div>
           <div>
@@ -3961,7 +4055,7 @@ test('amp-values', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~403 B (<a href="#sizes">details</a>)</p>
+            <p>~438 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3971,7 +4065,7 @@ test('amp-values', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -3986,6 +4080,7 @@ test('amp-values', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -3996,7 +4091,7 @@ test('amp-values', function (t) {
             <h1><span class="header-link"></span>amp-escape</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-escape</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-escape">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/escape">github</a></p>
           </div>
           <div>
@@ -4124,7 +4219,7 @@ test('amp-escape', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~537 B (<a href="#sizes">details</a>)</p>
+            <p>~571 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4134,7 +4229,7 @@ test('amp-escape', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -4149,6 +4244,7 @@ test('amp-escape', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -4159,7 +4255,7 @@ test('amp-escape', function (t) {
             <h1><span class="header-link"></span>amp-includes</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-includes</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-includes">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/includes">github</a></p>
           </div>
           <div>
@@ -4182,10 +4278,7 @@ includes(myString, 'hi'); //=&gt; false
 
 
 module.exports = function includes(string, query, position) {
-    if (position) {
-        string = string.slice(position);
-    }
-    return indexOf.call(string, query) !== -1;
+    return indexOf.call(string, query, position) !== -1;
 };
 </code></pre>
             </div>
@@ -4209,7 +4302,7 @@ test('amp-includes', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~49 B (<a href="#sizes">details</a>)</p>
+            <p>~37 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4224,7 +4317,7 @@ test('amp-includes', function (t) {
             <h1><span class="header-link"></span>amp-to-camel-case</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-to-camel-case</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-to-camel-case">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/to-camel-case">github</a></p>
           </div>
           <div>
@@ -4298,7 +4391,7 @@ test('amp-to-camel-case', function (t) {
             <h1><span class="header-link"></span>amp-trim</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-trim</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-trim">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/trim">github</a></p>
           </div>
           <div>
@@ -4315,13 +4408,9 @@ trim('\n\r\t oh, hi there!'); //=&gt; 'oh, hi there!'
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var trimRE = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-var nativeTrim = String.prototype.trim;
 
 
 module.exports = function trim(string) {
-    if (false &amp;&amp; nativeTrim) {
-        return nativeTrim.call(string);
-    }
     return string.replace(trimRE, '');
 };
 </code></pre>
@@ -4341,7 +4430,7 @@ test('amp-trim', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~59 B (<a href="#sizes">details</a>)</p>
+            <p>~43 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4356,7 +4445,7 @@ test('amp-trim', function (t) {
             <h1><span class="header-link"></span>amp-is-arguments</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-arguments</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-arguments">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-arguments">github</a></p>
           </div>
           <div>
@@ -4405,7 +4494,7 @@ test('amp-is-arguments', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~89 B (<a href="#sizes">details</a>)</p>
+            <p>~88 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4420,7 +4509,7 @@ test('amp-is-arguments', function (t) {
             <h1><span class="header-link"></span>amp-is-array</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-array</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-array">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-array">github</a></p>
           </div>
           <div>
@@ -4476,7 +4565,7 @@ test('amp-is-array', function (t) {
             <h1><span class="header-link"></span>amp-is-boolean</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-boolean</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-boolean">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-boolean">github</a></p>
           </div>
           <div>
@@ -4492,8 +4581,11 @@ isBoolean(0); //=&gt; false
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">module.exports = function isBoolean(obj) {
-    return obj === true || obj === false;
+              <pre style="display: none"><code class="lang-javascript hljs">var toString = Object.prototype.toString;
+
+
+module.exports = function isBoolean(obj) {
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
 };
 </code></pre>
             </div>
@@ -4514,12 +4606,14 @@ test('amp-is-boolean', function (t) {
     t.ok(!isBoolean(null), 'null is not a boolean');
     t.ok(isBoolean(true), 'but true is');
     t.ok(isBoolean(false), 'and so is false');
+    t.ok(isBoolean(new Boolean(false)), 'and so is class version of false');
+    t.ok(isBoolean(new Boolean(true)), 'and so is class version of true');
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~17 B (<a href="#sizes">details</a>)</p>
+            <p>~55 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4534,7 +4628,7 @@ test('amp-is-boolean', function (t) {
             <h1><span class="header-link"></span>amp-is-date</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-date</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-date">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-date">github</a></p>
           </div>
           <div>
@@ -4586,7 +4680,7 @@ test('amp-is-date', function (t) {
             <h1><span class="header-link"></span>amp-is-empty</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-empty</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-empty">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-empty">github</a></p>
           </div>
           <div>
@@ -4621,16 +4715,14 @@ var isString = require('amp-is-string');
 var isArguments = require('amp-is-arguments');
 var isNumber = require('amp-is-number');
 var isNan = require('amp-is-nan');
-var hasOwn = Object.prototype.hasOwnProperty;
+var keys = require('amp-keys');
 
 
 module.exports = function isEmpty(obj) {
     if (obj == null) return true;
     if (isArray(obj) || isString(obj) || isArguments(obj)) return obj.length === 0;
     if (isNumber(obj)) return obj === 0 || isNan(obj);
-    for (var key in obj) {
-        if (hasOwn.call(obj, key)) return false;
-    }
+    if (keys(obj).length !== 0) return false;
     return true;
 };
 </code></pre>
@@ -4667,7 +4759,7 @@ test('amp-is-empty', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~299 B (<a href="#sizes">details</a>)</p>
+            <p>~601 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4685,6 +4777,20 @@ test('amp-is-empty', function (t) {
                 </li>
                 <li><a href="#amp-is-string">amp-is-string</a>
                 </li>
+                <li><a href="#amp-keys">amp-keys</a>
+                  <ul>
+                    <li><a href="#amp-has">amp-has</a>
+                    </li>
+                    <li><a href="#amp-index-of">amp-index-of</a>
+                      <ul>
+                        <li><a href="#amp-is-number">amp-is-number</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#amp-is-object">amp-is-object</a>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div class="dependency-list">
@@ -4694,6 +4800,10 @@ test('amp-is-empty', function (t) {
                 <li><a href="#amp-is-nan">amp-is-nan</a></li>
                 <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-string">amp-is-string</a></li>
+                <li><a href="#amp-keys">amp-keys</a></li>
+                <li><a href="#amp-has">amp-has</a></li>
+                <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
           </div>
@@ -4703,7 +4813,7 @@ test('amp-is-empty', function (t) {
             <h1><span class="header-link"></span>amp-is-function</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-function</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-function">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-function">github</a></p>
           </div>
           <div>
@@ -4768,7 +4878,7 @@ test('amp-is-function', function (t) {
             <h1><span class="header-link"></span>amp-is-nan</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-nan</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-nan">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-nan">github</a></p>
           </div>
           <div>
@@ -4829,7 +4939,7 @@ test('amp-is-nan', function (t) {
             <h1><span class="header-link"></span>amp-is-null</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-null</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-null">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-null">github</a></p>
           </div>
           <div>
@@ -4879,7 +4989,7 @@ test('amp-is-null', function (t) {
             <h1><span class="header-link"></span>amp-is-number</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-number</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-number">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-number">github</a></p>
           </div>
           <div>
@@ -4938,7 +5048,7 @@ test('amp-is-number', function (t) {
             <h1><span class="header-link"></span>amp-is-object</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-object</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-object">github</a></p>
           </div>
           <div>
@@ -5005,7 +5115,7 @@ test('amp-is-object', function(t) {
             <h1><span class="header-link"></span>amp-is-object-equal</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-object-equal</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object-equal">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-object-equal">github</a></p>
           </div>
           <div>
@@ -5380,7 +5490,7 @@ test('amp-is-object-equal', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~783 B (<a href="#sizes">details</a>)</p>
+            <p>~809 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5392,7 +5502,7 @@ test('amp-is-object-equal', function (t) {
                     </li>
                     <li><a href="#amp-index-of">amp-index-of</a>
                       <ul>
-                        <li><a href="#amp-is-object">amp-is-object</a>
+                        <li><a href="#amp-is-number">amp-is-number</a>
                         </li>
                       </ul>
                     </li>
@@ -5408,6 +5518,7 @@ test('amp-is-object-equal', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
               </ul>
             </div>
@@ -5418,7 +5529,7 @@ test('amp-is-object-equal', function (t) {
             <h1><span class="header-link"></span>amp-is-regexp</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-regexp</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-regexp">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-regexp">github</a></p>
           </div>
           <div>
@@ -5470,7 +5581,7 @@ test('amp-is-regexp', function (t) {
             <h1><span class="header-link"></span>amp-is-string</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-string</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-string">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-string">github</a></p>
           </div>
           <div>
@@ -5527,7 +5638,7 @@ test('amp-is-string', function (t) {
             <h1><span class="header-link"></span>amp-is-undefined</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-is-undefined</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-undefined">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-undefined">github</a></p>
           </div>
           <div>
@@ -5582,7 +5693,7 @@ test('amp-is-undefined', function (t) {
             <h1><span class="header-link"></span>amp-iteratee</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-iteratee</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-iteratee">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/iteratee">github</a></p>
           </div>
           <div>
@@ -5633,7 +5744,7 @@ test('amp-iteratee', function (t) {
 });</code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~745 B (<a href="#sizes">details</a>)</p>
+            <p>~772 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5653,7 +5764,7 @@ test('amp-iteratee', function (t) {
                             </li>
                             <li><a href="#amp-index-of">amp-index-of</a>
                               <ul>
-                                <li><a href="#amp-is-object">amp-is-object</a>
+                                <li><a href="#amp-is-number">amp-is-number</a>
                                 </li>
                               </ul>
                             </li>
@@ -5679,6 +5790,7 @@ test('amp-iteratee', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-index-of">amp-index-of</a></li>
+                <li><a href="#amp-is-number">amp-is-number</a></li>
                 <li><a href="#amp-property">amp-property</a></li>
               </ul>
             </div>
@@ -5689,12 +5801,12 @@ test('amp-iteratee', function (t) {
             <h1><span class="header-link"></span>amp-result</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-result</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-result">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/result">github</a></p>
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or what is passed as the third argument.</p>
+            <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or the <code>defaultValue</code>. If <code>defaultValue</code> is a function it will be executed and its result returned.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var result = require('amp-result');
@@ -5717,7 +5829,7 @@ result(obj, 'nothing', 'wat'); //=&gt; 'wat'
 module.exports = function result(object, property, defaultValue) {
     var value = object == null ? void 0 : object[property];
     if (value === void 0) {
-        return defaultValue;
+        return isFunction(defaultValue) ? defaultValue() : defaultValue;
     }
     return isFunction(value) ? object[property]() : value;
 };
@@ -5760,12 +5872,18 @@ test('amp-result', function(t) {
     var obj = {a: function() {}};
     t.strictEqual(result(obj, 'a', 'failed'), undefined);
 
+    var defaultFunc = function () {
+        return 'hi';
+    };
+
+    t.strictEqual(result({}, 'something', defaultFunc), 'hi', 'should execute default value if func');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~130 B (<a href="#sizes">details</a>)</p>
+            <p>~136 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5785,7 +5903,7 @@ test('amp-result', function(t) {
             <h1><span class="header-link"></span>amp-unique-id</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-unique-id</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.2</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-unique-id">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/unique-id">github</a></p>
           </div>
           <div>
@@ -5803,7 +5921,9 @@ uniqueId('hi_'); //=&gt; &quot;hi_2&quot;
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">/*global window, global*/
 var theGlobal = (typeof window !== 'undefined') ? window : global;
-theGlobal.__ampIdCounter = 0;
+if (!theGlobal.__ampIdCounter) {
+    theGlobal.__ampIdCounter = 0;
+}
 
 
 module.exports = function uniqueId(prefix) {
@@ -5824,12 +5944,13 @@ test('amp-unique-id', function (t) {
     i = 0;
     while (i++ &lt; 5) ids.push(uniqueId('p'));
     t.deepEqual(ids, ['1', '2', '3', '4', '5', 'p6', 'p7', 'p8', 'p9', 'p10'], 'generates globally-unique ids with prefix');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~90 B (<a href="#sizes">details</a>)</p>
+            <p>~95 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -5844,7 +5965,7 @@ test('amp-unique-id', function (t) {
             <h1><span class="header-link"></span>amp-create-callback</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-create-callback</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-create-callback">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/create-callback">github</a></p>
           </div>
           <div>
@@ -5947,7 +6068,7 @@ test('amp-create-callback', function (t) {
             <h1><span class="header-link"></span>amp-internal-flatten</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-internal-flatten</h4>
-            <p class="module-version">v1.0.0</p>
+            <p class="module-version">v1.0.1</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-internal-flatten">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/internal-flatten">github</a></p>
           </div>
           <div>
