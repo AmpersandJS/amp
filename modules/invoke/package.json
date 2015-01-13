@@ -1,32 +1,31 @@
 {
-  "name": "amp-keys",
-  "description": "keys function part of http://amp.ampersandjs.com.",
-  "version": "1.0.1",
+  "name": "amp-invoke",
+  "description": "invoke function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "internal": false,
     "size": {
-      "original": "1.83 kB",
-      "minified": "382 B"
-    }
+      "original": "5.81 kB",
+      "minified": "937 B"
+    },
+    "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-has": "^1.0.0",
-    "amp-index-of": "^1.0.0",
-    "amp-is-object": "^1.0.0"
+    "amp-is-function": "^1.0.0",
+    "amp-map": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"
   },
-  "homepage": "http://amp.ampersandjs.com/#amp-keys",
+  "homepage": "http://amp.ampersandjs.com/#amp-invoke",
   "keywords": [
     "amp",
     "util",
-    "objects"
+    "collections"
   ],
   "license": "MIT",
-  "main": "keys.js",
+  "main": "invoke.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"

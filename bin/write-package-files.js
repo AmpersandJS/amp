@@ -62,7 +62,7 @@ modules.forEach(function (mod) {
     }
     pack.amp.internal = mod.internal;
 
-    pack.author = 'Henrik Joreteg <henrik@andyet.net>';
+    pack.author = pack.author || 'Henrik Joreteg <henrik@andyet.net>';
     pack.license = 'MIT';
     pack.scripts = {
         test: 'node test.js'

@@ -65,6 +65,10 @@
       "license": "underscore"
     },
     {
+      "name": "invoke",
+      "license": "underscore"
+    },
+    {
       "name": "map",
       "license": "underscore"
     },

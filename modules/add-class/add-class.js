@@ -1,12 +1,18 @@
 var hasClass = require('amp-has-class');
+var isString = require('amp-is-string');
 var isArray = require('amp-is-array');
 var trim = require('amp-trim');
 var slice = Array.prototype.slice;
 var cleanup = /\s{2,}/g;
+var ws = /\s+/;
 
 
 module.exports = function addClass(el, cls) {
-    cls = isArray(cls) ? cls : slice.call(arguments, 1);
+    if (arguments.length === 2 && isString(cls)) {
+        cls = trim(cls).split(ws);
+    } else {
+        cls = isArray(cls) ? cls : slice.call(arguments, 1);    
+    }
     // optimize for best, most common case
     if (cls.length === 1 && el.classList) {
         if (cls[0]) el.classList.add(cls[0]);
