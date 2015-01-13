@@ -113,11 +113,11 @@
   ],
   "objects": [
     {
-      "name": "keys",
+      "name": "matches",
       "license": "underscore"
     },
     {
-      "name": "clone",
+      "name": "keys",
       "license": "underscore"
     },
     {
@@ -137,7 +137,7 @@
       "license": "underscore"
     },
     {
-      "name": "matches",
+      "name": "clone",
       "license": "underscore"
     },
     {
@@ -155,6 +155,10 @@
     {
       "name": "values",
       "license": "underscore"
+    },
+    {
+      "name": "omit",
+      "license": "amp"
     }
   ],
   "strings": [
