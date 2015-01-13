@@ -1,0 +1,25 @@
+{
+    "name": "amp-next",
+    "description": "next function part of http://amp.ampersandjs.com.",
+    "version": "1.0.0",
+    "author": "Henrik Joreteg <henrik@andyet.net>",
+    "bugs": "https://github.com/ampersandjs/amp/issues",
+    "devDependencies": {
+        "tape": "^3.0.3"
+    },
+    "homepage": "http://amp.ampersandjs.com/#amp-next",
+    "keywords": [
+        "amp",
+        "util",
+        "arrays"
+    ],
+    "license": "MIT",
+    "main": "next.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ampersandjs/amp"
+    },
+    "scripts": {
+        "test": "node test.js"
+    }
+}

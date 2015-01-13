@@ -35,8 +35,16 @@
       "license": "underscore"
     },
     {
+      "name": "negate",
+      "license": "amp"
+    },
+    {
       "name": "once",
       "license": "underscore"
+    },
+    {
+      "name": "create-callback",
+      "license": "amp"
     }
   ],
   "collections": [
@@ -91,6 +99,10 @@
       "license": "underscore"
     },
     {
+      "name": "next",
+      "license": "amp"
+    },
+    {
       "name": "range",
       "license": "underscore"
     },
@@ -101,11 +113,11 @@
   ],
   "objects": [
     {
-      "name": "clone",
+      "name": "matches",
       "license": "underscore"
     },
     {
-      "name": "defaults",
+      "name": "keys",
       "license": "underscore"
     },
     {
@@ -121,16 +133,20 @@
       "license": "underscore"
     },
     {
-      "name": "keys",
+      "name": "defaults",
       "license": "underscore"
     },
     {
-      "name": "matches",
+      "name": "clone",
       "license": "underscore"
     },
     {
       "name": "pairs",
       "license": "underscore"
+    },
+    {
+      "name": "pick",
+      "license": "amp"
     },
     {
       "name": "property",
@@ -139,6 +155,10 @@
     {
       "name": "values",
       "license": "underscore"
+    },
+    {
+      "name": "omit",
+      "license": "amp"
     }
   ],
   "strings": [
