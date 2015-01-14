@@ -480,13 +480,13 @@ test('amp-remove-class', function (t) {
             <h1><span class="header-link"></span>amp-toggle-class</h1></a>
           <div class="module-card">
             <h4 class="module-name">amp-toggle-class</h4>
-            <p class="module-version">v1.0.1</p>
+            <p class="module-version">v1.1.0</p>
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-toggle-class">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/toggle-class">github</a></p>
           </div>
           <div>
             <h3>Docs</h3>
             <div><p>Toggles the existence of a class on an element. If the class exists it will be removed, if it doesn&#39;t it will be added. </p>
-<p>If a <code>condition</code> argument is supplied, the truthiness of that condition is what determines whether the class should exist on the element or not. This simplifies common use case of an element needing a class if <code>condition</code> is true.</p>
+<p>If a <code>condition</code> argument is supplied, the truthiness of that condition is what determines whether the class should exist on the element or not. This simplifies common use case of an element needing a class if <code>condition</code> is true. <code>condition</code> can be passed as either a primitive which will eventually coerce to boolean or as a function. If you pass a function, you get current element passed as a first argument.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var toggleClass = require('amp-toggle-class');
@@ -513,6 +513,7 @@ element.outerHTML; //=&gt; '&lt;div class=&quot;&quot;&gt;greetings&lt;/div&gt;'
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var isUndefined = require('amp-is-undefined');
+var isFunction = require('amp-is-function');
 var hasClass = require('amp-has-class');
 var addClass = require('amp-add-class');
 var removeClass = require('amp-remove-class');
@@ -526,6 +527,7 @@ var actions = {
 module.exports = function toggleClass(el, cls, condition) {
     var action;
     if (!isUndefined(condition)) {
+        condition = isFunction(condition) ? condition.call(null, el) : condition;
         action = condition ? 'add' : 'remove';
     } else {
         action = hasClass(el, cls) ? 'remove' : 'add';
@@ -554,13 +556,36 @@ test('amp-toggle-class', function (t) {
     toggleClass(el, 'oh');
     t.equal(el.className, 'oh', 'puts it back when called again');   
     
-    el = getEl('oh');    
+    el = getEl('oh');
     toggleClass(el, 'oh', true);
-    t.equal(el.className, 'oh', 'should leave it alone if condition is passed and class is already present');
+    t.equal(el.className, 'oh', 'should leave it alone if condition is boolean true and class is already present');
+
+    el = getEl('oh');
+    toggleClass(el, 'hi', true);
+    t.equal(el.className, 'oh hi', 'should add class if condition is boolean true');
     
     el = getEl('');
     toggleClass(el, 'oh', false);
-    t.equal(el.className, '', 'should not add if not present but condition is false');
+    t.equal(el.className, '', 'should not remove class if not present and condition is false');
+
+    el = getEl('oh');
+    toggleClass(el, 'oh', false);
+    t.equal(el.className, '', 'should remove class if condition is boolean false');
+
+    // toggling with condition as a booleans
+    el = getEl('oh');
+    toggleClass(el, 'hi', function (element) {
+        t.equal(el, element, 'should pass element to a condition function');
+        return 1 + 1 === 2;
+    });
+    t.equal(el.className, 'oh hi', 'should add class if condition is a function returning true');
+
+    el = getEl('oh');
+    toggleClass(el, 'oh', function (element) {
+        t.equal(el, element, 'should pass element to a condition function');
+        return 1 + 1 === 1;
+    });
+    t.equal(el.className, '', 'should remove class if condition is a function returning false');
 
     var nonsense = [undefined, null, NaN, 0, ''];
 
@@ -579,7 +604,7 @@ test('amp-toggle-class', function (t) {
     t.equal(el, toggleClass(el, 'hi', true), 'should always return element');
     el = getEl('oh');
     t.equal(el, toggleClass(el, 'hi', false), 'should always return element');
-    
+
     // toggling without conditions
     el = getEl('oh');
     t.equal(el, toggleClass(el, 'oh'), 'should always return element');
@@ -591,7 +616,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~650 B (<a href="#sizes">details</a>)</p>
+            <p>~716 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -617,6 +642,8 @@ test('amp-toggle-class', function (t) {
                     </li>
                   </ul>
                 </li>
+                <li><a href="#amp-is-function">amp-is-function</a>
+                </li>
                 <li><a href="#amp-is-undefined">amp-is-undefined</a>
                 </li>
                 <li><a href="#amp-remove-class">amp-remove-class</a>
@@ -638,6 +665,7 @@ test('amp-toggle-class', function (t) {
                 <li><a href="#amp-is-string">amp-is-string</a></li>
                 <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-trim">amp-trim</a></li>
+                <li><a href="#amp-is-function">amp-is-function</a></li>
                 <li><a href="#amp-is-undefined">amp-is-undefined</a></li>
                 <li><a href="#amp-remove-class">amp-remove-class</a></li>
               </ul>

@@ -1,1 +1,1 @@
-toggleClass(element, class, [condition]);
+toggleClass(element, class, function || boolean);

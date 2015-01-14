@@ -16,11 +16,11 @@ test('amp-toggle-class', function (t) {
     toggleClass(el, 'oh');
     t.equal(el.className, 'oh', 'puts it back when called again');   
     
-    el = getEl('oh');    
+    el = getEl('oh');
     toggleClass(el, 'oh', true);
     t.equal(el.className, 'oh', 'should leave it alone if condition is boolean true and class is already present');
 
-    el = getEl('oh');    
+    el = getEl('oh');
     toggleClass(el, 'hi', true);
     t.equal(el.className, 'oh hi', 'should add class if condition is boolean true');
     
