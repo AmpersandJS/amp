@@ -19,6 +19,9 @@
     "amp-property": "^1.0.0"
   },
   "devDependencies": {
+    "amp-create-callback": "^1.0.0",
+    "amp-matches": "^1.0.0",
+    "amp-property": "^1.0.0",
     "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-iteratee",
