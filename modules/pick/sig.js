@@ -1,0 +1,1 @@
+pick(object, *keys);

@@ -37,6 +37,10 @@
     {
       "name": "once",
       "license": "underscore"
+    },
+    {
+      "name": "negate",
+      "license": "amp"
     }
   ],
   "collections": [
@@ -97,15 +101,19 @@
     {
       "name": "unique",
       "license": "underscore"
+    },
+    {
+      "name": "next",
+      "license": "amp"
     }
   ],
   "objects": [
     {
-      "name": "clone",
+      "name": "matches",
       "license": "underscore"
     },
     {
-      "name": "defaults",
+      "name": "keys",
       "license": "underscore"
     },
     {
@@ -121,11 +129,11 @@
       "license": "underscore"
     },
     {
-      "name": "keys",
+      "name": "defaults",
       "license": "underscore"
     },
     {
-      "name": "matches",
+      "name": "clone",
       "license": "underscore"
     },
     {
@@ -139,6 +147,14 @@
     {
       "name": "values",
       "license": "underscore"
+    },
+    {
+      "name": "omit",
+      "license": "amp"
+    },
+    {
+      "name": "pick",
+      "license": "amp"
     }
   ],
   "strings": [
