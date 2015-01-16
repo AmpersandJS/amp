@@ -1,1 +1,1 @@
-find(collection, function||attributeObject, [context]);
+find(collection, function || attributeObject, [context]);

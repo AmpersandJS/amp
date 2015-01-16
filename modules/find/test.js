@@ -18,7 +18,7 @@ test('amp-find', function (t) {
         t.equal(this, evenObject, 'given context');
     }, evenObject);
 
-    // Can be used like amp-find-where.
+    // Can be used a where function.
     var list = [ {a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4} ];
 
     t.deepEqual(find(list, {a: 1}), {a: 1, b: 2});
