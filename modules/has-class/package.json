@@ -1,13 +1,13 @@
 {
   "name": "amp-has-class",
   "description": "has-class function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "407 B",
-      "minified": "106 B"
+      "original": "501 B",
+      "minified": "131 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

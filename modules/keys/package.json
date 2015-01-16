@@ -1,13 +1,13 @@
 {
   "name": "amp-keys",
   "description": "keys function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.72 kB",
-      "minified": "352 B"
+      "original": "1.83 kB",
+      "minified": "382 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
