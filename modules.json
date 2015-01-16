@@ -45,11 +45,11 @@
   ],
   "collections": [
     {
-      "name": "contains",
+      "name": "pluck",
       "license": "underscore"
     },
     {
-      "name": "each",
+      "name": "map",
       "license": "underscore"
     },
     {
@@ -65,11 +65,11 @@
       "license": "underscore"
     },
     {
-      "name": "map",
+      "name": "each",
       "license": "underscore"
     },
     {
-      "name": "pluck",
+      "name": "contains",
       "license": "underscore"
     },
     {
@@ -78,6 +78,18 @@
     },
     {
       "name": "some",
+      "license": "underscore"
+    },
+    {
+      "name": "shuffle",
+      "license": "underscore"
+    },
+    {
+      "name": "sample",
+      "license": "underscore"
+    },
+    {
+      "name": "to-array",
       "license": "underscore"
     }
   ],
