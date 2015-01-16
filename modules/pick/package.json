@@ -1,29 +1,36 @@
 {
-    "name": "amp-pick",
-    "description": "pick function part of http://amp.ampersandjs.com.",
-    "version": "1.0.0",
-    "author": "Jeroen van Duffelen <mail@jvduf.com>",
-    "bugs": "https://github.com/ampersandjs/amp/issues",
-    "dependencies": {
-        "amp-create-callback": "^1.0.0",
-        "amp-is-function": "^1.0.0"
+  "name": "amp-pick",
+  "description": "pick function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Jeroen van Duffelen <mail@jvduf.com>",
+  "amp": {
+    "size": {
+      "original": "1.99 kB",
+      "minified": "339 B"
     },
-    "devDependencies": {
-        "tape": "^3.0.3"
-    },
-    "homepage": "http://amp.ampersandjs.com/#amp-pick",
-    "keywords": [
-        "amp",
-        "util",
-        "functions"
-    ],
-    "license": "MIT",
-    "main": "pick.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ampersandjs/amp"
-    },
-    "scripts": {
-        "test": "node test.js"
-    }
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-create-callback": "^1.0.0",
+    "amp-is-function": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-pick",
+  "keywords": [
+    "amp",
+    "util",
+    "objects"
+  ],
+  "license": "MIT",
+  "main": "pick.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
 }

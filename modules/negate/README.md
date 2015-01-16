@@ -1,5 +1,5 @@
-# amp-omit
+# amp-negate
 
-See [the documentation](http://amp.ampersandjs.com#amp-omit) for more info.
+See [the documentation](http://amp.ampersandjs.com#amp-negate) for more info.
 
-Part of the [amp project](http://amp.ampersandjs.com#amp-omit), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).
+Part of the [amp project](http://amp.ampersandjs.com#amp-negate), initially created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).

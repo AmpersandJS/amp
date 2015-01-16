@@ -1,25 +1,32 @@
 {
-    "name": "amp-negate",
-    "description": "negate function part of http://amp.ampersandjs.com.",
-    "version": "1.0.0",
-    "author": "Jeroen van Duffelen <mail@jvduf.com>",
-    "bugs": "https://github.com/ampersandjs/amp/issues",
-    "devDependencies": {
-        "tape": "^3.0.3"
+  "name": "amp-negate",
+  "description": "negate function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Jeroen van Duffelen <mail@jvduf.com>",
+  "amp": {
+    "size": {
+      "original": "126 B",
+      "minified": "29 B"
     },
-    "homepage": "http://amp.ampersandjs.com/#amp-negate",
-    "keywords": [
-        "amp",
-        "util",
-        "functions"
-    ],
-    "license": "MIT",
-    "main": "negate.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ampersandjs/amp"
-    },
-    "scripts": {
-        "test": "node test.js"
-    }
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-negate",
+  "keywords": [
+    "amp",
+    "util",
+    "functions"
+  ],
+  "license": "MIT",
+  "main": "negate.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
 }
