@@ -1,7 +1,7 @@
 {
   "name": "amp",
   "description": "A collection of utility modules as independent modules.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
@@ -42,7 +42,7 @@
   },
   "scripts": {
     "before-test": "node bin/gen-testrunner",
-    "build": "npm run clean && npm run folders && npm run write-package-files && npm run readmes && npm run before-test && npm run calculate-sizes && npm run build-site",
+    "build": "npm run clean && npm run folders && npm run write-package-files && npm run before-test && npm run calculate-sizes && npm run build-site",
     "build-site": "node bin/build-site",
     "calculate-sizes": "npm run make-local && node bin/calculate-sizes.js && npm run make-remote",
     "clean": "node bin/sort-modules && fixpack",
@@ -52,7 +52,6 @@
     "prepublish": "node bin/check-local-requires.js",
     "publish": "node bin/publish-all",
     "publish-site": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master",
-    "readmes": "node bin/build-readmes",
     "show-tree": "node bin/show-tree",
     "start": "npm run build-site && http-server -p 8000",
     "test": "browserify -t ./lib/make-local.js bin/test-all.js | tape-run | tap-spec",

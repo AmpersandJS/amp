@@ -1,18 +1,19 @@
 {
   "name": "amp-remove-class",
   "description": "remove-class function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.52 kB",
-      "minified": "319 B"
+      "original": "1.77 kB",
+      "minified": "356 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
     "amp-is-array": "^1.0.0",
+    "amp-is-string": "^1.0.0",
     "amp-trim": "^1.0.0"
   },
   "devDependencies": {

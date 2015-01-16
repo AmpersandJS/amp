@@ -3,8 +3,8 @@ var browserify = require('browserify');
 var uglify = require('uglifyjs');
 var gzip = require('gzip-size');
 var async = require('async');
-var fs = require('fs');
 
+var writeJSON = require('../lib/write-json');
 var modules = require('../lib/get-packages')();
 var baseSize;
 
@@ -34,7 +34,7 @@ b.bundle(function (err, js) {
                 original: prettyBytes(code.length - baseSize.original),
                 minified: prettyBytes(min(code) - baseSize.minified)
             };
-            fs.writeFileSync(module.folder + '/package.json', JSON.stringify(pack, null, 2), 'utf8');
+            writeJSON(module.folder + '/package.json', pack);
             cb();
         });
     });

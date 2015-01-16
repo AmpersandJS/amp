@@ -6,8 +6,8 @@
   "amp": {
     "internal": false,
     "size": {
-      "original": "5.42 kB",
-      "minified": "869 B"
+      "original": "5.55 kB",
+      "minified": "896 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
@@ -22,7 +22,7 @@
   "keywords": [
     "amp",
     "util",
-    "objects"
+    "collections"
   ],
   "license": "MIT",
   "main": "pluck.js",

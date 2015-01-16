@@ -1,13 +1,13 @@
 {
   "name": "amp-map",
   "description": "map function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "5.2 kB",
-      "minified": "839 B"
+      "original": "5.33 kB",
+      "minified": "867 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

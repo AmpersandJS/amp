@@ -1,1 +1,1 @@
-indexOf(array, item);
+indexOf(array, item, [fromIndex]);

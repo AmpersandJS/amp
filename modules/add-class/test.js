@@ -36,5 +36,13 @@ test('amp-add-class', function (t) {
     t.equal(clsName, addClass(el, 'hello', 'there').className, 'should not touch classNames if not modifying');
     t.equal(addClass(el, 'hello', 'yo').className, 'oh hello there yo', 'should clean up className whitespacing if modifying anyway');
 
+    el = getEl('oh');
+    addClass(el, 'hello there');
+    t.equal(el.className, 'oh hello there', 'supports adding space separated chars');   
+
+    el = getEl('oh');
+    addClass(el, '\t\r\nhello \n  there   ');
+    t.equal(el.className, 'oh hello there', 'tolerate extra spaces when adding space separated chars');  
+
     t.end();
 });

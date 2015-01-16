@@ -1,6 +1,8 @@
 /*global window, global*/
 var theGlobal = (typeof window !== 'undefined') ? window : global;
-theGlobal.__ampIdCounter = 0;
+if (!theGlobal.__ampIdCounter) {
+    theGlobal.__ampIdCounter = 0;
+}
 
 
 module.exports = function uniqueId(prefix) {
