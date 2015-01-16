@@ -2251,7 +2251,7 @@ test('amp-map', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Extract the named value of a property from every item in a collection</p>
+            <div><p>Extracts the named value of a property from every item in a collection and returns them in an array.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var pluck = require('amp-pluck');
@@ -2262,8 +2262,9 @@ pluck(items, 'name'); //=&gt; ['Cog', 'Sprocket']
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var map = require('amp-map');
-var property = require('amp-property');
+              <pre style="display: none"><code class="lang-javascript hljs">var property = require('amp-property');
+var map = require('amp-map');
+
 
 module.exports = function(obj, key) {
     return map(obj, property(key));
@@ -2275,6 +2276,7 @@ module.exports = function(obj, key) {
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var pluck = require('./pluck');
 
+
 test('amp-pluck', function (t) {
     var items = [{name: 'Cog', price: 100}, {name: 'Sprocket', price: 99}];
 
@@ -2285,7 +2287,7 @@ test('amp-pluck', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~896 B (<a href="#sizes">details</a>)</p>
+            <p>~897 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

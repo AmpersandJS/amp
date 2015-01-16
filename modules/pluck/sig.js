@@ -1,1 +1,1 @@
-pluck(array||object, propertyName);
+pluck(array || object, propertyName);
