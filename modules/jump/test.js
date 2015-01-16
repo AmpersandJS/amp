@@ -7,6 +7,7 @@ test('amp-jump', function (t) {
 
     var obj = {};
     t.equal(jump(obj), obj, 'should return passed value for non arrays');
+    t.equal(jump(1), 1, 'should return passed value for simple values');
     
     t.equal(jump(arr, 'x'), undefined, 'returns `undefined` if passed item not present');
     t.equal(jump(arr, 'a', -1), undefined, 'returns `undefined` if out of range low end');
