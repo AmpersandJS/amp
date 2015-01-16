@@ -1,6 +1,7 @@
 var iteratee = require('amp-iteratee');
 var some = require('amp-some');
 
+
 module.exports = function find(obj, func, context) {
     var result;
     if (obj == null) return result;

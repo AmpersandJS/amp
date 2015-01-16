@@ -5,18 +5,18 @@
   "author": "Michael Garvin <gar@andyet.net>",
   "amp": {
     "size": {
-      "original": "5.61 kB",
-      "minified": "892 B"
+      "original": "5.74 kB",
+      "minified": "919 B"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-iteratee": "^1.0.0",
+    "amp-some": "^1.0.0"
+  },
   "devDependencies": {
     "tape": "^3.0.3"
-  },
-  "dependencies": {
-    "amp-some": "^1.0.0",
-    "amp-iteratee": "^1.0.0"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-find",
   "keywords": [

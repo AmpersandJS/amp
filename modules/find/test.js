@@ -1,6 +1,7 @@
 var test = require('tape');
 var find = require('./find');
 
+
 test('amp-find', function (t) {
     var evenArray = [1, 2, 3, 4, 5, 6];
     var evenObject = {one: 1, two: 2, three: 3, four: 4};

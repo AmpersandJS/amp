@@ -1,1 +1,1 @@
-Looks through each value in the collection, returning the first of all the values that pass the truth test function you pass in.  If none pass, it returns undefined.  Alternatively you can pass in an attributeObject to use for truth testing.
+Returns the first value in a collection that passes the truth test function you pass in, stopping once found. If none is found, it returns undefined. Alternatively you can pass in an `attributeObject` instead of a function to use for truth testing. This obviates the need for a `findWhere` module.
