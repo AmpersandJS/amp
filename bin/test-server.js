@@ -13,6 +13,7 @@ require('../modules/find/test');
 require('../modules/invoke/test');
 require('../modules/map/test');
 require('../modules/pluck/test');
+require('../modules/reject/test');
 require('../modules/size/test');
 require('../modules/some/test');
 require('../modules/difference/test');
