@@ -2,7 +2,7 @@
   "name": "amp-negate",
   "description": "negate function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "author": "Jeroen van Duffelen <mail@jvduf.com>",
   "amp": {
     "size": {
       "original": "126 B",

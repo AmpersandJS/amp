@@ -1,1 +1,1 @@
-negate(function);
+negate(predicate);

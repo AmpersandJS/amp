@@ -1,13 +1,13 @@
 {
   "name": "amp-each",
   "description": "each function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "3.16 kB",
-      "minified": "554 B"
+      "original": "3.27 kB",
+      "minified": "582 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

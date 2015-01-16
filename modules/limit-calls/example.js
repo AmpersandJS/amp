@@ -4,7 +4,7 @@ var timesCalled = 0;
 var getCount = function () {
     return ++timesCalled;
 }
-var modified = before(getCount, 2); //=> returns modified function
+var modified = limitCalls(getCount, 2); //=> returns modified function
 
 console.log(modified()); //=> 1
 console.log(modified()); //=> 2

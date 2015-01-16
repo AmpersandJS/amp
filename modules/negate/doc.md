@@ -1,1 +1,1 @@
-Returns a new negated version of a given function.
+Returns a new negated version of the **predicate** function.

@@ -1,17 +1,14 @@
-var isObj = require('amp-is-object');
-var arrayInd = Array.prototype.indexOf;
+var isNumber = require('amp-is-number');
 
-// for MSIE < 9
-if (!arrayInd) {
-    arrayInd = function (obj) {
-        for (var i = 0; i < this.length; ++i) {
-            if (this[i] === obj) return i;
-        }
-        return -1;
-    };
-}
 
-module.exports = function indexOf(obj, val) {
-    if (!isObj(obj)) return -1;
-    return arrayInd.call(obj, val);
+module.exports = function indexOf(arr, item, from) {
+    var i = 0;
+    var l = arr && arr.length;
+    if (isNumber(from)) {
+        i = from < 0 ? Math.max(0, l + from) : from;
+    }
+    for (; i < l; i++) {
+        if (arr[i] === item) return i;
+    }
+    return -1;
 };

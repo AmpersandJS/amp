@@ -48,5 +48,11 @@ test('amp-remove-class', function (t) {
     el = removeClass(getEl('foobar'), 'foo', 'bar');
     t.equal(el.className, 'foobar');
 
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, 'hello there').className, 'oh', 'should support space separated string of classes');
+
+    el = getEl('oh hello there');
+    t.equal(removeClass(el, '\r  hello \t \nthere  ').className, 'oh', 'should support other weird whitespace when using a string of classes');
+
     t.end();
 });

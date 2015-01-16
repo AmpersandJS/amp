@@ -1,7 +1,9 @@
 var isString = require('amp-is-string');
+var whitespaceRE = /[\t\r\n\f]/g;
 
 
+// note: this is jQuery's approach
 module.exports = function hasClass(el, cls) {
-    var clsName = isString(el) ? el : el.className;
-    return (' ' + clsName + ' ').indexOf(' ' + cls + ' ') !== -1;
+    var cName = (isString(el) ? el : el.className).replace(whitespaceRE, ' ');
+    return (' ' + cName + ' ').indexOf(' ' + cls + ' ') !== -1;
 };

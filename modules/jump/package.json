@@ -1,0 +1,37 @@
+{
+  "name": "amp-jump",
+  "description": "jump function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "1.66 kB",
+      "minified": "283 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-index-of": "^1.0.0",
+    "amp-is-array": "^1.0.0",
+    "amp-is-number": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-jump",
+  "keywords": [
+    "amp",
+    "util",
+    "arrays"
+  ],
+  "license": "MIT",
+  "main": "jump.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

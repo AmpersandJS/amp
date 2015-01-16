@@ -5,11 +5,13 @@
   "unused": true,
   "trailing": true,
   "eqnull": true,
+  "loopfunc": true,
   "predef": [
     "require",
     "module",
     "__dirname",
     "setTimeout",
-    "document"
+    "document",
+    "process"
   ]
 }
