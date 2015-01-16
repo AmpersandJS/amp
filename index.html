@@ -4128,18 +4128,19 @@ omit({name: 'moe', age: 50, userid: 'moe1'}, function(value) {
 </code></pre>
             <div class="code">
               <button class="toggle">Show the code</button>
-              <pre style="display: none"><code class="lang-javascript hljs">var contains = require('amp-contains');
+              <pre style="display: none"><code class="lang-javascript hljs">var flatten = require('amp-internal-flatten');
 var isFunction = require('amp-is-function');
-var map = require('amp-map');
+var contains = require('amp-contains');
 var negate = require('amp-negate');
 var pick = require('amp-pick');
+var map = require('amp-map');
 
 
 module.exports = function omit(obj, iteratee, context) {
     if (isFunction(iteratee)) {
         iteratee = negate(iteratee);
     } else {
-        var keys = map(Array.prototype.concat.apply([], Array.prototype.slice.call(arguments, 1)), String);
+        var keys = map(flatten(arguments, false, false, 1), String);
         iteratee = function(value, key) {
             return !contains(keys, key);
         };
@@ -4191,7 +4192,7 @@ test('amp-omit', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~1.14 kB (<a href="#sizes">details</a>)</p>
+            <p>~1.35 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4220,6 +4221,14 @@ test('amp-omit', function (t) {
                           </ul>
                         </li>
                       </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="#amp-internal-flatten">amp-internal-flatten</a>
+                  <ul>
+                    <li><a href="#amp-is-arguments">amp-is-arguments</a>
+                    </li>
+                    <li><a href="#amp-is-array">amp-is-array</a>
                     </li>
                   </ul>
                 </li>
@@ -4283,6 +4292,14 @@ test('amp-omit', function (t) {
                   <ul>
                     <li><a href="#amp-create-callback">amp-create-callback</a>
                     </li>
+                    <li><a href="#amp-internal-flatten">amp-internal-flatten</a>
+                      <ul>
+                        <li><a href="#amp-is-arguments">amp-is-arguments</a>
+                        </li>
+                        <li><a href="#amp-is-array">amp-is-array</a>
+                        </li>
+                      </ul>
+                    </li>
                     <li><a href="#amp-is-function">amp-is-function</a>
                     </li>
                   </ul>
@@ -4298,6 +4315,9 @@ test('amp-omit', function (t) {
                 <li><a href="#amp-keys">amp-keys</a></li>
                 <li><a href="#amp-has">amp-has</a></li>
                 <li><a href="#amp-is-object">amp-is-object</a></li>
+                <li><a href="#amp-internal-flatten">amp-internal-flatten</a></li>
+                <li><a href="#amp-is-arguments">amp-is-arguments</a></li>
+                <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-is-function">amp-is-function</a></li>
                 <li><a href="#amp-map">amp-map</a></li>
                 <li><a href="#amp-iteratee">amp-iteratee</a></li>
@@ -4416,6 +4436,7 @@ pick({name: 'moe', age: 50, userid: 'moe1'}, function (value, key, object) {
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var createCallback = require('amp-create-callback');
 var isFunction = require('amp-is-function');
+var flatten = require('amp-internal-flatten');
 
 
 module.exports = function pick(obj, iteratee, context) {
@@ -4428,7 +4449,7 @@ module.exports = function pick(obj, iteratee, context) {
             if (iteratee(value, key, obj)) result[key] = value;
         }
     } else {
-        var keys = Array.prototype.concat.apply([], Array.prototype.slice.call(arguments, 1));
+        var keys = flatten(arguments, false, false, 1);
         obj = new Object(obj);
         for (var i = 0, length = keys.length; i &lt; length; i++) {
             key = keys[i];
@@ -4482,11 +4503,19 @@ test('amp-pick', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~339 B (<a href="#sizes">details</a>)</p>
+            <p>~555 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
                 <li><a href="#amp-create-callback">amp-create-callback</a>
+                </li>
+                <li><a href="#amp-internal-flatten">amp-internal-flatten</a>
+                  <ul>
+                    <li><a href="#amp-is-arguments">amp-is-arguments</a>
+                    </li>
+                    <li><a href="#amp-is-array">amp-is-array</a>
+                    </li>
+                  </ul>
                 </li>
                 <li><a href="#amp-is-function">amp-is-function</a>
                 </li>
@@ -4495,6 +4524,9 @@ test('amp-pick', function (t) {
             <div class="dependency-list">
               <ul>
                 <li><a href="#amp-create-callback">amp-create-callback</a></li>
+                <li><a href="#amp-internal-flatten">amp-internal-flatten</a></li>
+                <li><a href="#amp-is-arguments">amp-is-arguments</a></li>
+                <li><a href="#amp-is-array">amp-is-array</a></li>
                 <li><a href="#amp-is-function">amp-is-function</a></li>
               </ul>
             </div>

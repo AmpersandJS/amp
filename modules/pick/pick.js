@@ -1,5 +1,6 @@
 var createCallback = require('amp-create-callback');
 var isFunction = require('amp-is-function');
+var flatten = require('amp-internal-flatten');
 
 
 module.exports = function pick(obj, iteratee, context) {
@@ -12,7 +13,7 @@ module.exports = function pick(obj, iteratee, context) {
             if (iteratee(value, key, obj)) result[key] = value;
         }
     } else {
-        var keys = Array.prototype.concat.apply([], Array.prototype.slice.call(arguments, 1));
+        var keys = flatten(arguments, false, false, 1);
         obj = new Object(obj);
         for (var i = 0, length = keys.length; i < length; i++) {
             key = keys[i];
