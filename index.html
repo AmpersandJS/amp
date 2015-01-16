@@ -2375,7 +2375,8 @@ test('amp-pluck', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Returns the values in a collection without the elements that the truth test passes. The opposite of amp-filter.  Alternatively you can pass in an attributeObject to use for truth testing.</p>
+            <div><p>Returns the values in a collection without the elements that the truth test passes. The opposite of amp-filter. 
+Alternatively you can pass in an <code>attributeObject</code> to use for truth testing.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var reject = require('amp-reject');
@@ -2390,6 +2391,7 @@ reject([{a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}], {a: 1}); //[{a:
               <pre style="display: none"><code class="lang-javascript hljs">var negate = require('amp-negate');
 var filter = require('amp-filter');
 var iteratee = require('amp-iteratee');
+
 
 module.exports = function reject(obj, predicate, context) {
     return filter(obj, negate(iteratee(predicate)), context);
