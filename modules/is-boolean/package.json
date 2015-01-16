@@ -1,13 +1,13 @@
 {
   "name": "amp-is-boolean",
   "description": "is-boolean function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "84 B",
-      "minified": "17 B"
+      "original": "173 B",
+      "minified": "55 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

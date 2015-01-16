@@ -1,13 +1,13 @@
 {
   "name": "amp-invert",
   "description": "invert function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "2.03 kB",
-      "minified": "402 B"
+      "original": "2.14 kB",
+      "minified": "429 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

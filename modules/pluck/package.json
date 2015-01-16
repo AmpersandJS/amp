@@ -1,0 +1,36 @@
+{
+  "name": "amp-pluck",
+  "description": "pluck function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Michael Garvin <gar@andyet.net>",
+  "amp": {
+    "internal": false,
+    "size": {
+      "original": "5.55 kB",
+      "minified": "897 B"
+    }
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-map": "^1.0.0",
+    "amp-property": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-pluck",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "pluck.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

@@ -1,12 +1,12 @@
 {
   "name": "amp-toggle-class",
   "description": "toggle-class function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "size": {
-      "original": "3.66 kB",
-      "minified": "590 B"
+      "original": "4.55 kB",
+      "minified": "716 B"
     },
     "internal": false
   },
@@ -14,6 +14,7 @@
   "dependencies": {
     "amp-add-class": "^1.0.0",
     "amp-has-class": "^1.0.0",
+    "amp-is-function": "^1.0.1",
     "amp-is-undefined": "^1.0.0",
     "amp-remove-class": "^1.0.0"
   },

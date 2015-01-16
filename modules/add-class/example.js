@@ -17,3 +17,7 @@ element.outerHTML; //=> '<div class="oh hello there">greetings</div>';
 // using array
 addClass(element, ['foo', 'bar']); 
 element.outerHTML; //=> '<div class="oh hello there foo bar">greetings</div>';
+
+// add multiple at once with space-separated string
+addClass(element, 'baz boo'); 
+element.outerHTML; //=> '<div class="oh hello there baz boo">greetings</div>';

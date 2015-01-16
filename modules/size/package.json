@@ -1,13 +1,13 @@
 {
   "name": "amp-size",
   "description": "size function part of http://amp.ampersandjs.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "internal": false,
     "size": {
-      "original": "1.95 kB",
-      "minified": "390 B"
+      "original": "2.06 kB",
+      "minified": "420 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
