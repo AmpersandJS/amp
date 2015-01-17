@@ -2,6 +2,7 @@ var values = require('amp-values');
 var random = require('amp-random');
 var shuffle = require('amp-shuffle');
 
+
 module.exports = function sample(obj, n, guard) {
     if (n == null || guard) {
         if (obj.length !== +obj.length) obj = values(obj);
