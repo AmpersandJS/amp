@@ -5,18 +5,18 @@
   "author": "Martin Tietz <info@martin-tietz.com>",
   "amp": {
     "size": {
-      "original": "3.38 kB",
-      "minified": "623 B"
+      "original": "3.45 kB",
+      "minified": "651 B"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
-  "devDependencies": {
-    "tape": "^3.0.3"
-  },
   "dependencies": {
     "amp-create-callback": "^1.0.0",
     "amp-keys": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
   },
   "homepage": "http://amp.ampersandjs.com/#amp-reduce",
   "keywords": [

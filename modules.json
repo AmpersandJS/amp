@@ -77,6 +77,10 @@
       "license": "underscore"
     },
     {
+      "name": "reduce",
+      "license": "underscore"
+    },
+    {
       "name": "reject",
       "license": "underscore"
     },
@@ -86,10 +90,6 @@
     },
     {
       "name": "some",
-      "license": "underscore"
-    },
-    {
-      "name": "reduce",
       "license": "underscore"
     }
   ],
