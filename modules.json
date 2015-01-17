@@ -111,6 +111,10 @@
       "license": "underscore"
     },
     {
+      "name": "first",
+      "license": "underscore"
+    },
+    {
       "name": "flatten",
       "license": "underscore"
     },
