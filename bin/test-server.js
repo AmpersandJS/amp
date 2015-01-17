@@ -16,6 +16,7 @@ require('../modules/pluck/test');
 require('../modules/reject/test');
 require('../modules/size/test');
 require('../modules/some/test');
+require('../modules/reduce/test');
 require('../modules/difference/test');
 require('../modules/flatten/test');
 require('../modules/index-of/test');
