@@ -3,23 +3,26 @@
   "description": "merge function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
   "author": "Richard Torruellas <rtorruellas@gmail.com>",
-  "contributors": [{
-    "name": "Henrik Joreteg henrik@andyet.net",
-    "email": "henrik@andyet.net",
-    "url": "http://andyet.net/"
-    },{
-    "name": "Matt Wondra",
-    "email": "mattwondra@gmail.com",
-    "url": "http://mattwondra.com/"
-  }],
   "amp": {
     "internal": false,
     "size": {
-      "original": "526 B",
-      "minified": "111 B"
+      "original": "757 B",
+      "minified": "165 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
+  "contributors": [
+    {
+      "name": "Henrik Joreteg henrik@andyet.net",
+      "email": "henrik@andyet.net",
+      "url": "http://andyet.net/"
+    },
+    {
+      "name": "Matt Wondra",
+      "email": "mattwondra@gmail.com",
+      "url": "http://mattwondra.com/"
+    }
+  ],
   "dependencies": {
     "amp-extend": "^1.0.1"
   },

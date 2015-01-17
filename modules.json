@@ -85,11 +85,23 @@
       "license": "underscore"
     },
     {
+      "name": "sample",
+      "license": "underscore"
+    },
+    {
+      "name": "shuffle",
+      "license": "underscore"
+    },
+    {
       "name": "size",
       "license": "underscore"
     },
     {
       "name": "some",
+      "license": "underscore"
+    },
+    {
+      "name": "to-array",
       "license": "underscore"
     }
   ],
@@ -125,11 +137,11 @@
   ],
   "objects": [
     {
-      "name": "keys",
+      "name": "clone",
       "license": "underscore"
     },
     {
-      "name": "clone",
+      "name": "defaults",
       "license": "underscore"
     },
     {
@@ -145,12 +157,16 @@
       "license": "underscore"
     },
     {
-      "name": "defaults",
+      "name": "keys",
       "license": "underscore"
     },
     {
       "name": "matches",
       "license": "underscore"
+    },
+    {
+      "name": "merge",
+      "license": "amp"
     },
     {
       "name": "omit",
@@ -171,10 +187,6 @@
     {
       "name": "values",
       "license": "underscore"
-    },
-    {
-      "name": "merge",
-      "license": "amp"
     }
   ],
   "strings": [
