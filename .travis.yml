@@ -8,6 +8,13 @@ env:
   global:
   - secure: nQ9ciBKFWAbg6W0RlikyhgLgQF8PMhPbNaIFGC7zwkJ+1iOslYYYbE2Ve959v5fvX6TdCMiQRjzsZoH5PC+IdSxRJWau23m/6r8yRPKhouLAkHAEgRMEMHzOdVkk/HxYxtnMdJ9MfY58wjBfxAX0WR4W7TydUkLL6DLfUYZauTs=
   - secure: OKuVsB6Y19yGsRLkaKOXG3yOJouSCkzuVYrjBHahhZ3pCVFHY3829zEkeI1jZ0QcHSqIYhqpAFhrjLSEafqVQOTSkEjetQOPKTf4mPFBlxwSAgmFJocUEPnKpKuyYTorhddrM5kDrHcq1zscgwAaToamabIN7Pt9ykjPtvUb9b8=
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/df4440290bd89d941fb4
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
 addons:
   sauce_connect:
     username: codebear
