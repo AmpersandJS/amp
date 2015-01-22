@@ -1,0 +1,1 @@
+Returns a (stably) sorted copy of a collection, ranked in ascending order by the results of running each value through iteratee. Iteratee may also be the string name of the property to sort by (eg. `length`).

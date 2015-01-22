@@ -45,11 +45,11 @@
   ],
   "collections": [
     {
-      "name": "contains",
+      "name": "reduce",
       "license": "underscore"
     },
     {
-      "name": "each",
+      "name": "contains",
       "license": "underscore"
     },
     {
@@ -77,7 +77,7 @@
       "license": "underscore"
     },
     {
-      "name": "reduce",
+      "name": "each",
       "license": "underscore"
     },
     {
@@ -102,6 +102,10 @@
     },
     {
       "name": "to-array",
+      "license": "underscore"
+    },
+    {
+      "name": "sort-by",
       "license": "underscore"
     }
   ],
