@@ -1,0 +1,33 @@
+{
+  "name": "amp-async-each-series",
+  "description": "async each function that iterates over its items sequentially. Part of http://amp.ampersandjs.com.",
+  "version": "0.1.0",
+  "author": "Allain Lalonde <allain.lalonde@gmail.com>",
+  "amp": {
+
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-create-callback": "^1.0.0",
+    "amp-keys": "^1.0.0",
+    "amp-is-function": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-async-each-series",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "async-each-series.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
