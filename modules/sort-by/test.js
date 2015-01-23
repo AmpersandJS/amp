@@ -7,8 +7,16 @@ test('amp-sort-by', function (t) {
     people = sortBy(people, function(person){ return person.age; });
     t.deepEqual(pluck(people, 'name'), ['moe', 'curly'], 'stooges sorted by age');
 
-    var list = [undefined, 4, 1, undefined, 3, 2];
-    t.deepEqual(sortBy(list), [1, 2, 3, 4, undefined, undefined], 'sortBy with undefined values');
+    // these is written this way because IE does weird things
+    // with array literals that are declared with undefineds
+    // [undefined, 4, 1, undefined, 3, 2]
+    // [1, 2, 3, 4, undefined, undefined]
+    var list = [];
+    var expected = [];
+    expected.push(1, 2, 3, 4, undefined, undefined);
+    list.push(undefined, 4, 1, undefined, 3, 2);
+
+    t.deepEqual(sortBy(list), expected, 'sortBy with undefined values');
 
     list = ['one', 'two', 'three', 'four', 'five'];
     var sorted = sortBy(list, 'length');
