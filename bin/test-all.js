@@ -66,6 +66,7 @@ require('../modules/is-undefined/test');
 require('../modules/iteratee/test');
 require('../modules/random/test');
 require('../modules/result/test');
+require('../modules/times/test');
 require('../modules/unique-id/test');
 require('../modules/create-callback/test');
 require('../modules/internal-flatten/test');

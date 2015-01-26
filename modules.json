@@ -281,6 +281,10 @@
       "license": "underscore"
     },
     {
+      "name": "times",
+      "license": "underscore"
+    },
+    {
       "name": "unique-id",
       "license": "underscore"
     }
