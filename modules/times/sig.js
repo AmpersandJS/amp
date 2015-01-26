@@ -1,0 +1,1 @@
+times(number, function, *context);
