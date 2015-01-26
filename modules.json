@@ -123,6 +123,10 @@
       "license": "underscore"
     },
     {
+      "name": "intersection",
+      "license": "underscore"
+    },
+    {
       "name": "jump",
       "license": "amp"
     },
@@ -132,6 +136,10 @@
     },
     {
       "name": "range",
+      "license": "underscore"
+    },
+    {
+      "name": "union",
       "license": "underscore"
     },
     {

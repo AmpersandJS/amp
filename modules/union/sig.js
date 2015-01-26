@@ -1,0 +1,1 @@
+union(array, *otherArray);
