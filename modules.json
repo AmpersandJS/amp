@@ -137,6 +137,10 @@
     {
       "name": "unique",
       "license": "underscore"
+    },
+    {
+      "name": "sorted-push",
+      "license": "amp"
     }
   ],
   "objects": [

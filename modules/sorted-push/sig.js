@@ -1,0 +1,1 @@
+sortedPush(array, item, [comparator]);
