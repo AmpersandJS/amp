@@ -141,6 +141,10 @@
     {
       "name": "sorted-push",
       "license": "amp"
+    },
+    {
+      "name": "sorted-index",
+      "license": "underscore"
     }
   ],
   "objects": [
