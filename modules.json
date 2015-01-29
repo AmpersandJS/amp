@@ -101,6 +101,10 @@
       "license": "underscore"
     },
     {
+      "name": "sort-by",
+      "license": "underscore"
+    },
+    {
       "name": "to-array",
       "license": "underscore"
     }
@@ -141,6 +145,14 @@
     {
       "name": "union",
       "license": "underscore"
+    },
+    {
+      "name": "sorted-index",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-insert",
+      "license": "amp"
     },
     {
       "name": "unique",
