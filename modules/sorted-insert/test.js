@@ -1,9 +1,9 @@
 var test = require('tape');
-var sortedPush = require('./sorted-push');
+var sortedInsert = require('./sorted-insert');
 
-test('amp-sorted-push', function (t) {
+test('amp-sorted-insert', function (t) {
     var numbers = [1,3,5,7];
-    sortedPush(2, numbers);
+    sortedInsert(numbers, 2);
     t.equal(numbers.length, 5);
     t.equal(numbers[1], 2);
 
@@ -12,11 +12,11 @@ test('amp-sorted-push', function (t) {
     var pat = {name: 'Pat', rank: 1};
     var people = [robert, sally];
 
-    sortedPush(pat, people, 'rank');
+    sortedInsert(people, pat, 'rank');
     t.deepEqual(people, [pat, robert, sally]);
 
     people = [pat, robert];
-    sortedPush(sally, people, function (person) { return person.name.length; });
+    sortedInsert(people, sally, function (person) { return person.name.length; });
     t.deepEqual(people, [pat, sally, robert]);
     t.end();
 });

@@ -1,4 +1,4 @@
-Pushes an item onto an already sorted array in a way that leaves the
+Inserts an item onto an already sorted array in a way that leaves the
 array sorted.
 
 Uses a binary search using the new item and the items in the array to

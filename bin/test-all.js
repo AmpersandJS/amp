@@ -32,7 +32,7 @@ require('../modules/jump/test');
 require('../modules/last/test');
 require('../modules/range/test');
 require('../modules/unique/test');
-require('../modules/sorted-push/test');
+require('../modules/sorted-insert/test');
 require('../modules/sorted-index/test');
 require('../modules/clone/test');
 require('../modules/defaults/test');
