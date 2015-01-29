@@ -135,7 +135,7 @@
       "license": "underscore"
     },
     {
-      "name": "unique",
+      "name": "sorted-index",
       "license": "underscore"
     },
     {
@@ -143,7 +143,7 @@
       "license": "amp"
     },
     {
-      "name": "sorted-index",
+      "name": "unique",
       "license": "underscore"
     }
   ],

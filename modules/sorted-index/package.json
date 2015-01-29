@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
-    "size": {},
+    "size": {
+      "original": "5.15 kB",
+      "minified": "850 B"
+    },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

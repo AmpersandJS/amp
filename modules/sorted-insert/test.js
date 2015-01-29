@@ -1,6 +1,7 @@
 var test = require('tape');
 var sortedInsert = require('./sorted-insert');
 
+
 test('amp-sorted-insert', function (t) {
     var numbers = [1,3,5,7];
     sortedInsert(numbers, 2);

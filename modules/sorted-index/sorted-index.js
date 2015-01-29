@@ -1,5 +1,6 @@
 var iteratee = require('amp-iteratee');
 
+
 module.exports = function sortedIndex(array, obj, comparator, context) {
     comparator = iteratee(comparator, context, 1);
     var value = comparator(obj);

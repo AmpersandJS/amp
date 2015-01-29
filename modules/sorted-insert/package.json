@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "author": "Michael Garvin <gar@andyet.net>",
   "amp": {
-    "size": {},
+    "size": {
+      "original": "5.43 kB",
+      "minified": "896 B"
+    },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
