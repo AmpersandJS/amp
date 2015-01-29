@@ -139,6 +139,14 @@
       "license": "underscore"
     },
     {
+      "name": "sorted-index",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-insert",
+      "license": "amp"
+    },
+    {
       "name": "unique",
       "license": "underscore"
     }
