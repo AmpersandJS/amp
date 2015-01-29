@@ -149,6 +149,10 @@
     {
       "name": "unique",
       "license": "underscore"
+    },
+    {
+      "name": "compact",
+      "license": "amp"
     }
   ],
   "objects": [
