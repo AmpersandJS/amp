@@ -111,6 +111,10 @@
   ],
   "arrays": [
     {
+      "name": "compact",
+      "license": "underscore"
+    },
+    {
       "name": "difference",
       "license": "underscore"
     },
@@ -149,10 +153,6 @@
     {
       "name": "unique",
       "license": "underscore"
-    },
-    {
-      "name": "compact",
-      "license": "amp"
     }
   ],
   "objects": [
