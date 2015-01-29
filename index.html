@@ -4327,7 +4327,7 @@ test('amp-sorted-index', function (t) {
     var array = Array(Math.pow(2, 32) - 1);
     var length = values.length;
     while (length--) {
-      array[values[length]] = values[length];
+        array[values[length]] = values[length];
     }
     t.equal(sortedIndex(array, 2147483648), 2147483648, 'should work with large indexes');
     t.end();
@@ -4402,8 +4402,8 @@ test('amp-sorted-index', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Inserts an item onto an already sorted array in a way that leaves the
-array sorted and returns the index at which it was inserted.</p>
+            <div><p>Inserts an item onto an already sorted array (or array-like object) in a way that leaves the
+array sorted and returns the index at which the new item was inserted.</p>
 <p>Uses a binary search using the new item and the items in the array to
 determine where to put the new item.</p>
 <p>Sorting is done either by raw comparison (<code>&lt;</code>, <code>&gt;</code>, <code>=</code>) or via a
@@ -4447,11 +4447,12 @@ sortedInsert(people, sally, nameLength); //[{name: 'Pat', rank: 1}, {name: 'Sall
             <div class="code">
               <button class="toggle">Show the code</button>
               <pre style="display: none"><code class="lang-javascript hljs">var sortedIndex = require('amp-sorted-index');
+var splice = Array.prototype.splice;
 
 
 module.exports = function sortedInsert(array, item) {
     var index = sortedIndex.apply(this, arguments);
-    array.splice(index, 0, item);
+    splice.call(array, index, 0, item);
     return index;
 };
 </code></pre>
@@ -4472,19 +4473,34 @@ test('amp-sorted-insert', function (t) {
     var sally = {name: 'Sally', rank: 4};
     var pat = {name: 'Pat', rank: 1};
     var people = [robert, sally];
-
+    
     sortedInsert(people, pat, 'rank');
     t.deepEqual(people, [pat, robert, sally]);
 
     people = [pat, robert];
     sortedInsert(people, sally, function (person) { return person.name.length; });
     t.deepEqual(people, [pat, sally, robert]);
+
+    var arrayLike = {
+        0: 'a',
+        1: 'b',
+        length: 2
+    };
+    var index = sortedInsert(arrayLike, 'c');
+    t.equal(index, 2, 'should be inserted at 2');
+    t.deepEqual(arrayLike, {
+        0: 'a',
+        1: 'b',
+        2: 'c',
+        length: 3
+    }, 'should modify array-like object');
+
     t.end();
 });
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~896 B (<a href="#sizes">details</a>)</p>
+            <p>~905 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

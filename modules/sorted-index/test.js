@@ -23,7 +23,7 @@ test('amp-sorted-index', function (t) {
     var array = Array(Math.pow(2, 32) - 1);
     var length = values.length;
     while (length--) {
-      array[values[length]] = values[length];
+        array[values[length]] = values[length];
     }
     t.equal(sortedIndex(array, 2147483648), 2147483648, 'should work with large indexes');
     t.end();

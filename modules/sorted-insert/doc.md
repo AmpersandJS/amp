@@ -1,5 +1,5 @@
-Inserts an item onto an already sorted array in a way that leaves the
-array sorted and returns the index at which it was inserted.
+Inserts an item onto an already sorted array (or array-like object) in a way that leaves the
+array sorted and returns the index at which the new item was inserted.
 
 Uses a binary search using the new item and the items in the array to
 determine where to put the new item.
