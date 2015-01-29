@@ -35,6 +35,7 @@ require('../modules/range/test');
 require('../modules/sorted-index/test');
 require('../modules/sorted-insert/test');
 require('../modules/unique/test');
+require('../modules/compact/test');
 require('../modules/clone/test');
 require('../modules/defaults/test');
 require('../modules/extend/test');
