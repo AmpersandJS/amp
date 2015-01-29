@@ -2,6 +2,7 @@ var iteratee = require('amp-iteratee');
 var pluck = require('amp-pluck');
 var map = require('amp-map');
 
+
 module.exports = function sortBy(array, comparator, context) {
     comparator = iteratee(comparator, context);
     return pluck(map(array, function(value, index, list) {
