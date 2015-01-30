@@ -1,12 +1,9 @@
 var test = require('tape');
 var times = require('./times');
+var identity = function (x) { return x; };
+
 
 test('amp-times', function (t) {
-
-    function identity(x) {
-        return x;
-    }
-
     // is 0 indexed
     var vals = [];
     times(3, function (i) { vals.push(i); });
@@ -28,5 +25,4 @@ test('amp-times', function (t) {
     t.deepEqual(times(parseFloat('-Infinity'), identity), [], 'doesn\'t barf on -Infinity');
 
     t.end();
-
 });

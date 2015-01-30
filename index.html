@@ -1347,7 +1347,7 @@ test('amp-once', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Runs a function <code>n</code> times.</p>
+            <div><p>Runs a function <code>n</code> times and returns an <code>Array</code> containing all the accumulated results. Your iteratee function will be called with an <code>index</code> so it knows which iteration is currently running.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var times = require('amp-times');
@@ -1379,13 +1379,10 @@ module.exports = function times(n, iteratee, context) {
               <button class="toggle">Show the tests</button>
               <pre style="display: none"><code class="lang-javascript hljs">var test = require('tape');
 var times = require('./times');
+var identity = function (x) { return x; };
+
 
 test('amp-times', function (t) {
-
-    function identity(x) {
-        return x;
-    }
-
     // is 0 indexed
     var vals = [];
     times(3, function (i) { vals.push(i); });
@@ -1407,7 +1404,6 @@ test('amp-times', function (t) {
     t.deepEqual(times(parseFloat('-Infinity'), identity), [], 'doesn\'t barf on -Infinity');
 
     t.end();
-
 });
 </code></pre>
             </div>
