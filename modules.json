@@ -111,6 +111,10 @@
   ],
   "arrays": [
     {
+      "name": "compact",
+      "license": "underscore"
+    },
+    {
       "name": "difference",
       "license": "underscore"
     },
@@ -143,16 +147,16 @@
       "license": "underscore"
     },
     {
-      "name": "union",
-      "license": "underscore"
-    },
-    {
       "name": "sorted-index",
       "license": "underscore"
     },
     {
       "name": "sorted-insert",
       "license": "amp"
+    },
+    {
+      "name": "union",
+      "license": "underscore"
     },
     {
       "name": "unique",

@@ -5,15 +5,15 @@
   "author": "Philip Roberts <phil@andyet.com>",
   "amp": {
     "size": {
-      "original": "33 B",
-      "minified": "7 B"
+      "original": "8.44 kB",
+      "minified": "1.26 kB"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
   "dependencies": {
-    "amp-unique": "^1.0.0",
-    "amp-internal-flatten": "^1.0.0"
+    "amp-internal-flatten": "^1.0.0",
+    "amp-unique": "^1.0.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"
