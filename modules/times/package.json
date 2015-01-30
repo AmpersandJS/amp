@@ -21,7 +21,7 @@
   "keywords": [
     "amp",
     "util",
-    "utils"
+    "functions"
   ],
   "license": "MIT",
   "main": "times.js",
