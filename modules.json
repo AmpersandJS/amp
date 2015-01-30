@@ -101,11 +101,19 @@
       "license": "underscore"
     },
     {
+      "name": "sort-by",
+      "license": "underscore"
+    },
+    {
       "name": "to-array",
       "license": "underscore"
     }
   ],
   "arrays": [
+    {
+      "name": "compact",
+      "license": "underscore"
+    },
     {
       "name": "difference",
       "license": "underscore"
@@ -123,6 +131,10 @@
       "license": "underscore"
     },
     {
+      "name": "intersection",
+      "license": "underscore"
+    },
+    {
       "name": "jump",
       "license": "amp"
     },
@@ -132,6 +144,18 @@
     },
     {
       "name": "range",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-index",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-insert",
+      "license": "amp"
+    },
+    {
+      "name": "union",
       "license": "underscore"
     },
     {
