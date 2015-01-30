@@ -41,6 +41,10 @@
     {
       "name": "once",
       "license": "underscore"
+    },
+    {
+      "name": "times",
+      "license": "underscore"
     }
   ],
   "collections": [
@@ -302,10 +306,6 @@
     },
     {
       "name": "result",
-      "license": "underscore"
-    },
-    {
-      "name": "times",
       "license": "underscore"
     },
     {
