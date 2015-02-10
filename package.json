@@ -13,7 +13,7 @@
     "gzip-size": "^1.0.0",
     "http-server": "^0.7.3",
     "jade": "^1.7.0",
-    "js-size": "^1.0.2",
+    "js-size": "fyockm/js-size#uglify",
     "marked": "^0.3.2",
     "npm": "^2.1.10",
     "phantomjs": "^1.9.12",
@@ -24,7 +24,7 @@
     "tape": "^3.0.3",
     "tape-run": "^0.3.0",
     "through2": "^0.6.3",
-    "uglifyjs": "^2.3.6",
+    "uglify-js": "^2.4.16",
     "zuul": "1.13.1",
     "zuulnice": "^1.0.0"
   },
