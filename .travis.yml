@@ -4,10 +4,6 @@ node_js:
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-env:
-  global:
-  - secure: nQ9ciBKFWAbg6W0RlikyhgLgQF8PMhPbNaIFGC7zwkJ+1iOslYYYbE2Ve959v5fvX6TdCMiQRjzsZoH5PC+IdSxRJWau23m/6r8yRPKhouLAkHAEgRMEMHzOdVkk/HxYxtnMdJ9MfY58wjBfxAX0WR4W7TydUkLL6DLfUYZauTs=
-  - secure: OKuVsB6Y19yGsRLkaKOXG3yOJouSCkzuVYrjBHahhZ3pCVFHY3829zEkeI1jZ0QcHSqIYhqpAFhrjLSEafqVQOTSkEjetQOPKTf4mPFBlxwSAgmFJocUEPnKpKuyYTorhddrM5kDrHcq1zscgwAaToamabIN7Pt9ykjPtvUb9b8=
 notifications:
   webhooks:
     urls:
@@ -19,6 +15,5 @@ addons:
   sauce_connect:
     username: ampersandjs-ci
     access_key:
-      secure: "GrAsSxpswGASZXvKGbtvKp14oppHrEMfMIQNqF+wVlhkHlJpdpkZDFScEA/YKjgcWuT0T6AhqBfD5xldAyKEfoeCD1bejCTei3t9qJJL1Ol6vSreZwZnEFafFQhrv1CuOPMyV5inWAwaREQqAFOOihZBw3o/srQvLetIrPwupX0="
-      
+    secure: "oOuA29CKG77Lox3UguS4iXafAAlHZz0NEb1naCgnb63qWKRXxwRdjsKxOwWnFHaTL3SgQ1H9EVht5g8jygjsPIGJ5eb3yfFLHPEFp/Hk6D6x6Fp3OU4mxEYudhREb8u12r8lH3GQZzcQgLDMJRaN6IdY+3OOpiKYDdfL/BHIL0Y="      
 script: npm run test-ci
