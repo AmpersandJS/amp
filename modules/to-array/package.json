@@ -1,0 +1,38 @@
+{
+  "name": "amp-to-array",
+  "description": "to-array function part of http://amp.ampersandjs.com.",
+  "version": "1.0.1",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "6.36 kB",
+      "minified": "977 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-is-array": "^1.0.0",
+    "amp-map": "^1.0.0",
+    "amp-values": "^1.0.0"
+  },
+  "devDependencies": {
+    "amp-is-array": "^1.0.0",
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-to-array",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "to-array.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

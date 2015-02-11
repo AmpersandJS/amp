@@ -35,7 +35,15 @@
       "license": "underscore"
     },
     {
+      "name": "negate",
+      "license": "amp"
+    },
+    {
       "name": "once",
+      "license": "underscore"
+    },
+    {
+      "name": "times",
       "license": "underscore"
     }
   ],
@@ -57,7 +65,35 @@
       "license": "underscore"
     },
     {
+      "name": "find",
+      "license": "underscore"
+    },
+    {
+      "name": "invoke",
+      "license": "underscore"
+    },
+    {
       "name": "map",
+      "license": "underscore"
+    },
+    {
+      "name": "pluck",
+      "license": "underscore"
+    },
+    {
+      "name": "reduce",
+      "license": "underscore"
+    },
+    {
+      "name": "reject",
+      "license": "underscore"
+    },
+    {
+      "name": "sample",
+      "license": "underscore"
+    },
+    {
+      "name": "shuffle",
       "license": "underscore"
     },
     {
@@ -67,11 +103,27 @@
     {
       "name": "some",
       "license": "underscore"
+    },
+    {
+      "name": "sort-by",
+      "license": "underscore"
+    },
+    {
+      "name": "to-array",
+      "license": "underscore"
     }
   ],
   "arrays": [
     {
+      "name": "compact",
+      "license": "underscore"
+    },
+    {
       "name": "difference",
+      "license": "underscore"
+    },
+    {
+      "name": "first",
       "license": "underscore"
     },
     {
@@ -83,11 +135,31 @@
       "license": "underscore"
     },
     {
+      "name": "intersection",
+      "license": "underscore"
+    },
+    {
+      "name": "jump",
+      "license": "amp"
+    },
+    {
       "name": "last",
       "license": "underscore"
     },
     {
       "name": "range",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-index",
+      "license": "underscore"
+    },
+    {
+      "name": "sorted-insert",
+      "license": "amp"
+    },
+    {
+      "name": "union",
       "license": "underscore"
     },
     {
@@ -125,8 +197,20 @@
       "license": "underscore"
     },
     {
+      "name": "merge",
+      "license": "amp"
+    },
+    {
+      "name": "omit",
+      "license": "amp"
+    },
+    {
       "name": "pairs",
       "license": "underscore"
+    },
+    {
+      "name": "pick",
+      "license": "amp"
     },
     {
       "name": "property",
@@ -214,6 +298,10 @@
     },
     {
       "name": "iteratee",
+      "license": "underscore"
+    },
+    {
+      "name": "random",
       "license": "underscore"
     },
     {

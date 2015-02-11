@@ -1,0 +1,36 @@
+{
+  "name": "amp-reduce",
+  "description": "reduce function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Martin Tietz <info@martin-tietz.com>",
+  "amp": {
+    "size": {
+      "original": "3.45 kB",
+      "minified": "651 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-create-callback": "^1.0.0",
+    "amp-keys": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-reduce",
+  "keywords": [
+    "amp",
+    "util",
+    "collections"
+  ],
+  "license": "MIT",
+  "main": "reduce.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

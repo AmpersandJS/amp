@@ -1,0 +1,35 @@
+{
+  "name": "amp-times",
+  "description": "times function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Darcy Murphy <darcy.murphy@loudbit.com>",
+  "amp": {
+    "size": {
+      "original": "1.09 kB",
+      "minified": "178 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-create-callback": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-times",
+  "keywords": [
+    "amp",
+    "util",
+    "functions"
+  ],
+  "license": "MIT",
+  "main": "times.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

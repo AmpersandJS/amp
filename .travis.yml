@@ -4,14 +4,16 @@ node_js:
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-env:
-  global:
-  - secure: nQ9ciBKFWAbg6W0RlikyhgLgQF8PMhPbNaIFGC7zwkJ+1iOslYYYbE2Ve959v5fvX6TdCMiQRjzsZoH5PC+IdSxRJWau23m/6r8yRPKhouLAkHAEgRMEMHzOdVkk/HxYxtnMdJ9MfY58wjBfxAX0WR4W7TydUkLL6DLfUYZauTs=
-  - secure: OKuVsB6Y19yGsRLkaKOXG3yOJouSCkzuVYrjBHahhZ3pCVFHY3829zEkeI1jZ0QcHSqIYhqpAFhrjLSEafqVQOTSkEjetQOPKTf4mPFBlxwSAgmFJocUEPnKpKuyYTorhddrM5kDrHcq1zscgwAaToamabIN7Pt9ykjPtvUb9b8=
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/df4440290bd89d941fb4
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
 addons:
   sauce_connect:
-    username: codebear
+    username: ampersandjs-ci
     access_key:
-      secure: "Fsi0W/xt/ozUxOwpp0az06BkPoB1wTzK/UnlT9anwAZ57ptfxuAgEAGWe1y2VaTTlxk52q82x0Y6ES4iJ9P+69s5QtdEBqLHdTLM8RBsdXsIhVjoOMURnVpCXYDKnJfYyEb0tlJCac61v4ZmioFQDDNzk5OVqqb7oxF58n/ebwk="
-      
+      secure: "oOuA29CKG77Lox3UguS4iXafAAlHZz0NEb1naCgnb63qWKRXxwRdjsKxOwWnFHaTL3SgQ1H9EVht5g8jygjsPIGJ5eb3yfFLHPEFp/Hk6D6x6Fp3OU4mxEYudhREb8u12r8lH3GQZzcQgLDMJRaN6IdY+3OOpiKYDdfL/BHIL0Y="      
 script: npm run test-ci
