@@ -14,6 +14,5 @@ notifications:
 addons:
   sauce_connect:
     username: ampersandjs-ci
-    access_key:
-    secure: "oOuA29CKG77Lox3UguS4iXafAAlHZz0NEb1naCgnb63qWKRXxwRdjsKxOwWnFHaTL3SgQ1H9EVht5g8jygjsPIGJ5eb3yfFLHPEFp/Hk6D6x6Fp3OU4mxEYudhREb8u12r8lH3GQZzcQgLDMJRaN6IdY+3OOpiKYDdfL/BHIL0Y="      
+    access_key: secure: "oOuA29CKG77Lox3UguS4iXafAAlHZz0NEb1naCgnb63qWKRXxwRdjsKxOwWnFHaTL3SgQ1H9EVht5g8jygjsPIGJ5eb3yfFLHPEFp/Hk6D6x6Fp3OU4mxEYudhREb8u12r8lH3GQZzcQgLDMJRaN6IdY+3OOpiKYDdfL/BHIL0Y="      
 script: npm run test-ci
