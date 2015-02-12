@@ -1,6 +1,6 @@
 var prettyBytes = require('pretty-bytes');
 var browserify = require('browserify');
-var uglify = require('uglifyjs');
+var uglify = require('uglify-js');
 var gzip = require('gzip-size');
 var async = require('async');
 
@@ -39,7 +39,3 @@ b.bundle(function (err, js) {
         });
     });
 });
-
-
-
-
