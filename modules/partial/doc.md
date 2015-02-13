@@ -1,0 +1,1 @@
+Partially apply a function by filling in any number of its **arguments**, without changing its dynamic ```this``` value. You may pass ```partial``` in your list of arguments to specify an argument that should not be pre-filled, but left open to supply at call-time.

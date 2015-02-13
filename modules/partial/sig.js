@@ -1,0 +1,1 @@
+partial(function, *arguments);

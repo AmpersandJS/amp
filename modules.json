@@ -43,6 +43,10 @@
       "license": "underscore"
     },
     {
+      "name": "partial",
+      "license": "underscore"
+    },
+    {
       "name": "times",
       "license": "underscore"
     }
