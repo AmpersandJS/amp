@@ -1,0 +1,35 @@
+{
+  "name": "amp-to-kebab-case",
+  "description": "to-kebab-case function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Christopher Dieringer <cdaringe@gmail.com>",
+  "amp": {
+    "internal": false,
+    "size": {
+      "original": "519 B",
+      "minified": "139 B"
+    }
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-is-string": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-to-kebab-case",
+  "keywords": [
+    "amp",
+    "util",
+    "strings"
+  ],
+  "license": "MIT",
+  "main": "to-kebab-case.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
