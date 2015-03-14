@@ -28,7 +28,7 @@ It contains a standard set of files:
 
 For cross-browser testing on each push, things are set up to run against SauceLabs's browser VMs using Travis CI.
 
-### Running all the tests:
+### Running all the tests (minus saucelabs):
 
 - `npm test`
 
