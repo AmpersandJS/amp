@@ -235,6 +235,10 @@
       "license": "amp"
     },
     {
+      "name": "to-kebab-case",
+      "license": "amp"
+    },
+    {
       "name": "trim",
       "license": "amp"
     }
