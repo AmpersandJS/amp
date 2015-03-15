@@ -1,0 +1,35 @@
+{
+  "name": "amp-to-snake-case",
+  "description": "to-snake-case function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "David La Chasse <david.lachasse@gmail.com>",
+  "amp": {
+    "size": {
+      "original": "535 B",
+      "minified": "150 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-is-string": "^1.0.1"
+  },
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-to-snake-case",
+  "keywords": [
+    "amp",
+    "util",
+    "strings"
+  ],
+  "license": "MIT",
+  "main": "to-snake-case.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

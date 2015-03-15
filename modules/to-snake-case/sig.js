@@ -1,0 +1,1 @@
+toSnakeCase(string, [screaming]);

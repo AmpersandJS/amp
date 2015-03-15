@@ -235,6 +235,10 @@
       "license": "amp"
     },
     {
+      "name": "to-snake-case",
+      "license": "amp"
+    },
+    {
       "name": "trim",
       "license": "amp"
     }
