@@ -5,6 +5,7 @@ require('../modules/delay/test');
 require('../modules/limit-calls/test');
 require('../modules/negate/test');
 require('../modules/once/test');
+require('../modules/partial/test');
 require('../modules/times/test');
 require('../modules/contains/test');
 require('../modules/each/test');

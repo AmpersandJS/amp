@@ -18,7 +18,7 @@
     "amp-trim": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "^6.3.3",
+    "browserify": "^8.1.3",
     "tap-spec": "^2.1.0",
     "tape": "^3.0.3",
     "tape-run": "^0.3.0"
