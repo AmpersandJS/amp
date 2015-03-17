@@ -26,5 +26,17 @@ test('amp-sorted-index', function (t) {
         array[values[length]] = values[length];
     }
     t.equal(sortedIndex(array, 2147483648), 2147483648, 'should work with large indexes');
+
+    var comparator = function (a, b) {
+        if (a < b) {
+            return -1;
+        } else if (a > b) {
+            return 1;
+        }
+        return 0;
+    }
+    var indexWithComparator = sortedIndex(numbers, num, comparator);
+    t.equal(indexForNum, 3, '35 should be inserted at index 3 with two-parameter comparator');
+
     t.end();
 });
