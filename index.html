@@ -43,7 +43,7 @@
           <p>Many of the tests and implementations were ported from <a href="http://underscorejs.org/">Underscore.js</a> in order to benefit from its battle-tested code. Much props to <a href="https://twitter.com/jashkenas">Jeremy Ashkenas</a> and the other underscore contributors. This project would not exist if not for them and underscore's generous MIT license.</p>
         </section>
         <section><a name="sizes" href="#sizes" class="anchor">
-            <h2> <span class="header-link"></span>How filesizes are calculated</h2></a>
+            <h2><span class="header-link"></span>How filesizes are calculated</h2></a>
           <p>To give you a rough idea of what impact a given module will have on a browserify bundle's filesize we calculate it as follows:</p>
           <pre>   amp module (browserified, min + gzip)
  - empty file (browserified, min + gzip)
@@ -454,7 +454,7 @@ test('amp-remove-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~356 B (<a href="#sizes">details</a>)</p>
+            <p>~357 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -616,7 +616,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~716 B (<a href="#sizes">details</a>)</p>
+            <p>~717 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -681,6 +681,8 @@ test('amp-toggle-class', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-bind">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/bind">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.bind">lodash.bind</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Bind a function to an object, meaning that whenever the function is called, the value of <code>this</code> will be the object. Optionally, pass arguments to the function to pre-fill them, also known as partial application.</p>
 <p><strong>note:</strong> If you <em>know</em> you&#39;re in an environment where you&#39;ll have native <code>Function.prototype.bind</code> (such as node.js) there&#39;s really no reason not to just use that. It even does the partial application as described above. Many JS runtimes have it these days. Notable exceptions are Phantom.js and IE8 or older.</p>
@@ -794,7 +796,7 @@ test('amp-bind', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~305 B (<a href="#sizes">details</a>)</p>
+            <p>~307 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -821,6 +823,8 @@ test('amp-bind', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-debounce">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/debounce">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.debounce">lodash.debounce</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Creates and returns a new debounced version of the passed function which will postpone its execution until after <strong>wait</strong> milliseconds have elapsed since the last time it was invoked. This is useful for implementing behavior that should only happen after something has stopped occuring. For example: validating an input, recalculating a layout after the window has stopped being resized, and so on.</p>
 <p>Pass <code>true</code> for the <code>immediate</code> parameter to cause debounce to trigger the function on the leading instead of the trailing edge of the wait interval.</p>
@@ -993,7 +997,7 @@ test('debounce re-entrant', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~149 B (<a href="#sizes">details</a>)</p>
+            <p>~148 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -1012,6 +1016,8 @@ test('debounce re-entrant', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-delay">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/delay">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.delay">lodash.delay</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Slightly cleaner version of <code>setTimeout</code>, it invokes function after specified milliseconds. But also lets you set a context in which to call it (note that this differs from underscore&#39;s implementation).</p>
 <p>Returns the result of <code>setTimeout</code> so you can still use that with <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers.clearTimeout"><code>clearTimeout</code></a> if you need to halt it for some reason.</p>
@@ -1092,7 +1098,7 @@ test('amp-delay', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~343 B (<a href="#sizes">details</a>)</p>
+            <p>~345 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1124,6 +1130,8 @@ test('amp-delay', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-limit-calls">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/limit-calls">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.before">lodash.before</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Creates a version of the function that will be run a maximum of <code>limit</code> times. The result of the last function call is cached and returned for any subsequent calls.</p>
 </div>
@@ -1214,6 +1222,8 @@ test('amp-limit-calls', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-negate">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/negate">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.negate">lodash.negate</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a new negated version of the <strong>predicate</strong> function.</p>
 </div>
@@ -1267,6 +1277,8 @@ test('amp-negate', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-once">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/once">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.once">lodash.once</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later.</p>
 </div>
@@ -1346,6 +1358,8 @@ test('amp-once', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-times">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/times">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.times">lodash.times</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Runs a function <code>n</code> times and returns an <code>Array</code> containing all the accumulated results. Your iteratee function will be called with an <code>index</code> so it knows which iteration is currently running.</p>
 </div>
@@ -1432,6 +1446,8 @@ test('amp-times', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-contains">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/contains">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.contains">lodash.contains</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Determines whether the array or object contains an item. Returns <code>true</code> or <code>false</code>. Note that in the case of an object it checks the values not key names.</p>
 </div>
@@ -1525,6 +1541,8 @@ test('amp-contains', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-each">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/each">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.foreach">lodash.foreach</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>You can think of this as an <code>Array.prototype.forEach</code> that also works on objects and rather than returning <code>undefined</code> as the native <code>forEach</code> does, it returns the list/object you&#39;re iterating over.</p>
 <p>It iterates over all items in an array or keys in an object one at a time, passing each item to the function you supply. That function&#39;s <code>this</code> will be the context object, you provide if you passed one as a third argument.</p>
@@ -1650,7 +1668,7 @@ test('amp-each', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~582 B (<a href="#sizes">details</a>)</p>
+            <p>~583 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1693,6 +1711,8 @@ test('amp-each', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-every">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/every">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.every">lodash.every</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if all of the values in the collection pass the function test you provide and <code>false</code> otherwise. Stops looping once a single failure is found.</p>
 </div>
@@ -1778,7 +1798,7 @@ test('amp-every', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~865 B (<a href="#sizes">details</a>)</p>
+            <p>~867 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1858,6 +1878,8 @@ test('amp-every', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-filter">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/filter">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.filter">lodash.filter</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Looks through each value in the collection, returning an array of all the values that pass the truth test function you pass in.  Alternatively you can pass in an attributeObject to use for truth testing.</p>
 </div>
@@ -1924,7 +1946,7 @@ test('amp-filter', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~919 B (<a href="#sizes">details</a>)</p>
+            <p>~921 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2011,6 +2033,8 @@ test('amp-filter', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-find">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/find">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.find">lodash.find</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the first value in a collection that passes the truth test function you pass in, stopping once found. If none is found, it returns undefined. Alternatively you can pass in an <code>attributeObject</code> instead of a function to use for truth testing. This obviates the need for a <code>findWhere</code> module.</p>
 </div>
@@ -2197,6 +2221,8 @@ test('amp-find', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-invoke">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/invoke">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.invoke">lodash.invoke</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Calls the given <code>methodName</code> on each item in the list. Extra arguments will be used to call that method. Returns an array of results.</p>
 <p>If <code>methodName</code> is a function it will be applied to each item in the list as if it were a method on the object.</p>
@@ -2278,7 +2304,7 @@ test('amp-invoke', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~937 B (<a href="#sizes">details</a>)</p>
+            <p>~939 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2365,6 +2391,8 @@ test('amp-invoke', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-map">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/map">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.map">lodash.map</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns an new array of values by mapping each value in list through the function you provide (the iteratee). If passed an object instead of an array your function will be called with the arguments <code>(value, key, object)</code>.</p>
 <p>This works like <code>Array.prototype.map</code> but works for objects and works in IE &lt; 9.</p>
@@ -2451,7 +2479,7 @@ test('amp-map', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~867 B (<a href="#sizes">details</a>)</p>
+            <p>~868 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2531,6 +2559,8 @@ test('amp-map', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-pluck">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/pluck">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.pluck">lodash.pluck</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Extracts the named value of a property from every item in a collection and returns them in an array.</p>
 </div>
@@ -2575,7 +2605,7 @@ test('amp-pluck', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~897 B (<a href="#sizes">details</a>)</p>
+            <p>~898 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2662,6 +2692,8 @@ test('amp-pluck', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-reduce">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/reduce">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.reduce">lodash.reduce</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Boils down a list of values or an object into a single value. Memo is the initial state of the reduction, and each successive step of it should be returned by iteratee. Iteratee will be called with four arguments (memo, value, index || key, list || object).</p>
 <p>If no memo is passed to the initial invocation of reduce, the iteratee is not invoked on the first element of the list. Instead, the first element is passed as the memo in the invocation of the iteratee on the next element in the list.</p>
@@ -2791,6 +2823,8 @@ test('amp-reduce', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-reject">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/reject">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.reject">lodash.reject</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the values in a collection without the elements that the truth test passes. The opposite of amp-filter. 
 Alternatively you can pass in an <code>attributeObject</code> to use for truth testing.</p>
@@ -2975,6 +3009,8 @@ test('amp-reject', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-sample">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/sample">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.sample">lodash.sample</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <strong>n</strong> random values from a collection. If <strong>n</strong> is not specified, returns a single random element.</p>
 </div>
@@ -3025,7 +3061,7 @@ test('amp-sample', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~624 B (<a href="#sizes">details</a>)</p>
+            <p>~626 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3098,6 +3134,8 @@ test('amp-sample', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-shuffle">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/shuffle">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.shuffle">lodash.shuffle</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a shuffled copy of the list, using a version of the <a href="http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher-Yates shuffle</a>.</p>
 </div>
@@ -3199,6 +3237,8 @@ test('amp-shuffle', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-size">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/size">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.size">lodash.size</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Return the number of values in the list or keys (if you pass it an object).</p>
 </div>
@@ -3285,6 +3325,8 @@ test('amp-size', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-some">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/some">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.some">lodash.some</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if any of the values in the list pass the passed in test function. Stops iterating once found.</p>
 <p>If no test function is passed, looks for any &quot;truthy&quot; value.</p>
@@ -3377,7 +3419,7 @@ test('amp-some', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~861 B (<a href="#sizes">details</a>)</p>
+            <p>~863 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3457,6 +3499,8 @@ test('amp-some', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-sort-by">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/sort-by">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.sortby">lodash.sortby</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a (stably) sorted copy of a collection, ranked in ascending order by the results of running each value through the iteratee you provide. That iteratee can also be the string name of the property to sort by (eg. <code>length</code>).</p>
 </div>
@@ -3758,6 +3802,8 @@ test('amp-sort-by', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-to-array">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/to-array">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.toarray">lodash.toarray</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Creates a real <code>Array</code> from the list (anything that can be iterated over).</p>
 </div>
@@ -3918,6 +3964,8 @@ test('amp-to-array', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-compact">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/compact">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.compact">lodash.compact</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a copy of the array with all falsy values removed. This includes <code>false</code>, <code>null</code>, <code>0</code>, <code>&quot;&quot;</code>, <code>undefined</code> and <code>NaN</code>.</p>
 </div>
@@ -3953,7 +4001,7 @@ test('amp-compact', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~943 B (<a href="#sizes">details</a>)</p>
+            <p>~945 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4045,6 +4093,8 @@ test('amp-compact', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-difference">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/difference">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.difference">lodash.difference</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns all the values from the array that are not present in any of the other arrays.</p>
 </div>
@@ -4224,6 +4274,8 @@ test('amp-difference', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-first">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/first">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.first">lodash.first</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the first item(s) in an array. Passing <em>n</em> will return the first <em>n</em> items in the array. Also works on <code>arguments</code>.</p>
 </div>
@@ -4271,7 +4323,7 @@ test('amp-first', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~59 B (<a href="#sizes">details</a>)</p>
+            <p>~58 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4290,6 +4342,8 @@ test('amp-first', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-flatten">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/flatten">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.flatten">lodash.flatten</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Flattens a nested array (the nesting can be to any depth). If you pass <code>shallow</code>, the array will only be flattened a single level.</p>
 </div>
@@ -4376,6 +4430,8 @@ test('amp-flatten', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-index-of">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/index-of">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.indexof">lodash.indexof</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the index at which the item can be found in the array (also works for <code>arguments</code> object). Returns <code>-1</code> if value is not present. Unlike native implementations this won&#39;t throw an error if passed something other than an array, it&#39;ll just return <code>-1</code>. You can optionally pass a <code>fromIndex</code> as the third argument to start the search there.</p>
 </div>
@@ -4453,7 +4509,7 @@ test('amp-index-of', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~131 B (<a href="#sizes">details</a>)</p>
+            <p>~130 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4477,6 +4533,8 @@ test('amp-index-of', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-intersection">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/intersection">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.intersection">lodash.intersection</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Computes the list of values that are the intersection of all the arrays. Each value in the resulting array is present in each of the arrays.</p>
 <p>Any items in the result will be in the same order as they were in the first array passed to <code>intersection</code>.</p>
@@ -4547,7 +4605,7 @@ test('amp-intersection', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~569 B (<a href="#sizes">details</a>)</p>
+            <p>~571 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4713,7 +4771,7 @@ test('amp-jump', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~283 B (<a href="#sizes">details</a>)</p>
+            <p>~284 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4747,6 +4805,8 @@ test('amp-jump', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-last">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/last">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.last">lodash.last</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the last item(s) in an array. Passing <em>n</em> will return the last <em>n</em> items in the array. Also works on <code>arguments</code>.</p>
 </div>
@@ -4793,7 +4853,7 @@ test('amp-last', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~66 B (<a href="#sizes">details</a>)</p>
+            <p>~65 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4812,6 +4872,8 @@ test('amp-last', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-range">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/range">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.range">lodash.range</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>A function to create numbered lists of integers, handy for each and map loops. <code>start</code>, if omitted, defaults to <code>0</code>; step defaults to <code>1</code>. Returns an <code>Array</code> of integers from start to stop, incremented (or decremented) by step, exclusive. </p>
 <p>Note that ranges that stop before they start are considered to be zero-length instead of negative — if you&#39;d like a negative range, use a negative step.</p>
@@ -4885,6 +4947,8 @@ test('amp-range', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-sorted-index">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/sorted-index">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.sortedindex">lodash.sortedindex</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Find the smallest index at which an object should be inserted so as to
 maintain sort order using a binary search.</p>
@@ -5211,6 +5275,8 @@ test('amp-sorted-insert', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-union">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/union">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.union">lodash.union</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Computes the union of the passed-in arrays: the list of unique items, in order, that are present in one or more of the arrays.</p>
 </div>
@@ -5261,7 +5327,7 @@ test('amp-union', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~1.26 kB (<a href="#sizes">details</a>)</p>
+            <p>~1.27 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5376,6 +5442,8 @@ test('amp-union', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-unique">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/unique">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.uniq">lodash.uniq</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Produces a duplicate-free version of the array, (using === to test object equality, by default). </p>
 <p>If you know in advance that the array is sorted, passing <code>true</code> for isSorted will run a much faster algorithm. </p>
@@ -5611,6 +5679,8 @@ test('amp-unique', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-clone">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/clone">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.clone">lodash.clone</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Create a shallow-copied clone of the object. Any nested objects or arrays will be copied by reference, not duplicated.</p>
 </div>
@@ -5663,7 +5733,7 @@ test('amp-clone', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~220 B (<a href="#sizes">details</a>)</p>
+            <p>~219 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5697,6 +5767,8 @@ test('amp-clone', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-defaults">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/defaults">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.defaults">lodash.defaults</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Fills in <code>undefined</code> properties in the first object with the first value present in the passed list of defaults objects.</p>
 <p>A bit like <code>extend</code> except it&#39;s used to &quot;fill in gaps&quot; in first object with your defaults.</p>
@@ -5799,6 +5871,8 @@ test('amp-defaults', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-extend">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/extend">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.assign">lodash.assign</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Copy all of the properties in the source objects over to the destination object, and return the destination object. This is done in order, so the last source will override properties of the same name in previous arguments.</p>
 <p>Note that this is a shallow copy, meaning that nested objects won&#39;t be merged or extended.</p>
@@ -5907,6 +5981,8 @@ test('amp-extend', function(t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-has">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/has">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.has">lodash.has</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if the object contains the given key, <code>false</code> otherwise. Identical to <code>object.hasOwnProperty(key)</code>, but uses <code>Object.prototype.hasOwnProperty</code> directly in case it&#39;s been overridden on the object itself.</p>
 <p>Also, protects against some obscure quirks with enumerable built-ins in IE &lt; 9.</p>
@@ -5968,6 +6044,8 @@ test('amp-has', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-invert">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/invert">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.invert">lodash.invert</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a copy of the object where the keys have become the values and the values the keys. Your object&#39;s values should be unique and string serializable (a.k.a. <code>JSON.stringify</code>-able). If the values are not unique, inverting it would squash some keys, since keys in an object have to be unique.</p>
 </div>
@@ -6060,6 +6138,8 @@ test('amp-invert', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-keys">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/keys">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.keys">lodash.keys</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Retrieve all the names of the object&#39;s properties. This is much like <code>Object.keys</code> (in fact just uses it if it exists).  But there&#39;s with one difference, you can pass a non-object and it <em>won&#39;t throw</em> an error. It will always return an array. So any non-objects passed will just return <code>[]</code>.</p>
 </div>
@@ -6142,7 +6222,7 @@ test('amp-keys', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~382 B (<a href="#sizes">details</a>)</p>
+            <p>~383 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6177,6 +6257,8 @@ test('amp-keys', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-matches">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/matches">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.matches">lodash.matches</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a function that will tell you if a passed in object contains all of the key/value properties present in passed <code>attributeObject</code>.</p>
 </div>
@@ -6333,6 +6415,8 @@ test('amp-matches', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-merge">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/merge">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.merge">lodash.merge</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Merge source objects together and return a new object. This is done in order, so the last source will override properties of the same name in previous arguments.</p>
 <p>Note that this is a shallow copy, meaning that nested objects won&#39;t be merged or extended.</p>
@@ -6436,6 +6520,8 @@ test('amp-merge', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-omit">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/omit">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.omit">lodash.omit</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Return a copy of the <strong>object</strong>, filtered to omit the blacklisted <strong>keys</strong> (or array of keys). Alternatively accepts a predicate indicating which keys to omit.</p>
 </div>
@@ -6664,6 +6750,8 @@ test('amp-omit', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-pairs">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/pairs">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.pairs">lodash.pairs</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Convert an object into a list of <code>[key, value]</code> pairs.</p>
 </div>
@@ -6743,6 +6831,8 @@ test('amp-pairs', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-pick">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/pick">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.pick">lodash.pick</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Return a copy of the object, filtered to only have values for the whitelisted keys (or array of valid keys). Alternatively accepts a predicate indicating which keys to pick.</p>
 </div>
@@ -6865,6 +6955,8 @@ test('amp-pick', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-property">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/property">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.property">lodash.property</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns a function that will itself return the given <code>propertyName</code> of any passed-in object. Useful when iterating collections.</p>
 </div>
@@ -6923,6 +7015,8 @@ test('amp-property', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-values">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/values">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.values">lodash.values</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns all the values of an object&#39;s properties as an array.</p>
 </div>
@@ -7005,6 +7099,8 @@ test('amp-values', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-escape">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/escape">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.escape">lodash.escape</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Escapes (or unescapes) a string for insertion into HTML, by replacing <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>` </code>, and <code>&#39;</code> characters with their corresponding HTML entities.</p>
 <p>The vast majority of time you use this you just want to escape. But since 99% of the code is the same, there&#39;s also support for unescaping.</p>
@@ -7129,7 +7225,7 @@ test('amp-escape', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~571 B (<a href="#sizes">details</a>)</p>
+            <p>~572 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7169,6 +7265,8 @@ test('amp-escape', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-includes">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/includes">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.includes">lodash.includes</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if the first string contains the second string and <code>false</code> otherwise. You can also pass a <code>startIndex</code> as the third argument. If passed, the search will start at that index.</p>
 </div>
@@ -7231,6 +7329,8 @@ test('amp-includes', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-to-camel-case">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/to-camel-case">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.camelcase">lodash.camelcase</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Camel cases a string by removing all whitespace and <code>-</code> and <code>_</code> characters and capitalizing first letter following those. Takes a string like <code>&quot;hi world&quot;</code> and returns it as <code>hiWorld</code>. If you pass <code>true</code> as the second argument, it will also capitalize the first letter (sometimes referred to as Pascal case).</p>
 <p>Note that multiple adjacent whitespace or <code>-</code> and <code>_</code> characters are removed.</p>
@@ -7281,7 +7381,7 @@ test('amp-to-camel-case', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~163 B (<a href="#sizes">details</a>)</p>
+            <p>~162 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7305,6 +7405,8 @@ test('amp-to-camel-case', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-trim">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/trim">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.trim">lodash.trim</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Removes whitespace from both ends of the string.</p>
 </div>
@@ -7359,6 +7461,8 @@ test('amp-trim', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-arguments">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-arguments">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isarguments">lodash.isarguments</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is an <code>arguments</code> object and <code>false</code> for everything else.</p>
 </div>
@@ -7404,7 +7508,7 @@ test('amp-is-arguments', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~88 B (<a href="#sizes">details</a>)</p>
+            <p>~89 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -7423,6 +7527,8 @@ test('amp-is-arguments', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-array">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-array">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isarray">lodash.isarray</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is an <code>Array</code> and <code>false</code> for everything else. Uses native <code>Array.isArray</code> if available.</p>
 </div>
@@ -7479,6 +7585,8 @@ test('amp-is-array', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-boolean">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-boolean">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isboolean">lodash.isboolean</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is <code>true</code> or <code>false</code>. Returns <code>false</code> for everything else.</p>
 </div>
@@ -7542,6 +7650,8 @@ test('amp-is-boolean', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-date">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-date">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isdate">lodash.isdate</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is a <code>Date</code> and <code>false</code> for everything else.</p>
 </div>
@@ -7594,6 +7704,8 @@ test('amp-is-date', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-empty">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-empty">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isempty">lodash.isempty</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed an &quot;empty&quot; value and <code>false</code> for everything else.</p>
 <p>Empty is defined as:</p>
@@ -7727,6 +7839,8 @@ test('amp-is-empty', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-function">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-function">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isfunction">lodash.isfunction</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is a <code>Function</code> and <code>false</code> for everything else.</p>
 </div>
@@ -7792,6 +7906,8 @@ test('amp-is-function', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-nan">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-nan">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isnan">lodash.isnan</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Tests whether object passed in is a <code>NaN</code>. Native implementations of <code>isNaN</code> return <code>true</code> when passed <code>undefined</code>. So if you want to test whether <code>NaN</code> is exactly <code>NaN</code> this does that. </p>
 </div>
@@ -7853,6 +7969,8 @@ test('amp-is-nan', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-null">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-null">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isnull">lodash.isnull</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is <code>null</code> and <code>false</code> for everything else.</p>
 </div>
@@ -7884,7 +8002,7 @@ test('amp-is-null', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~13 B (<a href="#sizes">details</a>)</p>
+            <p>~14 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -7903,6 +8021,8 @@ test('amp-is-null', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-number">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-number">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isnumber">lodash.isnumber</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is a number and <code>false</code> for everything else.</p>
 </div>
@@ -7962,6 +8082,8 @@ test('amp-is-number', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-object">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isobject">lodash.isobject</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is an <code>Object</code>. Arrays and functions are objects too, while (normal) strings and numbers are not.</p>
 <p>So this is not a strict check per JS where <code>typeof null</code> returns <code>&#39;object&#39;</code>. This is a more practical runtime check that is useful for trying to find out whether you got passed an options object or a simple argument to a function.</p>
@@ -8029,6 +8151,8 @@ test('amp-is-object', function(t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-object-equal">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-object-equal">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isequal">lodash.isequal</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Performs an optimized deep comparison between the two objects, to determine if they should be considered equal.</p>
 </div>
@@ -8400,7 +8524,7 @@ test('amp-is-object-equal', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~809 B (<a href="#sizes">details</a>)</p>
+            <p>~810 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -8443,6 +8567,8 @@ test('amp-is-object-equal', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-regexp">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-regexp">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isregexp">lodash.isregexp</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is a a regular expression and <code>false</code> for everything else.</p>
 </div>
@@ -8495,6 +8621,8 @@ test('amp-is-regexp', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-string">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-string">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isstring">lodash.isstring</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is a string (including empty string) and <code>false</code> for everything else.</p>
 </div>
@@ -8552,6 +8680,8 @@ test('amp-is-string', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-is-undefined">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/is-undefined">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.isundefined">lodash.isundefined</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns <code>true</code> if passed value is <code>undefined</code> and <code>false</code> for everything else (including other falsy values, null, and NaN).</p>
 </div>
@@ -8607,6 +8737,8 @@ test('amp-is-undefined', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-iteratee">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/iteratee">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.callback">lodash.callback</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>An internal function to generate callbacks that can be applied to each element in a collection, returning the desired result — either identity, an arbitrary callback, a property matcher, or a property accessor. </p>
 <p>Used in many of the collection and array functions.</p>
@@ -8693,7 +8825,7 @@ test('amp-iteratee', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~772 B (<a href="#sizes">details</a>)</p>
+            <p>~774 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -8754,6 +8886,8 @@ test('amp-iteratee', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-random">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/random">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.random">lodash.random</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Return a random integer between min and max (inclusive).</p>
 <p>If only one number is passed, it is assumed to be the <code>max</code> and <code>min</code> will be <code>0</code>.</p>
@@ -8823,6 +8957,8 @@ test('amp-random', function (t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-result">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/result">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.result">lodash.result</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Returns the value of the named property, or if it&#39;s a function invoke it with the object as context. If no such property exists, returns <code>undefined</code> or the <code>defaultValue</code>. If <code>defaultValue</code> is a function it will be executed and its result returned.</p>
 </div>
@@ -8901,7 +9037,7 @@ test('amp-result', function(t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~136 B (<a href="#sizes">details</a>)</p>
+            <p>~137 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -8925,6 +9061,8 @@ test('amp-result', function(t) {
             <p class="module-links"><a href="https://www.npmjs.org/package/amp-unique-id">npm</a><a href="https://github.com/ampersandjs/amp/tree/master/modules/unique-id">github</a></p>
           </div>
           <div>
+            <h3>Lodash Version: <a href="https://www.npmjs.com/package/lodash.uniqueid">lodash.uniqueid</a></h3>
+            <div>The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.</div>
             <h3>Docs</h3>
             <div><p>Generates a simple integer-based unique ID string. This is <em>not</em> a uuid, it&#39;s for simpler things like ids for DOM elements or client instances. Its uniqueness is only guaranteed by the fact that it&#39;s a single, global, always incremented counter. If a prefix is passed, the id will be appended to it.</p>
 <p>In order to ensure uniqueness in the case where two instances of this module is required, we keep the counter variable attached to <code>window</code> or <code>global</code> (in the case of node).</p>
@@ -9071,7 +9209,7 @@ test('amp-create-callback', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~99 B (<a href="#sizes">details</a>)</p>
+            <p>~98 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -9174,7 +9312,7 @@ test('amp-internal-flatten', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~261 B (<a href="#sizes">details</a>)</p>
+            <p>~260 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

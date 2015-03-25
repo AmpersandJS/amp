@@ -4,14 +4,14 @@ block vars
 mixin renderDep(obj, first)
   if (first && !obj.deps.length)
     p (none)
-  else 
+  else
     ul
       each dep in obj.deps
         li
           a(href='#' + dep.data.name)= dep.data.name
           if (dep.deps.length)
             +renderDep(dep)
-        
+
 
 extends templates/layout
 
@@ -61,7 +61,7 @@ block content
 
       section
         a.anchor(name= 'sizes', href= '#sizes')
-          h2 
+          h2
             span.header-link
             | How filesizes are calculated
 
@@ -89,6 +89,10 @@ block content
               a(href='https://github.com/ampersandjs/amp/tree/master/modules/#{module.bareName}') github
 
           div
+            if module.lodash
+              h3 Lodash Version: <a href="https://www.npmjs.com/package/#{module.lodash}">#{module.lodash}</a>
+              div The lodash project now has an independently versioned module that serves the same purpose as this. We recommend you use it for new projects. See <a href="http://blog.andyet.com/2015/03/25/amped-down">this post</a> for more details.
+
             h3 Docs
 
             div!= module.docHtml
@@ -96,7 +100,7 @@ block content
             h3 Example Usage
             pre
               code.lang-javascript.hljs= module.exampleCode
-            
+
             .code
               button.toggle Show the code
               pre(style='display: none')
@@ -105,8 +109,8 @@ block content
             .tests
               button.toggle Show the tests
               pre(style='display: none')
-                code.lang-javascript.hljs= module.test 
-            
+                code.lang-javascript.hljs= module.test
+
             h3 Estimated bundle size increase
 
             p ~#{module.pack.amp.size.minified} (
@@ -117,7 +121,7 @@ block content
 
             div(style='display: none')
               +renderDep(module.dependencyTree, true)
-            
+
             div.dependency-list
               - if (Object.keys(module.dependencyList).length)
                 ul

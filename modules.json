@@ -20,123 +20,152 @@
   "functions": [
     {
       "name": "bind",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.bind"
     },
     {
       "name": "debounce",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.debounce"
     },
     {
       "name": "delay",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.delay"
     },
     {
       "name": "limit-calls",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.before"
     },
     {
       "name": "negate",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.negate"
     },
     {
       "name": "once",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.once"
     },
     {
       "name": "times",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.times"
     }
   ],
   "collections": [
     {
       "name": "contains",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.contains"
     },
     {
       "name": "each",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.foreach"
     },
     {
       "name": "every",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.every"
     },
     {
       "name": "filter",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.filter"
     },
     {
       "name": "find",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.find"
     },
     {
       "name": "invoke",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.invoke"
     },
     {
       "name": "map",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.map"
     },
     {
       "name": "pluck",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.pluck"
     },
     {
       "name": "reduce",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.reduce"
     },
     {
       "name": "reject",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.reject"
     },
     {
       "name": "sample",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.sample"
     },
     {
       "name": "shuffle",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.shuffle"
     },
     {
       "name": "size",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.size"
     },
     {
       "name": "some",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.some"
     },
     {
       "name": "sort-by",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.sortby"
     },
     {
       "name": "to-array",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.toarray"
     }
   ],
   "arrays": [
     {
       "name": "compact",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.compact"
     },
     {
       "name": "difference",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.difference"
     },
     {
       "name": "first",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.first"
     },
     {
       "name": "flatten",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.flatten"
     },
     {
       "name": "index-of",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.indexof"
     },
     {
       "name": "intersection",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.intersection"
     },
     {
       "name": "jump",
@@ -144,15 +173,18 @@
     },
     {
       "name": "last",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.last"
     },
     {
       "name": "range",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.range"
     },
     {
       "name": "sorted-index",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.sortedindex"
     },
     {
       "name": "sorted-insert",
@@ -160,157 +192,194 @@
     },
     {
       "name": "union",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.union"
     },
     {
       "name": "unique",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.uniq"
     }
   ],
   "objects": [
     {
       "name": "clone",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.clone"
     },
     {
       "name": "defaults",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.defaults"
     },
     {
       "name": "extend",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.assign"
     },
     {
       "name": "has",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.has"
     },
     {
       "name": "invert",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.invert"
     },
     {
       "name": "keys",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.keys"
     },
     {
       "name": "matches",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.matches"
     },
     {
       "name": "merge",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.merge"
     },
     {
       "name": "omit",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.omit"
     },
     {
       "name": "pairs",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.pairs"
     },
     {
       "name": "pick",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.pick"
     },
     {
       "name": "property",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.property"
     },
     {
       "name": "values",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.values"
     }
   ],
   "strings": [
     {
       "name": "escape",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.escape"
     },
     {
       "name": "includes",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.includes"
     },
     {
       "name": "to-camel-case",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.camelcase"
     },
     {
       "name": "trim",
-      "license": "amp"
+      "license": "amp",
+      "lodash": "lodash.trim"
     }
   ],
   "utils": [
     {
       "name": "is-arguments",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isarguments"
     },
     {
       "name": "is-array",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isarray"
     },
     {
       "name": "is-boolean",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isboolean"
     },
     {
       "name": "is-date",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isdate"
     },
     {
       "name": "is-empty",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isempty"
     },
     {
       "name": "is-function",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isfunction"
     },
     {
       "name": "is-nan",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isnan"
     },
     {
       "name": "is-null",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isnull"
     },
     {
       "name": "is-number",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isnumber"
     },
     {
       "name": "is-object",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isobject"
     },
     {
       "name": "is-object-equal",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isequal"
     },
     {
       "name": "is-regexp",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isregexp"
     },
     {
       "name": "is-string",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isstring"
     },
     {
       "name": "is-undefined",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.isundefined"
     },
     {
       "name": "iteratee",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.callback"
     },
     {
       "name": "random",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.random"
     },
     {
       "name": "result",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.result"
     },
     {
       "name": "unique-id",
-      "license": "underscore"
+      "license": "underscore",
+      "lodash": "lodash.uniqueid"
     }
   ],
   "internal": [
