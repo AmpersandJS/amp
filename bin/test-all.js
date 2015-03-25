@@ -56,6 +56,7 @@ require('../modules/escape/test');
 require('../modules/includes/test');
 require('../modules/to-camel-case/test');
 require('../modules/trim/test');
+require('../modules/array-to-readable/test');
 require('../modules/is-arguments/test');
 require('../modules/is-array/test');
 require('../modules/is-boolean/test');

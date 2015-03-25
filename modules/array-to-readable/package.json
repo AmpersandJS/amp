@@ -1,30 +1,27 @@
 {
-  "name": "amp-intersection",
-  "description": "intersection function part of http://amp.ampersandjs.com.",
+  "name": "amp-array-to-readable",
+  "description": "array-to-readable function part of http://amp.ampersandjs.com.",
   "version": "1.0.0",
-  "author": "Philip Roberts <phil@andyet.net>",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
   "amp": {
     "size": {
-      "original": "3.04 kB",
-      "minified": "571 B"
+      "original": "473 B",
+      "minified": "119 B"
     },
     "internal": false
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",
-  "dependencies": {
-    "amp-contains": "^1.0.0"
-  },
   "devDependencies": {
     "tape": "^3.0.3"
   },
-  "homepage": "http://amp.ampersandjs.com/#amp-intersection",
+  "homepage": "http://amp.ampersandjs.com/#amp-array-to-readable",
   "keywords": [
     "amp",
     "util",
-    "arrays"
+    "utils"
   ],
   "license": "MIT",
-  "main": "intersection.js",
+  "main": "array-to-readable.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ampersandjs/amp"
