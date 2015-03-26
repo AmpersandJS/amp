@@ -292,6 +292,10 @@
   ],
   "utils": [
     {
+      "name": "array-to-readable",
+      "license": "amp"
+    },
+    {
       "name": "is-arguments",
       "license": "underscore",
       "lodash": "lodash.isarguments"
