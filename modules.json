@@ -5,11 +5,19 @@
       "license": "amp"
     },
     {
+      "name": "create-element",
+      "license": "amp"
+    },
+    {
       "name": "has-class",
       "license": "amp"
     },
     {
       "name": "remove-class",
+      "license": "amp"
+    },
+    {
+      "name": "set-attribute",
       "license": "amp"
     },
     {
