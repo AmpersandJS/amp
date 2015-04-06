@@ -6,13 +6,16 @@ var isArray = require('amp-is-array');
 module.exports = function createElement(name, text, attrs, children) {
     if (!document) return;
     if (!isString(text)) {
-        children = attrs;
-        attrs = text;
-        text = null;
-        // name, attrs, children
-        if (isArray(attrs)) {
-            children = attrs;
+        // got name, children
+        if (isArray(text)) {
+            children = text;
             attrs = null;
+            text = null;
+        // got name, attrs, [children]
+        } else {
+            children = attrs;
+            attrs = text;
+            text = null;
         }
     } else {
         // name, text, children

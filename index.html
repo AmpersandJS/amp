@@ -227,7 +227,7 @@ test('amp-add-class', function (t) {
           </div>
           <div>
             <h3>Docs</h3>
-            <div><p>Nicer API for <code>document.createElement</code>. Rather than just taking a single argument, takes name of tag, optinally text, attributes (as an object) and optionally an array of child elements.</p>
+            <div><p>Nicer API for <code>document.createElement</code>. Rather than just taking a single argument, takes name of tag, optionally text, attributes (as an object) and optionally an array of child elements.</p>
 <p>Possible argument styles:</p>
 <p><code>(name)</code>
 <code>(name, innerText)</code>
@@ -237,6 +237,7 @@ test('amp-add-class', function (t) {
 <code>(name, attrs)</code>
 <code>(name, attrs, children)</code>
 <code>(name, children)</code></p>
+<p><strong>Note:</strong> this doesn&#39;t handle every possible use case. For example, you can&#39;t directly generate <code>&lt;p&gt;a &lt;small&gt;small&lt;/small&gt; thing&lt;/p&gt;</code> for example as there&#39;s no way to specify text nodes containing HTML. For these uses there are plenty of options for templating HTML. This is meant to simply the common use case of generating simple elements with attributes or text.</p>
 </div>
             <h3>Example Usage</h3>
             <pre><code class="lang-javascript hljs">var createElement = require('amp-create-element');
@@ -279,13 +280,16 @@ var isArray = require('amp-is-array');
 module.exports = function createElement(name, text, attrs, children) {
     if (!document) return;
     if (!isString(text)) {
-        children = attrs;
-        attrs = text;
-        text = null;
-        // name, attrs, children
-        if (isArray(attrs)) {
-            children = attrs;
+        // got name, children
+        if (isArray(text)) {
+            children = text;
             attrs = null;
+            text = null;
+        // got name, attrs, [children]
+        } else {
+            children = attrs;
+            attrs = text;
+            text = null;
         }
     } else {
         // name, text, children
@@ -374,7 +378,7 @@ test('amp-create-element', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~403 B (<a href="#sizes">details</a>)</p>
+            <p>~408 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
