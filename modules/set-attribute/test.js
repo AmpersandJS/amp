@@ -17,17 +17,28 @@ test('amp-set-attribute', function (t) {
 
     el = getEl();
     setAttribute(el, {class: 'active', thing: true});
-    t.equal(el.outerHTML, '<div class="active" thing=""></div>', 'supports objects');
+
+    // FF puts them in a different order
+    var opt1 = '<div class="active" thing=""></div>';
+    var opt2 = '<div thing="" class="active"></div>';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'supports objects');
+
     setAttribute(el, {class: false, thing: false});
     t.equal(el.outerHTML, '<div></div>', 'allows deletion via objects with false');
 
     el = getEl();
     setAttribute(el, {class: null, other: undefined, thing: NaN});
-    t.equal(el.outerHTML, '<div class="" other="" thing=""></div>', 'does not set attributes to falsy values');
+
+    opt1 = '<div class="" other="" thing=""></div>';
+    opt2 = '<div thing="" other="" class=""></div>';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'does not set attributes to falsy values');
 
     el = getEl();
     setAttribute(el, {thing: 0, other: 47});
-    t.equal(el.outerHTML, '<div thing="0" other="47"></div>', 'handles numbers, including 0');
+
+    opt1 = '<div thing="0" other="47"></div>';
+    opt2 = '<div other="47" thing="0"></div>';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'handles numbers, including 0');
 
     input = document.createElement('input');
     setAttribute(input, {value: 'hello'});

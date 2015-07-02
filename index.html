@@ -189,7 +189,7 @@ test('amp-add-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~408 B (<a href="#sizes">details</a>)</p>
+            <p>~407 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -303,7 +303,7 @@ module.exports = function createElement(name, text, attrs, children) {
         el = setAttribute(el, attrs);
     }
     if (text) {
-        el.innerText = text;
+        el.textContent = text;
     }
     if (children) {
         for (var i = 0, l = children.length; i &lt; l; i++) {
@@ -324,16 +324,29 @@ test('amp-create-element', function (t) {
     var el;
 
     el = createElement('div', {stuff: 'yup', things: 'also yes'});
-    t.equal(el.outerHTML, '&lt;div stuff=&quot;yup&quot; things=&quot;also yes&quot;&gt;&lt;/div&gt;');
+
+    // order doesn't matter
+    var opt1 = '&lt;div stuff=&quot;yup&quot; things=&quot;also yes&quot;&gt;&lt;/div&gt;';
+    var opt2 = '&lt;div things=&quot;also yes&quot; stuff=&quot;yup&quot;&gt;&lt;/div&gt;';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'should generate one of two options');
 
     el = createElement('ul', {'class': 'a', bool: true}, [
         createElement('li', 'ok'),
         createElement('li', 'now')
     ]);
-    t.equal(el.outerHTML, '&lt;ul class=&quot;a&quot; bool=&quot;&quot;&gt;&lt;li&gt;ok&lt;/li&gt;&lt;li&gt;now&lt;/li&gt;&lt;/ul&gt;');
+
+    opt1 = '&lt;ul class=&quot;a&quot; bool=&quot;&quot;&gt;&lt;li&gt;ok&lt;/li&gt;&lt;li&gt;now&lt;/li&gt;&lt;/ul&gt;';
+    opt2 = '&lt;ul bool=&quot;&quot; class=&quot;a&quot;&gt;&lt;li&gt;ok&lt;/li&gt;&lt;li&gt;now&lt;/li&gt;&lt;/ul&gt;';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'should support nesting');
 
     el = createElement('meta', {name: 'mobile-web-app-capable', content: 'yes'});
-    t.equal(el.outerHTML, '&lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;');
+
+    opt1 = '&lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;';
+    opt2 = '&lt;meta content=&quot;yes&quot; name=&quot;mobile-web-app-capable&quot;&gt;';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'supports meta tags');
 
     /*
     possible argument styles
@@ -478,7 +491,7 @@ test('amp-has-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~131 B (<a href="#sizes">details</a>)</p>
+            <p>~132 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -636,7 +649,7 @@ test('amp-remove-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~357 B (<a href="#sizes">details</a>)</p>
+            <p>~355 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -765,17 +778,28 @@ test('amp-set-attribute', function (t) {
 
     el = getEl();
     setAttribute(el, {class: 'active', thing: true});
-    t.equal(el.outerHTML, '&lt;div class=&quot;active&quot; thing=&quot;&quot;&gt;&lt;/div&gt;', 'supports objects');
+
+    // FF puts them in a different order
+    var opt1 = '&lt;div class=&quot;active&quot; thing=&quot;&quot;&gt;&lt;/div&gt;';
+    var opt2 = '&lt;div thing=&quot;&quot; class=&quot;active&quot;&gt;&lt;/div&gt;';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'supports objects');
+
     setAttribute(el, {class: false, thing: false});
     t.equal(el.outerHTML, '&lt;div&gt;&lt;/div&gt;', 'allows deletion via objects with false');
 
     el = getEl();
     setAttribute(el, {class: null, other: undefined, thing: NaN});
-    t.equal(el.outerHTML, '&lt;div class=&quot;&quot; other=&quot;&quot; thing=&quot;&quot;&gt;&lt;/div&gt;', 'does not set attributes to falsy values');
+
+    opt1 = '&lt;div class=&quot;&quot; other=&quot;&quot; thing=&quot;&quot;&gt;&lt;/div&gt;';
+    opt2 = '&lt;div thing=&quot;&quot; other=&quot;&quot; class=&quot;&quot;&gt;&lt;/div&gt;';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'does not set attributes to falsy values');
 
     el = getEl();
     setAttribute(el, {thing: 0, other: 47});
-    t.equal(el.outerHTML, '&lt;div thing=&quot;0&quot; other=&quot;47&quot;&gt;&lt;/div&gt;', 'handles numbers, including 0');
+
+    opt1 = '&lt;div thing=&quot;0&quot; other=&quot;47&quot;&gt;&lt;/div&gt;';
+    opt2 = '&lt;div other=&quot;47&quot; thing=&quot;0&quot;&gt;&lt;/div&gt;';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'handles numbers, including 0');
 
     input = document.createElement('input');
     setAttribute(input, {value: 'hello'});
@@ -787,7 +811,7 @@ test('amp-set-attribute', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~175 B (<a href="#sizes">details</a>)</p>
+            <p>~170 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -938,7 +962,7 @@ test('amp-toggle-class', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~717 B (<a href="#sizes">details</a>)</p>
+            <p>~712 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1118,7 +1142,7 @@ test('amp-bind', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~307 B (<a href="#sizes">details</a>)</p>
+            <p>~305 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1319,7 +1343,7 @@ test('debounce re-entrant', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~148 B (<a href="#sizes">details</a>)</p>
+            <p>~146 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -1420,7 +1444,7 @@ test('amp-delay', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~345 B (<a href="#sizes">details</a>)</p>
+            <p>~343 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1525,7 +1549,7 @@ test('amp-limit-calls', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~45 B (<a href="#sizes">details</a>)</p>
+            <p>~43 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -1580,7 +1604,7 @@ test('amp-negate', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~29 B (<a href="#sizes">details</a>)</p>
+            <p>~27 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -1744,7 +1768,7 @@ test('amp-times', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~178 B (<a href="#sizes">details</a>)</p>
+            <p>~174 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1812,7 +1836,7 @@ test('amp-contains', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~484 B (<a href="#sizes">details</a>)</p>
+            <p>~488 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -1990,7 +2014,7 @@ test('amp-each', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~583 B (<a href="#sizes">details</a>)</p>
+            <p>~578 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2120,7 +2144,7 @@ test('amp-every', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~867 B (<a href="#sizes">details</a>)</p>
+            <p>~862 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2268,7 +2292,7 @@ test('amp-filter', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~921 B (<a href="#sizes">details</a>)</p>
+            <p>~917 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2424,7 +2448,7 @@ test('amp-find', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~919 B (<a href="#sizes">details</a>)</p>
+            <p>~917 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2801,7 +2825,7 @@ test('amp-map', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~868 B (<a href="#sizes">details</a>)</p>
+            <p>~867 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -2927,7 +2951,7 @@ test('amp-pluck', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~898 B (<a href="#sizes">details</a>)</p>
+            <p>~897 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3102,7 +3126,7 @@ test('amp-reduce', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~651 B (<a href="#sizes">details</a>)</p>
+            <p>~650 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3202,7 +3226,7 @@ test('amp-reject', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~986 B (<a href="#sizes">details</a>)</p>
+            <p>~983 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3383,7 +3407,7 @@ test('amp-sample', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~626 B (<a href="#sizes">details</a>)</p>
+            <p>~628 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3511,7 +3535,7 @@ test('amp-shuffle', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~560 B (<a href="#sizes">details</a>)</p>
+            <p>~565 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3607,7 +3631,7 @@ test('amp-size', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~420 B (<a href="#sizes">details</a>)</p>
+            <p>~422 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -3741,7 +3765,7 @@ test('amp-some', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~863 B (<a href="#sizes">details</a>)</p>
+            <p>~861 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4323,7 +4347,7 @@ test('amp-compact', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~945 B (<a href="#sizes">details</a>)</p>
+            <p>~944 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4645,7 +4669,7 @@ test('amp-first', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~58 B (<a href="#sizes">details</a>)</p>
+            <p>~56 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -4720,7 +4744,7 @@ test('amp-flatten', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~299 B (<a href="#sizes">details</a>)</p>
+            <p>~298 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -4831,7 +4855,7 @@ test('amp-index-of', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~130 B (<a href="#sizes">details</a>)</p>
+            <p>~127 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5093,7 +5117,7 @@ test('amp-jump', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~284 B (<a href="#sizes">details</a>)</p>
+            <p>~279 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5175,7 +5199,7 @@ test('amp-last', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~65 B (<a href="#sizes">details</a>)</p>
+            <p>~63 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -5250,7 +5274,7 @@ test('amp-range', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~86 B (<a href="#sizes">details</a>)</p>
+            <p>~83 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -5361,7 +5385,7 @@ test('amp-sorted-index', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~853 B (<a href="#sizes">details</a>)</p>
+            <p>~851 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5526,7 +5550,7 @@ test('amp-sorted-insert', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~905 B (<a href="#sizes">details</a>)</p>
+            <p>~903 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -5649,7 +5673,7 @@ test('amp-union', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~1.27 kB (<a href="#sizes">details</a>)</p>
+            <p>~1.26 kB (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6055,7 +6079,7 @@ test('amp-clone', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~219 B (<a href="#sizes">details</a>)</p>
+            <p>~221 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6279,7 +6303,7 @@ test('amp-extend', function(t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~111 B (<a href="#sizes">details</a>)</p>
+            <p>~110 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6420,7 +6444,7 @@ test('amp-invert', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~429 B (<a href="#sizes">details</a>)</p>
+            <p>~431 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6544,7 +6568,7 @@ test('amp-keys', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~383 B (<a href="#sizes">details</a>)</p>
+            <p>~384 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -6692,7 +6716,7 @@ test('amp-matches', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~520 B (<a href="#sizes">details</a>)</p>
+            <p>~523 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7113,7 +7137,7 @@ test('amp-pairs', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~442 B (<a href="#sizes">details</a>)</p>
+            <p>~445 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7239,7 +7263,7 @@ test('amp-pick', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~555 B (<a href="#sizes">details</a>)</p>
+            <p>~548 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7318,7 +7342,7 @@ test('amp-property', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~27 B (<a href="#sizes">details</a>)</p>
+            <p>~26 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -7381,7 +7405,7 @@ test('amp-values', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~438 B (<a href="#sizes">details</a>)</p>
+            <p>~441 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7547,7 +7571,7 @@ test('amp-escape', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~572 B (<a href="#sizes">details</a>)</p>
+            <p>~575 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7632,7 +7656,7 @@ test('amp-includes', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~37 B (<a href="#sizes">details</a>)</p>
+            <p>~35 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -7703,7 +7727,7 @@ test('amp-to-camel-case', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~162 B (<a href="#sizes">details</a>)</p>
+            <p>~164 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -7837,7 +7861,7 @@ test('amp-array-to-readable', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~119 B (<a href="#sizes">details</a>)</p>
+            <p>~118 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -7961,7 +7985,7 @@ test('amp-is-array', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~54 B (<a href="#sizes">details</a>)</p>
+            <p>~51 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -8176,7 +8200,7 @@ test('amp-is-empty', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~601 B (<a href="#sizes">details</a>)</p>
+            <p>~605 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -8397,7 +8421,7 @@ test('amp-is-null', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~14 B (<a href="#sizes">details</a>)</p>
+            <p>~12 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -8527,7 +8551,7 @@ test('amp-is-object', function(t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~29 B (<a href="#sizes">details</a>)</p>
+            <p>~28 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -8919,7 +8943,7 @@ test('amp-is-object-equal', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~810 B (<a href="#sizes">details</a>)</p>
+            <p>~813 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -9056,7 +9080,7 @@ test('amp-is-string', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~41 B (<a href="#sizes">details</a>)</p>
+            <p>~40 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -9113,7 +9137,7 @@ test('amp-is-undefined', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~15 B (<a href="#sizes">details</a>)</p>
+            <p>~13 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -9432,7 +9456,7 @@ test('amp-result', function(t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~137 B (<a href="#sizes">details</a>)</p>
+            <p>~133 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>
@@ -9501,7 +9525,7 @@ test('amp-unique-id', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~95 B (<a href="#sizes">details</a>)</p>
+            <p>~94 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -9604,7 +9628,7 @@ test('amp-create-callback', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~98 B (<a href="#sizes">details</a>)</p>
+            <p>~96 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <p>(none)</p>
@@ -9707,7 +9731,7 @@ test('amp-internal-flatten', function (t) {
 </code></pre>
             </div>
             <h3>Estimated bundle size increase</h3>
-            <p>~260 B (<a href="#sizes">details</a>)</p>
+            <p>~259 B (<a href="#sizes">details</a>)</p>
             <h4>Dependencies</h4>
             <div style="display: none">
               <ul>

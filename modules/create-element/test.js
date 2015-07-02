@@ -9,17 +9,26 @@ test('amp-create-element', function (t) {
 
     // order doesn't matter
     var opt1 = '<div stuff="yup" things="also yes"></div>';
-    var opt2 = '<div things="also yes" stuff="yup" ></div>';
-    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2);
+    var opt2 = '<div things="also yes" stuff="yup"></div>';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'should generate one of two options');
 
     el = createElement('ul', {'class': 'a', bool: true}, [
         createElement('li', 'ok'),
         createElement('li', 'now')
     ]);
-    t.equal(el.outerHTML, '<ul class="a" bool=""><li>ok</li><li>now</li></ul>');
+
+    opt1 = '<ul class="a" bool=""><li>ok</li><li>now</li></ul>';
+    opt2 = '<ul bool="" class="a"><li>ok</li><li>now</li></ul>';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'should support nesting');
 
     el = createElement('meta', {name: 'mobile-web-app-capable', content: 'yes'});
-    t.equal(el.outerHTML, '<meta name="mobile-web-app-capable" content="yes">');
+
+    opt1 = '<meta name="mobile-web-app-capable" content="yes">';
+    opt2 = '<meta content="yes" name="mobile-web-app-capable">';
+
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'supports meta tags');
 
     /*
     possible argument styles
