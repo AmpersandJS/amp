@@ -6,7 +6,11 @@ test('amp-create-element', function (t) {
     var el;
 
     el = createElement('div', {stuff: 'yup', things: 'also yes'});
-    t.equal(el.outerHTML, '<div stuff="yup" things="also yes"></div>');
+
+    // order doesn't matter
+    var opt1 = '<div stuff="yup" things="also yes"></div>';
+    var opt2 = '<div things="also yes" stuff="yup" ></div>';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2);
 
     el = createElement('ul', {'class': 'a', bool: true}, [
         createElement('li', 'ok'),

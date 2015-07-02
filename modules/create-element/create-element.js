@@ -29,7 +29,7 @@ module.exports = function createElement(name, text, attrs, children) {
         el = setAttribute(el, attrs);
     }
     if (text) {
-        el.innerText = text;
+        el.textContent = text;
     }
     if (children) {
         for (var i = 0, l = children.length; i < l; i++) {
