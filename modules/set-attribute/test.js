@@ -31,7 +31,8 @@ test('amp-set-attribute', function (t) {
 
     opt1 = '<div class="" other="" thing=""></div>';
     opt2 = '<div thing="" other="" class=""></div>';
-    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2, 'does not set attributes to falsy values');
+    opt3 = '<div thing="" other=""></div>';
+    t.ok(el.outerHTML === opt1 || el.outerHTML === opt2 || el.outerHTML === opt3, 'does not set attributes to falsy values');
 
     el = getEl();
     setAttribute(el, {thing: 0, other: 47});
