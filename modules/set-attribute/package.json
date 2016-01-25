@@ -1,0 +1,36 @@
+{
+  "name": "amp-set-attribute",
+  "description": "set-attribute function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "1.23 kB",
+      "minified": "170 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "tap-spec": "^2.1.0",
+    "tape": "^3.0.3",
+    "tape-run": "^0.3.0"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-set-attribute",
+  "keywords": [
+    "amp",
+    "util",
+    "dom"
+  ],
+  "license": "MIT",
+  "main": "set-attribute.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "browserify test.js | tape-run | tap-spec",
+    "testLocal": "browserify -t ../../lib/make-local.js test.js | tape-run | tap-spec"
+  }
+}

@@ -7,7 +7,7 @@
     "internal": false,
     "size": {
       "original": "64 B",
-      "minified": "14 B"
+      "minified": "12 B"
     }
   },
   "bugs": "https://github.com/ampersandjs/amp/issues",

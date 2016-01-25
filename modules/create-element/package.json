@@ -1,0 +1,41 @@
+{
+  "name": "amp-create-element",
+  "description": "create-element function part of http://amp.ampersandjs.com.",
+  "version": "1.0.0",
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "amp": {
+    "size": {
+      "original": "2.75 kB",
+      "minified": "408 B"
+    },
+    "internal": false
+  },
+  "bugs": "https://github.com/ampersandjs/amp/issues",
+  "dependencies": {
+    "amp-is-array": "^1.0.0",
+    "amp-is-string": "^1.0.0",
+    "amp-set-attribute": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "tap-spec": "^2.1.0",
+    "tape": "^3.0.3",
+    "tape-run": "^0.3.0"
+  },
+  "homepage": "http://amp.ampersandjs.com/#amp-create-element",
+  "keywords": [
+    "amp",
+    "util",
+    "dom"
+  ],
+  "license": "MIT",
+  "main": "create-element.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ampersandjs/amp"
+  },
+  "scripts": {
+    "test": "browserify test.js | tape-run | tap-spec",
+    "testLocal": "browserify -t ../../lib/make-local.js test.js | tape-run | tap-spec"
+  }
+}
