@@ -285,6 +285,10 @@
       "lodash": "lodash.camelcase"
     },
     {
+      "name": "to-snake-case",
+      "license": "amp"
+    },
+    {
       "name": "trim",
       "license": "amp",
       "lodash": "lodash.trim"
