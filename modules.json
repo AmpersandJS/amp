@@ -270,6 +270,10 @@
   ],
   "strings": [
     {
+      "name": "capitalize",
+      "license": "amp"
+    },
+    {
       "name": "escape",
       "license": "underscore",
       "lodash": "lodash.escape"
