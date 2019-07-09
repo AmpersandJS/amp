@@ -33,7 +33,7 @@ html {
 }
 body {
   min-height: 100%;
-  font: 1em/1.65 'Sentinel SSm A', 'Sentinel SSm B', Georgia, Times, serif;
+  font: 1em/1.65 Georgia, Times, serif;
   font-weight: 400;
   color: #4d5659;
   background-color: #fff;
@@ -74,8 +74,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  font-weight: 700;
   color: #272b2d;
 }
 h1 {
@@ -223,9 +223,9 @@ a.button,
   border-radius: 3px;
   margin-top: 15px;
   padding: 6px 15px;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
   font-size: 1em;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
   line-height: 1.5;
   cursor: pointer;
@@ -428,7 +428,7 @@ pre .diff .change {
 }
 .module-card .module-name {
   margin: 0;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
 }
 .module-card .module-version,
 .module-card .module-author {
@@ -457,7 +457,8 @@ nav.nav-main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 60px 50px;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  font-weight: 500;
   background: #fff;
   position: relative;
   z-index: 5;
@@ -524,7 +525,8 @@ nav.nav-main .button {
   bottom: 20px;
   z-index: 1;
   overflow-y: auto;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  font-weight: 500;
   font-size: 0.95em;
 }
 .nav-docs .logo-ampersand {
@@ -976,7 +978,8 @@ nav.nav-main .button {
 .footer-main {
   padding: 40px 20px;
   border-top: 1px solid #f7f7f7;
-  font-family: 'Gotham Rounded A', 'Gotham Rounded B', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  font-weight: 500;
   font-size: 0.85em;
   text-align: center;
   color: #828c8f;
