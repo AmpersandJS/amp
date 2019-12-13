@@ -15,7 +15,7 @@
     "jade": "^1.7.0",
     "js-size": "^1.0.3",
     "marked": "^0.3.2",
-    "npm": "^2.5.0",
+    "npm": "^6.13.4",
     "phantomjs": "^1.9.12",
     "precommit-hook": "^1.0.7",
     "pretty-bytes": "^1.0.1",
